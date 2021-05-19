@@ -10,16 +10,17 @@ uses
 type
   TForm1 = class(TForm)
     stat1: TStatusBar;
-    chrmtbs1: TChromeTabs;
     pm1: TPopupMenu;
     Koniecpracy1: TMenuItem;
     N1: TMenuItem;
     Oprogramie1: TMenuItem;
     btn1: TButton;
     btn2: TButton;
+    chrmtbs1: TChromeTabs;
     procedure FormCreate(Sender: TObject);
     procedure Koniecpracy1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
+    procedure chrmtbs1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,9 +40,14 @@ begin
 Application.Terminate
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TForm1.chrmtbs1Click(Sender: TObject);
 begin
 chrmtbs1.ActiveTabIndex:=0;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+//chrmtbs1.ActiveTabIndex:=0;
 end;
 
 procedure TForm1.Koniecpracy1Click(Sender: TObject);

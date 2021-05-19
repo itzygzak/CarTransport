@@ -1,33 +1,54 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Align = alClient
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Car transport'
-  ClientHeight = 464
-  ClientWidth = 1094
+  ClientHeight = 461
+  ClientWidth = 1034
   Color = clBtnFace
+  Constraints.MaxHeight = 500
+  Constraints.MaxWidth = 1050
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDefault
+  Scaled = False
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object stat1: TStatusBar
     Left = 0
-    Top = 445
-    Width = 1094
+    Top = 442
+    Width = 1034
     Height = 19
     Panels = <>
-    ExplicitWidth = 1077
+    ExplicitTop = 445
+    ExplicitWidth = 1094
+  end
+  object btn1: TButton
+    Left = 728
+    Top = 392
+    Width = 75
+    Height = 25
+    Caption = 'btn1'
+    TabOrder = 2
+  end
+  object btn2: TButton
+    Left = 864
+    Top = 400
+    Width = 75
+    Height = 25
+    Caption = 'btn2'
+    TabOrder = 3
+    OnClick = btn2Click
   end
   object chrmtbs1: TChromeTabs
-    AlignWithMargins = True
-    Left = 3
-    Top = 3
-    Width = 1088
+    Left = 0
+    Top = 0
+    Width = 1034
     Height = 41
     ActiveTabIndex = 0
     Options.Display.CloseButton.Offsets.Vertical = 6
@@ -153,7 +174,7 @@ object Form1: TForm1
     Options.Scrolling.MouseWheelScroll = True
     Tabs = <
       item
-        Caption = 'Transporty'
+        Caption = 'Wysy'#322'ka'
         Active = True
         Tag = 0
         ImageIndex = 0
@@ -161,8 +182,8 @@ object Form1: TForm1
         Pinned = False
         Visible = True
         Modified = False
-        SpinnerState = tssNone
-        HideCloseButton = True
+        SpinnerState = tssImageDownload
+        HideCloseButton = False
       end
       item
         Caption = 'Historia'
@@ -201,7 +222,7 @@ object Form1: TForm1
         HideCloseButton = False
       end
       item
-        Caption = 'Pozosta'#322'e'
+        Caption = 'O programie'
         Active = False
         Tag = 0
         ImageIndex = 4
@@ -408,26 +429,8 @@ object Form1: TForm1
     LookAndFeel.ScrollButtons.Arrow.Disabled.OutlineSize = 1.000000000000000000
     LookAndFeel.ScrollButtons.Arrow.Disabled.OutlineAlpha = 200
     Align = alTop
+    OnClick = chrmtbs1Click
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = 27
-  end
-  object btn1: TButton
-    Left = 728
-    Top = 392
-    Width = 75
-    Height = 25
-    Caption = 'btn1'
-    TabOrder = 2
-  end
-  object btn2: TButton
-    Left = 864
-    Top = 400
-    Width = 75
-    Height = 25
-    Caption = 'btn2'
-    TabOrder = 3
-    OnClick = btn2Click
   end
   object pm1: TPopupMenu
     Left = 760
