@@ -4,11 +4,13 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ChromeTabs, Vcl.ComCtrls, Vcl.Menus,
-  Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ChromeTabs, ChromeTabsClasses, ChromeTabsTypes, Vcl.ComCtrls, Vcl.Menus,
+  Vcl.StdCtrls, RzPanel, Vcl.ExtCtrls;
 
 type
-  TForm1 = class(TForm)
+   TFrameClass = class of TFrame;
+
+  TFrmStart = class(TForm)
     stat1: TStatusBar;
     pm1: TPopupMenu;
     Koniecpracy1: TMenuItem;
@@ -16,41 +18,90 @@ type
     Oprogramie1: TMenuItem;
     btn1: TButton;
     btn2: TButton;
-    chrmtbs1: TChromeTabs;
+    rzGrpBox1: TRzGroupBox;
+    RzPnl1: TRzPanel;
+    chrmTbs1: TChromeTabs;
+    pnl1: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure Koniecpracy1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure chrmtbs1Click(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
+    procedure chrmTbs1Change(Sender: TObject; ATab: TChromeTab;
+      TabChangeType: TTabChangeType);
   private
     { Private declarations }
+        function OpenFrameAsChromeTab(FrameClass: TFrameClass;
+      const TabCaption: String): TChromeTab;
   public
     { Public declarations }
   end;
 
 var
-  Form1: TForm1;
+  FrmStart: TFrmStart;
 
 implementation
-uses DM;
+uses DM, FrameWelcome;
 
 {$R *.dfm}
 
-procedure TForm1.btn2Click(Sender: TObject);
+function TFrmStart.OpenFrameAsChromeTab(FrameClass: TFrameClass;
+  const TabCaption: String): TChromeTab;
+var
+  frm: TFrame;
+  tab: TChromeTab;
+begin
+  RzPnl1.HideAllChildFrames();
+  frm := FrameClass.Create(pnMain);
+  frm.Parent := pnMain;
+  frm.Visible := True;
+  frm.Align := alClient;
+  tab := ChromeTabs1.Tabs.Add;
+  tab.Data := frm;
+  tab.Caption := TabCaption;
+  Result := tab;
+end;
+
+
+procedure TFrmStart.btn1Click(Sender: TObject);
+var
+  TabCaption: String;
+begin
+  TabCaption := (Sender as TButton).Caption;
+  OpenFrameAsChromeTab(TFrameManageContacts, TabCaption);
+end;
+
+procedure TFrmStart.btn2Click(Sender: TObject);
 begin
 Application.Terminate
 end;
 
-procedure TForm1.chrmtbs1Click(Sender: TObject);
+procedure TFrmStart.chrmTbs1Change(Sender: TObject; ATab: TChromeTab;
+  TabChangeType: TTabChangeType);
+var obj: TObject;
+begin
+  if Assigned(ATab) then
+  begin
+    obj := TObject(ATab.Data);
+    if (TabChangeType = tcActivated) and Assigned(obj) then
+    begin
+      RzPnl1.HideAllChildFrames();
+      (obj as TFrame).Visible := True;
+    end;
+  end;
+end;
+
+procedure TFrmStart.chrmtbs1Click(Sender: TObject);
 begin
 chrmtbs1.ActiveTabIndex:=0;
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TFrmStart.FormCreate(Sender: TObject);
 begin
 //chrmtbs1.ActiveTabIndex:=0;
 end;
 
-procedure TForm1.Koniecpracy1Click(Sender: TObject);
+procedure TFrmStart.Koniecpracy1Click(Sender: TObject);
 begin
 Application.Terminate;
 end;
