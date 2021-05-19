@@ -4,10 +4,12 @@ object FrmStart: TFrmStart
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Car transport'
   ClientHeight = 461
-  ClientWidth = 1034
+  ClientWidth = 974
   Color = clBtnFace
   Constraints.MaxHeight = 500
-  Constraints.MaxWidth = 1050
+  Constraints.MaxWidth = 990
+  Constraints.MinHeight = 500
+  Constraints.MinWidth = 990
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -22,54 +24,26 @@ object FrmStart: TFrmStart
   object stat1: TStatusBar
     Left = 0
     Top = 442
-    Width = 1034
+    Width = 974
     Height = 19
     Panels = <>
   end
-  object btn1: TButton
-    Left = 728
-    Top = 392
-    Width = 75
-    Height = 25
-    Caption = 'btn1'
-    TabOrder = 1
-    OnClick = btn1Click
-  end
-  object btn2: TButton
-    Left = 864
-    Top = 400
-    Width = 75
-    Height = 25
-    Caption = 'btn2'
-    TabOrder = 2
-    OnClick = btn2Click
-  end
-  object rzGrpBox1: TRzGroupBox
-    Left = 0
-    Top = 0
-    Width = 185
-    Height = 442
-    Align = alLeft
-    Caption = 'rzGrpBox1'
-    GroupStyle = gsUnderline
-    TabOrder = 3
-    VisualStyle = vsClassic
-  end
   object RzPnl1: TRzPanel
-    Left = 191
+    Left = 220
     Top = 0
-    Width = 843
+    Width = 754
     Height = 442
-    Align = alRight
-    BorderInner = fsFlat
-    BorderOuter = fsFlat
-    TabOrder = 4
+    Align = alClient
+    BorderOuter = fsNone
+    TabOrder = 1
     object chrmTbs1: TChromeTabs
-      Left = 2
-      Top = 2
-      Width = 839
+      AlignWithMargins = True
+      Left = 3
+      Top = 3
+      Width = 748
       Height = 30
       OnChange = chrmTbs1Change
+      OnButtonCloseTabClick = chrmTbs1ButtonCloseTabClick
       ActiveTabIndex = -1
       Options.Display.CloseButton.Offsets.Vertical = 6
       Options.Display.CloseButton.Offsets.Horizontal = 2
@@ -391,18 +365,48 @@ object FrmStart: TFrmStart
       Align = alTop
       TabOrder = 0
     end
-    object pnl1: TPanel
-      Left = 328
-      Top = 200
-      Width = 185
-      Height = 41
-      Caption = 'pnl1'
-      TabOrder = 1
+  end
+  object RzPnl2: TRzPanel
+    Left = 0
+    Top = 0
+    Width = 220
+    Height = 442
+    Align = alLeft
+    BorderOuter = fsNone
+    TabOrder = 2
+    object rzGrpBox1: TRzGroupBox
+      Left = 0
+      Top = 0
+      Width = 220
+      Height = 442
+      Align = alClient
+      Caption = 'rzGrpBox1'
+      GroupStyle = gsUnderline
+      TabOrder = 0
+      VisualStyle = vsClassic
+      object btn1: TButton
+        Left = 46
+        Top = 48
+        Width = 75
+        Height = 25
+        Caption = 'btn1'
+        TabOrder = 0
+        OnClick = btn1Click
+      end
+      object btn2: TButton
+        Left = 46
+        Top = 137
+        Width = 75
+        Height = 25
+        Caption = 'btn2'
+        TabOrder = 1
+        OnClick = btn2Click
+      end
     end
   end
   object pm1: TPopupMenu
-    Left = 760
-    Top = 240
+    Left = 296
+    Top = 248
     object Koniecpracy1: TMenuItem
       Caption = 'Koniec pracy'
       OnClick = Koniecpracy1Click

@@ -1,4 +1,4 @@
-unit FrmWelcome;
+unit FrameWelcome;
 
 interface
 

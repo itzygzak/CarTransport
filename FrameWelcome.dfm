@@ -1,8 +1,9 @@
 object FrameWel: TFrameWel
   Left = 0
   Top = 0
-  Width = 573
-  Height = 451
+  Width = 265
+  Height = 187
+  Align = alClient
   TabOrder = 0
   object rzlbl1: TRzLabel
     Left = 136
