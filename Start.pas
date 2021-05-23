@@ -20,17 +20,21 @@ type
     chrmTbs1: TChromeTabs;
     RzPnl2: TRzPanel;
     rzGrpBox1: TRzGroupBox;
-    btn1: TButton;
-    btn2: TButton;
+    btnWitaj: TButton;
+    btnKoniec: TButton;
+    btnHistoria: TButton;
+    btnDefiniuj: TButton;
+    btnKurs: TButton;
     procedure FormCreate(Sender: TObject);
     procedure Koniecpracy1Click(Sender: TObject);
-    procedure btn2Click(Sender: TObject);
+    procedure btnKoniecClick(Sender: TObject);
     procedure chrmtbs1Click(Sender: TObject);
-    procedure btn1Click(Sender: TObject);
+    procedure btnWitajClick(Sender: TObject);
     procedure chrmTbs1Change(Sender: TObject; ATab: TChromeTab;
      TabChangeType: TTabChangeType);
     procedure chrmTbs1ButtonCloseTabClick(Sender: TObject; ATab: TChromeTab;
       var Close: Boolean);
+    procedure btnHistoriaClick(Sender: TObject);
   private
     { Private declarations }
         function OpenFrameAsChromeTab(FrameClass: TFrameClass;
@@ -65,7 +69,7 @@ begin
 end;
 
 
-procedure TFrmStart.btn1Click(Sender: TObject);
+procedure TFrmStart.btnWitajClick(Sender: TObject);
 var
   TabCaption: String;
 begin
@@ -73,7 +77,15 @@ begin
   OpenFrameAsChromeTab(TFrameWel, TabCaption);
 end;
 
-procedure TFrmStart.btn2Click(Sender: TObject);
+procedure TFrmStart.btnHistoriaClick(Sender: TObject);
+var
+  TabCaption: String;
+begin
+  TabCaption := (Sender as TButton).Caption;
+  OpenFrameAsChromeTab(TFrameWel, TabCaption);
+end;
+
+procedure TFrmStart.btnKoniecClick(Sender: TObject);
 begin
 Application.Terminate
 end;

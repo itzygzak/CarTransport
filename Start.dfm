@@ -384,23 +384,48 @@ object FrmStart: TFrmStart
       GroupStyle = gsUnderline
       TabOrder = 0
       VisualStyle = vsClassic
-      object btn1: TButton
+      object btnWitaj: TButton
         Left = 46
         Top = 48
         Width = 75
         Height = 25
-        Caption = 'btn1'
+        Caption = 'btnWitaj'
         TabOrder = 0
-        OnClick = btn1Click
+        OnClick = btnWitajClick
       end
-      object btn2: TButton
+      object btnKoniec: TButton
         Left = 46
-        Top = 137
+        Top = 411
         Width = 75
         Height = 25
-        Caption = 'btn2'
+        Caption = 'Koniec pracy'
         TabOrder = 1
-        OnClick = btn2Click
+        OnClick = btnKoniecClick
+      end
+      object btnHistoria: TButton
+        Left = 46
+        Top = 168
+        Width = 75
+        Height = 25
+        Caption = 'btnHistoria'
+        TabOrder = 2
+        OnClick = btnHistoriaClick
+      end
+      object btnDefiniuj: TButton
+        Left = 46
+        Top = 209
+        Width = 75
+        Height = 25
+        Caption = 'btnDefiniuj'
+        TabOrder = 3
+      end
+      object btnKurs: TButton
+        Left = 48
+        Top = 88
+        Width = 75
+        Height = 25
+        Caption = 'btnKurs'
+        TabOrder = 4
       end
     end
   end
