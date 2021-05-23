@@ -418,6 +418,7 @@ object FrmStart: TFrmStart
         Height = 25
         Caption = 'btnDefiniuj'
         TabOrder = 3
+        OnClick = btnDefiniujClick
       end
       object btnKurs: TButton
         Left = 48
@@ -426,6 +427,7 @@ object FrmStart: TFrmStart
         Height = 25
         Caption = 'btnKurs'
         TabOrder = 4
+        OnClick = btnKursClick
       end
     end
   end

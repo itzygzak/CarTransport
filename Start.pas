@@ -35,6 +35,8 @@ type
     procedure chrmTbs1ButtonCloseTabClick(Sender: TObject; ATab: TChromeTab;
       var Close: Boolean);
     procedure btnHistoriaClick(Sender: TObject);
+    procedure btnKursClick(Sender: TObject);
+    procedure btnDefiniujClick(Sender: TObject);
   private
     { Private declarations }
         function OpenFrameAsChromeTab(FrameClass: TFrameClass;
@@ -47,7 +49,7 @@ var
   FrmStart: TFrmStart;
 
 implementation
-uses DM, FrameWelcome;
+uses DM, FrameWelcome, FrameKurs, FrameHistory, FrameDefiniujUnit3;
 
 {$R *.dfm}
 
@@ -77,12 +79,20 @@ begin
   OpenFrameAsChromeTab(TFrameWel, TabCaption);
 end;
 
+procedure TFrmStart.btnDefiniujClick(Sender: TObject);
+var
+  TabCaption: String;
+begin
+  TabCaption := (Sender as TButton).Caption;
+  OpenFrameAsChromeTab(TFrameDef, TabCaption);
+end;
+
 procedure TFrmStart.btnHistoriaClick(Sender: TObject);
 var
   TabCaption: String;
 begin
   TabCaption := (Sender as TButton).Caption;
-  OpenFrameAsChromeTab(TFrameWel, TabCaption);
+  OpenFrameAsChromeTab(TFrameHis, TabCaption);
 end;
 
 procedure TFrmStart.btnKoniecClick(Sender: TObject);
@@ -90,6 +100,14 @@ begin
 Application.Terminate
 end;
 
+
+procedure TFrmStart.btnKursClick(Sender: TObject);
+var
+  TabCaption: String;
+begin
+  TabCaption := (Sender as TButton).Caption;
+  OpenFrameAsChromeTab(TFrameKur, TabCaption);
+end;
 
 procedure TFrmStart.chrmTbs1ButtonCloseTabClick(Sender: TObject;
   ATab: TChromeTab; var Close: Boolean);
