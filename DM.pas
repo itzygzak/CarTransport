@@ -3,12 +3,15 @@ unit DM;
 interface
 
 uses
-  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
+  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB, IBX.IBSQL,
+  IBX.IBDatabase;
 
 type
   TDataModule1 = class(TDataModule)
-    con1: TADOConnection;
-    qry1: TADOQuery;
+    ibDtbs1: TIBDatabase;
+    ibTrnsctn1: TIBTransaction;
+    ibSQL2: TIBSQL;
+    ds1: TDataSource;
   private
     { Private declarations }
   public
