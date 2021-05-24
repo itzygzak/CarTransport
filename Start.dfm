@@ -4,19 +4,16 @@ object FrmStart: TFrmStart
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Car transport'
   ClientHeight = 461
-  ClientWidth = 974
+  ClientWidth = 857
   Color = clBtnFace
-  Constraints.MaxHeight = 500
-  Constraints.MaxWidth = 990
-  Constraints.MinHeight = 500
-  Constraints.MinWidth = 990
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDefault
+  Position = poMainFormCenter
+  PrintScale = poNone
   Scaled = False
   OnCreate = FormCreate
   PixelsPerInch = 96
@@ -24,23 +21,28 @@ object FrmStart: TFrmStart
   object stat1: TStatusBar
     Left = 0
     Top = 442
-    Width = 974
+    Width = 857
     Height = 19
     Panels = <>
+    ExplicitWidth = 974
   end
   object RzPnl1: TRzPanel
     Left = 220
     Top = 0
-    Width = 754
+    Width = 637
     Height = 442
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 1
+    ExplicitLeft = 264
+    ExplicitTop = 16
+    ExplicitWidth = 544
+    ExplicitHeight = 370
     object chrmTbs1: TChromeTabs
       AlignWithMargins = True
       Left = 3
       Top = 3
-      Width = 748
+      Width = 631
       Height = 30
       OnChange = chrmTbs1Change
       OnButtonCloseTabClick = chrmTbs1ButtonCloseTabClick
@@ -364,6 +366,7 @@ object FrmStart: TFrmStart
       LookAndFeel.ScrollButtons.Arrow.Disabled.OutlineAlpha = 200
       Align = alTop
       TabOrder = 0
+      ExplicitWidth = 370
     end
   end
   object RzPnl2: TRzPanel
@@ -394,7 +397,7 @@ object FrmStart: TFrmStart
         OnClick = btnWitajClick
       end
       object btnKoniec: TButton
-        Left = 46
+        Left = 48
         Top = 411
         Width = 75
         Height = 25

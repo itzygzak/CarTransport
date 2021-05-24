@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ChromeTabs, ChromeTabsClasses, ChromeTabsTypes, Vcl.ComCtrls, Vcl.Menus,
-  Vcl.StdCtrls, RzPanel, Vcl.ExtCtrls;
+  Vcl.StdCtrls, RzPanel, Vcl.ExtCtrls, System.IniFiles;
 
 type
    TFrameClass = class of TFrame;
@@ -47,6 +47,8 @@ type
 
 var
   FrmStart: TFrmStart;
+  INI: TIniFile;
+  glowna_left, glowna_top, glowna_wys, glowna_szer: Integer;
 
 implementation
 uses DM, FrameWelcome, FrameKurs, FrameHistory, FrameDefiniujUnit3;
@@ -58,7 +60,7 @@ function TFrmStart.OpenFrameAsChromeTab(FrameClass: TFrameClass;
 var
   frm: TFrame;
   tab: TChromeTab;
-begin
+ begin
   //RzPnl1.HideAllChildFrames();
   frm := FrameClass.Create(RzPnl1);
   frm.Parent := RzPnl1;
@@ -97,7 +99,18 @@ end;
 
 procedure TFrmStart.btnKoniecClick(Sender: TObject);
 begin
+ begin
+    INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
+    try
+      INI.WriteInteger('PolozenieGlow', 'Left', FrmStart.Left);
+      INI.WriteInteger('PolozenieGlow', 'Top', FrmStart.Top);
+      INI.WriteInteger('PolozenieGlow', 'Height', FrmStart.Height);
+      INI.WriteInteger('PolozenieGlow', 'Width', FrmStart.Width);
+    finally
+      INI.Free;
+    end;
 Application.Terminate
+end;
 end;
 
 
@@ -140,12 +153,22 @@ begin
 end;
 
 procedure TFrmStart.FormCreate(Sender: TObject);
-var
+{var
   sProjFileName: string;
-  ext: string;
+  ext: string;}
 begin
-  RzPnl1.Caption := '';
+//  RzPnl1.Caption := '';
 //  RzPnl1.Align := alClient;
+INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
+  try
+    glowna_left := INI.ReadInteger('PolozenieGlow', 'Left', 120);
+    glowna_top := INI.ReadInteger('PolozenieGlow', 'Top', 120);
+    glowna_wys := INI.ReadInteger('PolozenieGlow', 'Height', 435);
+    glowna_szer := INI.ReadInteger('PolozenieGlow', 'Width', 850);
+  finally
+    INI.Free;
+  end;
+
 end;
 
 
