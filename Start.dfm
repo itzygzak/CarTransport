@@ -16,6 +16,7 @@ object FrmStart: TFrmStart
   PrintScale = poNone
   Scaled = False
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object stat1: TStatusBar
@@ -24,7 +25,6 @@ object FrmStart: TFrmStart
     Width = 857
     Height = 19
     Panels = <>
-    ExplicitWidth = 974
   end
   object RzPnl1: TRzPanel
     Left = 220
@@ -34,10 +34,6 @@ object FrmStart: TFrmStart
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 1
-    ExplicitLeft = 264
-    ExplicitTop = 16
-    ExplicitWidth = 544
-    ExplicitHeight = 370
     object chrmTbs1: TChromeTabs
       AlignWithMargins = True
       Left = 3
@@ -366,7 +362,6 @@ object FrmStart: TFrmStart
       LookAndFeel.ScrollButtons.Arrow.Disabled.OutlineAlpha = 200
       Align = alTop
       TabOrder = 0
-      ExplicitWidth = 370
     end
   end
   object RzPnl2: TRzPanel

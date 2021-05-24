@@ -3,12 +3,13 @@ unit Start;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ChromeTabs, ChromeTabsClasses, ChromeTabsTypes, Vcl.ComCtrls, Vcl.Menus,
-  Vcl.StdCtrls, RzPanel, Vcl.ExtCtrls, System.IniFiles;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ChromeTabs,
+  ChromeTabsClasses, ChromeTabsTypes, Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls,
+  RzPanel, Vcl.ExtCtrls, System.IniFiles;
 
 type
-   TFrameClass = class of TFrame;
+  TFrameClass = class of TFrame;
 
   TFrmStart = class(TForm)
     stat1: TStatusBar;
@@ -30,17 +31,15 @@ type
     procedure btnKoniecClick(Sender: TObject);
     procedure chrmtbs1Click(Sender: TObject);
     procedure btnWitajClick(Sender: TObject);
-    procedure chrmTbs1Change(Sender: TObject; ATab: TChromeTab;
-     TabChangeType: TTabChangeType);
-    procedure chrmTbs1ButtonCloseTabClick(Sender: TObject; ATab: TChromeTab;
-      var Close: Boolean);
+    procedure chrmTbs1Change(Sender: TObject; ATab: TChromeTab; TabChangeType: TTabChangeType);
+    procedure chrmTbs1ButtonCloseTabClick(Sender: TObject; ATab: TChromeTab; var Close: Boolean);
     procedure btnHistoriaClick(Sender: TObject);
     procedure btnKursClick(Sender: TObject);
     procedure btnDefiniujClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
-        function OpenFrameAsChromeTab(FrameClass: TFrameClass;
-      const TabCaption: String): TChromeTab;
+    function OpenFrameAsChromeTab(FrameClass: TFrameClass; const TabCaption: string): TChromeTab;
   public
     { Public declarations }
   end;
@@ -51,17 +50,18 @@ var
   glowna_left, glowna_top, glowna_wys, glowna_szer: Integer;
 
 implementation
-uses DM, FrameWelcome, FrameKurs, FrameHistory, FrameDefiniujUnit3;
+
+uses
+  DM, FrameWelcome, FrameKurs, FrameHistory, FrameDefiniujUnit3;
 
 {$R *.dfm}
 
-function TFrmStart.OpenFrameAsChromeTab(FrameClass: TFrameClass;
-  const TabCaption: String): TChromeTab;
+function TFrmStart.OpenFrameAsChromeTab(FrameClass: TFrameClass; const TabCaption: string): TChromeTab;
 var
   frm: TFrame;
   tab: TChromeTab;
- begin
-  //RzPnl1.HideAllChildFrames();
+begin
+ // RzPnl1.HideAllChildFrames();
   frm := FrameClass.Create(RzPnl1);
   frm.Parent := RzPnl1;
   frm.Visible := True;
@@ -72,10 +72,9 @@ var
   Result := tab;
 end;
 
-
 procedure TFrmStart.btnWitajClick(Sender: TObject);
 var
-  TabCaption: String;
+  TabCaption: string;
 begin
   TabCaption := (Sender as TButton).Caption;
   OpenFrameAsChromeTab(TFrameWel, TabCaption);
@@ -83,7 +82,7 @@ end;
 
 procedure TFrmStart.btnDefiniujClick(Sender: TObject);
 var
-  TabCaption: String;
+  TabCaption: string;
 begin
   TabCaption := (Sender as TButton).Caption;
   OpenFrameAsChromeTab(TFrameDef, TabCaption);
@@ -91,7 +90,7 @@ end;
 
 procedure TFrmStart.btnHistoriaClick(Sender: TObject);
 var
-  TabCaption: String;
+  TabCaption: string;
 begin
   TabCaption := (Sender as TButton).Caption;
   OpenFrameAsChromeTab(TFrameHis, TabCaption);
@@ -99,7 +98,7 @@ end;
 
 procedure TFrmStart.btnKoniecClick(Sender: TObject);
 begin
- begin
+  begin
     INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
     try
       INI.WriteInteger('PolozenieGlow', 'Left', FrmStart.Left);
@@ -109,21 +108,19 @@ begin
     finally
       INI.Free;
     end;
-Application.Terminate
+    Application.Terminate
+  end;
 end;
-end;
-
 
 procedure TFrmStart.btnKursClick(Sender: TObject);
 var
-  TabCaption: String;
+  TabCaption: string;
 begin
   TabCaption := (Sender as TButton).Caption;
   OpenFrameAsChromeTab(TFrameKur, TabCaption);
 end;
 
-procedure TFrmStart.chrmTbs1ButtonCloseTabClick(Sender: TObject;
-  ATab: TChromeTab; var Close: Boolean);
+procedure TFrmStart.chrmTbs1ButtonCloseTabClick(Sender: TObject; ATab: TChromeTab; var Close: Boolean);
 var
   obj: TObject;
 begin
@@ -131,10 +128,9 @@ begin
   (obj as TFrame).Free;
 end;
 
-
-procedure TFrmStart.chrmTbs1Change(Sender: TObject; ATab: TChromeTab;
-  TabChangeType: TTabChangeType);
-var obj: TObject;
+procedure TFrmStart.chrmTbs1Change(Sender: TObject; ATab: TChromeTab; TabChangeType: TTabChangeType);
+var
+  obj: TObject;
 begin
   if Assigned(ATab) then
   begin
@@ -153,13 +149,8 @@ begin
 end;
 
 procedure TFrmStart.FormCreate(Sender: TObject);
-{var
-  sProjFileName: string;
-  ext: string;}
 begin
-//  RzPnl1.Caption := '';
-//  RzPnl1.Align := alClient;
-INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
+  INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
   try
     glowna_left := INI.ReadInteger('PolozenieGlow', 'Left', 120);
     glowna_top := INI.ReadInteger('PolozenieGlow', 'Top', 120);
@@ -171,10 +162,18 @@ INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini'
 
 end;
 
+procedure TFrmStart.FormShow(Sender: TObject);
+begin
+  FrmStart.Left := glowna_left;
+  FrmStart.Top := glowna_top;
+  FrmStart.Height := glowna_wys;
+  FrmStart.Width := glowna_szer;
+end;
 
 procedure TFrmStart.Koniecpracy1Click(Sender: TObject);
 begin
-Application.Terminate;
+  Application.Terminate;
 end;
 
 end.
+
