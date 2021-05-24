@@ -4,11 +4,13 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, RzLabel;
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, RzLabel,
+  Vcl.ExtCtrls, RzPanel, Vcl.Imaging.jpeg;
 
 type
   TFrameWel = class(TFrame)
-    rzlbl1: TRzLabel;
+    RzPnl1: TRzPanel;
+    img1: TImage;
   private
     { Private declarations }
   public

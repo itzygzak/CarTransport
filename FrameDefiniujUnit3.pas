@@ -23,6 +23,22 @@ type
     rzlbl7: TRzLabel;
     rzlbl8: TRzLabel;
     rzlbl9: TRzLabel;
+    rzlbl10: TRzLabel;
+    cbbPrawko: TComboBox;
+    edtImie: TEdit;
+    edtDrugieImie: TEdit;
+    edtNazwisko: TEdit;
+    edtMarka: TEdit;
+    edtTyp: TEdit;
+    edtLadownosc: TEdit;
+    rzlbl11: TRzLabel;
+    rzlbl12: TRzLabel;
+    rgHds: TRadioGroup;
+    rgPrzyczepa: TRadioGroup;
+    rgWinda: TRadioGroup;
+    lbl1: TLabel;
+    edtKod: TEdit;
+    edtMiejscowosc: TEdit;
   private
     { Private declarations }
   public
