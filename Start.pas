@@ -37,7 +37,7 @@ type
     procedure btnKursClick(Sender: TObject);
     procedure btnDefiniujClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure HideAllChildFrames(Sender: TObject);
+    procedure HideAllChildFrames;
   private
     { Private declarations }
     function OpenFrameAsChromeTab(FrameClass: TFrameClass; const TabCaption: string): TChromeTab;
@@ -57,6 +57,14 @@ uses
 
 {$R *.dfm}
 
+procedure TFrmStart.HideAllChildFrames;
+var
+  i: Integer;
+begin
+  for i := self.ControlCount - 1 downto 0 do
+    if self.Controls[i] is TFrame then
+      (self.Controls[i] as TFrame).Visible := False;
+end;
 
 
 function TFrmStart.OpenFrameAsChromeTab(FrameClass: TFrameClass;
@@ -142,7 +150,7 @@ begin
     obj := TObject(ATab.Data);
     if (TabChangeType = tcActivated) and Assigned(obj) then
     begin
-     // RzPnl1.HideAllChildFrames();
+      RzPnl1.HideAllChildFrames();
       (obj as TFrame).Visible := True;
     end;
   end;
@@ -180,14 +188,7 @@ begin
   Application.Terminate;
 end;
 
-procedure TFrmStart.HideAllChildFrames(Sender: TObject);
-var
-  i: Integer;
-begin
-  for i := self.ControlCount - 1 downto 0 do
-    if self.Controls[i] is TFrame then
-      (self.Controls[i] as TFrame).Visible := False;
-end;
+
 
 
 end.
