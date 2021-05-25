@@ -26,19 +26,85 @@ object FrmStart: TFrmStart
     Height = 19
     Panels = <>
   end
+  object RzPnl2: TRzPanel
+    Left = 0
+    Top = 0
+    Width = 220
+    Height = 442
+    Align = alLeft
+    BorderOuter = fsNone
+    TabOrder = 1
+    object rzGrpBox1: TRzGroupBox
+      Left = 0
+      Top = 0
+      Width = 220
+      Height = 442
+      Align = alClient
+      Caption = 'rzGrpBox1'
+      GroupStyle = gsUnderline
+      TabOrder = 0
+      VisualStyle = vsClassic
+      object btnWitaj: TButton
+        Left = 46
+        Top = 48
+        Width = 75
+        Height = 25
+        Caption = 'btnWitaj'
+        TabOrder = 0
+        OnClick = btnWitajClick
+      end
+      object btnKoniec: TButton
+        Left = 48
+        Top = 411
+        Width = 75
+        Height = 25
+        Caption = 'Koniec pracy'
+        TabOrder = 1
+        OnClick = btnKoniecClick
+      end
+      object btnHistoria: TButton
+        Left = 46
+        Top = 168
+        Width = 75
+        Height = 25
+        Caption = 'btnHistoria'
+        TabOrder = 2
+        OnClick = btnHistoriaClick
+      end
+      object btnDefiniuj: TButton
+        Left = 46
+        Top = 209
+        Width = 75
+        Height = 25
+        Caption = 'btnDefiniuj'
+        TabOrder = 3
+        OnClick = btnDefiniujClick
+      end
+      object btnKurs: TButton
+        Left = 48
+        Top = 88
+        Width = 75
+        Height = 25
+        Caption = 'btnKurs'
+        TabOrder = 4
+        OnClick = btnKursClick
+      end
+    end
+  end
   object RzPnl1: TRzPanel
     Left = 220
     Top = 0
     Width = 637
     Height = 442
     Align = alClient
-    BorderOuter = fsNone
-    TabOrder = 1
+    BorderInner = fsFlat
+    BorderOuter = fsFlat
+    TabOrder = 2
     object chrmTbs1: TChromeTabs
       AlignWithMargins = True
-      Left = 3
-      Top = 3
-      Width = 631
+      Left = 5
+      Top = 5
+      Width = 627
       Height = 30
       OnChange = chrmTbs1Change
       OnButtonCloseTabClick = chrmTbs1ButtonCloseTabClick
@@ -362,71 +428,6 @@ object FrmStart: TFrmStart
       LookAndFeel.ScrollButtons.Arrow.Disabled.OutlineAlpha = 200
       Align = alTop
       TabOrder = 0
-    end
-  end
-  object RzPnl2: TRzPanel
-    Left = 0
-    Top = 0
-    Width = 220
-    Height = 442
-    Align = alLeft
-    BorderOuter = fsNone
-    TabOrder = 2
-    object rzGrpBox1: TRzGroupBox
-      Left = 0
-      Top = 0
-      Width = 220
-      Height = 442
-      Align = alClient
-      Caption = 'rzGrpBox1'
-      GroupStyle = gsUnderline
-      TabOrder = 0
-      VisualStyle = vsClassic
-      object btnWitaj: TButton
-        Left = 46
-        Top = 48
-        Width = 75
-        Height = 25
-        Caption = 'btnWitaj'
-        TabOrder = 0
-        OnClick = btnWitajClick
-      end
-      object btnKoniec: TButton
-        Left = 48
-        Top = 411
-        Width = 75
-        Height = 25
-        Caption = 'Koniec pracy'
-        TabOrder = 1
-        OnClick = btnKoniecClick
-      end
-      object btnHistoria: TButton
-        Left = 46
-        Top = 168
-        Width = 75
-        Height = 25
-        Caption = 'btnHistoria'
-        TabOrder = 2
-        OnClick = btnHistoriaClick
-      end
-      object btnDefiniuj: TButton
-        Left = 46
-        Top = 209
-        Width = 75
-        Height = 25
-        Caption = 'btnDefiniuj'
-        TabOrder = 3
-        OnClick = btnDefiniujClick
-      end
-      object btnKurs: TButton
-        Left = 48
-        Top = 88
-        Width = 75
-        Height = 25
-        Caption = 'btnKurs'
-        TabOrder = 4
-        OnClick = btnKursClick
-      end
     end
   end
   object pm1: TPopupMenu

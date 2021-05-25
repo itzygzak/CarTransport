@@ -17,8 +17,6 @@ type
     Koniecpracy1: TMenuItem;
     N1: TMenuItem;
     Oprogramie1: TMenuItem;
-    RzPnl1: TRzPanel;
-    chrmTbs1: TChromeTabs;
     RzPnl2: TRzPanel;
     rzGrpBox1: TRzGroupBox;
     btnWitaj: TButton;
@@ -26,6 +24,8 @@ type
     btnHistoria: TButton;
     btnDefiniuj: TButton;
     btnKurs: TButton;
+    RzPnl1: TRzPanel;
+    chrmTbs1: TChromeTabs;
     procedure FormCreate(Sender: TObject);
     procedure Koniecpracy1Click(Sender: TObject);
     procedure btnKoniecClick(Sender: TObject);
@@ -37,6 +37,7 @@ type
     procedure btnKursClick(Sender: TObject);
     procedure btnDefiniujClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure HideAllChildFrames(Sender: TObject);
   private
     { Private declarations }
     function OpenFrameAsChromeTab(FrameClass: TFrameClass; const TabCaption: string): TChromeTab;
@@ -56,12 +57,15 @@ uses
 
 {$R *.dfm}
 
-function TFrmStart.OpenFrameAsChromeTab(FrameClass: TFrameClass; const TabCaption: string): TChromeTab;
+
+
+function TFrmStart.OpenFrameAsChromeTab(FrameClass: TFrameClass;
+  const TabCaption: string): TChromeTab;
 var
   frm: TFrame;
   tab: TChromeTab;
 begin
- // RzPnl1.HideAllChildFrames();
+  RzPnl1.HideAllChildFrames();
   frm := FrameClass.Create(RzPnl1);
   frm.Parent := RzPnl1;
   frm.Visible := True;
@@ -71,6 +75,7 @@ begin
   tab.Caption := TabCaption;
   Result := tab;
 end;
+
 
 procedure TFrmStart.btnWitajClick(Sender: TObject);
 var
@@ -174,6 +179,16 @@ procedure TFrmStart.Koniecpracy1Click(Sender: TObject);
 begin
   Application.Terminate;
 end;
+
+procedure TFrmStart.HideAllChildFrames(Sender: TObject);
+var
+  i: Integer;
+begin
+  for i := self.ControlCount - 1 downto 0 do
+    if self.Controls[i] is TFrame then
+      (self.Controls[i] as TFrame).Visible := False;
+end;
+
 
 end.
 
