@@ -73,7 +73,7 @@ var
   frm: TFrame;
   tab: TChromeTab;
 begin
-  RzPnl1.HideAllChildFrames();
+  RzPnl1.h  .HideAllChildFrames();
   frm := FrameClass.Create(RzPnl1);
   frm.Parent := RzPnl1;
   frm.Visible := True;
