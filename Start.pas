@@ -11,6 +11,7 @@ uses
 type
   TFrameClass = class of TFrame;
 
+
   TFrmStart = class(TForm)
     stat1: TStatusBar;
     pm1: TPopupMenu;
@@ -38,6 +39,7 @@ type
     procedure btnDefiniujClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure HideAllChildFrames;
+
   private
     { Private declarations }
     function OpenFrameAsChromeTab(FrameClass: TFrameClass; const TabCaption: string): TChromeTab;
@@ -73,7 +75,7 @@ var
   frm: TFrame;
   tab: TChromeTab;
 begin
-  RzPnl1.h  .HideAllChildFrames();
+  RzPnl1.HideAllChildFrames();
   frm := FrameClass.Create(RzPnl1);
   frm.Parent := RzPnl1;
   frm.Visible := True;
