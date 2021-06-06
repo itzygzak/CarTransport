@@ -15,6 +15,23 @@ object FrmStart: TFrmStart
   Position = poMainFormCenter
   PrintScale = poNone
   Scaled = False
+  OnCloseQuery = FormCloseQuery
   PixelsPerInch = 96
   TextHeight = 13
+  object stat1: TStatusBar
+    Left = 0
+    Top = 472
+    Width = 523
+    Height = 19
+    Panels = <
+      item
+        Width = 50
+      end
+      item
+        Width = 50
+      end
+      item
+        Width = 50
+      end>
+  end
 end

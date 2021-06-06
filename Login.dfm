@@ -88,6 +88,7 @@ object FrmLogin: TFrmLogin
             item
               Caption = 'Zamknij'
               ImageIndex = 5
+              OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
       Images = il1

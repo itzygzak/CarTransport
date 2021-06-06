@@ -4,8 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ChromeTabs,
-  ChromeTabsClasses, ChromeTabsTypes, Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls,
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls,
   RzPanel, Vcl.ExtCtrls, System.IniFiles;
 
 type
@@ -13,6 +13,11 @@ type
 
 
   TFrmStart = class(TForm)
+    stat1: TStatusBar;
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+
+   protected
+    procedure CreateParams(var Params: TCreateParams); override;
 
 
   private
@@ -30,14 +35,23 @@ var
 implementation
 
 uses
-  DM;
+  DM, Login;
 
 {$R *.dfm}
 
+procedure TFrmStart.CreateParams(var Params: TCreateParams);
+begin
+  inherited;
+  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+end;
 
 
 
-
+procedure TFrmStart.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+FrmStart.Hide;
+FrmLogin.Show;
+end;
 
 end.
 

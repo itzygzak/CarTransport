@@ -21,6 +21,9 @@ type
     procedure img1Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
+    procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
+   protected
+    procedure CreateParams(var Params: TCreateParams); override;
   private
     { Private declarations }
   public
@@ -31,12 +34,19 @@ type
 var
   FrmLogin: TFrmLogin;
   INI : TINIFile;
-   PamLog: Boolean; //zapisuje do ini czy pamiêtaæ nazwe usera
+  PamLog: Boolean; //zapisuje do ini czy pamiêtaæ nazwe usera
+  Zm_stanowisko: string;
 
 implementation
-uses DM;
+uses DM, Start;
 
 {$R *.dfm}
+
+procedure TFrmLogin.CreateParams(var Params: TCreateParams);
+begin
+  inherited;
+  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+end;
 
 procedure TFrmLogin.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
@@ -75,10 +85,54 @@ begin
       end;
     end;
 
+     //wstawiam dane do statusbar na glownej
+    FrmStart.stat1.Panels[0].Text := Trim(DataModule1.ibQryUzyt.FieldByName('Imie').AsString + ' ' + DataModule1.ibQryUzyt.FieldByName('Nazwisko').AsString);
+    FrmStart.stat1.Panels[1].Text := DataModule1.ibQryUzyt.FieldByName('Login').AsString;
+    Zm_stanowisko := DataModule1.ibQryUzyt.FieldByName('Stanowisko').AsString; //przypisanie do zmiennej zm_stanowisko wartosci pola stanowisko
+    FrmStart.stat1.Panels[2].Text := Zm_stanowisko;
+    //uruchamia po poprawnum zalaogowaniu glowna forme
+    FrmStart.Left := glowna_left;
+    FrmStart.Top := glowna_top;
+    FrmStart.Height := glowna_wys;
+    FrmStart.Width := glowna_szer;
+    FrmStart.Show;
+    FrmLogin.Hide;
+  end
+  else
+  begin
+    if PamLog then                     //w przeciwnym razie
+    begin
+      EdtHaslo.Text := '';
+      EdtHaslo.SetFocus;
+    end
+    else
+    begin
+      EdtLogin.Text := '';
+      EdtHaslo.Text := '';
+      EdtLogin.SetFocus;
+    end;
+  end;
+
   end;
   end;
 
 
+
+procedure TFrmLogin.ctgryBtns1Categories0Items3Click(Sender: TObject);
+begin
+ if Application.MessageBox('Rezygnujesz z logowania ? Oznacza to koniec pracy.', 'Koniec pracy', MB_YESNO + MB_ICONQUESTION) = IDYES then
+  begin
+    INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'dziennik.ini');
+    try
+      INI.WriteInteger('PolozenieGlow', 'Left', FrmStart.Left);
+      INI.WriteInteger('PolozenieGlow', 'Top', FrmStart.Top);
+      INI.WriteInteger('PolozenieGlow', 'Height', FrmStart.Height);
+      INI.WriteInteger('PolozenieGlow', 'Width', FrmStart.Width);
+    finally
+      INI.Free;
+    end;
+    Application.Terminate;
+  end;
 end;
 
 procedure TFrmLogin.FormResize(Sender: TObject);
