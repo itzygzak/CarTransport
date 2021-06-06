@@ -30,7 +30,7 @@ var
 implementation
 
 uses
-  DM, FrameWelcome, FrameKurs, FrameHistory, FrameDefiniujUnit3;
+  DM;
 
 {$R *.dfm}
 

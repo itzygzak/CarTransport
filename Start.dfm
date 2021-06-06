@@ -3,8 +3,8 @@ object FrmStart: TFrmStart
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Car transport'
-  ClientHeight = 461
-  ClientWidth = 857
+  ClientHeight = 491
+  ClientWidth = 523
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
