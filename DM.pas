@@ -8,9 +8,6 @@ uses
 
 type
   TDataModule1 = class(TDataModule)
-    ibDtbs1: TIBDatabase;
-    ibTrnsctn1: TIBTransaction;
-    ibSQL2: TIBSQL;
     ds1: TDataSource;
   private
     { Private declarations }
