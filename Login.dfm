@@ -1,9 +1,11 @@
 object FrmLogin: TFrmLogin
   Left = 0
   Top = 0
+  BorderIcons = []
+  BorderStyle = bsSingle
   Caption = 'FrmLogin'
-  ClientHeight = 497
-  ClientWidth = 741
+  ClientHeight = 613
+  ClientWidth = 779
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +19,7 @@ object FrmLogin: TFrmLogin
   object pnl1: TPanel
     Left = 0
     Top = 0
-    Width = 741
+    Width = 779
     Height = 51
     Align = alTop
     Color = clHighlight
@@ -40,31 +42,24 @@ object FrmLogin: TFrmLogin
       OnClick = img1Click
     end
   end
-  object pnl2: TPanel
-    Left = 200
-    Top = 51
-    Width = 541
-    Height = 446
-    Align = alClient
-    TabOrder = 1
-  end
   object spltvw1: TSplitView
     Left = 0
     Top = 51
-    Width = 200
-    Height = 446
-    Color = clBlack
+    Width = 409
+    Height = 562
+    Color = clTeal
     OpenedWidth = 200
     Placement = svpLeft
-    TabOrder = 2
+    TabOrder = 1
     object ctgryBtns1: TCategoryButtons
       Left = 0
-      Top = 0
-      Width = 200
-      Height = 121
-      Align = alTop
+      Top = 393
+      Width = 409
+      Height = 169
+      Align = alBottom
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
+      ButtonHeight = 30
       ButtonOptions = [boFullSize, boGradientFill, boShowCaptions, boVerticalCategoryCaptions]
       Categories = <
         item
@@ -73,7 +68,7 @@ object FrmLogin: TFrmLogin
           Collapsed = False
           Items = <
             item
-              Caption = 'Wal si'#281' na ryj'
+              Caption = 'Zaloguj'
               ImageIndex = 2
               OnClick = ctgryBtns1Categories0Items0Click
             end
@@ -86,7 +81,7 @@ object FrmLogin: TFrmLogin
               ImageIndex = 4
             end
             item
-              Caption = 'Zamknij'
+              Caption = 'Koniec pracy'
               ImageIndex = 5
               OnClick = ctgryBtns1Categories0Items3Click
             end>
@@ -95,19 +90,20 @@ object FrmLogin: TFrmLogin
       RegularButtonColor = clCream
       SelectedButtonColor = 15132390
       TabOrder = 0
+      ExplicitWidth = 200
     end
     object edtLogin: TEdit
-      Left = 24
-      Top = 296
-      Width = 121
+      Left = 104
+      Top = 64
+      Width = 120
       Height = 21
       TabOrder = 1
       Text = 'ADMIN'
     end
     object edtHaslo: TEdit
-      Left = 16
-      Top = 336
-      Width = 121
+      Left = 104
+      Top = 136
+      Width = 120
       Height = 21
       TabOrder = 2
       Text = '*Adkks'
@@ -116,8 +112,8 @@ object FrmLogin: TFrmLogin
   object il1: TImageList
     Height = 48
     Width = 48
-    Left = 80
-    Top = 243
+    Left = 264
+    Top = 307
     Bitmap = {
       494C010104001400040030003000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000C00000006000000001002000000000000020

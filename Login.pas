@@ -11,7 +11,6 @@ uses
 type
   TFrmLogin = class(TForm)
     pnl1: TPanel;
-    pnl2: TPanel;
     spltvw1: TSplitView;
     img1: TImage;
     ctgryBtns1: TCategoryButtons;
