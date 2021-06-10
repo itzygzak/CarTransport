@@ -17,27 +17,28 @@ type
     il1: TImageList;
     edtLogin: TEdit;
     edtHaslo: TEdit;
-    procedure img1Click(Sender: TObject);
-    procedure FormResize(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
-   protected
+    procedure FormCreate(Sender: TObject);
+  protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
     { Private declarations }
   public
-    IDUzyt : Integer;
+    IDUzyt: Integer;
     { Public declarations }
   end;
 
 var
   FrmLogin: TFrmLogin;
-  INI : TINIFile;
+  INI: TINIFile;
   PamLog: Boolean; //zapisuje do ini czy pamiêtaæ nazwe usera
   Zm_stanowisko: string;
 
 implementation
-uses DM, Start;
+
+uses
+  DM, Start;
 
 {$R *.dfm}
 
@@ -49,7 +50,7 @@ end;
 
 procedure TFrmLogin.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
- INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');         //do odczytu po³¹czenie z pliku INI
+  INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');         //do odczytu po³¹czenie z pliku INI
   try
     DataModule1.ibDtBase1.DatabaseName := INI.ReadString('Baza', 'Path', '');
   finally
@@ -58,7 +59,7 @@ begin
   if DataModule1.ibDtBase1.Connected = False then
     DataModule1.ibDtBase1.Connected := True;   //polacz z baza
 
-   with DataModule1.ibQryUzyt, SQL do
+  with DataModule1.ibQryUzyt, SQL do
   begin
     Close;
     Clear;
@@ -72,54 +73,52 @@ begin
     Open;
 
     if DataModule1.ibQryUzyt.FieldByName('Login').AsString = EdtLogin.Text then      //gdy nazwa z pola login w bazie = tesktowi w edtlogin
-  begin
-    IDUzyt := DataModule1.ibQryUzyt.FieldByName('ID_UZYT').AsInteger;
-    if PamLog then
     begin
-      INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
-      try
-        INI.WriteString('Ustawienia', 'NazwaInstr', EdtLogin.Text);
-      finally
-        INI.Free;
+      IDUzyt := DataModule1.ibQryUzyt.FieldByName('ID_UZYT').AsInteger;
+      if PamLog then
+      begin
+        INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
+        try
+          INI.WriteString('Ustawienia', 'NazwaInstr', EdtLogin.Text);
+        finally
+          INI.Free;
+        end;
       end;
-    end;
 
      //wstawiam dane do statusbar na glownej
-    FrmStart.stat1.Panels[0].Text := Trim(DataModule1.ibQryUzyt.FieldByName('Imie').AsString + ' ' + DataModule1.ibQryUzyt.FieldByName('Nazwisko').AsString);
-    FrmStart.stat1.Panels[1].Text := DataModule1.ibQryUzyt.FieldByName('Login').AsString;
-    Zm_stanowisko := DataModule1.ibQryUzyt.FieldByName('Stanowisko').AsString; //przypisanie do zmiennej zm_stanowisko wartosci pola stanowisko
-    FrmStart.stat1.Panels[2].Text := Zm_stanowisko;
+      FrmStart.stat1.Panels[0].Text := Trim(DataModule1.ibQryUzyt.FieldByName('Imie').AsString + ' ' + DataModule1.ibQryUzyt.FieldByName('Nazwisko').AsString);
+      FrmStart.stat1.Panels[1].Text := DataModule1.ibQryUzyt.FieldByName('Login').AsString;
+      Zm_stanowisko := DataModule1.ibQryUzyt.FieldByName('Stanowisko').AsString; //przypisanie do zmiennej zm_stanowisko wartosci pola stanowisko
+      FrmStart.stat1.Panels[2].Text := Zm_stanowisko;
     //uruchamia po poprawnum zalaogowaniu glowna forme
-    FrmStart.Left := glowna_left;
-    FrmStart.Top := glowna_top;
-    FrmStart.Height := glowna_wys;
-    FrmStart.Width := glowna_szer;
-    FrmStart.Show;
-    FrmLogin.Hide;
-  end
-  else
-  begin
-    if PamLog then                     //w przeciwnym razie
-    begin
-      EdtHaslo.Text := '';
-      EdtHaslo.SetFocus;
+      FrmStart.Left := glowna_left;
+      FrmStart.Top := glowna_top;
+      FrmStart.Height := glowna_wys;
+      FrmStart.Width := glowna_szer;
+      FrmStart.Show;
+      FrmLogin.Hide;
     end
     else
     begin
-      EdtLogin.Text := '';
-      EdtHaslo.Text := '';
-      EdtLogin.SetFocus;
+      if PamLog then                     //w przeciwnym razie
+      begin
+        EdtHaslo.Text := '';
+        EdtHaslo.SetFocus;
+      end
+      else
+      begin
+        EdtLogin.Text := '';
+        EdtHaslo.Text := '';
+        EdtLogin.SetFocus;
+      end;
     end;
-  end;
 
   end;
-  end;
-
-
+end;
 
 procedure TFrmLogin.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
- if Application.MessageBox('Rezygnujesz z logowania ? Oznacza to koniec pracy.', 'Koniec pracy', MB_YESNO + MB_ICONQUESTION) = IDYES then
+  if Application.MessageBox('Rezygnujesz z logowania ? Oznacza to koniec pracy.', 'Koniec pracy', MB_YESNO + MB_ICONQUESTION) = IDYES then
   begin
     INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
     try
@@ -134,21 +133,19 @@ begin
   end;
 end;
 
-procedure TFrmLogin.FormResize(Sender: TObject);
+procedure TFrmLogin.FormCreate(Sender: TObject);
 begin
-{if FrmLogin.Width < 640 then
-spltvw1.Close
-else
-spltvw1.Open;   }
-end;
-
-procedure TFrmLogin.img1Click(Sender: TObject);
-begin
- { if spltvw1.Opened then
-    spltvw1.Close
-  else
-    spltvw1.Open;}
-
+  INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
+  try
+    PamLog := INI.ReadBool('Ustawienia', 'PamLogin', False);
+  //  NazwaLogin := INI.ReadString('Ustawienia', 'NazwaInstr', '');
+    glowna_left := INI.ReadInteger('PolozenieGlow', 'Left', 120);
+    glowna_top := INI.ReadInteger('PolozenieGlow', 'Top', 120);
+    glowna_wys := INI.ReadInteger('PolozenieGlow', 'Height', 435);
+    glowna_szer := INI.ReadInteger('PolozenieGlow', 'Width', 850);
+  finally
+    INI.Free;
+  end;
 end;
 
 end.

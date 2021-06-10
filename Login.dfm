@@ -14,7 +14,7 @@ object FrmLogin: TFrmLogin
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnResize = FormResize
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnl1: TPanel
@@ -41,7 +41,6 @@ object FrmLogin: TFrmLogin
         B3FBBE2F40C06C002501E9FA02F0231620A008A024205D5F007EC40204140194
         04A4EB0BC08F58808022809280747D01F8110B1050045012904E403A3CE0019F
         D1A0318F8304C10000000049454E44AE426082}
-      OnClick = img1Click
     end
   end
   object spltvw1: TSplitView
