@@ -5,21 +5,24 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls,
-  RzPanel, Vcl.ExtCtrls, System.IniFiles;
+  Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls, RzPanel, Vcl.ExtCtrls, System.IniFiles,
+  Vcl.WinXCtrls, Vcl.CategoryButtons;
 
 type
   TFrameClass = class of TFrame;
 
-
   TFrmStart = class(TForm)
     stat1: TStatusBar;
+    RzPnl1: TRzPanel;
+    img1: TImage;
+    RzPnl2: TRzPanel;
+    spltVw1: TSplitView;
+    ctgryBtns1: TCategoryButtons;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-
-   protected
+    procedure img1Click(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+  protected
     procedure CreateParams(var Params: TCreateParams); override;
-
-
   private
     { Private declarations }
 
@@ -45,12 +48,27 @@ begin
   Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
 end;
 
-
-
 procedure TFrmStart.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
-FrmStart.Hide;
-FrmLogin.Show;
+  FrmStart.Hide;
+  FrmLogin.Show;
+end;
+
+procedure TFrmStart.FormResize(Sender: TObject);
+begin
+if FrmLogin.Width < 640 then
+spltvw1.Close
+else
+spltvw1.Open;
+end;
+
+procedure TFrmStart.img1Click(Sender: TObject);
+begin
+  if spltVw1.Opened = True then
+    spltVw1.Close
+  else
+    spltVw1.Open;
+
 end;
 
 end.

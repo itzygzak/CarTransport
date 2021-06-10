@@ -121,7 +121,7 @@ procedure TFrmLogin.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
  if Application.MessageBox('Rezygnujesz z logowania ? Oznacza to koniec pracy.', 'Koniec pracy', MB_YESNO + MB_ICONQUESTION) = IDYES then
   begin
-    INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'dziennik.ini');
+    INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
     try
       INI.WriteInteger('PolozenieGlow', 'Left', FrmStart.Left);
       INI.WriteInteger('PolozenieGlow', 'Top', FrmStart.Top);
@@ -136,18 +136,18 @@ end;
 
 procedure TFrmLogin.FormResize(Sender: TObject);
 begin
-if FrmLogin.Width < 640 then
+{if FrmLogin.Width < 640 then
 spltvw1.Close
 else
-spltvw1.Open;
+spltvw1.Open;   }
 end;
 
 procedure TFrmLogin.img1Click(Sender: TObject);
 begin
-  if spltvw1.Opened then
+ { if spltvw1.Opened then
     spltvw1.Close
   else
-    spltvw1.Open;
+    spltvw1.Open;}
 
 end;
 

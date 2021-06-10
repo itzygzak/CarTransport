@@ -5,7 +5,7 @@ object FrmLogin: TFrmLogin
   BorderStyle = bsSingle
   Caption = 'FrmLogin'
   ClientHeight = 613
-  ClientWidth = 779
+  ClientWidth = 303
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,18 +13,20 @@ object FrmLogin: TFrmLogin
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesktopCenter
   OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
   object pnl1: TPanel
     Left = 0
     Top = 0
-    Width = 779
+    Width = 303
     Height = 51
     Align = alTop
     Color = clHighlight
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 779
     object img1: TImage
       Left = 0
       Top = 3
@@ -45,16 +47,16 @@ object FrmLogin: TFrmLogin
   object spltvw1: TSplitView
     Left = 0
     Top = 51
-    Width = 409
+    Width = 305
     Height = 562
-    Color = clTeal
+    Color = clBlack
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 1
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 393
-      Width = 409
+      Width = 305
       Height = 169
       Align = alBottom
       BorderStyle = bsNone
