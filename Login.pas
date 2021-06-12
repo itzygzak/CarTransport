@@ -13,13 +13,13 @@ type
     pnl1: TPanel;
     spltvw1: TSplitView;
     img1: TImage;
-    ctgryBtns1: TCategoryButtons;
-    il1: TImageList;
     edtLogin: TEdit;
     edtHaslo: TEdit;
-    procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
-    procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
+    btnLogin: TButton;
+    btnKoniec: TButton;
     procedure FormCreate(Sender: TObject);
+    procedure btnLoginClick(Sender: TObject);
+    procedure btnKoniecClick(Sender: TObject);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -42,13 +42,25 @@ uses
 
 {$R *.dfm}
 
-procedure TFrmLogin.CreateParams(var Params: TCreateParams);
+procedure TFrmLogin.btnKoniecClick(Sender: TObject);
 begin
-  inherited;
-  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+  if Application.MessageBox('Rezygnujesz z logowania ? Oznacza to koniec pracy.', 'Koniec pracy', MB_YESNO + MB_ICONQUESTION) = IDYES then
+  begin
+    INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
+    try
+      INI.WriteInteger('PolozenieGlow', 'Left', FrmStart.Left);
+      INI.WriteInteger('PolozenieGlow', 'Top', FrmStart.Top);
+      INI.WriteInteger('PolozenieGlow', 'Height', FrmStart.Height);
+      INI.WriteInteger('PolozenieGlow', 'Width', FrmStart.Width);
+    finally
+      INI.Free;
+    end;
+    Application.Terminate;
+  end;
+
 end;
 
-procedure TFrmLogin.ctgryBtns1Categories0Items0Click(Sender: TObject);
+procedure TFrmLogin.btnLoginClick(Sender: TObject);
 begin
   INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');         //do odczytu po³¹czenie z pliku INI
   try
@@ -114,23 +126,13 @@ begin
     end;
 
   end;
+
 end;
 
-procedure TFrmLogin.ctgryBtns1Categories0Items3Click(Sender: TObject);
+procedure TFrmLogin.CreateParams(var Params: TCreateParams);
 begin
-  if Application.MessageBox('Rezygnujesz z logowania ? Oznacza to koniec pracy.', 'Koniec pracy', MB_YESNO + MB_ICONQUESTION) = IDYES then
-  begin
-    INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
-    try
-      INI.WriteInteger('PolozenieGlow', 'Left', FrmStart.Left);
-      INI.WriteInteger('PolozenieGlow', 'Top', FrmStart.Top);
-      INI.WriteInteger('PolozenieGlow', 'Height', FrmStart.Height);
-      INI.WriteInteger('PolozenieGlow', 'Width', FrmStart.Width);
-    finally
-      INI.Free;
-    end;
-    Application.Terminate;
-  end;
+  inherited;
+  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
 end;
 
 procedure TFrmLogin.FormCreate(Sender: TObject);
