@@ -32,6 +32,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items5Click(Sender: TObject);
+    procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -49,7 +50,7 @@ var
 implementation
 
 uses
-  DM, Login, Definicje, Historia;
+  DM, Login, Definicje, Historia, UstalKurs;
 
 {$R *.dfm}
 
@@ -57,6 +58,14 @@ procedure TFrmStart.CreateParams(var Params: TCreateParams);
 begin
   inherited;
   Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+end;
+
+procedure TFrmStart.ctgryBtns1Categories0Items0Click(Sender: TObject);
+begin
+  FrmUstalKurs.Top := FrmStart.Top + 50;
+  FrmUstalKurs.Left := FrmStart.Left + 50;
+  FrmUstalKurs.ShowModal;
+
 end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items1Click(Sender: TObject);
@@ -75,7 +84,7 @@ end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items5Click(Sender: TObject);
 begin
-Application.Terminate;
+  Application.Terminate;
 end;
 
 procedure TFrmStart.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -85,9 +94,10 @@ begin
 end;
 
 procedure TFrmStart.FormCreate(Sender: TObject);
-var data : TDate;
+var
+  data: TDate;
 begin
-rzlbl5.Caption := DateToStr(Now);
+  rzlbl5.Caption := DateToStr(Now);
 end;
 
 procedure TFrmStart.FormResize(Sender: TObject);

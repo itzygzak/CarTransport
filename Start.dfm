@@ -300,12 +300,13 @@ object FrmStart: TFrmStart
       ButtonOptions = [boFullSize, boGradientFill, boShowCaptions, boVerticalCategoryCaptions]
       Categories = <
         item
-          Caption = 'General'
+          Caption = 'Menu'
           Color = 16777194
           Collapsed = False
           Items = <
             item
               Caption = 'Ustal kurs'
+              OnClick = ctgryBtns1Categories0Items0Click
             end
             item
               Caption = 'Historia'
@@ -325,6 +326,7 @@ object FrmStart: TFrmStart
               OnClick = ctgryBtns1Categories0Items5Click
             end>
         end>
+      HotButtonColor = clRed
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0

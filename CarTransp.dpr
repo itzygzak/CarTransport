@@ -7,7 +7,8 @@ uses
   Login in 'Login.pas' {FrmLogin},
   Definicje in 'Definicje.pas' {FrmDefinicje},
   Historia in 'Historia.pas' {FrmHistoria},
-  UstalKurs in 'UstalKurs.pas' {FrmUstalKurs};
+  UstalKurs in 'UstalKurs.pas' {FrmUstalKurs},
+  FrameZap in 'FrameZap.pas' {FrameZapisz: TFrame};
 
 {$R *.res}
 
