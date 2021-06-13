@@ -31,6 +31,7 @@ type
     procedure tmr1Timer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
+    procedure ctgryBtns1Categories0Items5Click(Sender: TObject);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -70,6 +71,11 @@ begin
   FrmDefinicje.Top := FrmStart.Top + 50;
   FrmDefinicje.Left := FrmStart.Left + 50;
   FrmDefinicje.ShowModal;
+end;
+
+procedure TFrmStart.ctgryBtns1Categories0Items5Click(Sender: TObject);
+begin
+Application.Terminate;
 end;
 
 procedure TFrmStart.FormCloseQuery(Sender: TObject; var CanClose: Boolean);

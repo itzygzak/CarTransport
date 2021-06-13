@@ -206,7 +206,7 @@ object FrmStart: TFrmStart
     BorderWidth = 2
     TabOrder = 2
     object rzlbl1: TRzLabel
-      Left = 40
+      Left = 24
       Top = 48
       Width = 150
       Height = 23
@@ -221,7 +221,7 @@ object FrmStart: TFrmStart
       TextStyle = tsRecessed
     end
     object rzlbl2: TRzLabel
-      Left = 40
+      Left = 24
       Top = 120
       Width = 84
       Height = 23
@@ -236,7 +236,7 @@ object FrmStart: TFrmStart
       TextStyle = tsRecessed
     end
     object rzlbl3: TRzLabel
-      Left = 40
+      Left = 24
       Top = 200
       Width = 292
       Height = 23
@@ -252,7 +252,7 @@ object FrmStart: TFrmStart
     end
     object rzlbl4: TRzLabel
       Left = 320
-      Top = 128
+      Top = 120
       Width = 44
       Height = 23
       Caption = 'Czas'
@@ -266,7 +266,7 @@ object FrmStart: TFrmStart
     end
     object rzlbl5: TRzLabel
       Left = 320
-      Top = 51
+      Top = 48
       Width = 44
       Height = 23
       Caption = 'Data'
@@ -322,6 +322,7 @@ object FrmStart: TFrmStart
             end
             item
               Caption = 'Koniec pracy'
+              OnClick = ctgryBtns1Categories0Items5Click
             end>
         end>
       RegularButtonColor = clWhite
