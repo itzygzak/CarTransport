@@ -34,8 +34,6 @@ object FrmStart: TFrmStart
       item
         Width = 50
       end>
-    ExplicitTop = 407
-    ExplicitWidth = 809
   end
   object RzPnl1: TRzPanel
     Left = 0
@@ -47,9 +45,6 @@ object FrmStart: TFrmStart
     BorderOuter = fsFlat
     Color = clHighlight
     TabOrder = 1
-    ExplicitLeft = 440
-    ExplicitTop = 24
-    ExplicitWidth = 185
     object img1: TImage
       Left = 2
       Top = 2
@@ -209,9 +204,58 @@ object FrmStart: TFrmStart
     BorderColor = clHighlight
     BorderWidth = 2
     TabOrder = 2
-    ExplicitLeft = 272
-    ExplicitWidth = 529
-    ExplicitHeight = 366
+    object rzlbl1: TRzLabel
+      Left = 40
+      Top = 48
+      Width = 150
+      Height = 23
+      Caption = 'Dzisiejsza data:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clTeal
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRecessed
+    end
+    object rzlbl2: TRzLabel
+      Left = 40
+      Top = 120
+      Width = 84
+      Height = 23
+      Caption = 'Godzina:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clTeal
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRecessed
+    end
+    object rzlbl3: TRzLabel
+      Left = 40
+      Top = 200
+      Width = 292
+      Height = 23
+      Caption = 'Zdefiniowano kurs'#243'w na dzi'#347': '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clTeal
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRecessed
+    end
+    object rzTmPckr1: TRzTimePicker
+      Left = 6
+      Top = 245
+      Width = 156
+      Height = 190
+      TabOrder = 0
+    end
   end
   object spltVw1: TSplitView
     Left = 0
@@ -222,9 +266,6 @@ object FrmStart: TFrmStart
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 3
-    ExplicitLeft = 40
-    ExplicitTop = 224
-    ExplicitHeight = 41
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
@@ -248,6 +289,7 @@ object FrmStart: TFrmStart
             end
             item
               Caption = 'Definicje'
+              OnClick = ctgryBtns1Categories0Items2Click
             end
             item
               Caption = 'Ustawienia programu'
