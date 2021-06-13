@@ -16,6 +16,7 @@ object FrmStart: TFrmStart
   PrintScale = poNone
   Scaled = False
   OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
@@ -249,12 +250,34 @@ object FrmStart: TFrmStart
       LightTextStyle = True
       TextStyle = tsRecessed
     end
-    object rzTmPckr1: TRzTimePicker
-      Left = 6
-      Top = 245
-      Width = 156
-      Height = 190
-      TabOrder = 0
+    object rzlbl4: TRzLabel
+      Left = 320
+      Top = 128
+      Width = 44
+      Height = 23
+      Caption = 'Czas'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMenuHighlight
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+    end
+    object rzlbl5: TRzLabel
+      Left = 320
+      Top = 51
+      Width = 44
+      Height = 23
+      Caption = 'Data'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMenuHighlight
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRecessed
     end
   end
   object spltVw1: TSplitView
@@ -286,6 +309,7 @@ object FrmStart: TFrmStart
             end
             item
               Caption = 'Historia'
+              OnClick = ctgryBtns1Categories0Items1Click
             end
             item
               Caption = 'Definicje'
@@ -304,5 +328,11 @@ object FrmStart: TFrmStart
       SelectedButtonColor = 15132390
       TabOrder = 0
     end
+  end
+  object tmr1: TTimer
+    Interval = 500
+    OnTimer = tmr1Timer
+    Left = 720
+    Top = 417
   end
 end

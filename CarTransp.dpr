@@ -5,7 +5,8 @@ uses
   Start in 'Start.pas' {FrmStart},
   DM in 'DM.pas' {DataModule1: TDataModule},
   Login in 'Login.pas' {FrmLogin},
-  Definicje in 'Definicje.pas' {FrmDefinicje};
+  Definicje in 'Definicje.pas' {FrmDefinicje},
+  Historia in 'Historia.pas' {FrmHistoria};
 
 {$R *.res}
 
@@ -16,5 +17,6 @@ begin
   Application.CreateForm(TFrmStart, FrmStart);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TFrmDefinicje, FrmDefinicje);
+  Application.CreateForm(TFrmHistoria, FrmHistoria);
   Application.Run;
 end.

@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzTabs, Vcl.ExtCtrls, RzPanel,
-  Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx, RzButton, RzRadChk;
+  Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx, RzButton, RzRadChk,
+  Vcl.Imaging.pngimage;
 
 type
   TFrmDefinicje = class(TForm)
@@ -56,6 +57,9 @@ type
     rzChckBxHDS: TRzCheckBox;
     rzChckBxWinda: TRzCheckBox;
     rzChckBxPrzyczepa: TRzCheckBox;
+    img1: TImage;
+    procedure FormCreate(Sender: TObject);
+    procedure img1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,5 +72,15 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrmDefinicje.FormCreate(Sender: TObject);
+begin
+RzPgCntrl1.ActivePageIndex:=0;
+end;
+
+procedure TFrmDefinicje.img1Click(Sender: TObject);
+begin
+img1.Picture.LoadFromFile('PrawkoPomoc.png');
+end;
 
 end.
