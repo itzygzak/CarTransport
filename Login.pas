@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage, System.ImageList,
-  Vcl.ImgList, Vcl.CategoryButtons, System.IniFiles, Vcl.StdCtrls;
+  Vcl.ImgList, Vcl.CategoryButtons, System.IniFiles, Vcl.StdCtrls, RzLabel;
 
 type
   TFrmLogin = class(TForm)
@@ -17,6 +17,7 @@ type
     edtHaslo: TEdit;
     btnLogin: TButton;
     btnKoniec: TButton;
+    rzlbl1: TRzLabel;
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
     procedure btnKoniecClick(Sender: TObject);

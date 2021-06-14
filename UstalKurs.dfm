@@ -24,7 +24,6 @@ object FrmUstalKurs: TFrmUstalKurs
     BorderOuter = fsFlat
     Color = 16737843
     TabOrder = 0
-    ExplicitTop = -6
     object img1: TImage
       Left = 1095
       Top = 2
@@ -1050,26 +1049,6 @@ object FrmUstalKurs: TFrmUstalKurs
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 1
-    ExplicitTop = 39
-    ExplicitWidth = 761
-    ExplicitHeight = 437
-    object rzlbl3: TRzLabel
-      Left = 650
-      Top = 199
-      Width = 178
-      Height = 109
-      Caption = '<-- Ustali'#263' z Krzy'#347'kiem !!!'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -15
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      Angle = 29
-      LightTextStyle = True
-      Rotation = roFlat
-      TextStyle = tsRecessed
-    end
     object rzBtnUstal: TRzButton
       Left = 720
       Top = 432
@@ -1245,12 +1224,35 @@ object FrmUstalKurs: TFrmUstalKurs
         LightTextStyle = True
         TextStyle = tsRecessed
       end
+      object rzCmbxKierowca: TRzComboBox
+        Left = 96
+        Top = 48
+        Width = 145
+        Height = 21
+        TabOrder = 0
+        Items.Strings = (
+          'Jan Kowalski'
+          'Zdzis'#322'aw Nowak'
+          'Onufry Zag'#322'oba')
+      end
+      object rzCmbxPojazd: TRzComboBox
+        Left = 424
+        Top = 48
+        Width = 145
+        Height = 21
+        TabOrder = 1
+        Items.Strings = (
+          'Robur'
+          'Dekawka'
+          'Maluch'
+          'Seicento')
+      end
     end
     object rzGrpBox4: TRzGroupBox
       Left = 32
       Top = 320
       Width = 609
-      Height = 161
+      Height = 169
       Caption = 'Adres (wybierz)'
       GroupStyle = gsUnderline
       TabOrder = 5
@@ -1270,7 +1272,7 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRecessed
       end
       object rzlbl9: TRzLabel
-        Left = 200
+        Left = 294
         Top = 39
         Width = 91
         Height = 16
@@ -1285,8 +1287,8 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRecessed
       end
       object rzlbl10: TRzLabel
-        Left = 416
-        Top = 41
+        Left = 1
+        Top = 81
         Width = 29
         Height = 16
         Caption = 'Ulica'
@@ -1300,8 +1302,8 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRecessed
       end
       object rzlbl11: TRzLabel
-        Left = 1
-        Top = 113
+        Left = 9
+        Top = 121
         Width = 38
         Height = 16
         Caption = 'Gmina'
@@ -1315,7 +1317,7 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRecessed
       end
       object rzlbl12: TRzLabel
-        Left = 200
+        Left = 328
         Top = 121
         Width = 44
         Height = 16
@@ -1329,6 +1331,45 @@ object FrmUstalKurs: TFrmUstalKurs
         LightTextStyle = True
         TextStyle = tsRecessed
       end
+      object rzCmbxMiejsc: TRzComboBox
+        Left = 96
+        Top = 40
+        Width = 145
+        Height = 21
+        TabOrder = 0
+        Items.Strings = (
+          'Pi'#261'tkowisko'
+          #321#243'd'#378
+          #321#243'd'#378' Ruda')
+      end
+      object rzCmbxKod: TRzComboBox
+        Left = 416
+        Top = 40
+        Width = 145
+        Height = 21
+        TabOrder = 1
+      end
+      object rzCmbxUlica: TRzComboBox
+        Left = 96
+        Top = 80
+        Width = 145
+        Height = 21
+        TabOrder = 2
+      end
+      object rzCmbxGmina: TRzComboBox
+        Left = 80
+        Top = 120
+        Width = 145
+        Height = 21
+        TabOrder = 3
+      end
+      object rzCmbxPowiat: TRzComboBox
+        Left = 416
+        Top = 120
+        Width = 145
+        Height = 21
+        TabOrder = 4
+      end
     end
   end
   object spltVw1: TSplitView
@@ -1340,9 +1381,6 @@ object FrmUstalKurs: TFrmUstalKurs
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
-    ExplicitLeft = 904
-    ExplicitTop = 184
-    ExplicitHeight = 41
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
@@ -1360,6 +1398,9 @@ object FrmUstalKurs: TFrmUstalKurs
           Items = <
             item
               Caption = 'Zapisz'
+            end
+            item
+              Caption = 'Dukuj'
             end
             item
               Caption = 'Anuluj'

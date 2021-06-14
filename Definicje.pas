@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzTabs, Vcl.ExtCtrls, RzPanel,
   Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx, RzButton, RzRadChk,
-  Vcl.Imaging.pngimage;
+  Vcl.Imaging.pngimage, Vcl.WinXCtrls;
 
 type
   TFrmDefinicje = class(TForm)
@@ -58,6 +58,7 @@ type
     rzChckBxWinda: TRzCheckBox;
     rzChckBxPrzyczepa: TRzCheckBox;
     img1: TImage;
+    spltVw1: TSplitView;
     procedure FormCreate(Sender: TObject);
     procedure img1Click(Sender: TObject);
   private

@@ -23,28 +23,22 @@
     BorderOuter = fsNone
     Color = clHighlight
     TabOrder = 0
-    ExplicitLeft = 400
-    ExplicitTop = 208
-    ExplicitWidth = 185
   end
   object RzPnl2: TRzPanel
     Left = 0
     Top = 41
-    Width = 903
+    Width = 703
     Height = 435
     Align = alClient
     BorderOuter = fsNone
     BorderColor = clMenuHighlight
     BorderWidth = 2
     TabOrder = 1
-    ExplicitLeft = 560
-    ExplicitTop = 80
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitWidth = 681
     object RzPgCntrl1: TRzPageControl
       Left = 2
       Top = 2
-      Width = 899
+      Width = 699
       Height = 431
       Hint = ''
       ActivePage = RzTbshtMiejscowości
@@ -58,10 +52,7 @@
       TabIndex = 2
       TabOrder = 0
       TabStyle = tsDoubleSlant
-      ExplicitLeft = 0
-      ExplicitTop = 6
-      ExplicitWidth = 786
-      ExplicitHeight = 364
+      ExplicitWidth = 899
       FixedDimension = 25
       object RzTbshtKierowcy: TRzTabSheet
         Caption = 'Kierowcy'
@@ -71,10 +62,7 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
+        ExplicitWidth = 895
         object rzGrpBox1: TRzGroupBox
           Left = 16
           Top = 24
@@ -371,10 +359,7 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
+        ExplicitWidth = 895
         object rzGrpBox2: TRzGroupBox
           Left = 16
           Top = 24
@@ -590,20 +575,13 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 2
-        ExplicitWidth = 782
-        ExplicitHeight = 335
+        ExplicitWidth = 895
         object rzGrpBox3: TRzGroupBox
           Left = 16
           Top = 24
           Width = 417
           Height = 313
           Caption = 'Zdefiniuj miejscowo'#347'ci'
-          CaptionFont.Charset = DEFAULT_CHARSET
-          CaptionFont.Color = clWindowText
-          CaptionFont.Height = -11
-          CaptionFont.Name = 'Tahoma'
-          CaptionFont.Style = []
           GroupStyle = gsUnderline
           TabOrder = 0
           object rzlbl7: TRzLabel
@@ -724,5 +702,18 @@
         end
       end
     end
+  end
+  object spltVw1: TSplitView
+    Left = 703
+    Top = 41
+    Width = 200
+    Height = 435
+    Color = clBlack
+    OpenedWidth = 200
+    Placement = svpRight
+    TabOrder = 2
+    ExplicitLeft = 800
+    ExplicitTop = 328
+    ExplicitHeight = 41
   end
 end

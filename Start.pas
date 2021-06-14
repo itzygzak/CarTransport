@@ -84,7 +84,7 @@ end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items5Click(Sender: TObject);
 begin
-  Application.Terminate;
+  Close;
 end;
 
 procedure TFrmStart.FormCloseQuery(Sender: TObject; var CanClose: Boolean);

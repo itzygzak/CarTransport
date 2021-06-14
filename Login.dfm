@@ -3,7 +3,7 @@ object FrmLogin: TFrmLogin
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'FrmLogin'
+  Caption = 'Login'
   ClientHeight = 613
   ClientWidth = 303
   Color = clBtnFace
@@ -51,6 +51,22 @@ object FrmLogin: TFrmLogin
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 1
+    object rzlbl1: TRzLabel
+      Left = 67
+      Top = 351
+      Width = 157
+      Height = 145
+      Caption = 'Wczyta'#263' bitmap'#281' !!!'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+      Angle = 42
+      Rotation = roFlat
+      TextStyle = tsRaised
+    end
     object edtLogin: TEdit
       Left = 104
       Top = 64
@@ -68,8 +84,8 @@ object FrmLogin: TFrmLogin
       Text = '*Adkks'
     end
     object btnLogin: TButton
-      Left = 24
-      Top = 200
+      Left = 104
+      Top = 224
       Width = 75
       Height = 25
       Caption = 'Login'
@@ -77,8 +93,8 @@ object FrmLogin: TFrmLogin
       OnClick = btnLoginClick
     end
     object btnKoniec: TButton
-      Left = 32
-      Top = 264
+      Left = 56
+      Top = 288
       Width = 75
       Height = 25
       Caption = 'Koniec pracy'
