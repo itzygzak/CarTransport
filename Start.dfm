@@ -320,6 +320,10 @@ object FrmStart: TFrmStart
               Caption = 'Ustawienia programu'
             end
             item
+              Caption = 'Grafik'
+              OnClick = ctgryBtns1Categories0Items4Click
+            end
+            item
             end
             item
               Caption = 'Koniec pracy'

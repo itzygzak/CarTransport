@@ -33,6 +33,7 @@ type
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items5Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
+    procedure ctgryBtns1Categories0Items4Click(Sender: TObject);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -50,7 +51,7 @@ var
 implementation
 
 uses
-  DM, Login, Definicje, Historia, UstalKurs;
+  DM, Login, Definicje, Historia, UstalKurs, Grafik;
 
 {$R *.dfm}
 
@@ -80,6 +81,13 @@ begin
   FrmDefinicje.Top := FrmStart.Top + 50;
   FrmDefinicje.Left := FrmStart.Left + 50;
   FrmDefinicje.ShowModal;
+end;
+
+procedure TFrmStart.ctgryBtns1Categories0Items4Click(Sender: TObject);
+begin
+FrmGrafik.Top := FrmStart.Top + 50;
+FrmGrafik.Left := FrmStart.Left + 50;
+FrmGrafik.ShowModal;
 end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items5Click(Sender: TObject);

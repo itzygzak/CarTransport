@@ -81,7 +81,6 @@ begin
     spltVw1.Close
   else
     spltVw1.Open;
-
 end;
 
 procedure TFrmUstalKurs.rzBtnUstalClick(Sender: TObject);

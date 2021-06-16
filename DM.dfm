@@ -2,7 +2,7 @@ object DataModule1: TDataModule1
   OldCreateOrder = False
   Height = 408
   Width = 871
-  object ds1: TDataSource
+  object dsUzyt: TDataSource
     Left = 152
     Top = 232
   end
@@ -36,5 +36,22 @@ object DataModule1: TDataModule1
       'SELECT * FROM UZYT')
     Left = 136
     Top = 40
+  end
+  object ibQryKier: TIBQuery
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    Left = 224
+    Top = 40
+  end
+  object ibTransKier: TIBTransaction
+    Left = 224
+    Top = 96
+  end
+  object dsKier: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 288
+    Top = 232
   end
 end

@@ -4,14 +4,17 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB, IBX.IBSQL,
-  IBX.IBDatabase, IBX.IBCustomDataSet, IBX.IBQuery;
+  IBX.IBDatabase, IBX.IBCustomDataSet, IBX.IBQuery, Datasnap.DBClient;
 
 type
   TDataModule1 = class(TDataModule)
-    ds1: TDataSource;
+    dsUzyt: TDataSource;
     ibDtBase1: TIBDatabase;
     ibTransUzyt: TIBTransaction;
     ibQryUzyt: TIBQuery;
+    ibQryKier: TIBQuery;
+    ibTransKier: TIBTransaction;
+    dsKier: TClientDataSet;
   private
     { Private declarations }
   public

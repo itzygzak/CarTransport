@@ -8,7 +8,8 @@ uses
   Definicje in 'Definicje.pas' {FrmDefinicje},
   Historia in 'Historia.pas' {FrmHistoria},
   UstalKurs in 'UstalKurs.pas' {FrmUstalKurs},
-  FrameZap in 'FrameZap.pas' {FrameZapisz: TFrame};
+  FrameZap in 'FrameZap.pas' {FrameZapisz: TFrame},
+  Grafik in 'Grafik.pas' {FrmGrafik};
 
 {$R *.res}
 
@@ -21,5 +22,6 @@ begin
   Application.CreateForm(TFrmDefinicje, FrmDefinicje);
   Application.CreateForm(TFrmHistoria, FrmHistoria);
   Application.CreateForm(TFrmUstalKurs, FrmUstalKurs);
+  Application.CreateForm(TFrmGrafik, FrmGrafik);
   Application.Run;
 end.

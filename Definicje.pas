@@ -59,8 +59,10 @@ type
     rzChckBxPrzyczepa: TRzCheckBox;
     img1: TImage;
     spltVw1: TSplitView;
+    img2: TImage;
     procedure FormCreate(Sender: TObject);
     procedure img1Click(Sender: TObject);
+    procedure img2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -82,6 +84,14 @@ end;
 procedure TFrmDefinicje.img1Click(Sender: TObject);
 begin
 img1.Picture.LoadFromFile('PrawkoPomoc.png');
+end;
+
+procedure TFrmDefinicje.img2Click(Sender: TObject);
+begin
+  if spltVw1.Opened = True then
+    spltVw1.Close
+  else
+    spltVw1.Open;
 end;
 
 end.
