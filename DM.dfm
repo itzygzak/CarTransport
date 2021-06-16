@@ -3,6 +3,7 @@ object DataModule1: TDataModule1
   Height = 408
   Width = 871
   object dsUzyt: TDataSource
+    DataSet = ibQryUzyt
     Left = 152
     Top = 232
   end

@@ -20,6 +20,7 @@ type
     rzlbl3: TRzLabel;
     RzPnl3: TRzPanel;
     RzDBGrd1: TRzDBGrid;
+    procedure rzEdtWartoscChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,5 +33,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrmHistoria.rzEdtWartoscChange(Sender: TObject);
+begin
+//search auto
+end;
 
 end.

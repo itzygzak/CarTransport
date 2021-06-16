@@ -23,9 +23,6 @@ object FrmHistoria: TFrmHistoria
     BorderWidth = 2
     Color = 16737843
     TabOrder = 0
-    ExplicitLeft = 472
-    ExplicitTop = 40
-    ExplicitWidth = 185
   end
   object RzPnl2: TRzPanel
     Left = 0
@@ -108,6 +105,7 @@ object FrmHistoria: TFrmHistoria
       Height = 21
       Text = ''
       TabOrder = 2
+      OnChange = rzEdtWartoscChange
     end
   end
   object RzPnl3: TRzPanel
