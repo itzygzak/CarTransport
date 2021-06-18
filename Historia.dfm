@@ -184,7 +184,7 @@ object FrmHistoria: TFrmHistoria
       Categories = <
         item
           Caption = 'Menu'
-          Color = 16771818
+          Color = 16777194
           Collapsed = False
           Items = <
             item

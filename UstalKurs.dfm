@@ -1251,10 +1251,16 @@ object FrmUstalKurs: TFrmUstalKurs
     object rzGrpBox4: TRzGroupBox
       Left = 32
       Top = 320
-      Width = 609
+      Width = 617
       Height = 169
       Caption = 'Adres (wybierz)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
       GroupStyle = gsUnderline
+      ParentFont = False
       TabOrder = 5
       object rzlbl8: TRzLabel
         Left = 1

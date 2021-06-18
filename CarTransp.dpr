@@ -9,7 +9,8 @@ uses
   Historia in 'Historia.pas' {FrmHistoria},
   UstalKurs in 'UstalKurs.pas' {FrmUstalKurs},
   FrameZap in 'FrameZap.pas' {FrameZapisz: TFrame},
-  Grafik in 'Grafik.pas' {FrmGrafik};
+  Grafik in 'Grafik.pas' {FrmGrafik},
+  Ustawienia in 'Ustawienia.pas' {FrmUstawienia};
 
 {$R *.res}
 
@@ -23,5 +24,6 @@ begin
   Application.CreateForm(TFrmHistoria, FrmHistoria);
   Application.CreateForm(TFrmUstalKurs, FrmUstalKurs);
   Application.CreateForm(TFrmGrafik, FrmGrafik);
+  Application.CreateForm(TFrmUstawienia, FrmUstawienia);
   Application.Run;
 end.
