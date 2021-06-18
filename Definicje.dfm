@@ -65,7 +65,7 @@
       Width = 699
       Height = 431
       Hint = ''
-      ActivePage = RzTbshtMiejscowości
+      ActivePage = RzTbshtKierowcy
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -73,7 +73,7 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 2
+      TabIndex = 0
       TabOrder = 0
       TabStyle = tsDoubleSlant
       FixedDimension = 25
@@ -732,5 +732,42 @@
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
+    object ctgryBtns1: TCategoryButtons
+      Left = 0
+      Top = 0
+      Width = 200
+      Height = 161
+      Align = alTop
+      BorderStyle = bsNone
+      ButtonFlow = cbfVertical
+      ButtonOptions = [boFullSize, boGradientFill, boShowCaptions, boVerticalCategoryCaptions]
+      Categories = <
+        item
+          Caption = 'Wybierz z menu'
+          Color = 16777194
+          Collapsed = False
+          Items = <
+            item
+              Caption = 'Zapisz'
+            end
+            item
+              Caption = 'Anuluj'
+            end
+            item
+            end
+            item
+              Caption = 'Zamknij'
+              OnClick = ctgryBtns1Categories0Items3Click
+            end>
+        end>
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      RegularButtonColor = clWhite
+      SelectedButtonColor = clRed
+      TabOrder = 0
+    end
   end
 end

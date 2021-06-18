@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzTabs, Vcl.ExtCtrls, RzPanel,
   Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx, RzButton, RzRadChk,
-  Vcl.Imaging.pngimage, Vcl.WinXCtrls;
+  Vcl.Imaging.pngimage, Vcl.WinXCtrls, Vcl.CategoryButtons;
 
 type
   TFrmDefinicje = class(TForm)
@@ -60,9 +60,11 @@ type
     img1: TImage;
     spltVw1: TSplitView;
     img2: TImage;
+    ctgryBtns1: TCategoryButtons;
     procedure FormCreate(Sender: TObject);
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
+    procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,6 +77,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrmDefinicje.ctgryBtns1Categories0Items3Click(Sender: TObject);
+begin
+Close;
+end;
 
 procedure TFrmDefinicje.FormCreate(Sender: TObject);
 begin

@@ -1412,6 +1412,11 @@ object FrmUstalKurs: TFrmUstalKurs
               OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
       HotButtonColor = clRed
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
