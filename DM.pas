@@ -18,6 +18,9 @@ type
     ibQryTemp: TIBQuery;
     ibTransTemp: TIBTransaction;
     dsTemp: TDataSource;
+    ibQryHistoria: TIBQuery;
+    ibTransHistoria: TIBTransaction;
+    dsHistoria: TDataSource;
   private
     { Private declarations }
   public

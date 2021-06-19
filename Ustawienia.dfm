@@ -65,7 +65,7 @@ object FrmUstawienia: TFrmUstawienia
       Left = 0
       Top = 0
       Width = 200
-      Height = 129
+      Height = 161
       Align = alTop
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
@@ -87,6 +87,7 @@ object FrmUstawienia: TFrmUstawienia
             end
             item
               Caption = 'Zamknij'
+              OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
       HotButtonColor = clHighlight
@@ -113,7 +114,7 @@ object FrmUstawienia: TFrmUstawienia
       Height = 413
       Hint = ''
       Margins.Top = 5
-      ActivePage = rztbshtTabSheet1
+      ActivePage = rztbshtTabSheet2
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -121,7 +122,7 @@ object FrmUstawienia: TFrmUstawienia
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 0
       TabStyle = tsBackSlant
       FixedDimension = 22
@@ -294,14 +295,71 @@ object FrmUstawienia: TFrmUstawienia
             Width = 145
             Height = 24
             TabOrder = 6
+            Items.Strings = (
+              'Stolnik'
+              'Klucznik'
+              'Podkomorzy'
+              'Podczaszy'
+              'Cze'#347'nik'
+              #321'owczy'
+              'Miecznik'
+              'Skarbnik'
+              'Wojski')
           end
         end
       end
       object rztbshtTabSheet2: TRzTabSheet
-        Caption = 'rztbshtTabSheet2'
+        Caption = 'Przegl'#261'daj'
+        object rzGrpBx2: TRzGroupBox
+          Left = 16
+          Top = 16
+          Width = 601
+          Height = 115
+          Caption = 'Wyszukaj u'#380'ytkownik'#243'w'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          GroupStyle = gsUnderline
+          ParentFont = False
+          TabOrder = 0
+          object rzEdtSzukaj: TRzEdit
+            Left = 8
+            Top = 48
+            Width = 257
+            Height = 27
+            Text = ''
+            TabOrder = 0
+          end
+        end
+        object rzpnl3: TRzPanel
+          Left = 0
+          Top = 137
+          Width = 644
+          Height = 250
+          Align = alBottom
+          BorderOuter = fsNone
+          BorderColor = 16737843
+          BorderWidth = 2
+          TabOrder = 1
+          object rzDbGrd1: TRzDBGrid
+            Left = 2
+            Top = 2
+            Width = 640
+            Height = 246
+            Align = alClient
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -13
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+          end
+        end
       end
       object rztbshtTabSheet3: TRzTabSheet
-        Caption = 'rztbshtTabSheet3'
+        Caption = 'Zarz'#261'dzaj'
       end
     end
   end

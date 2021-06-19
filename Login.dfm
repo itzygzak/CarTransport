@@ -104,10 +104,6 @@ object FrmLogin: TFrmLogin
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
-    ExplicitLeft = 40
-    ExplicitTop = 160
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object btnKoniec: TButton
       Left = 80
       Top = 408

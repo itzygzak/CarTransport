@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel,
   Vcl.Imaging.pngimage, RzTabs, Vcl.CategoryButtons, Vcl.StdCtrls, Vcl.Mask,
-  RzEdit, RzLabel, RzCmboBx;
+  RzEdit, RzLabel, RzCmboBx, Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid;
 
 type
   TFrmUstawienia = class(TForm)
@@ -34,19 +34,25 @@ type
     rzEdtNazwisko: TRzEdit;
     rzEdtTelefon: TRzEdit;
     rzCmBx1: TRzComboBox;
+    rzGrpBx2: TRzGroupBox;
+    rzEdtSzukaj: TRzEdit;
+    rzpnl3: TRzPanel;
+    rzDbGrd1: TRzDBGrid;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
+    procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+
   end;
 
 var
   FrmUstawienia: TFrmUstawienia;
 
 implementation
-uses DM;
+uses DM,Login;
 
 
 {$R *.dfm}
@@ -88,66 +94,42 @@ begin
     ShowMessage('B³¹d nie uda³o siê utworzyæ nowego u¿ytkownika ');
   end;
 
-end;
-{
+
+
         //startuje historia
     try     //do zm. historia przypisuje legende + zawartosc editow
-      historia := ' Utworzenie nowego instruk ' + #13#10;
-      historia := historia + ' Login: ' + Edtlogin.Text + #13#10;
+      historia := ' Utworzenie nowego uzytkownika ' + #13#10;
+      historia := historia + ' Login: ' + rzEdtlogin.Text + #13#10;
       historia := historia + ' Has³o zosta³o utworzone ' + #13#10;
-      historia := historia + ' Imiê: ' + EdtImie.Text + #13#10;
-      historia := historia + ' Nazwisko: ' + EdtNazwisko.Text + #13#10;
-      historia := historia + ' Stanowisko: ' + cbbstanowisko.Text + #13#10;
+      historia := historia + ' Imiê: ' + rzEdtImie.Text + #13#10;
+      historia := historia + ' Nazwisko: ' + rzEdtNazwisko.Text + #13#10;
+      historia := historia + ' Stanowisko: ' + rzCmBx1.Text + #13#10;
 
-      with DtMdl.IBQHistoria, SQL do
+      with DataModule1.ibQryHistoria, SQL do
       begin
         Close;
         Clear;
-        Add('INSERT INTO historia (panel, id_instruk, rekord, operacja, stanowisko_k) VALUES (:panel, :id_instruk, :rekord, :operacja, :stanowisko_k)');
-        ParamByName('panel').AsInteger := 1;     // nr 1 panelu - dotyczy operacji na instruktorze
-        ParamByName('id_instruk').AsInteger := FrmLogin.idinstruk;
+        Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
+        ParamByName('panel').AsInteger := 1;     // nr 1 panelu - dotyczy operacji na uzytkowniku
+        ParamByName('id_uzyt').AsInteger := FrmLogin.Iduzyt;
         ParamByName('rekord').AsInteger := generator;
         ParamByName('operacja').AsString := historia;
         ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
         ExecSQL;
-        DtMdl.ibTransHistoria.Commit;
+        DataModule1.ibTransHistoria.Commit;
       end;
     except
-      DtMdl.ibTransHistoria.Rollback;
+      DataModule1.ibTransHistoria.Rollback;
       ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
     end;
-
+end;
     //koniec historia
 
-    with DtMdl.IBQInstruk, SQL do            //odœwiezenie grida z instruktorami (wczytanie )
-    begin
-      Close;
-      Clear;
-      Add('SELECT id_instruk,Login,Imie,Nazwisko,Nr_Telefonu,Stanowisko,Data_utworzenia,Aktywny FROM instruk ');
-      Add('WHERE stanowisko <>:stanowisko and Usun =:usun order by Nazwisko');
-      ParamByName('Stanowisko').AsString := 'Administrator';
-      ParamByName('Usun').AsInteger := 0;
-      Open;
-    end;
-    DtMdl.IBQInstruk.Locate('id_instruk', generator, [loCaseInsensitive, loPartialKey]);        //znalezienie nowo dodanego
 
-    if Application.MessageBox('Instruktorowi nale¿y przydzieliæ zajêcia !' + #13#10 + 'Czy prze³¹czyæ teraz do zak³adki "Przydziel zajêcia" ?', 'Uwaga !!!', MB_YESNO + MB_ICONQUESTION) = IDYES then
-    begin
-      RzPgCtrl1.ActivePageIndex := 1;
-      edtPrzypImie.Text := EdtImie.Text;
-      edtPrzypNazwisko.Text := EdtNazwisko.Text;
-    end
-    else
-      close;
-
-
+procedure TFrmUstawienia.ctgryBtns1Categories0Items3Click(Sender: TObject);
+begin
+Close;
 end;
-
-
-}
-//end;
-
-
 
 procedure TFrmUstawienia.FormCreate(Sender: TObject);
 begin

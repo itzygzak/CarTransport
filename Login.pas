@@ -33,6 +33,7 @@ type
     { Private declarations }
   public
     IDUzyt: Integer;
+    NazwaKomp: string;
     { Public declarations }
   end;
 
@@ -41,6 +42,7 @@ var
   INI: TINIFile;
   PamLog: Boolean; //zapisuje do ini czy pamiêtaæ nazwe usera
   Zm_stanowisko: string;
+  NazwaLogin: string;
 
 implementation
 
@@ -147,7 +149,7 @@ begin
   INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
   try
     PamLog := INI.ReadBool('Ustawienia', 'PamLogin', False);
-  //  NazwaLogin := INI.ReadString('Ustawienia', 'NazwaInstr', '');
+    NazwaLogin := INI.ReadString('Ustawienia', 'NazwaUzyt', '');
     glowna_left := INI.ReadInteger('PolozenieGlow', 'Left', 120);
     glowna_top := INI.ReadInteger('PolozenieGlow', 'Top', 120);
     glowna_wys := INI.ReadInteger('PolozenieGlow', 'Height', 435);

@@ -293,7 +293,7 @@ object FrmStart: TFrmStart
       Left = 0
       Top = 0
       Width = 200
-      Height = 177
+      Height = 209
       Align = alTop
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
@@ -325,6 +325,9 @@ object FrmStart: TFrmStart
               OnClick = ctgryBtns1Categories0Items4Click
             end
             item
+            end
+            item
+              Caption = 'Car transport'
             end
             item
               Caption = 'Koniec pracy'

@@ -78,4 +78,29 @@ object DataModule1: TDataModule1
     Left = 232
     Top = 232
   end
+  object ibQryHistoria: TIBQuery
+    Database = ibDtBase1
+    Transaction = ibTransHistoria
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'SELECT * FROM HISTORIA')
+    Left = 304
+    Top = 48
+  end
+  object ibTransHistoria: TIBTransaction
+    DefaultDatabase = ibDtBase1
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 312
+    Top = 104
+  end
+  object dsHistoria: TDataSource
+    DataSet = ibQryHistoria
+    Left = 304
+    Top = 232
+  end
 end
