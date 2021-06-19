@@ -40,66 +40,132 @@ object FrmLogin: TFrmLogin
         B3FBBE2F40C06C002501E9FA02F0231620A008A024205D5F007EC40204140194
         04A4EB0BC08F58808022809280747D01F8110B1050045012904E403A3CE0019F
         D1A0318F8304C10000000049454E44AE426082}
+      OnClick = img1Click
     end
   end
   object spltvw1: TSplitView
     Left = 0
     Top = 51
-    Width = 200
+    Width = 308
     Height = 562
-    Color = clBlack
-    OpenedWidth = 200
+    Color = clCream
+    OpenedWidth = 308
     Placement = svpLeft
     TabOrder = 1
     object rzlbl1: TRzLabel
-      Left = 67
-      Top = 351
-      Width = 157
-      Height = 145
-      Caption = 'Wczyta'#263' bitmap'#281' !!!'
+      Left = 25
+      Top = 408
+      Width = 113
+      Height = 16
+      Caption = 'Wersja programu'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -19
+      Font.Color = 6697728
+      Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold, fsItalic]
+      Font.Style = [fsBold]
       ParentFont = False
-      Angle = 42
-      Rotation = roFlat
-      TextStyle = tsRaised
+      LightTextStyle = True
+      TextStyle = tsRecessed
     end
-    object edtLogin: TEdit
-      Left = 104
-      Top = 64
-      Width = 120
-      Height = 21
+    object rzlbl2: TRzLabel
+      Left = 25
+      Top = 464
+      Width = 38
+      Height = 16
+      Caption = 'z dnia'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6697728
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRecessed
+    end
+    object lnkLbl1: TLinkLabel
+      Left = 25
+      Top = 353
+      Width = 79
+      Height = 17
+      Caption = 'Odwied'#378' stron'#281
+      Color = clHighlight
+      ParentColor = False
       TabOrder = 0
-      Text = 'ADMIN'
     end
-    object edtHaslo: TEdit
-      Left = 104
-      Top = 136
+  end
+  object rzpnl1: TRzPanel
+    Left = 308
+    Top = 51
+    Width = 303
+    Height = 562
+    Align = alClient
+    BorderOuter = fsNone
+    BorderColor = 16737843
+    BorderWidth = 2
+    TabOrder = 2
+    ExplicitLeft = 40
+    ExplicitTop = 160
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object btnKoniec: TButton
+      Left = 80
+      Top = 408
       Width = 120
-      Height = 21
-      TabOrder = 1
-      Text = '*Adkks'
+      Height = 40
+      Caption = 'Koniec pracy'
+      TabOrder = 0
+      OnClick = btnKoniecClick
     end
     object btnLogin: TButton
-      Left = 104
-      Top = 224
-      Width = 75
-      Height = 25
+      Left = 80
+      Top = 313
+      Width = 120
+      Height = 40
       Caption = 'Login'
-      TabOrder = 2
+      TabOrder = 1
       OnClick = btnLoginClick
     end
-    object btnKoniec: TButton
-      Left = 56
-      Top = 288
-      Width = 75
-      Height = 25
-      Caption = 'Koniec pracy'
+    object edtHaslo: TEdit
+      Left = 80
+      Top = 240
+      Width = 120
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      Text = '*Adkks'
+    end
+    object edtLogin: TEdit
+      Left = 80
+      Top = 120
+      Width = 120
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 3
-      OnClick = btnKoniecClick
+      Text = 'ADMIN'
+    end
+    object chk1: TCheckBox
+      Left = 80
+      Top = 184
+      Width = 97
+      Height = 17
+      Caption = 'Pami'#281'taj login'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
     end
   end
 end

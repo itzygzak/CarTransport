@@ -6,21 +6,27 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage, System.ImageList,
-  Vcl.ImgList, Vcl.CategoryButtons, System.IniFiles, Vcl.StdCtrls, RzLabel;
+  Vcl.ImgList, Vcl.CategoryButtons, System.IniFiles, Vcl.StdCtrls, RzLabel,
+  RzPanel;
 
 type
   TFrmLogin = class(TForm)
     pnl1: TPanel;
     spltvw1: TSplitView;
     img1: TImage;
-    edtLogin: TEdit;
-    edtHaslo: TEdit;
-    btnLogin: TButton;
+    rzpnl1: TRzPanel;
     btnKoniec: TButton;
+    btnLogin: TButton;
+    edtHaslo: TEdit;
+    edtLogin: TEdit;
+    chk1: TCheckBox;
+    lnkLbl1: TLinkLabel;
     rzlbl1: TRzLabel;
+    rzlbl2: TRzLabel;
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
     procedure btnKoniecClick(Sender: TObject);
+    procedure img1Click(Sender: TObject);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -149,6 +155,15 @@ begin
   finally
     INI.Free;
   end;
+end;
+
+procedure TFrmLogin.img1Click(Sender: TObject);
+begin
+  if spltVw1.Opened = True then
+    spltVw1.Close
+  else
+    spltVw1.Open;
+
 end;
 
 end.

@@ -285,7 +285,7 @@ object FrmStart: TFrmStart
     Top = 41
     Width = 200
     Height = 441
-    Color = clBlack
+    Color = clCream
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 3
@@ -301,7 +301,7 @@ object FrmStart: TFrmStart
       Categories = <
         item
           Caption = 'Menu'
-          Color = 16777194
+          Color = clMoneyGreen
           Collapsed = False
           Items = <
             item
@@ -336,7 +336,7 @@ object FrmStart: TFrmStart
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
-      HotButtonColor = clRed
+      HotButtonColor = clBlue
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
