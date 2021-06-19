@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls, RzPanel, Vcl.ExtCtrls, System.IniFiles,
-  Vcl.WinXCtrls, Vcl.CategoryButtons, RzPopups, RzLabel;
+  Vcl.WinXCtrls, Vcl.CategoryButtons, RzPopups, RzLabel, Vcl.Imaging.pngimage;
 
 type
   TFrameClass = class of TFrame;

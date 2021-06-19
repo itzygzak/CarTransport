@@ -24,32 +24,21 @@ object FrmUstawienia: TFrmUstawienia
     Color = clHighlight
     TabOrder = 0
     object img1: TImage
-      Left = 808
+      Left = 818
       Top = 0
-      Width = 50
+      Width = 40
       Height = 41
       Align = alRight
       AutoSize = True
       Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
-        003208060000001E3F88B100000006624B474400FF00FF00FFA0BDA793000001
-        974944415478DAED98B14AC35014867B4BD2A120A583AB2034AE160B4E42157C
-        82429736898383B3A07B1F40717670B049BA04FA0482569C84425D4D71707429
-        45BA3421F10F74D0804302F6DE5ECFB7FC97339D2F092797C37292C078374022
-        24223824221AF28BB45AAD1AA2CCBBC104935EAF374C25D26EB7EF11FBBC3B4F
-        F0E038CE416A11C6D8C0B6ED0EEFEE63745DEF445154CF223240945555DDF57D
-        BF11D770EEE37C833CE6507BC67102917AEA3782986A9AD6188FC7D5B856A954
-        46381F216F975DF33CAF8F63E95F7F5AF288E464985AA6696E0541B0C6BBF3EF
-        288AF2D9ED765F5389AC1A24221AF28B60DC5D63DCD57837F8A359C686F81D9C
-        A412598CDF003277BC051612870825D37F249FCF8F2CCB3A6D369BA5B8E6BAEE
-        1463790323F07DD935C330AEC230AC66117944ECCCE7F3F542A1708E2712158B
-        C5CBD96CF686DA2687DA07FA1966BA344A7345914604A142E689B7440C24F610
-        7E16910BC4366F81042F10394B25B26A908868C82F420BBABF851674B4A0A305
-        DD2FD0A5519AA9450B3A4E9088689088689088684823F205C0A42551AB7000CA
-        0000000049454E44AE426082}
-      ExplicitLeft = 608
-      ExplicitTop = 24
-      ExplicitHeight = 50
+        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000280000
+        002808060000008CFEB86D000000634944415478DAEDD3310A00300843D17AFF
+        43B76E8E150A31D09F295B9E83B1CC13D3008052E0CE5C0ED84B90C80004E80A
+        54EC7780D501FE06B47F128000A7818AFD0EB03A40806640FB2F0608701AA8D8
+        EF00AB03FC0D68FF2400018E021D03F0350736D88B2980FFC434000000004945
+        4E44AE426082}
+      OnClick = img1Click
+      ExplicitHeight = 40
     end
   end
   object spltVw1: TSplitView
@@ -57,14 +46,16 @@ object FrmUstawienia: TFrmUstawienia
     Top = 41
     Width = 200
     Height = 425
+    Margins.Top = 5
     Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 1
     object ctgryBtns1: TCategoryButtons
-      Left = 0
-      Top = 0
-      Width = 200
+      AlignWithMargins = True
+      Left = 3
+      Top = 3
+      Width = 194
       Height = 161
       Align = alTop
       BorderStyle = bsNone
@@ -90,10 +81,18 @@ object FrmUstawienia: TFrmUstawienia
               OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
       HotButtonColor = clHighlight
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
+      ExplicitLeft = 1
+      ExplicitTop = 46
+      ExplicitWidth = 200
     end
   end
   object rzpnl2: TRzPanel
@@ -309,9 +308,10 @@ object FrmUstawienia: TFrmUstawienia
         end
       end
       object rztbshtTabSheet2: TRzTabSheet
+        OnShow = rztbshtTabSheet2Show
         Caption = 'Przegl'#261'daj'
         object rzGrpBx2: TRzGroupBox
-          Left = 16
+          Left = 3
           Top = 16
           Width = 601
           Height = 115
@@ -349,6 +349,7 @@ object FrmUstawienia: TFrmUstawienia
             Width = 640
             Height = 246
             Align = alClient
+            DataSource = DataModule1.dsUzyt
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText

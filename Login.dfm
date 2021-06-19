@@ -21,38 +21,43 @@ object FrmLogin: TFrmLogin
     Left = 0
     Top = 0
     Width = 303
-    Height = 51
+    Height = 41
     Align = alTop
     Color = clHighlight
     ParentBackground = False
     TabOrder = 0
     object img1: TImage
-      Left = 0
-      Top = 3
-      Width = 48
-      Height = 48
+      Left = 1
+      Top = 1
+      Width = 40
+      Height = 39
+      Align = alLeft
       AutoSize = True
       Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000300000
-        003008060000005702F98700000006624B474400FF00FF00FFA0BDA793000000
-        7E4944415478DAEDD3310D80401005514E0022B08720EC210201D0120A9ACDE5
-        6736331DA1B87DC51F0BBC913E4040FA0001E903A601B6E3BADFDFE7BE8EBFFF
-        B3FBBE2F40C06C002501E9FA02F0231620A008A024205D5F007EC40204140194
-        04A4EB0BC08F58808022809280747D01F8110B1050045012904E403A3CE0019F
-        D1A0318F8304C10000000049454E44AE426082}
+        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000280000
+        002808060000008CFEB86D000000634944415478DAEDD3310A00300843D17AFF
+        43B76E8E150A31D09F295B9E83B1CC13D3008052E0CE5C0ED84B90C80004E80A
+        54EC7780D501FE06B47F128000A7818AFD0EB03A40806640FB2F0608701AA8D8
+        EF00AB03FC0D68FF2400018E021D03F0350736D88B2980FFC434000000004945
+        4E44AE426082}
       OnClick = img1Click
+      ExplicitLeft = 0
+      ExplicitTop = 3
+      ExplicitHeight = 40
     end
   end
   object spltvw1: TSplitView
     Left = 0
-    Top = 51
+    Top = 41
     Width = 0
-    Height = 562
+    Height = 572
     Color = clCream
     Opened = False
     OpenedWidth = 308
     Placement = svpLeft
     TabOrder = 1
+    ExplicitTop = 51
+    ExplicitHeight = 562
     object rzlbl1: TRzLabel
       Left = 25
       Top = 40
@@ -95,15 +100,20 @@ object FrmLogin: TFrmLogin
     end
   end
   object rzpnl1: TRzPanel
-    Left = 0
-    Top = 51
-    Width = 303
-    Height = 562
+    AlignWithMargins = True
+    Left = 3
+    Top = 44
+    Width = 297
+    Height = 566
     Align = alClient
     BorderOuter = fsNone
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
+    ExplicitLeft = 6
+    ExplicitTop = 41
+    ExplicitWidth = 303
+    ExplicitHeight = 572
     object btnKoniec: TButton
       Left = 80
       Top = 408

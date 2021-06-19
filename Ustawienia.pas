@@ -3,10 +3,11 @@ unit Ustawienia;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel,
-  Vcl.Imaging.pngimage, RzTabs, Vcl.CategoryButtons, Vcl.StdCtrls, Vcl.Mask,
-  RzEdit, RzLabel, RzCmboBx, Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage, RzTabs,
+  Vcl.CategoryButtons, Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid;
 
 type
   TFrmUstawienia = class(TForm)
@@ -41,6 +42,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
+    procedure img1Click(Sender: TObject);
+    procedure rztbshtTabSheet2Show(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,13 +55,15 @@ var
   FrmUstawienia: TFrmUstawienia;
 
 implementation
-uses DM,Login;
+
+uses
+  DM, Login;
 
 
 {$R *.dfm}
 
 procedure TFrmUstawienia.ctgryBtns1Categories0Items0Click(Sender: TObject);
- var
+var
   generator: Integer;  //potrzebna do ustawienia siê na nowym rekordzie
   historia: string;   //potrzebna do zapisu historia
 
@@ -97,43 +102,58 @@ begin
 
 
         //startuje historia
-    try     //do zm. historia przypisuje legende + zawartosc editow
-      historia := ' Utworzenie nowego uzytkownika ' + #13#10;
-      historia := historia + ' Login: ' + rzEdtlogin.Text + #13#10;
-      historia := historia + ' Has³o zosta³o utworzone ' + #13#10;
-      historia := historia + ' Imiê: ' + rzEdtImie.Text + #13#10;
-      historia := historia + ' Nazwisko: ' + rzEdtNazwisko.Text + #13#10;
-      historia := historia + ' Stanowisko: ' + rzCmBx1.Text + #13#10;
+  try     //do zm. historia przypisuje legende + zawartosc editow
+    historia := ' Utworzenie nowego uzytkownika ' + #13#10;
+    historia := historia + ' Login: ' + rzEdtlogin.Text + #13#10;
+    historia := historia + ' Has³o zosta³o utworzone ' + #13#10;
+    historia := historia + ' Imiê: ' + rzEdtImie.Text + #13#10;
+    historia := historia + ' Nazwisko: ' + rzEdtNazwisko.Text + #13#10;
+    historia := historia + ' Stanowisko: ' + rzCmBx1.Text + #13#10;
 
-      with DataModule1.ibQryHistoria, SQL do
-      begin
-        Close;
-        Clear;
-        Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
-        ParamByName('panel').AsInteger := 1;     // nr 1 panelu - dotyczy operacji na uzytkowniku
-        ParamByName('id_uzyt').AsInteger := FrmLogin.Iduzyt;
-        ParamByName('rekord').AsInteger := generator;
-        ParamByName('operacja').AsString := historia;
-        ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
-        ExecSQL;
-        DataModule1.ibTransHistoria.Commit;
-      end;
-    except
-      DataModule1.ibTransHistoria.Rollback;
-      ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+    with DataModule1.ibQryHistoria, SQL do
+    begin
+      Close;
+      Clear;
+      Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
+      ParamByName('panel').AsInteger := 1;     // nr 1 panelu - dotyczy operacji na uzytkowniku
+      ParamByName('id_uzyt').AsInteger := FrmLogin.Iduzyt;
+      ParamByName('rekord').AsInteger := generator;
+      ParamByName('operacja').AsString := historia;
+      ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
+      ExecSQL;
+      DataModule1.ibTransHistoria.Commit;
     end;
+  except
+    DataModule1.ibTransHistoria.Rollback;
+    ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+  end;
 end;
     //koniec historia
 
-
 procedure TFrmUstawienia.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TFrmUstawienia.FormCreate(Sender: TObject);
 begin
-rzPgCntrl1.ActivePageIndex:=0;
+  rzPgCntrl1.ActivePageIndex := 0;
+end;
+
+procedure TFrmUstawienia.img1Click(Sender: TObject);
+begin
+  if spltVw1.Opened = True then
+    spltVw1.Close
+  else
+    spltVw1.Open;
+
+end;
+
+procedure TFrmUstawienia.rztbshtTabSheet2Show(Sender: TObject);
+begin
+//Wy³¹czenie klaw.zapisz
+//ctgryBtns1.Categories[0].Items[0]. //   .Items[0].CategoryButtons
 end;
 
 end.
+
