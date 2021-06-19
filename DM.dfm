@@ -42,17 +42,40 @@ object DataModule1: TDataModule1
     BufferChunks = 1000
     CachedUpdates = False
     ParamCheck = True
-    Left = 224
-    Top = 40
+    Left = 424
+    Top = 48
   end
   object ibTransKier: TIBTransaction
-    Left = 224
+    Left = 408
     Top = 96
   end
   object dsKier: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 288
+    Left = 416
+    Top = 224
+  end
+  object ibQryTemp: TIBQuery
+    Database = ibDtBase1
+    Transaction = ibTransTemp
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    Left = 232
+    Top = 40
+  end
+  object ibTransTemp: TIBTransaction
+    DefaultDatabase = ibDtBase1
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 232
+    Top = 104
+  end
+  object dsTemp: TDataSource
+    DataSet = ibQryTemp
+    Left = 232
     Top = 232
   end
 end

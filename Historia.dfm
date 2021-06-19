@@ -21,7 +21,7 @@ object FrmHistoria: TFrmHistoria
     Align = alTop
     BorderOuter = fsNone
     BorderWidth = 2
-    Color = 16737843
+    Color = clHighlight
     TabOrder = 0
     ExplicitWidth = 826
     object img1: TImage
@@ -166,7 +166,7 @@ object FrmHistoria: TFrmHistoria
     Top = 41
     Width = 200
     Height = 383
-    Color = clBlack
+    Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 3
@@ -184,7 +184,7 @@ object FrmHistoria: TFrmHistoria
       Categories = <
         item
           Caption = 'Menu'
-          Color = 16777194
+          Color = clMoneyGreen
           Collapsed = False
           Items = <
             item
@@ -202,7 +202,7 @@ object FrmHistoria: TFrmHistoria
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
-      HotButtonColor = clRed
+      HotButtonColor = clHighlight
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0

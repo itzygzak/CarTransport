@@ -46,15 +46,16 @@ object FrmLogin: TFrmLogin
   object spltvw1: TSplitView
     Left = 0
     Top = 51
-    Width = 308
+    Width = 0
     Height = 562
     Color = clCream
+    Opened = False
     OpenedWidth = 308
     Placement = svpLeft
     TabOrder = 1
     object rzlbl1: TRzLabel
       Left = 25
-      Top = 408
+      Top = 40
       Width = 113
       Height = 16
       Caption = 'Wersja programu'
@@ -69,7 +70,7 @@ object FrmLogin: TFrmLogin
     end
     object rzlbl2: TRzLabel
       Left = 25
-      Top = 464
+      Top = 96
       Width = 38
       Height = 16
       Caption = 'z dnia'
@@ -84,7 +85,7 @@ object FrmLogin: TFrmLogin
     end
     object lnkLbl1: TLinkLabel
       Left = 25
-      Top = 353
+      Top = 505
       Width = 79
       Height = 17
       Caption = 'Odwied'#378' stron'#281
@@ -94,7 +95,7 @@ object FrmLogin: TFrmLogin
     end
   end
   object rzpnl1: TRzPanel
-    Left = 308
+    Left = 0
     Top = 51
     Width = 303
     Height = 562

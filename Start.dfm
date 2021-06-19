@@ -336,7 +336,7 @@ object FrmStart: TFrmStart
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
-      HotButtonColor = clBlue
+      HotButtonColor = clHighlight
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0

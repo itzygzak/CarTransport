@@ -22,7 +22,7 @@ object FrmUstalKurs: TFrmUstalKurs
     Align = alTop
     BorderInner = fsFlat
     BorderOuter = fsFlat
-    Color = 16737843
+    Color = clHighlight
     TabOrder = 0
     object img1: TImage
       Left = 1095
@@ -1383,7 +1383,7 @@ object FrmUstalKurs: TFrmUstalKurs
     Top = 41
     Width = 200
     Height = 505
-    Color = clBlack
+    Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
@@ -1399,7 +1399,7 @@ object FrmUstalKurs: TFrmUstalKurs
       Categories = <
         item
           Caption = 'Menu Zapisz'
-          Color = 16777194
+          Color = clMoneyGreen
           Collapsed = False
           Items = <
             item
@@ -1423,7 +1423,7 @@ object FrmUstalKurs: TFrmUstalKurs
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
-      HotButtonColor = clRed
+      HotButtonColor = clHighlight
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0

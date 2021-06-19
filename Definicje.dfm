@@ -728,7 +728,7 @@
     Top = 41
     Width = 200
     Height = 435
-    Color = clBlack
+    Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
@@ -744,7 +744,7 @@
       Categories = <
         item
           Caption = 'Wybierz z menu'
-          Color = 16777194
+          Color = clMoneyGreen
           Collapsed = False
           Items = <
             item
@@ -765,6 +765,7 @@
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
+      HotButtonColor = clHighlight
       RegularButtonColor = clWhite
       SelectedButtonColor = clRed
       TabOrder = 0

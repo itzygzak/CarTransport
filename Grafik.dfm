@@ -20,7 +20,7 @@ object FrmGrafik: TFrmGrafik
     Height = 41
     Align = alTop
     BorderOuter = fsNone
-    Color = 16737843
+    Color = clHighlight
     TabOrder = 0
     ExplicitLeft = 512
     ExplicitTop = 152
@@ -75,7 +75,7 @@ object FrmGrafik: TFrmGrafik
     Top = 41
     Width = 200
     Height = 374
-    Color = clBlack
+    Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
@@ -94,7 +94,7 @@ object FrmGrafik: TFrmGrafik
       Categories = <
         item
           Caption = 'Wybierz z menu'
-          Color = 16777194
+          Color = clMoneyGreen
           Collapsed = False
           Items = <
             item
@@ -115,7 +115,7 @@ object FrmGrafik: TFrmGrafik
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
-      HotButtonColor = clRed
+      HotButtonColor = clHighlight
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0

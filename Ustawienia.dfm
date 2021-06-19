@@ -21,11 +21,8 @@ object FrmUstawienia: TFrmUstawienia
     Height = 41
     Align = alTop
     BorderOuter = fsNone
-    Color = 16737843
+    Color = clHighlight
     TabOrder = 0
-    ExplicitLeft = 632
-    ExplicitTop = 40
-    ExplicitWidth = 185
     object img1: TImage
       Left = 808
       Top = 0
@@ -60,13 +57,10 @@ object FrmUstawienia: TFrmUstawienia
     Top = 41
     Width = 200
     Height = 425
-    Color = clBlack
+    Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 1
-    ExplicitLeft = 520
-    ExplicitTop = 120
-    ExplicitHeight = 41
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
@@ -79,11 +73,12 @@ object FrmUstawienia: TFrmUstawienia
       Categories = <
         item
           Caption = 'Menu'
-          Color = 16771818
+          Color = clMoneyGreen
           Collapsed = False
           Items = <
             item
               Caption = 'Zapisz'
+              OnClick = ctgryBtns1Categories0Items0Click
             end
             item
               Caption = 'Anuluj'
@@ -94,6 +89,7 @@ object FrmUstawienia: TFrmUstawienia
               Caption = 'Zamknij'
             end>
         end>
+      HotButtonColor = clHighlight
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
@@ -109,10 +105,6 @@ object FrmUstawienia: TFrmUstawienia
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
-    ExplicitLeft = 328
-    ExplicitTop = 72
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object rzPgCntrl1: TRzPageControl
       AlignWithMargins = True
       Left = 5
@@ -132,30 +124,184 @@ object FrmUstawienia: TFrmUstawienia
       TabIndex = 0
       TabOrder = 0
       TabStyle = tsBackSlant
-      ExplicitLeft = -2
-      ExplicitTop = 6
-      ExplicitWidth = 654
-      ExplicitHeight = 421
       FixedDimension = 22
       object rztbshtTabSheet1: TRzTabSheet
-        Caption = 'rztbshtTabSheet1'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
+        Caption = 'Definuj u'#380'ytkownik'#243'w'
+        object rzGrpBx1: TRzGroupBox
+          Left = 16
+          Top = 32
+          Width = 577
+          Height = 329
+          Caption = 'Wprowad'#378
+          GroupStyle = gsUnderline
+          TabOrder = 0
+          object rzlbl1: TRzLabel
+            Left = 12
+            Top = 32
+            Width = 34
+            Height = 16
+            Caption = 'Login'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzlbl2: TRzLabel
+            Left = 12
+            Top = 68
+            Width = 36
+            Height = 16
+            Caption = 'Has'#322'o'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzlbl3: TRzLabel
+            Left = 12
+            Top = 104
+            Width = 27
+            Height = 16
+            Caption = 'Imi'#281
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzlbl4: TRzLabel
+            Left = 12
+            Top = 140
+            Width = 71
+            Height = 16
+            Caption = 'Drugie imi'#281
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzlbl5: TRzLabel
+            Left = 12
+            Top = 176
+            Width = 59
+            Height = 16
+            Caption = 'Nazwisko'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzlbl6: TRzLabel
+            Left = 12
+            Top = 212
+            Width = 72
+            Height = 16
+            Caption = 'Nr telefonu'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzlbl7: TRzLabel
+            Left = 12
+            Top = 248
+            Width = 74
+            Height = 16
+            Caption = 'Stanowisko'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzEdtLogin: TRzEdit
+            Left = 160
+            Top = 24
+            Width = 121
+            Height = 24
+            Text = ''
+            TabOrder = 0
+          end
+          object rzEdtHaslo: TRzEdit
+            Left = 160
+            Top = 60
+            Width = 121
+            Height = 24
+            Text = ''
+            TabOrder = 1
+          end
+          object rzEdtImie: TRzEdit
+            Left = 160
+            Top = 96
+            Width = 121
+            Height = 24
+            Text = ''
+            TabOrder = 2
+          end
+          object rzEdtDrugieImie: TRzEdit
+            Left = 160
+            Top = 132
+            Width = 121
+            Height = 24
+            Text = ''
+            TabOrder = 3
+          end
+          object rzEdtNazwisko: TRzEdit
+            Left = 160
+            Top = 168
+            Width = 121
+            Height = 24
+            Text = ''
+            TabOrder = 4
+          end
+          object rzEdtTelefon: TRzEdit
+            Left = 160
+            Top = 204
+            Width = 121
+            Height = 24
+            Text = ''
+            TabOrder = 5
+          end
+          object rzCmBx1: TRzComboBox
+            Left = 160
+            Top = 240
+            Width = 145
+            Height = 24
+            TabOrder = 6
+          end
+        end
       end
       object rztbshtTabSheet2: TRzTabSheet
         Caption = 'rztbshtTabSheet2'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
       end
       object rztbshtTabSheet3: TRzTabSheet
         Caption = 'rztbshtTabSheet3'
-        ExplicitTop = 20
-        ExplicitWidth = 304
-        ExplicitHeight = 127
       end
     end
   end
