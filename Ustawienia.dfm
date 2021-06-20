@@ -90,9 +90,6 @@ object FrmUstawienia: TFrmUstawienia
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
-      ExplicitLeft = 1
-      ExplicitTop = 46
-      ExplicitWidth = 200
     end
   end
   object rzpnl2: TRzPanel
@@ -361,6 +358,10 @@ object FrmUstawienia: TFrmUstawienia
       end
       object rztbshtTabSheet3: TRzTabSheet
         Caption = 'Zarz'#261'dzaj'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
       end
     end
   end

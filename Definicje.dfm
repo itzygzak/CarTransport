@@ -59,7 +59,7 @@
       Width = 699
       Height = 431
       Hint = ''
-      ActivePage = RzTbshtPojazdy
+      ActivePage = RzTbshtKierowcy
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -67,7 +67,7 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 1
+      TabIndex = 0
       TabOrder = 0
       TabStyle = tsDoubleSlant
       FixedDimension = 25
@@ -364,6 +364,13 @@
             Height = 21
             Text = ''
             TabOrder = 5
+          end
+          object rzMmo1: TRzMemo
+            Left = 192
+            Top = 280
+            Width = 289
+            Height = 65
+            TabOrder = 6
           end
         end
       end
@@ -744,6 +751,7 @@
           Items = <
             item
               Caption = 'Zapisz'
+              OnClick = ctgryBtns1Categories0Items0Click
             end
             item
               Caption = 'Anuluj'
@@ -764,9 +772,6 @@
       RegularButtonColor = clWhite
       SelectedButtonColor = clRed
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 200
     end
   end
 end
