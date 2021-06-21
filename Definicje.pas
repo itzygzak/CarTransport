@@ -111,7 +111,7 @@ begin
       Open;
       generator := FieldByName('gen_id').AsInteger;
     end;
-
+   except
 {
 
 begin
@@ -173,6 +173,8 @@ end;
 
 }
 end;
+end;
+
 
 procedure TFrmDefinicje.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin

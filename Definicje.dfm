@@ -27,7 +27,7 @@
       Left = 863
       Top = 0
       Width = 40
-      Height = 41
+      Height = 40
       Align = alRight
       AutoSize = True
       Picture.Data = {
@@ -40,7 +40,6 @@
       OnClick = img2Click
       ExplicitLeft = 853
       ExplicitTop = -9
-      ExplicitHeight = 40
     end
   end
   object RzPnl2: TRzPanel
@@ -79,6 +78,10 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object rzGrpBox1: TRzGroupBox
           Left = 16
           Top = 24
@@ -382,6 +385,10 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object rzGrpBox2: TRzGroupBox
           Left = 16
           Top = 24
@@ -597,6 +604,10 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object rzGrpBox3: TRzGroupBox
           Left = 16
           Top = 24

@@ -110,7 +110,7 @@ object FrmUstawienia: TFrmUstawienia
       Height = 413
       Hint = ''
       Margins.Top = 5
-      ActivePage = rztbshtTabSheet2
+      ActivePage = rztbshtTabSheet1
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -118,7 +118,7 @@ object FrmUstawienia: TFrmUstawienia
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 1
+      TabIndex = 0
       TabOrder = 0
       TabStyle = tsBackSlant
       FixedDimension = 22
@@ -358,10 +358,6 @@ object FrmUstawienia: TFrmUstawienia
       end
       object rztbshtTabSheet3: TRzTabSheet
         Caption = 'Zarz'#261'dzaj'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
       end
     end
   end
