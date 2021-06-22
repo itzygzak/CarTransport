@@ -44,27 +44,33 @@ object FrmGrafik: TFrmGrafik
   object rzpnl2: TRzPanel
     Left = 0
     Top = 41
-    Width = 709
+    Width = 703
     Height = 374
     Align = alClient
     BorderOuter = fsNone
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 1
+    ExplicitWidth = 709
   end
   object spltVw1: TSplitView
-    Left = 709
-    Top = 41
+    AlignWithMargins = True
+    Left = 706
+    Top = 44
     Width = 200
-    Height = 374
+    Height = 368
     Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
+    ExplicitLeft = 709
+    ExplicitTop = 41
+    ExplicitHeight = 374
     object ctgryBtns1: TCategoryButtons
-      Left = 0
-      Top = 0
-      Width = 200
+      AlignWithMargins = True
+      Left = 3
+      Top = 3
+      Width = 194
       Height = 137
       Align = alTop
       BorderStyle = bsNone
@@ -98,6 +104,9 @@ object FrmGrafik: TFrmGrafik
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 200
     end
   end
 end

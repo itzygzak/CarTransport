@@ -23,6 +23,8 @@ type
     lnkLbl1: TLinkLabel;
     rzlbl1: TRzLabel;
     rzlbl2: TRzLabel;
+    rzlbl3: TRzLabel;
+    rzlbl4: TRzLabel;
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
     procedure btnKoniecClick(Sender: TObject);

@@ -62,6 +62,7 @@ type
     img2: TImage;
     ctgryBtns1: TCategoryButtons;
     rzMmo1: TRzMemo;
+    rzlbl20: TRzLabel;
     procedure FormCreate(Sender: TObject);
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);

@@ -56,8 +56,6 @@ object FrmLogin: TFrmLogin
     OpenedWidth = 308
     Placement = svpLeft
     TabOrder = 1
-    ExplicitTop = 51
-    ExplicitHeight = 562
     object rzlbl1: TRzLabel
       Left = 25
       Top = 40
@@ -110,10 +108,36 @@ object FrmLogin: TFrmLogin
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
-    ExplicitLeft = 6
-    ExplicitTop = 41
-    ExplicitWidth = 303
-    ExplicitHeight = 572
+    object rzlbl3: TRzLabel
+      Left = 47
+      Top = 23
+      Width = 187
+      Height = 33
+      Caption = 'Car Transport'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 16737843
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRecessed
+    end
+    object rzlbl4: TRzLabel
+      Left = 66
+      Top = 80
+      Width = 156
+      Height = 16
+      Caption = 'Logowanie do programu'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 16737843
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRecessed
+    end
     object btnKoniec: TButton
       Left = 80
       Top = 408
@@ -148,7 +172,7 @@ object FrmLogin: TFrmLogin
     end
     object edtLogin: TEdit
       Left = 80
-      Top = 120
+      Top = 144
       Width = 120
       Height = 24
       Font.Charset = DEFAULT_CHARSET
@@ -162,17 +186,18 @@ object FrmLogin: TFrmLogin
     end
     object chk1: TCheckBox
       Left = 80
-      Top = 184
-      Width = 97
+      Top = 192
+      Width = 120
       Height = 17
       Caption = 'Pami'#281'taj login'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clHighlight
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 4
+      StyleElements = []
     end
   end
 end
