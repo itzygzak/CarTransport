@@ -2,7 +2,7 @@
   Left = 0
   Top = 0
   Caption = 'Zdefiniuj'
-  ClientHeight = 476
+  ClientHeight = 563
   ClientWidth = 903
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -47,17 +47,18 @@
     Left = 0
     Top = 41
     Width = 703
-    Height = 435
+    Height = 522
     Align = alClient
     BorderOuter = fsNone
     BorderColor = clMenuHighlight
     BorderWidth = 2
     TabOrder = 1
+    ExplicitHeight = 435
     object RzPgCntrl1: TRzPageControl
       Left = 2
       Top = 2
       Width = 699
-      Height = 431
+      Height = 518
       Hint = ''
       ActivePage = RzTbshtKierowcy
       Align = alClient
@@ -70,6 +71,7 @@
       TabIndex = 0
       TabOrder = 0
       TabStyle = tsDoubleSlant
+      ExplicitHeight = 431
       FixedDimension = 25
       object RzTbshtKierowcy: TRzTabSheet
         Caption = 'Kierowcy'
@@ -79,11 +81,12 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        ExplicitLeft = 0
         object rzGrpBox1: TRzGroupBox
           Left = 16
-          Top = 24
+          Top = 16
           Width = 481
-          Height = 353
+          Height = 454
           Caption = ' Wprowad'#378' '
           CaptionFont.Charset = DEFAULT_CHARSET
           CaptionFont.Color = clWindowText
@@ -145,7 +148,7 @@
           end
           object rzlbl4: TRzLabel
             Left = 24
-            Top = 161
+            Top = 201
             Width = 80
             Height = 16
             Caption = 'Prawo jazdy'
@@ -160,7 +163,7 @@
           end
           object rzlbl5: TRzLabel
             Left = 24
-            Top = 201
+            Top = 281
             Width = 121
             Height = 16
             Caption = 'Inne/pozwolenie 1'
@@ -175,7 +178,7 @@
           end
           object rzlbl6: TRzLabel
             Left = 24
-            Top = 241
+            Top = 321
             Width = 121
             Height = 16
             Caption = 'Inne/pozwolenie 2'
@@ -189,8 +192,8 @@
             TextStyle = tsRecessed
           end
           object img1: TImage
-            Left = 408
-            Top = 144
+            Left = 416
+            Top = 200
             Width = 50
             Height = 50
             Picture.Data = {
@@ -309,10 +312,40 @@
           end
           object rzlbl20: TRzLabel
             Left = 24
-            Top = 280
+            Top = 361
             Width = 38
             Height = 16
             Caption = 'Uwagi'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzlbl21: TRzLabel
+            Left = 24
+            Top = 161
+            Width = 72
+            Height = 16
+            Caption = 'Nr telefonu'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzlbl22: TRzLabel
+            Left = 24
+            Top = 241
+            Width = 127
+            Height = 16
+            Caption = 'Termin prawa jazdy'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = 16737843
             Font.Height = -13
@@ -348,7 +381,7 @@
           end
           object rzCmbxPrawoJazdy: TRzComboBox
             Left = 192
-            Top = 160
+            Top = 200
             Width = 201
             Height = 21
             TabOrder = 3
@@ -366,26 +399,41 @@
           end
           object rzEdtInne1: TRzEdit
             Left = 192
-            Top = 200
-            Width = 121
+            Top = 280
+            Width = 201
             Height = 21
             Text = ''
             TabOrder = 4
           end
           object rzEdtInne2: TRzEdit
             Left = 192
-            Top = 240
-            Width = 121
+            Top = 320
+            Width = 201
             Height = 21
             Text = ''
             TabOrder = 5
           end
           object rzMmo1: TRzMemo
             Left = 192
-            Top = 280
+            Top = 361
             Width = 289
             Height = 65
             TabOrder = 6
+          end
+          object rzEdtNrTelefonu: TRzEdit
+            Left = 192
+            Top = 160
+            Width = 201
+            Height = 21
+            Text = ''
+            TabOrder = 7
+          end
+          object rzCmbxTermin: TRzComboBox
+            Left = 192
+            Top = 240
+            Width = 201
+            Height = 21
+            TabOrder = 8
           end
         end
       end
@@ -743,11 +791,12 @@
     Left = 703
     Top = 41
     Width = 200
-    Height = 435
+    Height = 522
     Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
+    ExplicitHeight = 435
     object ctgryBtns1: TCategoryButtons
       AlignWithMargins = True
       Left = 3

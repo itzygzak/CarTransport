@@ -63,6 +63,10 @@ type
     ctgryBtns1: TCategoryButtons;
     rzMmo1: TRzMemo;
     rzlbl20: TRzLabel;
+    rzlbl21: TRzLabel;
+    rzEdtNrTelefonu: TRzEdit;
+    rzCmbxTermin: TRzComboBox;
+    rzlbl22: TRzLabel;
     procedure FormCreate(Sender: TObject);
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
@@ -95,9 +99,11 @@ begin
       Add('INSERT INTO kierowcy (Imie, Imie_2, Nazwisko, Prawo_jazdy, Inne_1, Inne_2, Uwagi)');
       Add('VALUES (:Imie, :Drugie_imie, :Nazwisko, :Nr_Telefonu, :KDR, :Deklaracja, :ZNW, :Lokalizacja)');
       ParamByName('Imie').AsString := Trim(rzEdtImie.Text);
-      ParamByName('Imie_2').AsString := Trim(rzEdtDrugieImie.Text);
+      ParamByName('Drugie_Imie').AsString := Trim(rzEdtDrugieImie.Text);
       ParamByName('Nazwisko').AsString := Trim(rzEdtNazwisko.Text);
+      ParamByName('Nr_telefonu').AsString := Trim(rzEdtNrTelefonu.Text);
       ParamByName('Prawo_jazdy').AsString := Trim(rzCmbxPrawoJazdy.Text);
+      ParamByName('Czy_termin').AsString := Trim(rzCmbxTermin.Text);
       ParamByName('Inne_1').AsString := Trim(rzEdtInne1.Text);
       ParamByName('Inne_2').AsString := Trim(rzEdtInne2.Text);
       ParamByName('Uwagi').AsString := Trim(rzMmo1.Text);
