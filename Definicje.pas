@@ -56,7 +56,6 @@ type
     rzEdtInnyNr: TRzEdit;
     rzChckBxHDS: TRzCheckBox;
     rzChckBxWinda: TRzCheckBox;
-    rzChckBxPrzyczepa: TRzCheckBox;
     img1: TImage;
     spltVw1: TSplitView;
     img2: TImage;
@@ -67,6 +66,9 @@ type
     rzEdtNrTelefonu: TRzEdit;
     rzCmbxTermin: TRzComboBox;
     rzlbl22: TRzLabel;
+    rzlbl23: TRzLabel;
+    rzEdtPrzeglad: TRzEdit;
+    rzChckBxPrzyczepa: TRzCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
@@ -96,8 +98,8 @@ begin
     begin
       Close;
       Clear;
-      Add('INSERT INTO kierowcy (Imie, Imie_2, Nazwisko, Prawo_jazdy, Inne_1, Inne_2, Uwagi)');
-      Add('VALUES (:Imie, :Drugie_imie, :Nazwisko, :Nr_Telefonu, :KDR, :Deklaracja, :ZNW, :Lokalizacja)');
+      Add('INSERT INTO kierowcy (Imie, Drugie_Imie, Nazwisko,Nr_telefonu, Czy_termin, Prawo_jazdy, Inne_1, Inne_2, Uwagi)');
+      Add('VALUES (:Imie, :Drugie_imie, :Nazwisko, :Nr_Telefonu, :Czy_termin, :Prawo_jazdy, :Inne_1, :Inne_2, :Uwagi )');
       ParamByName('Imie').AsString := Trim(rzEdtImie.Text);
       ParamByName('Drugie_Imie').AsString := Trim(rzEdtDrugieImie.Text);
       ParamByName('Nazwisko').AsString := Trim(rzEdtNazwisko.Text);
@@ -124,16 +126,15 @@ begin
 begin
         //startuje historia
     try     //do zm. historia przypisuje legende + zawartosc editow
-      historia := 'Utworzenie nowego uczestnika ' + #13#10;
-      historia := historia + ' Imie: ' + EdtImie.Text + #13#10;
-      historia := historia + ' Nazwisko: ' + EdtNazwisko.Text + #13#10;
-      historia := historia + ' Lokalizacja: ' + cbbLokalizacja.Text + #13#10;
+      historia := 'Utworzenie nowego kierowcy ' + #13#10;
+      historia := historia + ' Imie: ' + rzEdtImie.Text + #13#10;
+      historia := historia + ' Nazwisko: ' + rzEdtNazwisko.Text + #13#10;
 
-      with DtMdl.IBQHistoria, SQL do
+      with DataModule1.ibQryHistoria, SQL do
       begin
         Close;
         Clear;
-        Add('INSERT INTO historia (panel, id_instruk, rekord, operacja, stanowisko_k) VALUES (:panel, :id_instruk, :rekord, :operacja, :stanowisko_k)');
+        Add('INSERT INTO historia (panel, id_kierowca, rekord, operacja, stanowisko_k) VALUES (:panel, :id_kierowca, :rekord, :operacja, :stanowisko_k)');
         ParamByName('panel').AsInteger := 2;
         ParamByName('id_instruk').AsInteger := FrmLogin.idinstruk;
         ParamByName('rekord').AsInteger := generator;

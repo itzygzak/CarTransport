@@ -46,13 +46,13 @@ object DataModule1: TDataModule1
     Top = 48
   end
   object ibTransKier: TIBTransaction
-    Left = 408
-    Top = 96
+    Left = 424
+    Top = 112
   end
   object dsKier: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 416
+    Left = 432
     Top = 224
   end
   object ibQryTemp: TIBQuery

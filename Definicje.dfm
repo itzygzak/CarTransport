@@ -60,7 +60,7 @@
       Width = 699
       Height = 518
       Hint = ''
-      ActivePage = RzTbshtKierowcy
+      ActivePage = RzTbshtPojazdy
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -68,7 +68,7 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 0
       TabStyle = tsDoubleSlant
       ExplicitHeight = 431
@@ -449,7 +449,7 @@
           Left = 16
           Top = 24
           Width = 417
-          Height = 375
+          Height = 417
           Caption = 'Wprowad'#378' pojazdy '
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -537,9 +537,9 @@
           object rzlbl17: TRzLabel
             Left = 24
             Top = 239
-            Width = 129
+            Width = 67
             Height = 16
-            Caption = 'Przyczepa/naczepa'
+            Caption = 'Przyczepa'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = 16737843
             Font.Height = -13
@@ -567,9 +567,24 @@
           object rzlbl19: TRzLabel
             Left = 24
             Top = 328
-            Width = 85
+            Width = 47
             Height = 16
-            Caption = 'Inny nr ewid.'
+            Caption = 'Inny nr'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzlbl23: TRzLabel
+            Left = 24
+            Top = 376
+            Width = 76
+            Height = 16
+            Caption = 'Przegl'#261'd do'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = 16737843
             Font.Height = -13
@@ -635,20 +650,21 @@
             State = cbUnchecked
             TabOrder = 6
           end
-          object rzChckBxPrzyczepa: TRzCheckBox
-            Left = 170
-            Top = 240
-            Width = 143
-            Height = 15
-            Caption = 'USTALI'#262' Z KRZY'#346'KIEM !!!'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clRed
-            Font.Height = -11
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            State = cbUnchecked
+          object rzEdtPrzeglad: TRzEdit
+            Left = 168
+            Top = 376
+            Width = 121
+            Height = 21
+            Text = ''
             TabOrder = 7
+          end
+          object rzChckBxPrzyczepa: TRzCheckBox
+            Left = 168
+            Top = 232
+            Width = 19
+            Height = 15
+            State = cbUnchecked
+            TabOrder = 8
           end
         end
       end
