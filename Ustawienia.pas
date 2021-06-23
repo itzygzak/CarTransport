@@ -116,7 +116,7 @@ begin
       Clear;
       Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
       ParamByName('panel').AsInteger := 1;     // nr 1 panelu - dotyczy operacji na uzytkowniku
-      ParamByName('id_uzyt').AsInteger := FrmLogin.Iduzyt;
+      ParamByName('id_uzyt').AsInteger := FrmLogin.IdUzyt;
       ParamByName('rekord').AsInteger := generator;
       ParamByName('operacja').AsString := historia;
       ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;

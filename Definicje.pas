@@ -74,6 +74,9 @@ type
     procedure img2Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
+    procedure RzTbshtKierowcyShow(Sender: TObject);
+    procedure RzTbshtPojazdyShow(Sender: TObject);
+    procedure RzTbshtMiejscowoœciShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -84,7 +87,7 @@ var
   FrmDefinicje: TFrmDefinicje;
 
 implementation
-uses DM;
+uses DM, Login;
 
 {$R *.dfm}
 
@@ -92,6 +95,8 @@ procedure TFrmDefinicje.ctgryBtns1Categories0Items0Click(Sender: TObject);
 var
   generator: Integer;  //potrzebna do ustawienia siê na nowym rekordzie
   historia: string;   //potrzebna do zapisu historia
+
+
 begin
     try
     with DataModule1.ibQryTemp, SQL do
@@ -120,8 +125,8 @@ begin
       Open;
       generator := FieldByName('gen_id').AsInteger;
     end;
-   except
-{
+
+
 
 begin
         //startuje historia
@@ -136,52 +141,28 @@ begin
         Clear;
         Add('INSERT INTO historia (panel, id_kierowca, rekord, operacja, stanowisko_k) VALUES (:panel, :id_kierowca, :rekord, :operacja, :stanowisko_k)');
         ParamByName('panel').AsInteger := 2;
-        ParamByName('id_instruk').AsInteger := FrmLogin.idinstruk;
+        ParamByName('id_kierowca').AsInteger := FrmLogin.IDUzyt;
         ParamByName('rekord').AsInteger := generator;
         ParamByName('operacja').AsString := historia;
         ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
         ExecSQL;
-        DtMdl.ibTransHistoria.Commit;
+        DataModule1.ibTransHistoria.Commit;
       end;
     except
-      DtMdl.ibTransHistoria.Rollback;
+      DataModule1.ibTransHistoria.Rollback;
       ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
     end;
+end;
 
     //koniec historia
 
-    with DtMdl.IBQUczest, SQL do            //odœwiezenie grida z instruktorami (wczytanie )
-    begin
-      Close;
-      Clear;
-      Add('SELECT Id_uczestnik,Imie, Drugie_imie, Nazwisko,Nr_telefonu,Kdr,Deklaracja,Znw,Lokalizacja,Data_utworzenia,Aktywny FROM uczestnik ');
-      Add('WHERE Usun =:usun order by Nazwisko');
-      ParamByName('Usun').AsInteger := 0;
-      Open;
-    end;
-    DtMdl.IBQUczest.Locate('id_uczestnik', generator, [loCaseInsensitive, loPartialKey]);        //znalezienie nowo dodanego
-
-    if Application.MessageBox('Uczestnikowi nale¿y przydzieliæ zajêcia !' + #13#10 + 'Czy prze³¹czyæ teraz do zak³adki "Przydziel zajêcia" ?', 'Uwaga !!!', MB_YESNO + MB_ICONQUESTION) = IDYES then
-    begin
-      RzPgCtrlDodUcz.ActivePageIndex := 1;
-      edtPrzydzImie.Text := EdtImie.Text;
-      edtPrzydzDrugieImie.Text := EdtDrugieImie.Text;
-      edtPrzydzNazwisko.Text := EdtNazwisko.Text;
-    end
-    else
-      close;
-
   except
-    DtMdl.IBTransTemp.Rollback;
-    ShowMessage('B³¹d nie uda³o siê utworzyæ nowego uczestnika ');
+    DataModule1.ibTransHistoria.Rollback;
+    ShowMessage('B³¹d nie uda³o siê utworzyæ nowego kierowcy ');
   end;
 
 end;
 
-
-}
-end;
-end;
 
 
 procedure TFrmDefinicje.ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -205,6 +186,24 @@ begin
     spltVw1.Close
   else
     spltVw1.Open;
+end;
+
+procedure TFrmDefinicje.RzTbshtKierowcyShow(Sender: TObject);
+begin
+if RzPgCntrl1.ActivePageIndex = 0 then
+  begin
+    ctgryBtns1.Categories[0].Items[0].Caption:= 'Dodaj kierowcê'; //DisplayName := 'Ala ma kota'; // .Caption := '';
+  end;
+end;
+
+procedure TFrmDefinicje.RzTbshtMiejscowoœciShow(Sender: TObject);
+begin
+ctgryBtns1.Categories[0].Items[0].Caption:= 'Dodaj miejscowoœæ';
+end;
+
+procedure TFrmDefinicje.RzTbshtPojazdyShow(Sender: TObject);
+begin
+ctgryBtns1.Categories[0].Items[0].Caption:= 'Dodaj pojazd';
 end;
 
 end.

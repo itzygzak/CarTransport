@@ -60,7 +60,7 @@
       Width = 699
       Height = 518
       Hint = ''
-      ActivePage = RzTbshtPojazdy
+      ActivePage = RzTbshtMiejscowości
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -68,12 +68,13 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 1
+      TabIndex = 2
       TabOrder = 0
       TabStyle = tsDoubleSlant
       ExplicitHeight = 431
       FixedDimension = 25
       object RzTbshtKierowcy: TRzTabSheet
+        OnShow = RzTbshtKierowcyShow
         Caption = 'Kierowcy'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -438,6 +439,7 @@
         end
       end
       object RzTbshtPojazdy: TRzTabSheet
+        OnShow = RzTbshtPojazdyShow
         Caption = 'Pojazdy'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -669,6 +671,7 @@
         end
       end
       object RzTbshtMiejscowości: TRzTabSheet
+        OnShow = RzTbshtMiejscowościShow
         Caption = 'Miejscowo'#347'ci'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText

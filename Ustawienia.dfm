@@ -307,6 +307,10 @@ object FrmUstawienia: TFrmUstawienia
       object rztbshtTabSheet2: TRzTabSheet
         OnShow = rztbshtTabSheet2Show
         Caption = 'Przegl'#261'daj'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object rzGrpBx2: TRzGroupBox
           Left = 3
           Top = 16
@@ -358,6 +362,10 @@ object FrmUstawienia: TFrmUstawienia
       end
       object rztbshtTabSheet3: TRzTabSheet
         Caption = 'Zarz'#261'dzaj'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
       end
     end
   end
