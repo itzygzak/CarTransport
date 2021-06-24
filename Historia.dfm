@@ -140,6 +140,7 @@ object FrmHistoria: TFrmHistoria
       Width = 721
       Height = 237
       Align = alClient
+      DataSource = DataModule1.dsHistoria
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -157,8 +158,6 @@ object FrmHistoria: TFrmHistoria
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 3
-    ExplicitTop = 41
-    ExplicitHeight = 383
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0

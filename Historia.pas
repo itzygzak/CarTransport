@@ -37,6 +37,7 @@ var
   FrmHistoria: TFrmHistoria;
 
 implementation
+uses DM;
 
 {$R *.dfm}
 

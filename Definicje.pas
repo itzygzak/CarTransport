@@ -157,7 +157,7 @@ begin
         begin
           Close;
           Clear;
-          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_miejscowosci, :rekord, :operacja, :stanowisko_k)');
+          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
           ParamByName('panel').AsInteger := 2;
           ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
           ParamByName('rekord').AsInteger := generator;
@@ -190,8 +190,8 @@ begin
     begin
       Close;
       Clear;
-      Add('INSERT INTO pojazdy (Marka, Typ, Ladownosc, Czy_Hds, Czy_winda, Czy_przyczepa, Nr_rej_pojazdu, Inny_nr, wazny_przeglad)');
-      Add('VALUES (:Marka, :Typ, :Ladownosc, :Czy_Hds, :Czy_winda, :Czy_przyczepa, :Nr_rej_pojazdu, :Inny_nr, :Wazny_przeglad )');
+      Add('INSERT INTO pojazdy (Marka, Typ, Ladownosc, Czy_Hds, Czy_winda, Czy_przyczepa, Nr_rej_pojazdu, Inny_nr, przeglad_do)');
+      Add('VALUES (:Marka, :Typ, :Ladownosc, :Czy_Hds, :Czy_winda, :Czy_przyczepa, :Nr_rej_pojazdu, :Inny_nr, :przeglad_do )');
       ParamByName('Marka').AsString := Trim(rzEdtMarka.Text);
       ParamByName('Typ').AsString := Trim(rzEdtTyp.Text);
       ParamByName('Ladownosc').AsString := Trim(rzEdtLadownosc.Text);
@@ -200,7 +200,7 @@ begin
       ParamByName('Czy_przyczepa').AsBoolean := rzChckBxPrzyczepa.Checked;
       ParamByName('Nr_rej_pojazdu').AsString := Trim(rzEdtNrRej.Text);
       ParamByName('Inny_nr').AsString := Trim(rzEdtInnyNr.Text);
-      ParamByName('Wazny_przeglad').AsString := Trim(rzEdtPrzeglad.Text);
+      ParamByName('przeglad_do').AsString := Trim(rzEdtPrzeglad.Text);
       ExecSQL;
       DataModule1.ibTransTemp.Commit;
     end;
@@ -224,7 +224,7 @@ begin
         begin
           Close;
           Clear;
-          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_kierowca, :rekord, :operacja, :stanowisko_k)');
+          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
           ParamByName('panel').AsInteger := 2;
           ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
           ParamByName('rekord').AsInteger := generator;
@@ -262,14 +262,14 @@ begin
     begin
       Close;
       Clear;
-      Add('INSERT INTO kierowcy (Imie, Drugie_Imie, Nazwisko,Nr_telefonu, Czy_termin, Prawo_jazdy, Inne_1, Inne_2, Uwagi)');
-      Add('VALUES (:Imie, :Drugie_imie, :Nazwisko, :Nr_Telefonu, :Czy_termin, :Prawo_jazdy, :Inne_1, :Inne_2, :Uwagi )');
+      Add('INSERT INTO kierowcy (Imie, Drugie_Imie, Nazwisko, Nr_telefonu, Prawo_jazdy, Czy_termin,  Inne_1, Inne_2, Uwagi)');
+      Add('VALUES (:Imie, :Drugie_imie, :Nazwisko, :Nr_Telefonu, :Prawo_jazdy, :Czy_termin, :Inne_1, :Inne_2, :Uwagi )');
       ParamByName('Imie').AsString := Trim(rzEdtImie.Text);
       ParamByName('Drugie_Imie').AsString := Trim(rzEdtDrugieImie.Text);
       ParamByName('Nazwisko').AsString := Trim(rzEdtNazwisko.Text);
       ParamByName('Nr_telefonu').AsString := Trim(rzEdtNrTelefonu.Text);
-      ParamByName('Prawo_jazdy').AsString := Trim(rzCmbxPrawoJazdy.Text);
-      ParamByName('Czy_termin').AsString := Trim(rzCmbxTermin.Text);
+      ParamByName('Prawo_jazdy').AsString := rzCmbxPrawoJazdy.Text;
+      ParamByName('Czy_termin').AsString := rzCmbxTermin.Text;
       ParamByName('Inne_1').AsString := Trim(rzEdtInne1.Text);
       ParamByName('Inne_2').AsString := Trim(rzEdtInne2.Text);
       ParamByName('Uwagi').AsString := Trim(rzMmo1.Text);
@@ -296,7 +296,7 @@ begin
         begin
           Close;
           Clear;
-          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_kierowca, :rekord, :operacja, :stanowisko_k)');
+          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
           ParamByName('panel').AsInteger := 2;
           ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
           ParamByName('rekord').AsInteger := generator;

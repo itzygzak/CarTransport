@@ -86,8 +86,8 @@ object DataModule1: TDataModule1
     ParamCheck = True
     SQL.Strings = (
       'SELECT * FROM HISTORIA')
-    Left = 304
-    Top = 48
+    Left = 320
+    Top = 32
   end
   object ibTransHistoria: TIBTransaction
     DefaultDatabase = ibDtBase1
