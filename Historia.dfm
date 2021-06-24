@@ -11,6 +11,8 @@ object FrmHistoria: TFrmHistoria
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object RzPnl1: TRzPanel
@@ -45,7 +47,7 @@ object FrmHistoria: TFrmHistoria
     Left = 0
     Top = 41
     Width = 725
-    Height = 136
+    Height = 96
     BorderOuter = fsNone
     BorderColor = 16737843
     BorderWidth = 2
@@ -80,21 +82,6 @@ object FrmHistoria: TFrmHistoria
       LightTextStyle = True
       TextStyle = tsRecessed
     end
-    object rzlbl3: TRzLabel
-      Left = 24
-      Top = 78
-      Width = 133
-      Height = 19
-      Caption = 'Wprowad'#378' tekst'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 16737843
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRecessed
-    end
     object rzDtmPckrOd: TRzDateTimePicker
       Left = 152
       Top = 22
@@ -115,21 +102,12 @@ object FrmHistoria: TFrmHistoria
       Time = 0.742249918977904600
       TabOrder = 1
     end
-    object rzEdtWartosc: TRzEdit
-      Left = 176
-      Top = 80
-      Width = 220
-      Height = 21
-      Text = ''
-      TabOrder = 2
-      OnChange = rzEdtWartoscChange
-    end
   end
   object RzPnl3: TRzPanel
     Left = 0
-    Top = 183
+    Top = 143
     Width = 725
-    Height = 241
+    Height = 281
     BorderOuter = fsNone
     BorderColor = 16737843
     BorderWidth = 2
@@ -138,7 +116,7 @@ object FrmHistoria: TFrmHistoria
       Left = 2
       Top = 2
       Width = 721
-      Height = 237
+      Height = 277
       Align = alClient
       DataSource = DataModule1.dsHistoria
       TabOrder = 0
@@ -174,6 +152,7 @@ object FrmHistoria: TFrmHistoria
           Items = <
             item
               Caption = 'Szukaj'
+              OnClick = ctgryBtns1Categories0Items0Click
             end
             item
             end

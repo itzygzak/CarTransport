@@ -191,10 +191,10 @@
             TextStyle = tsRecessed
           end
           object img1: TImage
-            Left = 416
-            Top = 200
+            Left = 408
+            Top = 184
             Width = 50
-            Height = 50
+            Height = 49
             Picture.Data = {
               0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
               003208060000001E3F88B100000006624B474400FF00FF00FFA0BDA79300000D
@@ -392,7 +392,7 @@
             Style = csDropDownList
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 3
+            TabOrder = 4
             Items.Strings = (
               'B'
               'C1'
@@ -411,7 +411,7 @@
             Width = 201
             Height = 21
             Text = ''
-            TabOrder = 4
+            TabOrder = 6
           end
           object rzEdtInne2: TRzEdit
             Left = 192
@@ -419,14 +419,14 @@
             Width = 201
             Height = 21
             Text = ''
-            TabOrder = 5
+            TabOrder = 7
           end
           object rzMmo1: TRzMemo
             Left = 192
             Top = 361
             Width = 289
             Height = 65
-            TabOrder = 6
+            TabOrder = 8
           end
           object rzEdtNrTelefonu: TRzEdit
             Left = 192
@@ -436,7 +436,7 @@
             Text = ''
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 7
+            TabOrder = 3
           end
           object rzCmbxTermin: TRzComboBox
             Left = 192
@@ -444,7 +444,7 @@
             Width = 201
             Height = 21
             Style = csDropDownList
-            TabOrder = 8
+            TabOrder = 5
             Items.Strings = (
               'Tak'
               'Nie')
@@ -626,7 +626,7 @@
             TabOrder = 1
           end
           object rzEdtLadownosc: TRzEdit
-            Left = 168
+            Left = 170
             Top = 119
             Width = 121
             Height = 21
@@ -639,7 +639,7 @@
             Width = 121
             Height = 21
             Text = ''
-            TabOrder = 3
+            TabOrder = 6
           end
           object rzEdtInnyNr: TRzEdit
             Left = 170
@@ -647,7 +647,7 @@
             Width = 121
             Height = 21
             Text = ''
-            TabOrder = 4
+            TabOrder = 7
           end
           object rzChckBxHDS: TRzCheckBox
             Left = 170
@@ -655,15 +655,15 @@
             Width = 19
             Height = 15
             State = cbUnchecked
-            TabOrder = 5
+            TabOrder = 3
           end
           object rzChckBxWinda: TRzCheckBox
-            Left = 168
+            Left = 170
             Top = 201
             Width = 19
             Height = 15
             State = cbUnchecked
-            TabOrder = 6
+            TabOrder = 4
           end
           object rzEdtPrzeglad: TRzEdit
             Left = 170
@@ -671,15 +671,15 @@
             Width = 121
             Height = 21
             Text = ''
-            TabOrder = 7
+            TabOrder = 8
           end
           object rzChckBxPrzyczepa: TRzCheckBox
-            Left = 168
+            Left = 170
             Top = 242
             Width = 19
             Height = 15
             State = cbUnchecked
-            TabOrder = 8
+            TabOrder = 5
           end
         end
       end

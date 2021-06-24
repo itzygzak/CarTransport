@@ -144,7 +144,7 @@ object FrmLogin: TFrmLogin
       Width = 120
       Height = 40
       Caption = 'Koniec pracy'
-      TabOrder = 0
+      TabOrder = 4
       OnClick = btnKoniecClick
     end
     object btnLogin: TButton
@@ -153,7 +153,7 @@ object FrmLogin: TFrmLogin
       Width = 120
       Height = 40
       Caption = 'Login'
-      TabOrder = 1
+      TabOrder = 3
       OnClick = btnLoginClick
     end
     object edtHaslo: TEdit
@@ -167,6 +167,7 @@ object FrmLogin: TFrmLogin
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      PasswordChar = '*'
       TabOrder = 2
       Text = '*Adkks'
     end
@@ -181,7 +182,7 @@ object FrmLogin: TFrmLogin
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 0
       Text = 'ADMIN'
     end
     object chk1: TCheckBox
@@ -196,7 +197,7 @@ object FrmLogin: TFrmLogin
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 1
       StyleElements = []
     end
   end

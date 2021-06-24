@@ -2,8 +2,8 @@ object FrmGrafik: TFrmGrafik
   Left = 0
   Top = 0
   Caption = 'Grafik'
-  ClientHeight = 415
-  ClientWidth = 909
+  ClientHeight = 546
+  ClientWidth = 1138
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,14 +16,15 @@ object FrmGrafik: TFrmGrafik
   object rzpnl1: TRzPanel
     Left = 0
     Top = 0
-    Width = 909
+    Width = 1138
     Height = 41
     Align = alTop
     BorderOuter = fsNone
     Color = clHighlight
     TabOrder = 0
+    ExplicitWidth = 909
     object img1: TImage
-      Left = 869
+      Left = 1098
       Top = 0
       Width = 40
       Height = 41
@@ -44,28 +45,28 @@ object FrmGrafik: TFrmGrafik
   object rzpnl2: TRzPanel
     Left = 0
     Top = 41
-    Width = 703
-    Height = 374
+    Width = 932
+    Height = 505
     Align = alClient
     BorderOuter = fsNone
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 1
-    ExplicitWidth = 709
+    ExplicitWidth = 703
+    ExplicitHeight = 374
   end
   object spltVw1: TSplitView
     AlignWithMargins = True
-    Left = 706
+    Left = 935
     Top = 44
     Width = 200
-    Height = 368
+    Height = 499
     Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
-    ExplicitLeft = 709
-    ExplicitTop = 41
-    ExplicitHeight = 374
+    ExplicitLeft = 706
+    ExplicitHeight = 368
     object ctgryBtns1: TCategoryButtons
       AlignWithMargins = True
       Left = 3
@@ -104,9 +105,6 @@ object FrmGrafik: TFrmGrafik
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 200
     end
   end
 end
