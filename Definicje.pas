@@ -3,10 +3,10 @@ unit Definicje;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzTabs, Vcl.ExtCtrls, RzPanel,
-  Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx, RzButton, RzRadChk,
-  Vcl.Imaging.pngimage, Vcl.WinXCtrls, Vcl.CategoryButtons;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzTabs,
+  Vcl.ExtCtrls, RzPanel, Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx,
+  RzButton, RzRadChk, Vcl.Imaging.pngimage, Vcl.WinXCtrls, Vcl.CategoryButtons;
 
 type
   TFrmDefinicje = class(TForm)
@@ -77,6 +77,9 @@ type
     procedure RzTbshtKierowcyShow(Sender: TObject);
     procedure RzTbshtPojazdyShow(Sender: TObject);
     procedure RzTbshtMiejscowoœciShow(Sender: TObject);
+    procedure ZapiszKierowce;
+//    procedure DodajPojazd;
+//    procedure DodajMiejscowosc;
   private
     { Private declarations }
   public
@@ -87,18 +90,31 @@ var
   FrmDefinicje: TFrmDefinicje;
 
 implementation
-uses DM, Login;
+
+uses
+  DM, Login;
 
 {$R *.dfm}
 
 procedure TFrmDefinicje.ctgryBtns1Categories0Items0Click(Sender: TObject);
+begin
+  if RzPgCntrl1.ActivePageIndex = 0 then
+  begin
+    ZapiszKierowce;
+  end
+  else
+  begin
+    ShowMessage('DodajPojazd');
+  end;
+end;
+
+procedure TFrmDefinicje.ZapiszKierowce;
 var
   generator: Integer;  //potrzebna do ustawienia siê na nowym rekordzie
   historia: string;   //potrzebna do zapisu historia
 
-
 begin
-    try
+  try
     with DataModule1.ibQryTemp, SQL do
     begin
       Close;
@@ -126,33 +142,31 @@ begin
       generator := FieldByName('gen_id').AsInteger;
     end;
 
-
-
-begin
+    begin
         //startuje historia
-    try     //do zm. historia przypisuje legende + zawartosc editow
-      historia := 'Utworzenie nowego kierowcy ' + #13#10;
-      historia := historia + ' Imie: ' + rzEdtImie.Text + #13#10;
-      historia := historia + ' Nazwisko: ' + rzEdtNazwisko.Text + #13#10;
+      try     //do zm. historia przypisuje legende + zawartosc editow
+        historia := 'Utworzenie nowego kierowcy ' + #13#10;
+        historia := historia + ' Imie: ' + rzEdtImie.Text + #13#10;
+        historia := historia + ' Nazwisko: ' + rzEdtNazwisko.Text + #13#10;
 
-      with DataModule1.ibQryHistoria, SQL do
-      begin
-        Close;
-        Clear;
-        Add('INSERT INTO historia (panel, id_kierowca, rekord, operacja, stanowisko_k) VALUES (:panel, :id_kierowca, :rekord, :operacja, :stanowisko_k)');
-        ParamByName('panel').AsInteger := 2;
-        ParamByName('id_kierowca').AsInteger := FrmLogin.IDUzyt;
-        ParamByName('rekord').AsInteger := generator;
-        ParamByName('operacja').AsString := historia;
-        ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
-        ExecSQL;
-        DataModule1.ibTransHistoria.Commit;
+        with DataModule1.ibQryHistoria, SQL do
+        begin
+          Close;
+          Clear;
+          Add('INSERT INTO historia (panel, id_kierowca, rekord, operacja, stanowisko_k) VALUES (:panel, :id_kierowca, :rekord, :operacja, :stanowisko_k)');
+          ParamByName('panel').AsInteger := 2;
+          ParamByName('id_kierowca').AsInteger := FrmLogin.IDUzyt;
+          ParamByName('rekord').AsInteger := generator;
+          ParamByName('operacja').AsString := historia;
+          ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
+          ExecSQL;
+          DataModule1.ibTransHistoria.Commit;
+        end;
+      except
+        DataModule1.ibTransHistoria.Rollback;
+        ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
       end;
-    except
-      DataModule1.ibTransHistoria.Rollback;
-      ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
     end;
-end;
 
     //koniec historia
 
@@ -160,24 +174,30 @@ end;
     DataModule1.ibTransHistoria.Rollback;
     ShowMessage('B³¹d nie uda³o siê utworzyæ nowego kierowcy ');
   end;
-
 end;
-
-
 
 procedure TFrmDefinicje.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TFrmDefinicje.FormCreate(Sender: TObject);
 begin
-RzPgCntrl1.ActivePageIndex:=0;
+
+
+ { chkKDR.Checked := False;
+  chkZNW.Checked := False;
+  cbbLokalizacja.ItemIndex := -1;
+  EdtImie.SetFocus;
+
+  edtPrzydzDrugieImie.Text := '';
+  edtSzukajZaj.Text := '';
+  dtpOd_Kiedy.DateTime := Now;}
 end;
 
 procedure TFrmDefinicje.img1Click(Sender: TObject);
 begin
-img1.Picture.LoadFromFile('PrawkoPomoc.png');
+  img1.Picture.LoadFromFile('PrawkoPomoc.png');
 end;
 
 procedure TFrmDefinicje.img2Click(Sender: TObject);
@@ -190,20 +210,37 @@ end;
 
 procedure TFrmDefinicje.RzTbshtKierowcyShow(Sender: TObject);
 begin
-if RzPgCntrl1.ActivePageIndex = 0 then
-  begin
-    ctgryBtns1.Categories[0].Items[0].Caption:= 'Dodaj kierowcê'; //DisplayName := 'Ala ma kota'; // .Caption := '';
-  end;
+  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj kierowcê';
+  RzPgCntrl1.ActivePageIndex := 0;
+  rzEdtImie.Text := '';
+  rzEdtDrugieImie.Text := '';
+  rzEdtNazwisko.Text := '';
+  rzEdtNrTelefonu.Text := '';
+  rzCmbxPrawoJazdy.ItemIndex := -1;
+  rzCmbxTermin.ItemIndex := -1;
+  rzEdtInne1.Text := '';
+  rzEdtInne2.Text := '';
+
 end;
 
 procedure TFrmDefinicje.RzTbshtMiejscowoœciShow(Sender: TObject);
 begin
-ctgryBtns1.Categories[0].Items[0].Caption:= 'Dodaj miejscowoœæ';
+  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj miejscowoœæ';
 end;
 
 procedure TFrmDefinicje.RzTbshtPojazdyShow(Sender: TObject);
 begin
-ctgryBtns1.Categories[0].Items[0].Caption:= 'Dodaj pojazd';
+  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj pojazd';
+
+  rzEdtMarka.Text := '';
+  rzEdtTyp.Text := '';
+  rzEdtNrRej.Text := '';
+  rzChckBxHDS.Checked := False;
+  rzChckBxWinda.Checked := False;
+  rzChckBxPrzyczepa.Checked := False;
+  rzEdtInnyNr.Text := '';
+  rzEdtPrzeglad.Text := '';
 end;
 
 end.
+

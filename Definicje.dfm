@@ -11,6 +11,7 @@
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  ShowHint = True
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -53,14 +54,13 @@
     BorderColor = clMenuHighlight
     BorderWidth = 2
     TabOrder = 1
-    ExplicitHeight = 435
     object RzPgCntrl1: TRzPageControl
       Left = 2
       Top = 2
       Width = 699
       Height = 518
       Hint = ''
-      ActivePage = RzTbshtMiejscowości
+      ActivePage = RzTbshtPojazdy
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -68,10 +68,9 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 2
+      TabIndex = 1
       TabOrder = 0
       TabStyle = tsDoubleSlant
-      ExplicitHeight = 431
       FixedDimension = 25
       object RzTbshtKierowcy: TRzTabSheet
         OnShow = RzTbshtKierowcyShow
@@ -82,7 +81,6 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 0
         object rzGrpBox1: TRzGroupBox
           Left = 16
           Top = 16
@@ -361,7 +359,10 @@
             Top = 40
             Width = 201
             Height = 21
+            Hint = 'Pole nie mo'#380'e by'#263' puste'
             Text = ''
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 0
           end
           object rzEdtDrugieImie: TRzEdit
@@ -378,6 +379,8 @@
             Width = 201
             Height = 21
             Text = ''
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 2
           end
           object rzCmbxPrawoJazdy: TRzComboBox
@@ -385,6 +388,9 @@
             Top = 200
             Width = 201
             Height = 21
+            Hint = 'Pole nie mo'#380'e by'#263' puste'
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 3
             Items.Strings = (
               'B'
@@ -427,6 +433,8 @@
             Width = 201
             Height = 21
             Text = ''
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 7
           end
           object rzCmbxTermin: TRzComboBox
@@ -493,7 +501,7 @@
           end
           object rzlbl14: TRzLabel
             Left = 24
-            Top = 122
+            Top = 121
             Width = 69
             Height = 14
             Caption = #321'adowno'#347#263
@@ -508,7 +516,7 @@
           end
           object rzlbl15: TRzLabel
             Left = 24
-            Top = 159
+            Top = 161
             Width = 26
             Height = 16
             Caption = 'HDS'
@@ -523,7 +531,7 @@
           end
           object rzlbl16: TRzLabel
             Left = 24
-            Top = 199
+            Top = 201
             Width = 40
             Height = 16
             Caption = 'Winda'
@@ -538,7 +546,7 @@
           end
           object rzlbl17: TRzLabel
             Left = 24
-            Top = 239
+            Top = 241
             Width = 67
             Height = 16
             Caption = 'Przyczepa'
@@ -553,7 +561,7 @@
           end
           object rzlbl18: TRzLabel
             Left = 24
-            Top = 280
+            Top = 281
             Width = 106
             Height = 16
             Caption = 'Nr rejestracyjny'
@@ -568,7 +576,7 @@
           end
           object rzlbl19: TRzLabel
             Left = 24
-            Top = 328
+            Top = 321
             Width = 47
             Height = 16
             Caption = 'Inny nr'
@@ -583,7 +591,7 @@
           end
           object rzlbl23: TRzLabel
             Left = 24
-            Top = 376
+            Top = 361
             Width = 76
             Height = 16
             Caption = 'Przegl'#261'd do'
@@ -613,8 +621,8 @@
             TabOrder = 1
           end
           object rzEdtLadownosc: TRzEdit
-            Left = 170
-            Top = 120
+            Left = 168
+            Top = 119
             Width = 121
             Height = 21
             Text = ''
@@ -638,7 +646,7 @@
           end
           object rzChckBxHDS: TRzCheckBox
             Left = 170
-            Top = 160
+            Top = 162
             Width = 19
             Height = 15
             State = cbUnchecked
@@ -646,15 +654,15 @@
           end
           object rzChckBxWinda: TRzCheckBox
             Left = 170
-            Top = 200
+            Top = 201
             Width = 19
             Height = 15
             State = cbUnchecked
             TabOrder = 6
           end
           object rzEdtPrzeglad: TRzEdit
-            Left = 168
-            Top = 376
+            Left = 170
+            Top = 360
             Width = 121
             Height = 21
             Text = ''
@@ -662,7 +670,7 @@
           end
           object rzChckBxPrzyczepa: TRzCheckBox
             Left = 168
-            Top = 232
+            Top = 242
             Width = 19
             Height = 15
             State = cbUnchecked
@@ -815,7 +823,6 @@
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
-    ExplicitHeight = 435
     object ctgryBtns1: TCategoryButtons
       AlignWithMargins = True
       Left = 3
@@ -855,6 +862,8 @@
       RegularButtonColor = clWhite
       SelectedButtonColor = clRed
       TabOrder = 0
+      ExplicitLeft = 4
+      ExplicitTop = 6
     end
   end
 end
