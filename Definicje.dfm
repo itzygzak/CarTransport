@@ -60,7 +60,7 @@
       Width = 699
       Height = 518
       Hint = ''
-      ActivePage = RzTbshtMiejscowości
+      ActivePage = RzTbshtKierowcy
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -68,7 +68,7 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 2
+      TabIndex = 0
       TabOrder = 0
       TabStyle = tsDoubleSlant
       FixedDimension = 25
@@ -446,8 +446,8 @@
             Style = csDropDownList
             TabOrder = 8
             Items.Strings = (
-              'Bezterminowe'
-              'Terminowe')
+              'Tak'
+              'Nie')
           end
         end
       end
@@ -895,8 +895,6 @@
       RegularButtonColor = clWhite
       SelectedButtonColor = clRed
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 6
     end
   end
 end
