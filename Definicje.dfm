@@ -12,7 +12,7 @@
   Font.Style = []
   OldCreateOrder = False
   ShowHint = True
-  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object RzPnl1: TRzPanel
@@ -60,7 +60,7 @@
       Width = 699
       Height = 518
       Hint = ''
-      ActivePage = RzTbshtPojazdy
+      ActivePage = RzTbshtMiejscowości
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -68,7 +68,7 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 1
+      TabIndex = 2
       TabOrder = 0
       TabStyle = tsDoubleSlant
       FixedDimension = 25
@@ -389,6 +389,7 @@
             Width = 201
             Height = 21
             Hint = 'Pole nie mo'#380'e by'#263' puste'
+            Style = csDropDownList
             ParentShowHint = False
             ShowHint = True
             TabOrder = 3
@@ -442,7 +443,11 @@
             Top = 240
             Width = 201
             Height = 21
+            Style = csDropDownList
             TabOrder = 8
+            Items.Strings = (
+              'Bezterminowe'
+              'Terminowe')
           end
         end
       end
@@ -653,7 +658,7 @@
             TabOrder = 5
           end
           object rzChckBxWinda: TRzCheckBox
-            Left = 170
+            Left = 168
             Top = 201
             Width = 19
             Height = 15
@@ -770,6 +775,21 @@
             LightTextStyle = True
             TextStyle = tsRecessed
           end
+          object rzlbl24: TRzLabel
+            Left = 25
+            Top = 240
+            Width = 26
+            Height = 16
+            Caption = 'Kraj'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = 16737843
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRaised
+          end
           object rzEdtMiejscowosc: TRzEdit
             Left = 232
             Top = 40
@@ -809,6 +829,19 @@
             Height = 21
             Text = ''
             TabOrder = 4
+          end
+          object rzCmbxKraj: TRzComboBox
+            Left = 232
+            Top = 240
+            Width = 169
+            Height = 21
+            Style = csDropDownList
+            TabOrder = 5
+            Items.Strings = (
+              'Polska'
+              'Chiny'
+              'Indie'
+              'Uganda')
           end
         end
       end

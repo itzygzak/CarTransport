@@ -69,7 +69,8 @@ type
     rzlbl23: TRzLabel;
     rzEdtPrzeglad: TRzEdit;
     rzChckBxPrzyczepa: TRzCheckBox;
-    procedure FormCreate(Sender: TObject);
+    rzCmbxKraj: TRzComboBox;
+    rzlbl24: TRzLabel;
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -78,8 +79,9 @@ type
     procedure RzTbshtPojazdyShow(Sender: TObject);
     procedure RzTbshtMiejscowoœciShow(Sender: TObject);
     procedure ZapiszKierowce;
-//    procedure DodajPojazd;
-//    procedure DodajMiejscowosc;
+    procedure DodajPojazd;
+    procedure FormShow(Sender: TObject);
+    procedure DodajMiejscowosc;
   private
     { Private declarations }
   public
@@ -101,11 +103,152 @@ begin
   if RzPgCntrl1.ActivePageIndex = 0 then
   begin
     ZapiszKierowce;
-  end
-  else
-  begin
-    ShowMessage('DodajPojazd');
   end;
+
+  if RzPgCntrl1.ActivePageIndex = 1 then
+  begin
+    DodajPojazd;
+  end;
+
+  if RzPgCntrl1.ActivePageIndex = 2 then
+  begin
+    DodajMiejscowosc;
+  end;
+end;
+
+procedure TFrmDefinicje.DodajMiejscowosc;
+var
+  generator: Integer;
+  historia: string;
+begin
+  try
+    with DataModule1.ibQryTemp, SQL do
+    begin
+      Close;
+      Clear;
+      Add('INSERT INTO miejscowosci (Nazwa, Kod_pocztowy, Wojewodztwo, Powiat, Gmina, Kraj)');
+      Add('VALUES (:Nazwa, :Kod_pocztowy, :Wojewodztwo, :Powiat, :Gmina, :Kraj )');
+      ParamByName('Nazwa').AsString := Trim(rzEdtMiejscowosc.Text);
+      ParamByName('Kod_pocztowy').AsString := Trim(rzEdtKod.Text);
+      ParamByName('Wojewodztwo').AsString := Trim(rzEdtWojew.Text);
+      ParamByName('Powiat').AsString := Trim(rzEdtPowiat.Text);
+      ParamByName('Gmina').AsString := Trim(rzEdtGmina.Text);
+      ParamByName('Kraj').AsString := rzCmbxKraj.Text;
+      ExecSQL;
+      DataModule1.ibTransTemp.Commit;
+    end;
+
+    with DataModule1.ibQryTemp, SQL do                    //po dodaniu w oknie wczesniejszym ustawiamy sie na nowym instruktorze
+    begin
+      Clear;
+      Add('SELECT gen_id (gen_miejscowosci_id, 0) FROM rdb$database ');
+      Open;
+      generator := FieldByName('gen_id').AsInteger;
+    end;
+
+    begin
+        //startuje historia
+      try     //do zm. historia przypisuje legende + zawartosc editow
+        historia := 'Dodanie nowej miejscowoœci ' + #13#10;
+        historia := historia + ' Nazwa: ' + rzEdtMiejscowosc.Text + #13#10;
+        historia := historia + ' Kod_pocztowy ' + rzEdtKod.Text + #13#10;
+
+        with DataModule1.ibQryHistoria, SQL do
+        begin
+          Close;
+          Clear;
+          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_miejscowosci, :rekord, :operacja, :stanowisko_k)');
+          ParamByName('panel').AsInteger := 2;
+          ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
+          ParamByName('rekord').AsInteger := generator;
+          ParamByName('operacja').AsString := historia;
+          ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
+          ExecSQL;
+          DataModule1.ibTransHistoria.Commit;
+        end;
+      except
+        DataModule1.ibTransHistoria.Rollback;
+        ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+      end;
+    end;
+    //koniec historia
+
+  except
+    DataModule1.ibTransHistoria.Rollback;
+    ShowMessage('B³¹d nie uda³o siê utworzyæ nowej miejscowoœci ');
+  end;
+
+end;
+
+procedure TFrmDefinicje.DodajPojazd;
+var
+  generator: Integer;
+  historia: string;
+begin
+  try
+    with DataModule1.ibQryTemp, SQL do
+    begin
+      Close;
+      Clear;
+      Add('INSERT INTO pojazdy (Marka, Typ, Ladownosc, Czy_Hds, Czy_winda, Czy_przyczepa, Nr_rej_pojazdu, Inny_nr, wazny_przeglad)');
+      Add('VALUES (:Marka, :Typ, :Ladownosc, :Czy_Hds, :Czy_winda, :Czy_przyczepa, :Nr_rej_pojazdu, :Inny_nr, :Wazny_przeglad )');
+      ParamByName('Marka').AsString := Trim(rzEdtMarka.Text);
+      ParamByName('Typ').AsString := Trim(rzEdtTyp.Text);
+      ParamByName('Ladownosc').AsString := Trim(rzEdtLadownosc.Text);
+      ParamByName('Czy_Hds').AsBoolean := rzChckBxHDS.Checked;
+      ParamByName('Czy_winda').AsBoolean := rzChckBxWinda.Checked;
+      ParamByName('Czy_przyczepa').AsBoolean := rzChckBxPrzyczepa.Checked;
+      ParamByName('Nr_rej_pojazdu').AsString := Trim(rzEdtNrRej.Text);
+      ParamByName('Inny_nr').AsString := Trim(rzEdtInnyNr.Text);
+      ParamByName('Wazny_przeglad').AsString := Trim(rzEdtPrzeglad.Text);
+      ExecSQL;
+      DataModule1.ibTransTemp.Commit;
+    end;
+
+    with DataModule1.ibQryTemp, SQL do                    //po dodaniu w oknie wczesniejszym ustawiamy sie na nowym instruktorze
+    begin
+      Clear;
+      Add('SELECT gen_id (gen_pojazdy_id, 0) FROM rdb$database ');
+      Open;
+      generator := FieldByName('gen_id').AsInteger;
+    end;
+
+    begin
+        //startuje historia
+      try     //do zm. historia przypisuje legende + zawartosc editow
+        historia := 'Dodanie nowego pojazdu ' + #13#10;
+        historia := historia + ' Marka: ' + rzEdtMarka.Text + #13#10;
+        historia := historia + ' Typ: ' + rzEdtTyp.Text + #13#10;
+
+        with DataModule1.ibQryHistoria, SQL do
+        begin
+          Close;
+          Clear;
+          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_kierowca, :rekord, :operacja, :stanowisko_k)');
+          ParamByName('panel').AsInteger := 2;
+          ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
+          ParamByName('rekord').AsInteger := generator;
+          ParamByName('operacja').AsString := historia;
+          ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
+          ExecSQL;
+          DataModule1.ibTransHistoria.Commit;
+        end;
+      except
+        DataModule1.ibTransHistoria.Rollback;
+        ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+      end;
+    end;
+    //koniec historia
+
+  except
+    DataModule1.ibTransHistoria.Rollback;
+    ShowMessage('B³¹d nie uda³o siê utworzyæ nowego kierowcy ');
+  end;
+end;
+
+procedure TFrmDefinicje.FormShow(Sender: TObject);
+begin
+  RzPgCntrl1.ActivePageIndex := 0;
 end;
 
 procedure TFrmDefinicje.ZapiszKierowce;
@@ -153,9 +296,9 @@ begin
         begin
           Close;
           Clear;
-          Add('INSERT INTO historia (panel, id_kierowca, rekord, operacja, stanowisko_k) VALUES (:panel, :id_kierowca, :rekord, :operacja, :stanowisko_k)');
+          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_kierowca, :rekord, :operacja, :stanowisko_k)');
           ParamByName('panel').AsInteger := 2;
-          ParamByName('id_kierowca').AsInteger := FrmLogin.IDUzyt;
+          ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
           ParamByName('rekord').AsInteger := generator;
           ParamByName('operacja').AsString := historia;
           ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
@@ -181,20 +324,6 @@ begin
   Close;
 end;
 
-procedure TFrmDefinicje.FormCreate(Sender: TObject);
-begin
-
-
- { chkKDR.Checked := False;
-  chkZNW.Checked := False;
-  cbbLokalizacja.ItemIndex := -1;
-  EdtImie.SetFocus;
-
-  edtPrzydzDrugieImie.Text := '';
-  edtSzukajZaj.Text := '';
-  dtpOd_Kiedy.DateTime := Now;}
-end;
-
 procedure TFrmDefinicje.img1Click(Sender: TObject);
 begin
   img1.Picture.LoadFromFile('PrawkoPomoc.png');
@@ -211,7 +340,8 @@ end;
 procedure TFrmDefinicje.RzTbshtKierowcyShow(Sender: TObject);
 begin
   ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj kierowcê';
-  RzPgCntrl1.ActivePageIndex := 0;
+
+//  RzPgCntrl1.ActivePageIndex := 0;
   rzEdtImie.Text := '';
   rzEdtDrugieImie.Text := '';
   rzEdtNazwisko.Text := '';
@@ -226,6 +356,12 @@ end;
 procedure TFrmDefinicje.RzTbshtMiejscowoœciShow(Sender: TObject);
 begin
   ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj miejscowoœæ';
+
+  rzEdtMiejscowosc.Text := '';
+  rzEdtKod.Text := '';
+  rzEdtWojew.Text := '';
+  rzEdtPowiat.Text := '';
+  rzEdtGmina.Text := '';
 end;
 
 procedure TFrmDefinicje.RzTbshtPojazdyShow(Sender: TObject);
