@@ -53,7 +53,6 @@ object FrmUstalKurs: TFrmUstalKurs
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 1
-    ExplicitWidth = 929
     object rzBtnUstal: TRzButton
       Left = 720
       Top = 432
@@ -66,7 +65,7 @@ object FrmUstalKurs: TFrmUstalKurs
     object rzGrpBox1: TRzGroupBox
       Left = 24
       Top = 18
-      Width = 625
+      Width = 857
       Height = 80
       Caption = 'Ustal dat'#281' i godzin'#281
       CaptionFont.Charset = DEFAULT_CHARSET
@@ -78,10 +77,10 @@ object FrmUstalKurs: TFrmUstalKurs
       TabOrder = 1
       object rzlbl1: TRzLabel
         Left = 9
-        Top = 39
-        Width = 51
+        Top = 40
+        Width = 137
         Height = 25
-        Caption = 'Data'
+        Caption = 'Data wysy'#322'ki'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clRed
         Font.Height = -21
@@ -92,11 +91,11 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRecessed
       end
       object rzlbl2: TRzLabel
-        Left = 336
+        Left = 398
         Top = 40
-        Width = 85
+        Width = 171
         Height = 25
-        Caption = 'Godzina'
+        Caption = 'Godzina wysy'#322'ki'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clRed
         Font.Height = -21
@@ -107,7 +106,7 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRecessed
       end
       object rzDtmPckrData: TRzDateTimePicker
-        Left = 88
+        Left = 167
         Top = 40
         Width = 186
         Height = 27
@@ -124,8 +123,8 @@ object FrmUstalKurs: TFrmUstalKurs
       end
     end
     object rzEdtTime: TRzMaskEdit
-      Left = 480
-      Top = 59
+      Left = 616
+      Top = 60
       Width = 116
       Height = 27
       EditMask = '!90:00:00>;1;_'
@@ -259,6 +258,11 @@ object FrmUstalKurs: TFrmUstalKurs
       Width = 617
       Height = 169
       Caption = 'Adres (wybierz)'
+      CaptionFont.Charset = DEFAULT_CHARSET
+      CaptionFont.Color = clWindowText
+      CaptionFont.Height = -16
+      CaptionFont.Name = 'Tahoma'
+      CaptionFont.Style = []
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -393,9 +397,6 @@ object FrmUstalKurs: TFrmUstalKurs
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
-    ExplicitLeft = 929
-    ExplicitTop = 41
-    ExplicitHeight = 505
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
@@ -441,7 +442,7 @@ object FrmUstalKurs: TFrmUstalKurs
   object tmr1: TTimer
     Interval = 500
     OnTimer = tmr1Timer
-    Left = 752
-    Top = 105
+    Left = 1072
+    Top = 305
   end
 end

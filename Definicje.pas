@@ -71,7 +71,6 @@ type
     rzChckBxPrzyczepa: TRzCheckBox;
     rzCmbxKraj: TRzComboBox;
     rzlbl24: TRzLabel;
-    btn1: TButton;
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);

@@ -89,7 +89,7 @@
           Caption = ' Wprowad'#378' '
           CaptionFont.Charset = DEFAULT_CHARSET
           CaptionFont.Color = clWindowText
-          CaptionFont.Height = -13
+          CaptionFont.Height = -16
           CaptionFont.Name = 'Tahoma'
           CaptionFont.Style = []
           Font.Charset = DEFAULT_CHARSET
@@ -451,14 +451,6 @@
               'Nie')
           end
         end
-        object btn1: TButton
-          Left = 576
-          Top = 136
-          Width = 75
-          Height = 25
-          Caption = 'btn1'
-          TabOrder = 1
-        end
       end
       object RzTbshtPojazdy: TRzTabSheet
         OnShow = RzTbshtPojazdyShow
@@ -475,6 +467,11 @@
           Width = 417
           Height = 417
           Caption = 'Wprowad'#378' pojazdy '
+          CaptionFont.Charset = DEFAULT_CHARSET
+          CaptionFont.Color = clWindowText
+          CaptionFont.Height = -16
+          CaptionFont.Name = 'Tahoma'
+          CaptionFont.Style = []
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -710,6 +707,11 @@
           Width = 417
           Height = 313
           Caption = 'Zdefiniuj miejscowo'#347'ci'
+          CaptionFont.Charset = DEFAULT_CHARSET
+          CaptionFont.Color = clWindowText
+          CaptionFont.Height = -16
+          CaptionFont.Name = 'Tahoma'
+          CaptionFont.Style = []
           GroupStyle = gsUnderline
           TabOrder = 0
           object rzlbl7: TRzLabel

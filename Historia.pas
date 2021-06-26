@@ -24,7 +24,6 @@ type
     ctgryBtns1: TCategoryButtons;
     procedure ctgryBtns1Categories0Items2Click(Sender: TObject);
     procedure img1Click(Sender: TObject);
-    procedure Szukaj;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
@@ -82,10 +81,5 @@ begin
     spltVw1.Open;
 end;
 
-procedure TFrmHistoria.Szukaj;
-begin
- //
-end;
-
-end.
+nd.
 
