@@ -60,7 +60,7 @@
       Width = 699
       Height = 518
       Hint = ''
-      ActivePage = RzTbshtKierowcy
+      ActivePage = RzTbshtMiejscowości
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -68,7 +68,7 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 0
+      TabIndex = 2
       TabOrder = 0
       TabStyle = tsDoubleSlant
       FixedDimension = 25
@@ -359,11 +359,9 @@
             Top = 40
             Width = 201
             Height = 21
-            Hint = 'Pole nie mo'#380'e by'#263' puste'
             Text = ''
-            ParentShowHint = False
-            ShowHint = True
             TabOrder = 0
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtDrugieImie: TRzEdit
             Left = 192
@@ -382,6 +380,7 @@
             ParentShowHint = False
             ShowHint = True
             TabOrder = 2
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
           end
           object rzCmbxPrawoJazdy: TRzComboBox
             Left = 192
@@ -393,6 +392,7 @@
             ParentShowHint = False
             ShowHint = True
             TabOrder = 4
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
             Items.Strings = (
               'B'
               'C1'
@@ -437,6 +437,7 @@
             ParentShowHint = False
             ShowHint = True
             TabOrder = 3
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
           end
           object rzCmbxTermin: TRzComboBox
             Left = 192
@@ -449,6 +450,14 @@
               'Tak'
               'Nie')
           end
+        end
+        object btn1: TButton
+          Left = 576
+          Top = 136
+          Width = 75
+          Height = 25
+          Caption = 'btn1'
+          TabOrder = 1
         end
       end
       object RzTbshtPojazdy: TRzTabSheet
@@ -616,6 +625,7 @@
             Height = 21
             Text = ''
             TabOrder = 0
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtTyp: TRzEdit
             Left = 170
@@ -624,6 +634,7 @@
             Height = 21
             Text = ''
             TabOrder = 1
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtLadownosc: TRzEdit
             Left = 170
@@ -640,6 +651,7 @@
             Height = 21
             Text = ''
             TabOrder = 6
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtInnyNr: TRzEdit
             Left = 170
@@ -797,6 +809,7 @@
             Height = 21
             Text = ''
             TabOrder = 0
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtKod: TRzEdit
             Left = 232
@@ -813,6 +826,7 @@
             Height = 21
             Text = ''
             TabOrder = 2
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtPowiat: TRzEdit
             Left = 232
@@ -837,6 +851,7 @@
             Height = 21
             Style = csDropDownList
             TabOrder = 5
+            TextHint = 'Pole nie mo'#380'e by'#263' puste'
             Items.Strings = (
               'Polska'
               'Chiny'

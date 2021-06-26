@@ -71,6 +71,7 @@ type
     rzChckBxPrzyczepa: TRzCheckBox;
     rzCmbxKraj: TRzComboBox;
     rzlbl24: TRzLabel;
+    btn1: TButton;
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -102,17 +103,32 @@ procedure TFrmDefinicje.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
   if RzPgCntrl1.ActivePageIndex = 0 then
   begin
-    ZapiszKierowce;
+    if ((rzEdtImie.Text = '') or (rzEdtNazwisko.Text = '') or (rzEdtNrTelefonu.Text = '') or (rzCmbxPrawoJazdy.Text = '')) then
+    begin
+      ShowMessage('Wype³nij wymagane pola');
+    end
+    else
+      ZapiszKierowce;
   end;
 
   if RzPgCntrl1.ActivePageIndex = 1 then
   begin
-    DodajPojazd;
+    if ((rzEdtMarka.Text = '') or (rzEdtTyp.Text = '') or (rzEdtNrRej.Text = '')) then
+    begin
+      ShowMessage('Wype³nij wymagane pola');
+    end
+    else
+      DodajPojazd;
   end;
 
   if RzPgCntrl1.ActivePageIndex = 2 then
   begin
-    DodajMiejscowosc;
+    if ((rzEdtNazwisko.Text = '') or (rzEdtNrTelefonu.Text = '') or (rzCmbxPrawoJazdy.Text = '')) then
+    begin
+      ShowMessage('Wype³nij wymagane pola');
+    end
+    else
+      DodajMiejscowosc;
   end;
 end;
 
@@ -177,7 +193,11 @@ begin
     DataModule1.ibTransHistoria.Rollback;
     ShowMessage('B³¹d nie uda³o siê utworzyæ nowej miejscowoœci ');
   end;
-
+  rzEdtMiejscowosc.Text := '';
+  rzEdtKod.Text := '';
+  rzEdtWojew.Text := '';
+  rzEdtPowiat.Text := '';
+  rzEdtGmina.Text := '';
 end;
 
 procedure TFrmDefinicje.DodajPojazd;
@@ -244,6 +264,14 @@ begin
     DataModule1.ibTransHistoria.Rollback;
     ShowMessage('B³¹d nie uda³o siê utworzyæ nowego kierowcy ');
   end;
+  rzEdtMarka.Text := '';
+  rzEdtTyp.Text := '';
+  rzEdtNrRej.Text := '';
+  rzChckBxHDS.Checked := False;
+  rzChckBxWinda.Checked := False;
+  rzChckBxPrzyczepa.Checked := False;
+  rzEdtInnyNr.Text := '';
+  rzEdtPrzeglad.Text := '';
 end;
 
 procedure TFrmDefinicje.FormShow(Sender: TObject);
@@ -317,6 +345,17 @@ begin
     DataModule1.ibTransHistoria.Rollback;
     ShowMessage('B³¹d nie uda³o siê utworzyæ nowego kierowcy ');
   end;
+
+  rzEdtImie.Text := '';
+  rzEdtDrugieImie.Text := '';
+  rzEdtNazwisko.Text := '';
+  rzEdtNrTelefonu.Text := '';
+  rzCmbxPrawoJazdy.ItemIndex := -1;
+  rzCmbxTermin.ItemIndex := -1;
+  rzEdtInne1.Text := '';
+  rzEdtInne2.Text := '';
+  rzMmo1.Text := '';
+
 end;
 
 procedure TFrmDefinicje.ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -341,7 +380,6 @@ procedure TFrmDefinicje.RzTbshtKierowcyShow(Sender: TObject);
 begin
   ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj kierowcê';
 
-//  RzPgCntrl1.ActivePageIndex := 0;
   rzEdtImie.Text := '';
   rzEdtDrugieImie.Text := '';
   rzEdtNazwisko.Text := '';
