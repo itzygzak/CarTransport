@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, FrameZap, Vcl.CategoryButtons,
   Vcl.StdCtrls, RzLabel, RzButton, Vcl.Mask, RzEdit, Vcl.ComCtrls, RzDTP,
-  RzCmboBx, Vcl.Imaging.pngimage;
+  RzCmboBx, Vcl.Imaging.pngimage, Vcl.WinXPickers;
 
 type
   TFrmUstalKurs = class(TForm)
@@ -16,27 +16,35 @@ type
     img1: TImage;
     spltVw1: TSplitView;
     ctgryBtns1: TCategoryButtons;
-    rzBtnUstal: TRzButton;
     rzGrpBox1: TRzGroupBox;
     rzlbl1: TRzLabel;
     rzlbl2: TRzLabel;
     rzDtmPckrData: TRzDateTimePicker;
-    rzEdtTime: TRzMaskEdit;
     tmr1: TTimer;
     rzGrpBox2: TRzGroupBox;
     rzlbl4: TRzLabel;
-    rzCmbxWgDokum: TRzComboBox;
     rzGrpBox3: TRzGroupBox;
     rzlbl5: TRzLabel;
     rzlbl6: TRzLabel;
+    rzCmbxKierowca: TRzComboBox;
+    rzCmbxPojazd: TRzComboBox;
+    rzEdtWgDokum: TRzEdit;
+    rzlbl3: TRzLabel;
+    rzMmoUwagi: TRzMemo;
+    rzGrpBox5: TRzGroupBox;
+    rzlbl7: TRzLabel;
+    rzlbl13: TRzLabel;
+    tmPckrCzasPowrotu: TTimePicker;
+    tmPckrCzasWysylki: TTimePicker;
+    rzBtnUstal: TRzButton;
+    rzDtmPckrDataPowrotu: TRzDateTimePicker;
+    RzPnlAdres: TRzPanel;
     rzGrpBox4: TRzGroupBox;
     rzlbl8: TRzLabel;
     rzlbl9: TRzLabel;
     rzlbl10: TRzLabel;
     rzlbl11: TRzLabel;
     rzlbl12: TRzLabel;
-    rzCmbxKierowca: TRzComboBox;
-    rzCmbxPojazd: TRzComboBox;
     rzCmbxMiejsc: TRzComboBox;
     rzCmbxKod: TRzComboBox;
     rzCmbxUlica: TRzComboBox;
@@ -47,6 +55,10 @@ type
     procedure tmr1Timer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure rzCmbxKierowcaClick(Sender: TObject);
+    procedure rzCmbxPojazdClick(Sender: TObject);
+    procedure rzCmbxMiejscClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,6 +70,9 @@ var
 
 implementation
 
+uses
+  DM;
+
 //uses
 //  FrameZap;
 
@@ -65,7 +80,7 @@ implementation
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TFrmUstalKurs.FormCreate(Sender: TObject);
@@ -73,6 +88,14 @@ var
   data: TDate;
 begin
   rzDtmPckrData.Date := Now;
+end;
+
+procedure TFrmUstalKurs.FormShow(Sender: TObject);
+begin
+
+//dtPckrDataPowrotu.Date:=Now;
+  tmPckrCzasWysylki.Time := Now;
+  tmPckrCzasPowrotu.Time := Now;
 end;
 
 procedure TFrmUstalKurs.img1Click(Sender: TObject);
@@ -89,9 +112,71 @@ begin
 
 end;
 
+procedure TFrmUstalKurs.rzCmbxKierowcaClick(Sender: TObject);
+begin
+  with DataModule1.ibQryTemp, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT nazwisko FROM kierowcy ');
+    Add('WHERE usun=:usun ORDER BY nazwisko');
+    ParamByName('usun').AsInteger := 0;
+    Open;
+  end;
+
+  rzCmbxKierowca.Items.Clear;
+  while not DataModule1.ibQryTemp.Eof do
+  begin
+    rzCmbxKierowca.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwisko').AsString);
+    DataModule1.ibQryTemp.Next;
+  end;
+
+end;
+
+procedure TFrmUstalKurs.rzCmbxMiejscClick(Sender: TObject);
+begin
+  with DataModule1.ibQryTemp, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT nazwa FROM miejscowosci ');
+    Add('WHERE usun=:usun ORDER BY nazwa');
+    ParamByName('usun').AsInteger := 0;
+    Open;
+  end;
+
+  rzCmbxMiejsc.Items.Clear;
+  while not DataModule1.ibQryTemp.Eof do
+  begin
+    rzCmbxMiejsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
+    DataModule1.ibQryTemp.Next;
+  end;
+end;
+
+procedure TFrmUstalKurs.rzCmbxPojazdClick(Sender: TObject);
+begin
+  with DataModule1.ibQryTemp, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT marka FROM pojazdy ');
+    Add('WHERE usun=:usun ORDER BY marka');
+    ParamByName('usun').AsInteger := 0;
+    Open;
+  end;
+
+  rzCmbxPojazd.Items.Clear;
+  while not DataModule1.ibQryTemp.Eof do
+  begin
+    rzCmbxPojazd.Items.Add(DataModule1.ibQryTemp.FieldByName('marka').AsString);
+    DataModule1.ibQryTemp.Next;
+  end;
+
+end;
+
 procedure TFrmUstalKurs.tmr1Timer(Sender: TObject);
 begin
-  rzEdtTime.Text := TimeToStr(Time);
+ // rzEdtTime.Text := TimeToStr(Time);
 end;
 
 end.

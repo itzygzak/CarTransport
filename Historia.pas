@@ -81,5 +81,5 @@ begin
     spltVw1.Open;
 end;
 
-nd.
+end.
 
