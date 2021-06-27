@@ -59,9 +59,9 @@ type
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure rzEdtSzukMscChange(Sender: TObject);
-    procedure rzCmbxPojazdKeyPress(Sender: TObject; var Key: Char);
-    procedure rzCmbxMscKeyPress(Sender: TObject; var Key: Char);
-    procedure rzCmbxKierowcaClick(Sender: TObject);
+    procedure PokazKierowcow;
+    procedure PokazPojazdy;
+    procedure rzEdtSzukMscClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -77,6 +77,47 @@ uses
   DM;
 
 {$R *.dfm}
+
+procedure TFrmUstalKurs.PokazPojazdy;
+begin
+  with DataModule1.ibQryTemp, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT marka, typ FROM pojazdy ');
+    Add('WHERE usun=:usun ORDER BY marka');
+    ParamByName('usun').AsInteger := 0;
+    Open;
+  end;
+
+  rzCmbxPojazd.Items.Clear;
+  while not DataModule1.ibQryTemp.Eof do
+  begin
+    rzCmbxPojazd.Items.Add(DataModule1.ibQryTemp.FieldByName('marka').AsString  + ' ' + DataModule1.ibQryTemp.FieldByName('typ').AsString);
+    DataModule1.ibQryTemp.Next;
+  end;
+
+end;
+
+procedure TFrmUstalKurs.PokazKierowcow;
+begin
+  with DataModule1.ibQryTemp, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT imie,nazwisko FROM kierowcy ');
+    Add('WHERE usun=:usun ORDER BY nazwisko');
+    ParamByName('usun').AsInteger := 0;
+    Open;
+  end;
+
+  rzCmbxKierowca.Items.Clear;
+  while not DataModule1.ibQryTemp.Eof do
+  begin
+    rzCmbxKierowca.Items.Add(DataModule1.ibQryTemp.FieldByName('imie').AsString  + ' ' + DataModule1.ibQryTemp.FieldByName('nazwisko').AsString);
+    DataModule1.ibQryTemp.Next;
+  end;
+end;
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
@@ -96,6 +137,8 @@ begin
 //dtPckrDataPowrotu.Date:=Now;
   tmPckrCzasWysylki.Time := Now;
   tmPckrCzasPowrotu.Time := Now;
+  PokazKierowcow;
+  PokazPojazdy;
 
 end;
 
@@ -111,69 +154,6 @@ procedure TFrmUstalKurs.rzBtnUstalClick(Sender: TObject);
 begin
   Application.MessageBox('Zosta³y ustalone parametry wysy³ki. ' + #13#10 + 'Je¿eli podane parametry s¹ prawid³owe, zapisz dane i ' + #13#10 + 'wydrukuj list przewozowy.', 'Application.Title', MB_OK + MB_ICONINFORMATION);
 
-end;
-
-procedure TFrmUstalKurs.rzCmbxKierowcaClick(Sender: TObject);
-begin
-  with DataModule1.ibQryTemp, SQL do
-  begin
-    Close;
-    Clear;
-    Add('SELECT imie,nazwisko FROM kierowcy ');
-    Add('WHERE usun=:usun ORDER BY nazwisko');
-    ParamByName('usun').AsInteger := 0;
-    Open;
-  end;
-
-  rzCmbxKierowca.Items.Clear;
-  while not DataModule1.ibQryTemp.Eof do
-  begin
-    rzCmbxKierowca.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwisko').AsString);
-    DataModule1.ibQryTemp.Next;
-  end;
-
-end;
-
-procedure TFrmUstalKurs.rzCmbxMscKeyPress(Sender: TObject; var Key: Char);
-begin
-   with DataModule1.ibQryTemp, SQL do
-  begin
-    Close;
-    Clear;
-    Add('SELECT * FROM miejscowosci ');
-    Add('WHERE usun=:usun ORDER BY nazwa');
-    ParamByName('usun').AsInteger := 0;
-    Open;
-  end;
-
-  rzCmbxMsc.Items.Clear;
-  while not DataModule1.ibQryTemp.Eof do
-  begin
-    rzCmbxMsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
-    DataModule1.ibQryTemp.Next;
-  end;
-  //rzEdtMsc.Text := DataModule1.ibQryTemp.FieldValues['Nazwa'];
-   DataModule1.ibQryTemp.FieldValues['Nazwa']:=rzEdtMsc.Text;
-end;
-
-procedure TFrmUstalKurs.rzCmbxPojazdKeyPress(Sender: TObject; var Key: Char);
-begin
-  with DataModule1.ibQryTemp, SQL do
-  begin
-    Close;
-    Clear;
-    Add('SELECT marka FROM pojazdy ');
-    Add('WHERE usun=:usun ORDER BY marka');
-    ParamByName('usun').AsInteger := 0;
-    Open;
-  end;
-
-  rzCmbxPojazd.Items.Clear;
-  while not DataModule1.ibQryTemp.Eof do
-  begin
-    rzCmbxPojazd.Items.Add(DataModule1.ibQryTemp.FieldByName('marka').AsString);
-    DataModule1.ibQryTemp.Next;
-  end;
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukMscChange(Sender: TObject);
@@ -200,6 +180,11 @@ begin
     rzEdtKodPoczt.Text := DataModule1.ibQryMsc.FieldValues['kod_pocztowy'];
   end;
 
+end;
+
+procedure TFrmUstalKurs.rzEdtSzukMscClick(Sender: TObject);
+begin
+//edt
 end;
 
 end.

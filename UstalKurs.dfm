@@ -170,6 +170,7 @@ object FrmUstalKurs: TFrmUstalKurs
           Text = ''
           TabOrder = 1
           OnChange = rzEdtSzukMscChange
+          OnClick = rzEdtSzukMscClick
         end
         object rzEdtMsc: TRzEdit
           Left = 96
@@ -209,7 +210,6 @@ object FrmUstalKurs: TFrmUstalKurs
           Width = 145
           Height = 21
           TabOrder = 6
-          OnKeyPress = rzCmbxMscKeyPress
         end
       end
       object rzGrpBox3: TRzGroupBox
@@ -257,11 +257,10 @@ object FrmUstalKurs: TFrmUstalKurs
         end
         object rzCmbxKierowca: TRzComboBox
           Left = 87
-          Top = 48
+          Top = 42
           Width = 145
           Height = 21
           TabOrder = 0
-          OnClick = rzCmbxKierowcaClick
         end
         object rzCmbxPojazd: TRzComboBox
           Left = 87
@@ -269,7 +268,6 @@ object FrmUstalKurs: TFrmUstalKurs
           Width = 145
           Height = 21
           TabOrder = 1
-          OnKeyPress = rzCmbxPojazdKeyPress
         end
       end
     end
@@ -281,7 +279,6 @@ object FrmUstalKurs: TFrmUstalKurs
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 1
-      ExplicitTop = 6
       object rzGrpBox1: TRzGroupBox
         Left = 7
         Top = 3
