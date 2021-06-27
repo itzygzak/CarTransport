@@ -8,6 +8,7 @@ object DataModule1: TDataModule1
     Top = 232
   end
   object ibDtBase1: TIBDatabase
+    Connected = True
     DatabaseName = '127.0.0.1/3050:D:\Bazy\CarTransport\CARTRANSPORT.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
@@ -15,6 +16,7 @@ object DataModule1: TDataModule1
       'lc_ctype=UTF8')
     LoginPrompt = False
     ServerType = 'IBServer'
+    AllowStreamedConnected = False
     Left = 40
     Top = 32
   end
@@ -43,16 +45,16 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     Left = 424
-    Top = 48
+    Top = 32
   end
   object ibTransKier: TIBTransaction
-    Left = 424
+    Left = 416
     Top = 112
   end
   object dsKier: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 432
+    Left = 424
     Top = 224
   end
   object ibQryTemp: TIBQuery
@@ -102,5 +104,30 @@ object DataModule1: TDataModule1
     DataSet = ibQryHistoria
     Left = 304
     Top = 232
+  end
+  object ibQryMsc: TIBQuery
+    Database = ibDtBase1
+    Transaction = ibTransUzyt
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'SELECT * FROM miejscowosci')
+    Left = 512
+    Top = 40
+  end
+  object ibTransMsc: TIBTransaction
+    DefaultDatabase = ibDtBase1
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 504
+    Top = 112
+  end
+  object dsMsc: TDataSource
+    DataSet = ibQryMsc
+    Left = 512
+    Top = 224
   end
 end

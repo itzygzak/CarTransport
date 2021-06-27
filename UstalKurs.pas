@@ -16,28 +16,9 @@ type
     img1: TImage;
     spltVw1: TSplitView;
     ctgryBtns1: TCategoryButtons;
-    rzGrpBox1: TRzGroupBox;
-    rzlbl1: TRzLabel;
-    rzlbl2: TRzLabel;
-    rzDtmPckrData: TRzDateTimePicker;
     tmr1: TTimer;
-    rzGrpBox2: TRzGroupBox;
-    rzlbl4: TRzLabel;
-    rzGrpBox3: TRzGroupBox;
-    rzlbl5: TRzLabel;
-    rzlbl6: TRzLabel;
-    rzCmbxKierowca: TRzComboBox;
-    rzCmbxPojazd: TRzComboBox;
-    rzEdtWgDokum: TRzEdit;
-    rzlbl3: TRzLabel;
-    rzMmoUwagi: TRzMemo;
-    rzGrpBox5: TRzGroupBox;
-    rzlbl7: TRzLabel;
-    rzlbl13: TRzLabel;
     tmPckrCzasPowrotu: TTimePicker;
-    tmPckrCzasWysylki: TTimePicker;
     rzBtnUstal: TRzButton;
-    rzDtmPckrDataPowrotu: TRzDateTimePicker;
     RzPnlAdres: TRzPanel;
     rzGrpBox4: TRzGroupBox;
     rzlbl8: TRzLabel;
@@ -46,10 +27,32 @@ type
     rzlbl11: TRzLabel;
     rzlbl12: TRzLabel;
     rzCmbxMiejsc: TRzComboBox;
-    rzCmbxKod: TRzComboBox;
     rzCmbxUlica: TRzComboBox;
-    rzCmbxGmina: TRzComboBox;
-    rzCmbxPowiat: TRzComboBox;
+    rzGrpBox3: TRzGroupBox;
+    rzlbl5: TRzLabel;
+    rzlbl6: TRzLabel;
+    rzCmbxKierowca: TRzComboBox;
+    rzCmbxPojazd: TRzComboBox;
+    RzPnlPrawy: TRzPanel;
+    rzGrpBox1: TRzGroupBox;
+    rzlbl1: TRzLabel;
+    rzlbl2: TRzLabel;
+    rzDtmPckrData: TRzDateTimePicker;
+    tmPckrCzasWysylki: TTimePicker;
+    rzGrpBox2: TRzGroupBox;
+    rzlbl4: TRzLabel;
+    rzlbl3: TRzLabel;
+    rzEdtWgDokum: TRzEdit;
+    rzMmoUwagi: TRzMemo;
+    rzGrpBox5: TRzGroupBox;
+    rzlbl7: TRzLabel;
+    rzlbl13: TRzLabel;
+    rzDtmPckrDataPowrotu: TRzDateTimePicker;
+    rzEdtSzukMsc: TRzEdit;
+    rzEdtMsc: TRzEdit;
+    rzEdtGmina: TRzEdit;
+    rzEdtPowiat: TRzEdit;
+    rzEdtKodPoczt: TRzEdit;
     procedure img1Click(Sender: TObject);
     procedure rzBtnUstalClick(Sender: TObject);
     procedure tmr1Timer(Sender: TObject);
@@ -59,6 +62,8 @@ type
     procedure rzCmbxKierowcaClick(Sender: TObject);
     procedure rzCmbxPojazdClick(Sender: TObject);
     procedure rzCmbxMiejscClick(Sender: TObject);
+    procedure rzEdtSzukMscChange(Sender: TObject);
+    procedure rzEdtSzukMscEnter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,9 +77,6 @@ implementation
 
 uses
   DM;
-
-//uses
-//  FrameZap;
 
 {$R *.dfm}
 
@@ -96,6 +98,27 @@ begin
 //dtPckrDataPowrotu.Date:=Now;
   tmPckrCzasWysylki.Time := Now;
   tmPckrCzasPowrotu.Time := Now;
+    rzCmbxMiejsc.Items.LoadFromFile('c:\Dev\Delphi\CarTransport\SpisMiejscowosci.txt');
+ {  with DataModule1.ibQryMsc, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT nazwa FROM miejscowosci ');
+    Add('WHERE usun=:usun ORDER BY nazwa');
+    ParamByName('usun').AsInteger := 0;
+    Open;
+  end;
+
+   rzCmbxMiejsc.Items.Clear;
+  while not DataModule1.ibQryTemp.Eof do
+  begin
+    rzCmbxMiejsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
+    DataModule1.ibQryTemp.Next;
+  end;
+    rzEdtMsc.Text:=DataModule1.ibQryMsc.FieldValues['Nazwa'];
+                                        }
+
+
 end;
 
 procedure TFrmUstalKurs.img1Click(Sender: TObject);
@@ -135,7 +158,7 @@ end;
 
 procedure TFrmUstalKurs.rzCmbxMiejscClick(Sender: TObject);
 begin
-  with DataModule1.ibQryTemp, SQL do
+{  with DataModule1.ibQryTemp, SQL do
   begin
     Close;
     Clear;
@@ -151,6 +174,11 @@ begin
     rzCmbxMiejsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
     DataModule1.ibQryTemp.Next;
   end;
+    rzEdtMsc.Text:=DataModule1.ibQryMsc.FieldValues['Nazwa'];      }
+
+
+
+
 end;
 
 procedure TFrmUstalKurs.rzCmbxPojazdClick(Sender: TObject);
@@ -172,6 +200,42 @@ begin
     DataModule1.ibQryTemp.Next;
   end;
 
+end;
+
+procedure TFrmUstalKurs.rzEdtSzukMscChange(Sender: TObject);
+var
+  SzukMsc: string;
+begin
+  SzukMsc := rzEdtSzukMsc.Text;
+  with DataModule1.ibQryMsc, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT id_miejscowosci, Nazwa,Gmina, Kod_Pocztowy, Wojewodztwo, Powiat FROM miejscowosci ');
+    Add('WHERE usun=:usun');
+    if rzEdtSzukMsc.Text <> '' then
+      Add('AND (UPPER(Nazwa) LIKE :a or UPPER(Wojewodztwo) LIKE :a)');
+        // ParamByName('Stanowisko').AsString := 'Administrator';
+    ParamByName('usun').AsInteger := 0;
+    if rzEdtSzukMsc.Text <> '' then
+      ParamByName('a').AsString := '%' + UpperCase(SzukMsc) + '%';
+    Open;
+    rzEdtMsc.Text := DataModule1.ibQryMsc.FieldValues['Nazwa'];
+    rzEdtGmina.Text := DataModule1.ibQryMsc.FieldValues['Gmina'];
+   // rzEdtPowiat.Text := DataModule1.ibQryMsc.FieldValues['Wojewodztwo'];
+    rzEdtKodPoczt.Text := DataModule1.ibQryMsc.FieldValues['kod_pocztowy'];
+  end;
+
+end;
+
+procedure TFrmUstalKurs.rzEdtSzukMscEnter(Sender: TObject);
+var
+  zm_Nazwa: string;
+begin
+{zm_Nazwa := DataModule1.ibQryMsc.Fields;
+rzEdtMsc.Text:=zm_Nazwa;}
+//rzEdtMsc.Text:=DataModule1.ibQryMsc.Fields;
+//DataModule1.ibQryMsc.FieldValues['Nazwa'] := rzEdtMsc.Text;
 end;
 
 procedure TFrmUstalKurs.tmr1Timer(Sender: TObject);

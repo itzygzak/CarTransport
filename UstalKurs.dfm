@@ -54,266 +54,6 @@ object FrmUstalKurs: TFrmUstalKurs
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 1
-    ExplicitHeight = 505
-    object rzGrpBox1: TRzGroupBox
-      Left = 16
-      Top = 6
-      Width = 857
-      Height = 80
-      Caption = 'Ustal dat'#281' i godzin'#281
-      CaptionFont.Charset = DEFAULT_CHARSET
-      CaptionFont.Color = clWindowText
-      CaptionFont.Height = -16
-      CaptionFont.Name = 'Tahoma'
-      CaptionFont.Style = []
-      GroupStyle = gsUnderline
-      TabOrder = 0
-      object rzlbl1: TRzLabel
-        Left = 9
-        Top = 40
-        Width = 137
-        Height = 25
-        Caption = 'Data wysy'#322'ki'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clRed
-        Font.Height = -21
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        LightTextStyle = True
-        TextStyle = tsRecessed
-      end
-      object rzlbl2: TRzLabel
-        Left = 398
-        Top = 40
-        Width = 171
-        Height = 25
-        Caption = 'Godzina wysy'#322'ki'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clRed
-        Font.Height = -21
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        LightTextStyle = True
-        TextStyle = tsRecessed
-      end
-      object rzDtmPckrData: TRzDateTimePicker
-        Left = 167
-        Top = 40
-        Width = 186
-        Height = 27
-        Date = 44360.000000000000000000
-        Format = ''
-        Time = 0.857375138890347400
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 0
-      end
-      object tmPckrCzasWysylki: TTimePicker
-        Left = 600
-        Top = 40
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        TabOrder = 1
-        Time = 44373.860554699070000000
-        TimeFormat = 'hh:mm'
-      end
-    end
-    object rzGrpBox2: TRzGroupBox
-      Left = 16
-      Top = 96
-      Width = 857
-      Height = 161
-      Caption = 'Wg dokumentu (wybierz)'
-      CaptionFont.Charset = DEFAULT_CHARSET
-      CaptionFont.Color = clWindowText
-      CaptionFont.Height = -16
-      CaptionFont.Name = 'Tahoma'
-      CaptionFont.Style = []
-      GroupStyle = gsUnderline
-      TabOrder = 1
-      object rzlbl4: TRzLabel
-        Left = 9
-        Top = 41
-        Width = 97
-        Height = 16
-        Caption = 'Wg dokumentu'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = 16737843
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        LightTextStyle = True
-      end
-      object rzlbl3: TRzLabel
-        Left = 424
-        Top = 40
-        Width = 38
-        Height = 16
-        Caption = 'Uwagi'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = 16737843
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        LightTextStyle = True
-        TextStyle = tsRecessed
-      end
-      object rzEdtWgDokum: TRzEdit
-        Left = 136
-        Top = 40
-        Width = 265
-        Height = 21
-        Text = ''
-        TabOrder = 0
-      end
-      object rzMmoUwagi: TRzMemo
-        Left = 488
-        Top = 40
-        Width = 353
-        Height = 97
-        TabOrder = 1
-      end
-    end
-    object rzGrpBox3: TRzGroupBox
-      Left = 16
-      Top = 239
-      Width = 857
-      Height = 90
-      Caption = 'Kierowca i pojazd (wybierz)'
-      CaptionFont.Charset = DEFAULT_CHARSET
-      CaptionFont.Color = clWindowText
-      CaptionFont.Height = -16
-      CaptionFont.Name = 'Tahoma'
-      CaptionFont.Style = []
-      GroupStyle = gsUnderline
-      TabOrder = 2
-      object rzlbl5: TRzLabel
-        Left = 9
-        Top = 49
-        Width = 59
-        Height = 16
-        Caption = 'Kierowca'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = 16737843
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        LightTextStyle = True
-        TextStyle = tsRecessed
-      end
-      object rzlbl6: TRzLabel
-        Left = 310
-        Top = 49
-        Width = 43
-        Height = 16
-        Caption = 'Pojazd'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = 16737843
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        LightTextStyle = True
-        TextStyle = tsRecessed
-      end
-      object rzCmbxKierowca: TRzComboBox
-        Left = 96
-        Top = 48
-        Width = 145
-        Height = 21
-        TabOrder = 0
-        OnClick = rzCmbxKierowcaClick
-        Items.Strings = (
-          'Jan Kowalski'
-          'Zdzis'#322'aw Nowak'
-          'Onufry Zag'#322'oba')
-      end
-      object rzCmbxPojazd: TRzComboBox
-        Left = 424
-        Top = 48
-        Width = 145
-        Height = 21
-        TabOrder = 1
-        OnClick = rzCmbxPojazdClick
-        Items.Strings = (
-          'Robur'
-          'Dekawka'
-          'Maluch'
-          'Seicento')
-      end
-    end
-    object rzGrpBox5: TRzGroupBox
-      Left = 16
-      Top = 352
-      Width = 857
-      Height = 89
-      Caption = 'Przewidywana data i godzina powrotu'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      GroupStyle = gsUnderline
-      ParentFont = False
-      TabOrder = 3
-      object rzlbl7: TRzLabel
-        Left = 9
-        Top = 48
-        Width = 131
-        Height = 23
-        Caption = 'Data powrotu'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clRed
-        Font.Height = -19
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        LightTextStyle = True
-      end
-      object rzlbl13: TRzLabel
-        Left = 398
-        Top = 48
-        Width = 164
-        Height = 23
-        Caption = 'Godzina powrotu'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clRed
-        Font.Height = -19
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        LightTextStyle = True
-        TextStyle = tsRecessed
-      end
-      object rzDtmPckrDataPowrotu: TRzDateTimePicker
-        Left = 160
-        Top = 48
-        Width = 186
-        Height = 27
-        Date = 44373.000000000000000000
-        Format = ''
-        Time = 0.938321064815681900
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 0
-      end
-    end
     object tmPckrCzasPowrotu: TTimePicker
       Left = 601
       Top = 397
@@ -322,22 +62,22 @@ object FrmUstalKurs: TFrmUstalKurs
       Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
-      TabOrder = 4
+      TabOrder = 0
       Time = 44373.859012604170000000
       TimeFormat = 'hh:mm'
     end
     object RzPnlAdres: TRzPanel
       Left = 3
-      Top = 456
-      Width = 917
-      Height = 137
-      Align = alBottom
-      TabOrder = 5
+      Top = 3
+      Width = 406
+      Height = 590
+      Align = alLeft
+      TabOrder = 1
       object rzGrpBox4: TRzGroupBox
         Left = 13
-        Top = 16
-        Width = 848
-        Height = 113
+        Top = 224
+        Width = 372
+        Height = 337
         Caption = 'Adres (wybierz)'
         CaptionFont.Charset = DEFAULT_CHARSET
         CaptionFont.Color = clWindowText
@@ -353,8 +93,8 @@ object FrmUstalKurs: TFrmUstalKurs
         ParentFont = False
         TabOrder = 0
         object rzlbl8: TRzLabel
-          Left = 1
-          Top = 41
+          Left = 5
+          Top = 81
           Width = 81
           Height = 16
           Caption = 'Miejscowo'#347#263
@@ -368,8 +108,8 @@ object FrmUstalKurs: TFrmUstalKurs
           TextStyle = tsRecessed
         end
         object rzlbl9: TRzLabel
-          Left = 294
-          Top = 39
+          Left = 18
+          Top = 223
           Width = 91
           Height = 16
           Caption = 'Kod pocztowy'
@@ -398,8 +138,8 @@ object FrmUstalKurs: TFrmUstalKurs
           TextStyle = tsRecessed
         end
         object rzlbl11: TRzLabel
-          Left = 1
-          Top = 81
+          Left = 5
+          Top = 121
           Width = 38
           Height = 16
           Caption = 'Gmina'
@@ -413,8 +153,8 @@ object FrmUstalKurs: TFrmUstalKurs
           TextStyle = tsRecessed
         end
         object rzlbl12: TRzLabel
-          Left = 272
-          Top = 81
+          Left = 20
+          Top = 177
           Width = 44
           Height = 16
           Caption = 'Powiat'
@@ -428,44 +168,330 @@ object FrmUstalKurs: TFrmUstalKurs
           TextStyle = tsRecessed
         end
         object rzCmbxMiejsc: TRzComboBox
-          Left = 96
-          Top = 40
-          Width = 145
+          Left = 18
+          Top = 272
+          Width = 319
           Height = 21
           TabOrder = 0
           OnClick = rzCmbxMiejscClick
-          Items.Strings = (
-            'Pi'#261'tkowisko'
-            #321#243'd'#378
-            #321#243'd'#378' Ruda')
-        end
-        object rzCmbxKod: TRzComboBox
-          Left = 400
-          Top = 40
-          Width = 145
-          Height = 21
-          TabOrder = 1
         end
         object rzCmbxUlica: TRzComboBox
           Left = 620
           Top = 40
           Width = 145
           Height = 21
-          TabOrder = 2
+          TabOrder = 1
         end
-        object rzCmbxGmina: TRzComboBox
-          Left = 64
-          Top = 80
-          Width = 145
+        object rzEdtSzukMsc: TRzEdit
+          Left = 96
+          Top = 40
+          Width = 201
           Height = 21
+          Text = ''
+          TabOrder = 2
+          OnChange = rzEdtSzukMscChange
+          OnEnter = rzEdtSzukMscEnter
+        end
+        object rzEdtMsc: TRzEdit
+          Left = 96
+          Top = 80
+          Width = 121
+          Height = 21
+          Text = ''
           TabOrder = 3
         end
-        object rzCmbxPowiat: TRzComboBox
-          Left = 336
-          Top = 80
+        object rzEdtGmina: TRzEdit
+          Left = 88
+          Top = 120
+          Width = 121
+          Height = 21
+          Text = ''
+          TabOrder = 4
+        end
+        object rzEdtPowiat: TRzEdit
+          Left = 104
+          Top = 176
+          Width = 121
+          Height = 21
+          Text = ''
+          TabOrder = 5
+        end
+        object rzEdtKodPoczt: TRzEdit
+          Left = 136
+          Top = 224
+          Width = 121
+          Height = 21
+          Text = ''
+          TabOrder = 6
+        end
+      end
+      object rzGrpBox3: TRzGroupBox
+        Left = 22
+        Top = 15
+        Width = 363
+        Height = 186
+        Caption = 'Kierowca i pojazd (wybierz)'
+        CaptionFont.Charset = DEFAULT_CHARSET
+        CaptionFont.Color = clWindowText
+        CaptionFont.Height = -16
+        CaptionFont.Name = 'Tahoma'
+        CaptionFont.Style = []
+        GroupStyle = gsUnderline
+        TabOrder = 1
+        object rzlbl5: TRzLabel
+          Left = 9
+          Top = 49
+          Width = 59
+          Height = 16
+          Caption = 'Kierowca'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 16737843
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          LightTextStyle = True
+          TextStyle = tsRecessed
+        end
+        object rzlbl6: TRzLabel
+          Left = 9
+          Top = 99
+          Width = 43
+          Height = 16
+          Caption = 'Pojazd'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 16737843
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          LightTextStyle = True
+          TextStyle = tsRecessed
+        end
+        object rzCmbxKierowca: TRzComboBox
+          Left = 96
+          Top = 48
           Width = 145
           Height = 21
-          TabOrder = 4
+          TabOrder = 0
+          OnClick = rzCmbxKierowcaClick
+          Items.Strings = (
+            'Jan Kowalski'
+            'Zdzis'#322'aw Nowak'
+            'Onufry Zag'#322'oba')
+        end
+        object rzCmbxPojazd: TRzComboBox
+          Left = 87
+          Top = 98
+          Width = 145
+          Height = 21
+          TabOrder = 1
+          OnClick = rzCmbxPojazdClick
+          Items.Strings = (
+            'Robur'
+            'Dekawka'
+            'Maluch'
+            'Seicento')
+        end
+      end
+    end
+    object RzPnlPrawy: TRzPanel
+      Left = 415
+      Top = 3
+      Width = 505
+      Height = 590
+      Align = alRight
+      BorderOuter = fsNone
+      TabOrder = 2
+      object rzGrpBox1: TRzGroupBox
+        Left = 15
+        Top = 20
+        Width = 298
+        Height = 80
+        Caption = 'Ustal dat'#281' i godzin'#281
+        CaptionFont.Charset = DEFAULT_CHARSET
+        CaptionFont.Color = clWindowText
+        CaptionFont.Height = -16
+        CaptionFont.Name = 'Tahoma'
+        CaptionFont.Style = []
+        GroupStyle = gsUnderline
+        TabOrder = 0
+        object rzlbl1: TRzLabel
+          Left = 9
+          Top = 40
+          Width = 137
+          Height = 25
+          Caption = 'Data wysy'#322'ki'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -21
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          LightTextStyle = True
+          TextStyle = tsRecessed
+        end
+        object rzlbl2: TRzLabel
+          Left = 398
+          Top = 40
+          Width = 171
+          Height = 25
+          Caption = 'Godzina wysy'#322'ki'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -21
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          LightTextStyle = True
+          TextStyle = tsRecessed
+        end
+        object rzDtmPckrData: TRzDateTimePicker
+          Left = 206
+          Top = 56
+          Width = 186
+          Height = 27
+          Date = 44360.000000000000000000
+          Format = ''
+          Time = 0.857375138890347400
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+        end
+        object tmPckrCzasWysylki: TTimePicker
+          Left = 600
+          Top = 40
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          TabOrder = 1
+          Time = 44373.860554699070000000
+          TimeFormat = 'hh:mm'
+        end
+      end
+      object rzGrpBox2: TRzGroupBox
+        Left = -217
+        Top = 106
+        Width = 530
+        Height = 377
+        Caption = 'Wg dokumentu (wybierz)'
+        CaptionFont.Charset = DEFAULT_CHARSET
+        CaptionFont.Color = clWindowText
+        CaptionFont.Height = -16
+        CaptionFont.Name = 'Tahoma'
+        CaptionFont.Style = []
+        GroupStyle = gsUnderline
+        TabOrder = 1
+        object rzlbl4: TRzLabel
+          Left = 9
+          Top = 41
+          Width = 97
+          Height = 16
+          Caption = 'Wg dokumentu'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 16737843
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          LightTextStyle = True
+        end
+        object rzlbl3: TRzLabel
+          Left = 248
+          Top = 67
+          Width = 38
+          Height = 16
+          Caption = 'Uwagi'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 16737843
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          LightTextStyle = True
+          TextStyle = tsRecessed
+        end
+        object rzEdtWgDokum: TRzEdit
+          Left = 136
+          Top = 40
+          Width = 265
+          Height = 21
+          Text = ''
+          TabOrder = 0
+        end
+        object rzMmoUwagi: TRzMemo
+          Left = 216
+          Top = 89
+          Width = 233
+          Height = 97
+          ScrollBars = ssVertical
+          TabOrder = 1
+        end
+        object rzGrpBox5: TRzGroupBox
+          Left = 209
+          Top = 241
+          Width = 352
+          Height = 153
+          Caption = 'Przewidywana data i godzina powrotu'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          GroupStyle = gsUnderline
+          ParentFont = False
+          TabOrder = 2
+          object rzlbl7: TRzLabel
+            Left = 9
+            Top = 48
+            Width = 131
+            Height = 23
+            Caption = 'Data powrotu'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clRed
+            Font.Height = -19
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+          end
+          object rzlbl13: TRzLabel
+            Left = 233
+            Top = 81
+            Width = 164
+            Height = 23
+            Caption = 'Godzina powrotu'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clRed
+            Font.Height = -19
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            LightTextStyle = True
+            TextStyle = tsRecessed
+          end
+          object rzDtmPckrDataPowrotu: TRzDateTimePicker
+            Left = 208
+            Top = 40
+            Width = 186
+            Height = 27
+            Date = 44373.000000000000000000
+            Format = ''
+            Time = 0.938321064815681900
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 0
+          end
         end
       end
     end
@@ -480,7 +506,6 @@ object FrmUstalKurs: TFrmUstalKurs
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
-    ExplicitHeight = 499
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0

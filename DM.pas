@@ -21,6 +21,9 @@ type
     ibQryHistoria: TIBQuery;
     ibTransHistoria: TIBTransaction;
     dsHistoria: TDataSource;
+    ibQryMsc: TIBQuery;
+    ibTransMsc: TIBTransaction;
+    dsMsc: TDataSource;
   private
     { Private declarations }
   public
