@@ -26,7 +26,6 @@ type
     rzlbl10: TRzLabel;
     rzlbl11: TRzLabel;
     rzlbl12: TRzLabel;
-    rzCmbxMiejsc: TRzComboBox;
     rzCmbxUlica: TRzComboBox;
     rzGrpBox3: TRzGroupBox;
     rzlbl5: TRzLabel;
@@ -44,26 +43,26 @@ type
     rzlbl3: TRzLabel;
     rzEdtWgDokum: TRzEdit;
     rzMmoUwagi: TRzMemo;
-    rzGrpBox5: TRzGroupBox;
-    rzlbl7: TRzLabel;
-    rzlbl13: TRzLabel;
-    rzDtmPckrDataPowrotu: TRzDateTimePicker;
     rzEdtSzukMsc: TRzEdit;
     rzEdtMsc: TRzEdit;
     rzEdtGmina: TRzEdit;
     rzEdtPowiat: TRzEdit;
     rzEdtKodPoczt: TRzEdit;
+    rzCmbxMsc: TRzComboBox;
+    rzGrpBox5: TRzGroupBox;
+    rzlbl7: TRzLabel;
+    rzlbl13: TRzLabel;
+    rzDtmPckrDataPowrotu: TRzDateTimePicker;
     procedure img1Click(Sender: TObject);
     procedure rzBtnUstalClick(Sender: TObject);
-    procedure tmr1Timer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure rzCmbxKierowcaClick(Sender: TObject);
-    procedure rzCmbxPojazdClick(Sender: TObject);
-    procedure rzCmbxMiejscClick(Sender: TObject);
     procedure rzEdtSzukMscChange(Sender: TObject);
-    procedure rzEdtSzukMscEnter(Sender: TObject);
+    procedure rzCmbxPojazdKeyPress(Sender: TObject; var Key: Char);
+    procedure rzCmbxKierowcaKeyPress(Sender: TObject; var Key: Char);
+    procedure cbbMiejscKeyPress(Sender: TObject; var Key: Char);
+    procedure rzCmbxMscKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -79,6 +78,28 @@ uses
   DM;
 
 {$R *.dfm}
+
+procedure TFrmUstalKurs.cbbMiejscKeyPress(Sender: TObject; var Key: Char);
+begin
+   with DataModule1.ibQryTemp, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT * FROM miejscowosci ');
+    Add('WHERE usun=:usun ORDER BY nazwa');
+    ParamByName('usun').AsInteger := 0;
+    Open;
+  end;
+
+  cbbMiejsc.Items.Clear;
+  while not DataModule1.ibQryTemp.Eof do
+  begin
+    cbbMiejsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
+    DataModule1.ibQryTemp.Next;
+  end;
+  rzEdtMsc.Text := DataModule1.ibQryTemp.FieldValues['Nazwa'];
+//  DataModule1.ibQryTemp.FieldValues['Nazwa']:= rzEdtMsc.Text;
+end;
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
@@ -98,26 +119,6 @@ begin
 //dtPckrDataPowrotu.Date:=Now;
   tmPckrCzasWysylki.Time := Now;
   tmPckrCzasPowrotu.Time := Now;
-    rzCmbxMiejsc.Items.LoadFromFile('c:\Dev\Delphi\CarTransport\SpisMiejscowosci.txt');
- {  with DataModule1.ibQryMsc, SQL do
-  begin
-    Close;
-    Clear;
-    Add('SELECT nazwa FROM miejscowosci ');
-    Add('WHERE usun=:usun ORDER BY nazwa');
-    ParamByName('usun').AsInteger := 0;
-    Open;
-  end;
-
-   rzCmbxMiejsc.Items.Clear;
-  while not DataModule1.ibQryTemp.Eof do
-  begin
-    rzCmbxMiejsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
-    DataModule1.ibQryTemp.Next;
-  end;
-    rzEdtMsc.Text:=DataModule1.ibQryMsc.FieldValues['Nazwa'];
-                                        }
-
 
 end;
 
@@ -135,7 +136,7 @@ begin
 
 end;
 
-procedure TFrmUstalKurs.rzCmbxKierowcaClick(Sender: TObject);
+procedure TFrmUstalKurs.rzCmbxKierowcaKeyPress(Sender: TObject; var Key: Char);
 begin
   with DataModule1.ibQryTemp, SQL do
   begin
@@ -156,32 +157,29 @@ begin
 
 end;
 
-procedure TFrmUstalKurs.rzCmbxMiejscClick(Sender: TObject);
+procedure TFrmUstalKurs.rzCmbxMscKeyPress(Sender: TObject; var Key: Char);
 begin
-{  with DataModule1.ibQryTemp, SQL do
+   with DataModule1.ibQryTemp, SQL do
   begin
     Close;
     Clear;
-    Add('SELECT nazwa FROM miejscowosci ');
+    Add('SELECT * FROM miejscowosci ');
     Add('WHERE usun=:usun ORDER BY nazwa');
     ParamByName('usun').AsInteger := 0;
     Open;
   end;
 
-  rzCmbxMiejsc.Items.Clear;
+  rzCmbxMsc.Items.Clear;
   while not DataModule1.ibQryTemp.Eof do
   begin
-    rzCmbxMiejsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
+    rzCmbxMsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
     DataModule1.ibQryTemp.Next;
   end;
-    rzEdtMsc.Text:=DataModule1.ibQryMsc.FieldValues['Nazwa'];      }
-
-
-
+  rzEdtMsc.Text := DataModule1.ibQryTemp.FieldValues['Nazwa'];
 
 end;
 
-procedure TFrmUstalKurs.rzCmbxPojazdClick(Sender: TObject);
+procedure TFrmUstalKurs.rzCmbxPojazdKeyPress(Sender: TObject; var Key: Char);
 begin
   with DataModule1.ibQryTemp, SQL do
   begin
@@ -199,7 +197,6 @@ begin
     rzCmbxPojazd.Items.Add(DataModule1.ibQryTemp.FieldByName('marka').AsString);
     DataModule1.ibQryTemp.Next;
   end;
-
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukMscChange(Sender: TObject);
@@ -222,25 +219,10 @@ begin
     Open;
     rzEdtMsc.Text := DataModule1.ibQryMsc.FieldValues['Nazwa'];
     rzEdtGmina.Text := DataModule1.ibQryMsc.FieldValues['Gmina'];
-   // rzEdtPowiat.Text := DataModule1.ibQryMsc.FieldValues['Wojewodztwo'];
+    rzEdtPowiat.Text := DataModule1.ibQryMsc.FieldValues['Powiat'];
     rzEdtKodPoczt.Text := DataModule1.ibQryMsc.FieldValues['kod_pocztowy'];
   end;
 
-end;
-
-procedure TFrmUstalKurs.rzEdtSzukMscEnter(Sender: TObject);
-var
-  zm_Nazwa: string;
-begin
-{zm_Nazwa := DataModule1.ibQryMsc.Fields;
-rzEdtMsc.Text:=zm_Nazwa;}
-//rzEdtMsc.Text:=DataModule1.ibQryMsc.Fields;
-//DataModule1.ibQryMsc.FieldValues['Nazwa'] := rzEdtMsc.Text;
-end;
-
-procedure TFrmUstalKurs.tmr1Timer(Sender: TObject);
-begin
- // rzEdtTime.Text := TimeToStr(Time);
 end;
 
 end.
