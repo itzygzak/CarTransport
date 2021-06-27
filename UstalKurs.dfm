@@ -54,29 +54,17 @@ object FrmUstalKurs: TFrmUstalKurs
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 1
-    object tmPckrCzasPowrotu: TTimePicker
-      Left = 601
-      Top = 397
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 0
-      Time = 44373.859012604170000000
-      TimeFormat = 'hh:mm'
-    end
     object RzPnlAdres: TRzPanel
       Left = 3
       Top = 3
       Width = 382
       Height = 590
       Align = alLeft
-      TabOrder = 1
+      TabOrder = 0
       object rzGrpBox4: TRzGroupBox
         Left = 13
         Top = 224
-        Width = 372
+        Width = 308
         Height = 337
         Caption = 'Adres (wybierz)'
         CaptionFont.Charset = DEFAULT_CHARSET
@@ -220,7 +208,6 @@ object FrmUstalKurs: TFrmUstalKurs
           Top = 312
           Width = 145
           Height = 21
-          Style = csDropDownList
           TabOrder = 6
           OnKeyPress = rzCmbxMscKeyPress
         end
@@ -274,11 +261,7 @@ object FrmUstalKurs: TFrmUstalKurs
           Width = 145
           Height = 21
           TabOrder = 0
-          OnKeyPress = rzCmbxKierowcaKeyPress
-          Items.Strings = (
-            'Jan Kowalski'
-            'Zdzis'#322'aw Nowak'
-            'Onufry Zag'#322'oba')
+          OnClick = rzCmbxKierowcaClick
         end
         object rzCmbxPojazd: TRzComboBox
           Left = 87
@@ -287,11 +270,6 @@ object FrmUstalKurs: TFrmUstalKurs
           Height = 21
           TabOrder = 1
           OnKeyPress = rzCmbxPojazdKeyPress
-          Items.Strings = (
-            'Robur'
-            'Dekawka'
-            'Maluch'
-            'Seicento')
         end
       end
     end
@@ -302,7 +280,7 @@ object FrmUstalKurs: TFrmUstalKurs
       Height = 590
       Align = alRight
       BorderOuter = fsNone
-      TabOrder = 2
+      TabOrder = 1
       ExplicitTop = 6
       object rzGrpBox1: TRzGroupBox
         Left = 7
@@ -364,13 +342,13 @@ object FrmUstalKurs: TFrmUstalKurs
           TabOrder = 0
         end
         object tmPckrCzasWysylki: TTimePicker
-          Left = 276
+          Left = 316
           Top = 40
-          Width = 126
+          Width = 173
           Height = 25
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -13
+          Font.Height = -16
           Font.Name = 'Segoe UI'
           Font.Style = []
           TabOrder = 1
@@ -380,8 +358,8 @@ object FrmUstalKurs: TFrmUstalKurs
       end
       object rzGrpBox2: TRzGroupBox
         Left = 7
-        Top = 82
-        Width = 530
+        Top = 89
+        Width = 506
         Height = 377
         Caption = 'Wg dokumentu (wybierz)'
         CaptionFont.Charset = DEFAULT_CHARSET
@@ -438,9 +416,9 @@ object FrmUstalKurs: TFrmUstalKurs
         end
       end
       object rzGrpBox5: TRzGroupBox
-        Left = 86
-        Top = 417
-        Width = 352
+        Left = 7
+        Top = 264
+        Width = 506
         Height = 153
         Caption = 'Przewidywana data i godzina powrotu'
         Font.Charset = DEFAULT_CHARSET
@@ -453,27 +431,28 @@ object FrmUstalKurs: TFrmUstalKurs
         TabOrder = 2
         object rzlbl7: TRzLabel
           Left = 9
-          Top = 48
-          Width = 131
-          Height = 23
-          Caption = 'Data powrotu'
+          Top = 40
+          Width = 59
+          Height = 19
+          Caption = 'Powr'#243't'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
-          Font.Height = -19
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
           LightTextStyle = True
+          TextStyle = tsRecessed
         end
         object rzlbl13: TRzLabel
           Left = 233
-          Top = 81
-          Width = 164
-          Height = 23
-          Caption = 'Godzina powrotu'
+          Top = 41
+          Width = 66
+          Height = 19
+          Caption = 'Godzina'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
-          Font.Height = -19
+          Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
@@ -481,20 +460,34 @@ object FrmUstalKurs: TFrmUstalKurs
           TextStyle = tsRecessed
         end
         object rzDtmPckrDataPowrotu: TRzDateTimePicker
-          Left = 208
+          Left = 88
           Top = 40
-          Width = 186
-          Height = 27
+          Width = 121
+          Height = 24
           Date = 44373.000000000000000000
           Format = ''
           Time = 0.938321064815681900
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 0
+        end
+        object tmPckrCzasPowrotu: TTimePicker
+          Left = 316
+          Top = 41
+          Width = 173
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          TabOrder = 1
+          Time = 44373.859012604170000000
+          TimeFormat = 'hh:mm'
         end
       end
     end

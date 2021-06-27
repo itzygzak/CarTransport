@@ -17,7 +17,6 @@ type
     spltVw1: TSplitView;
     ctgryBtns1: TCategoryButtons;
     tmr1: TTimer;
-    tmPckrCzasPowrotu: TTimePicker;
     rzBtnUstal: TRzButton;
     RzPnlAdres: TRzPanel;
     rzGrpBox4: TRzGroupBox;
@@ -53,6 +52,7 @@ type
     rzlbl7: TRzLabel;
     rzlbl13: TRzLabel;
     rzDtmPckrDataPowrotu: TRzDateTimePicker;
+    tmPckrCzasPowrotu: TTimePicker;
     procedure img1Click(Sender: TObject);
     procedure rzBtnUstalClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -60,9 +60,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure rzEdtSzukMscChange(Sender: TObject);
     procedure rzCmbxPojazdKeyPress(Sender: TObject; var Key: Char);
-    procedure rzCmbxKierowcaKeyPress(Sender: TObject; var Key: Char);
-    procedure cbbMiejscKeyPress(Sender: TObject; var Key: Char);
     procedure rzCmbxMscKeyPress(Sender: TObject; var Key: Char);
+    procedure rzCmbxKierowcaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -78,28 +77,6 @@ uses
   DM;
 
 {$R *.dfm}
-
-procedure TFrmUstalKurs.cbbMiejscKeyPress(Sender: TObject; var Key: Char);
-begin
-   with DataModule1.ibQryTemp, SQL do
-  begin
-    Close;
-    Clear;
-    Add('SELECT * FROM miejscowosci ');
-    Add('WHERE usun=:usun ORDER BY nazwa');
-    ParamByName('usun').AsInteger := 0;
-    Open;
-  end;
-
-  cbbMiejsc.Items.Clear;
-  while not DataModule1.ibQryTemp.Eof do
-  begin
-    cbbMiejsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
-    DataModule1.ibQryTemp.Next;
-  end;
-  rzEdtMsc.Text := DataModule1.ibQryTemp.FieldValues['Nazwa'];
-//  DataModule1.ibQryTemp.FieldValues['Nazwa']:= rzEdtMsc.Text;
-end;
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
@@ -136,13 +113,13 @@ begin
 
 end;
 
-procedure TFrmUstalKurs.rzCmbxKierowcaKeyPress(Sender: TObject; var Key: Char);
+procedure TFrmUstalKurs.rzCmbxKierowcaClick(Sender: TObject);
 begin
   with DataModule1.ibQryTemp, SQL do
   begin
     Close;
     Clear;
-    Add('SELECT nazwisko FROM kierowcy ');
+    Add('SELECT imie,nazwisko FROM kierowcy ');
     Add('WHERE usun=:usun ORDER BY nazwisko');
     ParamByName('usun').AsInteger := 0;
     Open;
@@ -175,8 +152,8 @@ begin
     rzCmbxMsc.Items.Add(DataModule1.ibQryTemp.FieldByName('nazwa').AsString);
     DataModule1.ibQryTemp.Next;
   end;
-  rzEdtMsc.Text := DataModule1.ibQryTemp.FieldValues['Nazwa'];
-
+  //rzEdtMsc.Text := DataModule1.ibQryTemp.FieldValues['Nazwa'];
+   DataModule1.ibQryTemp.FieldValues['Nazwa']:=rzEdtMsc.Text;
 end;
 
 procedure TFrmUstalKurs.rzCmbxPojazdKeyPress(Sender: TObject; var Key: Char);
