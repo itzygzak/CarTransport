@@ -14,7 +14,6 @@ type
     ibQryUzyt: TIBQuery;
     ibQryKier: TIBQuery;
     ibTransKier: TIBTransaction;
-    dsKier: TClientDataSet;
     ibQryTemp: TIBQuery;
     ibTransTemp: TIBTransaction;
     dsTemp: TDataSource;
@@ -24,6 +23,8 @@ type
     ibQryMsc: TIBQuery;
     ibTransMsc: TIBTransaction;
     dsMsc: TDataSource;
+    ibQryPojazdy: TIBQuery;
+    dsKier: TDataSource;
   private
     { Private declarations }
   public

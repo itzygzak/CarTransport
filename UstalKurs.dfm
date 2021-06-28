@@ -261,6 +261,7 @@ object FrmUstalKurs: TFrmUstalKurs
           Width = 145
           Height = 21
           TabOrder = 0
+          OnChange = rzCmbxKierowcaChange
         end
         object rzCmbxPojazd: TRzComboBox
           Left = 87
@@ -279,6 +280,14 @@ object FrmUstalKurs: TFrmUstalKurs
       Align = alRight
       BorderOuter = fsNone
       TabOrder = 1
+      object dbtxtKierowca: TDBText
+        Left = 10
+        Top = 552
+        Width = 103
+        Height = 17
+        DataField = 'ID_KIEROWCA'
+        DataSource = DataModule1.dsKier
+      end
       object rzGrpBox1: TRzGroupBox
         Left = 7
         Top = 3

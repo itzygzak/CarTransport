@@ -21,6 +21,7 @@ object DataModule1: TDataModule1
     Top = 32
   end
   object ibTransUzyt: TIBTransaction
+    Active = True
     DefaultDatabase = ibDtBase1
     Params.Strings = (
       'read_committed'
@@ -41,21 +42,24 @@ object DataModule1: TDataModule1
     Top = 40
   end
   object ibQryKier: TIBQuery
+    Database = ibDtBase1
+    Transaction = ibTransKier
     BufferChunks = 1000
     CachedUpdates = False
     ParamCheck = True
+    SQL.Strings = (
+      'SELECT * FROM KIEROWCY')
     Left = 424
     Top = 32
   end
   object ibTransKier: TIBTransaction
+    DefaultDatabase = ibDtBase1
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
     Left = 416
     Top = 112
-  end
-  object dsKier: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 424
-    Top = 224
   end
   object ibQryTemp: TIBQuery
     Database = ibDtBase1
@@ -129,5 +133,17 @@ object DataModule1: TDataModule1
     DataSet = ibQryMsc
     Left = 512
     Top = 224
+  end
+  object ibQryPojazdy: TIBQuery
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    Left = 592
+    Top = 40
+  end
+  object dsKier: TDataSource
+    DataSet = ibQryKier
+    Left = 408
+    Top = 232
   end
 end

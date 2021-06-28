@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, FrameZap, Vcl.CategoryButtons,
   Vcl.StdCtrls, RzLabel, RzButton, Vcl.Mask, RzEdit, Vcl.ComCtrls, RzDTP,
-  RzCmboBx, Vcl.Imaging.pngimage, Vcl.WinXPickers;
+  RzCmboBx, Vcl.Imaging.pngimage, Vcl.WinXPickers, Vcl.DBCtrls;
 
 type
   TFrmUstalKurs = class(TForm)
@@ -53,6 +53,7 @@ type
     rzlbl13: TRzLabel;
     rzDtmPckrDataPowrotu: TRzDateTimePicker;
     tmPckrCzasPowrotu: TTimePicker;
+    dbtxtKierowca: TDBText;
     procedure img1Click(Sender: TObject);
     procedure rzBtnUstalClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -62,6 +63,7 @@ type
     procedure PokazKierowcow;
     procedure PokazPojazdy;
     procedure rzEdtSzukMscClick(Sender: TObject);
+    procedure rzCmbxKierowcaChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -101,21 +103,21 @@ end;
 
 procedure TFrmUstalKurs.PokazKierowcow;
 begin
-  with DataModule1.ibQryTemp, SQL do
+  with DataModule1.ibQryKier, SQL do
   begin
     Close;
     Clear;
-    Add('SELECT imie,nazwisko FROM kierowcy ');
+    Add('SELECT id_kierowca,imie,nazwisko FROM kierowcy ');
     Add('WHERE usun=:usun ORDER BY nazwisko');
     ParamByName('usun').AsInteger := 0;
     Open;
   end;
 
   rzCmbxKierowca.Items.Clear;
-  while not DataModule1.ibQryTemp.Eof do
+  while not DataModule1.ibQryKier.Eof do
   begin
-    rzCmbxKierowca.Items.Add(DataModule1.ibQryTemp.FieldByName('imie').AsString  + ' ' + DataModule1.ibQryTemp.FieldByName('nazwisko').AsString);
-    DataModule1.ibQryTemp.Next;
+    rzCmbxKierowca.Items.Add(DataModule1.ibQryKier.FieldByName('imie').AsString  + ' ' + DataModule1.ibQryKier.FieldByName('nazwisko').AsString);
+    DataModule1.ibQryKier.Next;
   end;
 end;
 
@@ -154,6 +156,13 @@ procedure TFrmUstalKurs.rzBtnUstalClick(Sender: TObject);
 begin
   Application.MessageBox('Zosta³y ustalone parametry wysy³ki. ' + #13#10 + 'Je¿eli podane parametry s¹ prawid³owe, zapisz dane i ' + #13#10 + 'wydrukuj list przewozowy.', 'Application.Title', MB_OK + MB_ICONINFORMATION);
 
+end;
+
+procedure TFrmUstalKurs.rzCmbxKierowcaChange(Sender: TObject);
+begin
+
+
+dbtxtKierowca.Field.FieldName:=DataModule1.ibQryKier.FieldValues['id_kierowca'];
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukMscChange(Sender: TObject);
