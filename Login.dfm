@@ -86,6 +86,20 @@ object FrmLogin: TFrmLogin
       LightTextStyle = True
       TextStyle = tsRecessed
     end
+    object rzlblWersja: TRzLabel
+      Left = 184
+      Top = 40
+      Width = 53
+      Height = 13
+      Caption = 'rzlblWersja'
+    end
+    object rzlblData: TRzLabel
+      Left = 136
+      Top = 96
+      Width = 42
+      Height = 13
+      Caption = 'rzlblData'
+    end
     object lnkLbl1: TLinkLabel
       Left = 25
       Top = 505
@@ -108,6 +122,7 @@ object FrmLogin: TFrmLogin
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
+    ExplicitLeft = 311
     object rzlbl3: TRzLabel
       Left = 47
       Top = 23
@@ -200,5 +215,10 @@ object FrmLogin: TFrmLogin
       TabOrder = 1
       StyleElements = []
     end
+  end
+  object smVrsnf1: TSMVersionInfo
+    FileName = 'carTransp.exe'
+    Left = 168
+    Top = 289
   end
 end

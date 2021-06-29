@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage, System.ImageList,
   Vcl.ImgList, Vcl.CategoryButtons, System.IniFiles, Vcl.StdCtrls, RzLabel,
-  RzPanel;
+  RzPanel, SMCVersInfo;
 
 type
   TFrmLogin = class(TForm)
@@ -25,6 +25,9 @@ type
     rzlbl2: TRzLabel;
     rzlbl3: TRzLabel;
     rzlbl4: TRzLabel;
+    smVrsnf1: TSMVersionInfo;
+    rzlblWersja: TRzLabel;
+    rzlblData: TRzLabel;
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
     procedure btnKoniecClick(Sender: TObject);
@@ -52,6 +55,20 @@ uses
   DM, Start;
 
 {$R *.dfm}
+
+function GetComupterNameStr: string;
+var
+  buffer: array[0..255] of char;
+  size: DWORD;
+begin
+  size := Length(buffer);
+  if GetComputerName(buffer, size) then
+    Result := buffer
+  else
+    Result := '';
+end;
+
+
 
 procedure TFrmLogin.btnKoniecClick(Sender: TObject);
 begin
@@ -159,6 +176,11 @@ begin
   finally
     INI.Free;
   end;
+   chk1.Checked := PamLog;
+  rzlblWersja.Caption := 'Wersja programu ' + smVrsnf1.FileVersion;
+  rzlblData.Caption := smVrsnf1.CompanyName;
+  NazwaKomp := GetComupterNameStr;
+
 end;
 
 procedure TFrmLogin.img1Click(Sender: TObject);

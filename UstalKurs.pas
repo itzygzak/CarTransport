@@ -108,7 +108,8 @@ begin
     Close;
     Clear;
     Add('SELECT id_kierowca,imie,nazwisko FROM kierowcy ');
-    Add('WHERE usun=:usun ORDER BY nazwisko');
+    Add('WHERE id_kierowca=:id_kierowca AND usun=:usun ORDER BY nazwisko');
+    ParamByName('id_kierowca').AsInteger:=DataModule1.ibQryKier.FieldByName('id_kierowca').AsInteger;
     ParamByName('usun').AsInteger := 0;
     Open;
   end;
@@ -116,7 +117,7 @@ begin
   rzCmbxKierowca.Items.Clear;
   while not DataModule1.ibQryKier.Eof do
   begin
-    rzCmbxKierowca.Items.Add(DataModule1.ibQryKier.FieldByName('imie').AsString  + ' ' + DataModule1.ibQryKier.FieldByName('nazwisko').AsString);
+    rzCmbxKierowca.Items.Add(DataModule1.ibQryKier.FieldByName('id_kierowca').AsString  + ' ' + DataModule1.ibQryKier.FieldByName('imie').AsString  + ' ' + DataModule1.ibQryKier.FieldByName('nazwisko').AsString);
     DataModule1.ibQryKier.Next;
   end;
 end;
@@ -161,8 +162,8 @@ end;
 procedure TFrmUstalKurs.rzCmbxKierowcaChange(Sender: TObject);
 begin
 
-
 dbtxtKierowca.Field.FieldName:=DataModule1.ibQryKier.FieldValues['id_kierowca'];
+
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukMscChange(Sender: TObject);
