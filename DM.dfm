@@ -8,7 +8,6 @@ object DataModule1: TDataModule1
     Top = 232
   end
   object ibDtBase1: TIBDatabase
-    Connected = True
     DatabaseName = '127.0.0.1/3050:D:\Bazy\CarTransport\CARTRANSPORT.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
@@ -16,12 +15,10 @@ object DataModule1: TDataModule1
       'lc_ctype=UTF8')
     LoginPrompt = False
     ServerType = 'IBServer'
-    AllowStreamedConnected = False
     Left = 40
     Top = 32
   end
   object ibTransUzyt: TIBTransaction
-    Active = True
     DefaultDatabase = ibDtBase1
     Params.Strings = (
       'read_committed'

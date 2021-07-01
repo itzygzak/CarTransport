@@ -265,10 +265,24 @@ object FrmUstalKurs: TFrmUstalKurs
         end
         object rzCmbxPojazd: TRzComboBox
           Left = 87
-          Top = 98
+          Top = 59
           Width = 145
           Height = 21
           TabOrder = 1
+          OnChange = rzCmbxPojazdChange
+        end
+        object RzDBGrd1: TRzDBGrid
+          Left = 0
+          Top = 86
+          Width = 361
+          DataSource = DataModule1.dsKier
+          TabOrder = 2
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+          OnCellClick = RzDBGrd1CellClick
         end
       end
     end

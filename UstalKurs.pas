@@ -7,7 +7,8 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, FrameZap, Vcl.CategoryButtons,
   Vcl.StdCtrls, RzLabel, RzButton, Vcl.Mask, RzEdit, Vcl.ComCtrls, RzDTP,
-  RzCmboBx, Vcl.Imaging.pngimage, Vcl.WinXPickers, Vcl.DBCtrls;
+  RzCmboBx, Vcl.Imaging.pngimage, Vcl.WinXPickers, Vcl.DBCtrls, Data.DB,
+  Vcl.Grids, Vcl.DBGrids, RzDBGrid;
 
 type
   TFrmUstalKurs = class(TForm)
@@ -54,6 +55,7 @@ type
     rzDtmPckrDataPowrotu: TRzDateTimePicker;
     tmPckrCzasPowrotu: TTimePicker;
     dbtxtKierowca: TDBText;
+    RzDBGrd1: TRzDBGrid;
     procedure img1Click(Sender: TObject);
     procedure rzBtnUstalClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -64,6 +66,8 @@ type
     procedure PokazPojazdy;
     procedure rzEdtSzukMscClick(Sender: TObject);
     procedure rzCmbxKierowcaChange(Sender: TObject);
+    procedure rzCmbxPojazdChange(Sender: TObject);
+    procedure RzDBGrd1CellClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -118,8 +122,29 @@ begin
   while not DataModule1.ibQryKier.Eof do
   begin
     rzCmbxKierowca.Items.Add(DataModule1.ibQryKier.FieldByName('id_kierowca').AsString  + ' ' + DataModule1.ibQryKier.FieldByName('imie').AsString  + ' ' + DataModule1.ibQryKier.FieldByName('nazwisko').AsString);
+//    rzCmbxKierowca.Items.Add(DataModule1.ibQryKier.FieldByName('id_kierowca').AsString);
     DataModule1.ibQryKier.Next;
   end;
+ {
+   with DataModule1.ibQryTemp, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT id_kierowca,imie,nazwisko FROM kierowcy ');
+    Add('WHERE id_kierowca=:id_kierowca AND usun=:usun ORDER BY nazwisko');
+    ParamByName('id_kierowca').AsInteger:=DataModule1.ibQryTemp.FieldByName('id_kierowca').AsInteger;
+    ParamByName('usun').AsInteger := 0;
+    Open;
+  end;
+
+  rzCmbxKierowca.Items.Clear;
+  while not DataModule1.ibQryTemp.Eof do
+  begin
+    rzCmbxKierowca.Items.Add(DataModule1.ibQryTemp.FieldByName('id_kierowca').AsString  + ' ' + DataModule1.ibQryTemp.FieldByName('imie').AsString  + ' ' + DataModule1.ibQryTemp.FieldByName('nazwisko').AsString);
+    DataModule1.ibQryKier.Next;
+
+  end;   }
+
 end;
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -132,6 +157,7 @@ var
   data: TDate;
 begin
   rzDtmPckrData.Date := Now;
+ //      PokazKierowcow;
 end;
 
 procedure TFrmUstalKurs.FormShow(Sender: TObject);
@@ -140,7 +166,7 @@ begin
 //dtPckrDataPowrotu.Date:=Now;
   tmPckrCzasWysylki.Time := Now;
   tmPckrCzasPowrotu.Time := Now;
-  PokazKierowcow;
+ // PokazKierowcow;
   PokazPojazdy;
 
 end;
@@ -161,9 +187,18 @@ end;
 
 procedure TFrmUstalKurs.rzCmbxKierowcaChange(Sender: TObject);
 begin
+//dbtxtKierowca.Field.FieldName:=DataModule1.ibQryKier.FieldValues['id_kierowca'];
 
-dbtxtKierowca.Field.FieldName:=DataModule1.ibQryKier.FieldValues['id_kierowca'];
+end;
 
+procedure TFrmUstalKurs.rzCmbxPojazdChange(Sender: TObject);
+begin
+//dbtxtKierowca.Field.FieldName:=DataModule1.ibQryTemp.FieldValues['id_pojazdy'];
+end;
+
+procedure TFrmUstalKurs.RzDBGrd1CellClick(Column: TColumn);
+begin
+//    dbtxtKierowca.Field.FieldName:=DataModule1.ibQryKier.FieldValues['id_kierowca'];
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukMscChange(Sender: TObject);
