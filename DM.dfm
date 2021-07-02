@@ -132,15 +132,33 @@ object DataModule1: TDataModule1
     Top = 224
   end
   object ibQryPojazdy: TIBQuery
+    Database = ibDtBase1
+    Transaction = ibTransPojazdy
     BufferChunks = 1000
     CachedUpdates = False
     ParamCheck = True
-    Left = 592
-    Top = 40
+    SQL.Strings = (
+      'SELECT * FROM POJAZDY')
+    Left = 616
+    Top = 32
   end
   object dsKier: TDataSource
     DataSet = ibQryKier
     Left = 408
     Top = 232
+  end
+  object ibTransPojazdy: TIBTransaction
+    DefaultDatabase = ibDtBase1
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 608
+    Top = 112
+  end
+  object dsPojazdy: TDataSource
+    DataSet = ibQryPojazdy
+    Left = 616
+    Top = 224
   end
 end

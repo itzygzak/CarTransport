@@ -70,6 +70,7 @@ object FrmUstalKurs: TFrmUstalKurs
           Items = <
             item
               Caption = 'Zapisz'
+              OnClick = ctgryBtns1Categories0Items0Click
             end
             item
               Caption = 'Dukuj'
@@ -114,13 +115,9 @@ object FrmUstalKurs: TFrmUstalKurs
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
-    ExplicitLeft = 360
-    ExplicitTop = 112
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object rzln1: TRzLine
       Left = 2
-      Top = 394
+      Top = 562
       Width = 918
       Height = 20
       LineColor = clSkyBlue
@@ -137,7 +134,7 @@ object FrmUstalKurs: TFrmUstalKurs
       Top = 2
       Width = 919
       Align = alTop
-      Caption = 'Ustaw dat'#281' i godzin'#281' wysy'#322'ki'
+      Caption = 'Ustaw dat'#281' i godzin'#281
       CaptionFont.Charset = DEFAULT_CHARSET
       CaptionFont.Color = clWindowText
       CaptionFont.Height = -16
@@ -146,17 +143,15 @@ object FrmUstalKurs: TFrmUstalKurs
       GradientColorStyle = gcsMSOffice
       GroupStyle = gsBanner
       TabOrder = 0
-      ExplicitLeft = 320
-      ExplicitTop = 48
-      ExplicitWidth = 185
+      ExplicitWidth = 863
       object rzlbl1: TRzLabel
         Left = 16
         Top = 41
-        Width = 39
-        Height = 19
-        Caption = 'Data'
+        Width = 60
+        Height = 38
+        Caption = 'Data'#13'wysy'#322'ki'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clRed
+        Font.Color = clMaroon
         Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
@@ -165,13 +160,52 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRaised
       end
       object rzlbl2: TRzLabel
-        Left = 272
+        Left = 224
         Top = 41
         Width = 66
-        Height = 19
-        Caption = 'Godzina'
+        Height = 38
+        Caption = 'Godzina'#13'wysy'#322'ki'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clRed
+        Font.Color = clMaroon
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzln2: TRzLine
+        Left = 449
+        Top = 24
+        Width = 20
+        Height = 75
+        LineColor = clSkyBlue
+        LineStyle = psInsideFrame
+        LineWidth = 4
+      end
+      object rzlbl9: TRzLabel
+        Left = 475
+        Top = 41
+        Width = 68
+        Height = 38
+        Caption = 'Data'#13'powrotu'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzlbl10: TRzLabel
+        Left = 688
+        Top = 41
+        Width = 68
+        Height = 38
+        Caption = 'Godzina'#13'powrotu'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
         Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
@@ -180,27 +214,63 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRaised
       end
       object rzDtmPckrDataWys: TRzDateTimePicker
-        Left = 96
-        Top = 39
+        Left = 91
+        Top = 49
         Width = 121
-        Height = 21
+        Height = 24
         Date = 44378.000000000000000000
         Format = ''
         Time = 0.910925196760217700
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
       end
       object tmPckrCzasWys: TTimePicker
-        Left = 352
-        Top = 41
+        Left = 306
+        Top = 49
         Width = 137
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
         TabOrder = 1
         Time = 44378.911143634260000000
+        TimeFormat = 'hh:mm'
+      end
+      object rzDtmPckrDataPowrotu: TRzDateTimePicker
+        Left = 560
+        Top = 49
+        Width = 122
+        Height = 24
+        Date = 44379.000000000000000000
+        Format = ''
+        Time = 0.690261932868452300
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+      object tmPckrGodzPowrotu: TTimePicker
+        Left = 771
+        Top = 49
+        Width = 137
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        TabOrder = 3
+        Time = 44379.691840578700000000
         TimeFormat = 'hh:mm'
       end
     end
@@ -222,11 +292,11 @@ object FrmUstalKurs: TFrmUstalKurs
       object rzlbl3: TRzLabel
         Left = 16
         Top = 48
-        Width = 171
-        Height = 19
-        Caption = 'Dokument sprzeda'#380'y'
+        Width = 89
+        Height = 38
+        Caption = 'Dokument '#13'sprzeda'#380'y'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clRed
+        Font.Color = clMaroon
         Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
@@ -235,13 +305,13 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRaised
       end
       object rzlbl4: TRzLabel
-        Left = 416
-        Top = 48
+        Left = 326
+        Top = 56
         Width = 51
         Height = 19
         Caption = 'Uwagi'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clRed
+        Font.Color = clMaroon
         Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
@@ -250,19 +320,441 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRaised
       end
       object rzMmoUwagi: TRzMemo
-        Left = 473
+        Left = 391
         Top = 48
-        Width = 424
+        Width = 506
         Height = 57
+        ScrollBars = ssVertical
         TabOrder = 0
       end
       object rzEdtWgDokumentu: TRzEdit
-        Left = 209
-        Top = 48
+        Left = 111
+        Top = 56
         Width = 192
         Height = 21
         Text = ''
         TabOrder = 1
+      end
+    end
+    object rzGrpBoxPojazd: TRzGroupBox
+      Left = 2
+      Top = 225
+      Width = 919
+      Height = 176
+      Align = alTop
+      Caption = 'Wybierz pojazd'
+      CaptionFont.Charset = DEFAULT_CHARSET
+      CaptionFont.Color = clWindowText
+      CaptionFont.Height = -16
+      CaptionFont.Name = 'Tahoma'
+      CaptionFont.Style = []
+      GradientColorStyle = gcsMSOffice
+      GroupStyle = gsBanner
+      TabOrder = 2
+      object rzlbl5: TRzLabel
+        Left = 16
+        Top = 40
+        Width = 55
+        Height = 19
+        Caption = 'Znajd'#378
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzlbl6: TRzLabel
+        Left = 291
+        Top = 40
+        Width = 94
+        Height = 19
+        Caption = 'lub wybierz'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object dbtxtPojazd: TDBText
+        Left = 24
+        Top = 144
+        Width = 65
+        Height = 17
+        DataField = 'ID_POJAZDY'
+        DataSource = DataModule1.dsPojazdy
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGreen
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object rzlbl12: TRzLabel
+        Left = 30
+        Top = 144
+        Width = 59
+        Height = 13
+        Caption = '- ID pojazdu'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6723891
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object rzEdtSzukPojazd: TRzEdit
+        Left = 77
+        Top = 40
+        Width = 185
+        Height = 21
+        Text = ''
+        TabOrder = 0
+        OnChange = rzEdtSzukPojazdChange
+      end
+      object SMDBgrdPojazd: TSMDBGrid
+        Left = 391
+        Top = 43
+        Width = 506
+        Height = 120
+        DataSource = DataModule1.dsPojazdy
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        StyleElements = [seBorder]
+        Flat = False
+        BandsFont.Charset = DEFAULT_CHARSET
+        BandsFont.Color = clWindowText
+        BandsFont.Height = -11
+        BandsFont.Name = 'Tahoma'
+        BandsFont.Style = []
+        Groupings = <>
+        GridStyle.Style = gsNormal
+        GridStyle.OddColor = clWindow
+        GridStyle.EvenColor = clWindow
+        GridStyle.Title.Direction = fdLeftToRight
+        GridStyle.Title.StartColor = clCream
+        GridStyle.Title.EndColor = clMoneyGreen
+        TitleHeight.PixelCount = 24
+        FooterColor = clBtnFace
+        ExOptions = [eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+        RegistryKey = 'Software\Scalabium'
+        RegistrySection = 'SMDBGrid'
+        WidthOfIndicator = 11
+        DefaultRowHeight = 17
+        ScrollBars = ssHorizontal
+        Columns = <
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'ID_POJAZDY'
+            Title.Caption = 'ID'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 24
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'MARKA'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'TYP'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'LADOWNOSC'
+            Title.Caption = #321'ADOWNO'#346#262
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 91
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'CZY_HDS'
+            Title.Caption = 'HDS ?'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 40
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'CZY_WINDA'
+            Title.Caption = 'WINDA ?'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 54
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'CZY_PRZYCZEPA'
+            Title.Caption = 'PRZYCZEPA ?'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 80
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'NR_REJ_POJAZDU'
+            Title.Caption = 'NR REJESTR'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'INNY_NR'
+            Title.Caption = 'INNY NR'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'PRZEGLAD_DO'
+            Title.Caption = 'PRZEGL'#260'D DO'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Visible = True
+          end>
+      end
+    end
+    object rzGrpBoxKierow: TRzGroupBox
+      Left = 2
+      Top = 401
+      Width = 919
+      Height = 168
+      Align = alTop
+      Caption = 'Wybierz kierowc'#281' '
+      CaptionFont.Charset = DEFAULT_CHARSET
+      CaptionFont.Color = clWindowText
+      CaptionFont.Height = -16
+      CaptionFont.Name = 'Tahoma'
+      CaptionFont.Style = []
+      GradientColorStyle = gcsMSOffice
+      GroupStyle = gsBanner
+      TabOrder = 3
+      object rzlbl7: TRzLabel
+        Left = 16
+        Top = 40
+        Width = 55
+        Height = 19
+        Caption = 'Znajd'#378
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzlbl8: TRzLabel
+        Left = 291
+        Top = 40
+        Width = 94
+        Height = 19
+        Caption = 'lub wybierz'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object dbtxtKierow: TDBText
+        Left = 24
+        Top = 144
+        Width = 65
+        Height = 17
+        DataField = 'ID_KIEROWCA'
+        DataSource = DataModule1.dsKier
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGreen
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object rzlbl11: TRzLabel
+        Left = 231
+        Top = 104
+        Width = 31
+        Height = 17
+        Caption = 'rzlbl11'
+      end
+      object rzlbl13: TRzLabel
+        Left = 29
+        Top = 144
+        Width = 60
+        Height = 13
+        Caption = '-ID kierowcy'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6723891
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object rzEdtSzukKierow: TRzEdit
+        Left = 77
+        Top = 40
+        Width = 185
+        Height = 21
+        Text = ''
+        TabOrder = 0
+        OnChange = rzEdtSzukKierowChange
+      end
+      object SMDBgrdKierowcy: TSMDBGrid
+        Left = 391
+        Top = 35
+        Width = 506
+        Height = 120
+        DataSource = DataModule1.dsKier
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        StyleElements = []
+        Flat = False
+        BandsFont.Charset = DEFAULT_CHARSET
+        BandsFont.Color = clWindowText
+        BandsFont.Height = -11
+        BandsFont.Name = 'Tahoma'
+        BandsFont.Style = []
+        Groupings = <>
+        GridStyle.Style = gsNormal
+        GridStyle.OddColor = clWindow
+        GridStyle.EvenColor = clWindow
+        GridStyle.Title.Direction = fdLeftToRight
+        GridStyle.Title.StartColor = clCream
+        GridStyle.Title.EndColor = clMoneyGreen
+        TitleHeight.PixelCount = 24
+        FooterColor = clBtnFace
+        ExOptions = [eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+        RegistryKey = 'Software\Scalabium'
+        RegistrySection = 'SMDBGrid'
+        WidthOfIndicator = 11
+        DefaultRowHeight = 17
+        ScrollBars = ssHorizontal
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'ID_KIEROWCA'
+            Title.Caption = 'ID'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'IMIE'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NAZWISKO'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NR_TELEFONU'
+            Title.Caption = 'NR TELEFONU'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'PRAWO_JAZDY'
+            Title.Caption = 'PRAWO JAZDY'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CZY_TERMIN'
+            Title.Caption = 'TERMIN'
+            Visible = True
+          end>
+      end
+      object smDbTnID_KIEROWCA: TSMDBButton
+        Left = 16
+        Top = 88
+        Width = 177
+        Height = 41
+        Caption = 'Wybierz kierowc'#281' domy'#347'lnego'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGreen
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        WordWrap = True
+        StyleElements = []
+        OnClick = smDbTnID_KIEROWCAClick
+        DataField = 'ID_KIEROWCA'
+        DataSource = DataModule1.dsKier
       end
     end
   end

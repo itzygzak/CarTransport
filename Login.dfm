@@ -57,7 +57,7 @@ object FrmLogin: TFrmLogin
     Placement = svpLeft
     TabOrder = 1
     object rzlbl1: TRzLabel
-      Left = 25
+      Left = 9
       Top = 40
       Width = 113
       Height = 16
@@ -72,8 +72,8 @@ object FrmLogin: TFrmLogin
       TextStyle = tsRecessed
     end
     object rzlbl2: TRzLabel
-      Left = 25
-      Top = 96
+      Left = 9
+      Top = 94
       Width = 38
       Height = 16
       Caption = 'z dnia'
@@ -87,8 +87,8 @@ object FrmLogin: TFrmLogin
       TextStyle = tsRecessed
     end
     object rzlblWersja: TRzLabel
-      Left = 184
-      Top = 40
+      Left = 136
+      Top = 42
       Width = 53
       Height = 13
       Caption = 'rzlblWersja'
@@ -101,7 +101,7 @@ object FrmLogin: TFrmLogin
       Caption = 'rzlblData'
     end
     object lnkLbl1: TLinkLabel
-      Left = 25
+      Left = 9
       Top = 505
       Width = 79
       Height = 17
@@ -122,7 +122,6 @@ object FrmLogin: TFrmLogin
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
-    ExplicitLeft = 311
     object rzlbl3: TRzLabel
       Left = 47
       Top = 23

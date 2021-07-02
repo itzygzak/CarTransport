@@ -25,6 +25,8 @@ type
     dsMsc: TDataSource;
     ibQryPojazdy: TIBQuery;
     dsKier: TDataSource;
+    ibTransPojazdy: TIBTransaction;
+    dsPojazdy: TDataSource;
   private
     { Private declarations }
   public
