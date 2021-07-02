@@ -2,7 +2,7 @@ object FrmUstalKurs: TFrmUstalKurs
   Left = 0
   Top = 0
   Caption = 'Ustal kurs'
-  ClientHeight = 637
+  ClientHeight = 761
   ClientWidth = 1129
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -48,11 +48,12 @@ object FrmUstalKurs: TFrmUstalKurs
     Left = 926
     Top = 44
     Width = 200
-    Height = 590
+    Height = 714
     Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 1
+    ExplicitHeight = 590
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
@@ -109,26 +110,13 @@ object FrmUstalKurs: TFrmUstalKurs
     Left = 0
     Top = 41
     Width = 923
-    Height = 596
+    Height = 720
     Align = alClient
     BorderOuter = fsNone
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
-    object rzln1: TRzLine
-      Left = 2
-      Top = 562
-      Width = 918
-      Height = 20
-      LineColor = clSkyBlue
-      LineWidth = 2
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-    end
+    ExplicitHeight = 596
     object rzGrpBoxDataWys: TRzGroupBox
       Left = 2
       Top = 2
@@ -755,6 +743,168 @@ object FrmUstalKurs: TFrmUstalKurs
         OnClick = smDbTnID_KIEROWCAClick
         DataField = 'ID_KIEROWCA'
         DataSource = DataModule1.dsKier
+      end
+    end
+    object rzGrpBoxMiejsc: TRzGroupBox
+      Left = 2
+      Top = 569
+      Width = 919
+      Height = 144
+      Align = alTop
+      Caption = 'Wybierz miejscowo'#347#263
+      CaptionFont.Charset = DEFAULT_CHARSET
+      CaptionFont.Color = clWindowText
+      CaptionFont.Height = -16
+      CaptionFont.Name = 'Tahoma'
+      CaptionFont.Style = []
+      GradientColorStyle = gcsMSOffice
+      GroupStyle = gsBanner
+      TabOrder = 4
+      object rzlbl14: TRzLabel
+        Left = 16
+        Top = 40
+        Width = 55
+        Height = 19
+        Caption = 'Znajd'#378
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRecessed
+      end
+      object rzlbl15: TRzLabel
+        Left = 291
+        Top = 40
+        Width = 94
+        Height = 19
+        Caption = 'lub wybierz'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object dbtxtMiejsc: TDBText
+        Left = 24
+        Top = 120
+        Width = 65
+        Height = 17
+        DataField = 'ID_MIEJSCOWOSCI'
+        DataSource = DataModule1.dsMsc
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGreen
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object rzlbl16: TRzLabel
+        Left = 30
+        Top = 120
+        Width = 77
+        Height = 13
+        Caption = '-ID miejscowo'#347#263
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6723891
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object SMDBgrdMiejsc: TSMDBGrid
+        Left = 391
+        Top = 32
+        Width = 506
+        Height = 104
+        DataSource = DataModule1.dsMsc
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        ParentFont = False
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -13
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        StyleElements = []
+        Flat = False
+        BandsFont.Charset = DEFAULT_CHARSET
+        BandsFont.Color = clWindowText
+        BandsFont.Height = -11
+        BandsFont.Name = 'Tahoma'
+        BandsFont.Style = []
+        Groupings = <>
+        GridStyle.Style = gsNormal
+        GridStyle.OddColor = clWindow
+        GridStyle.EvenColor = clWindow
+        GridStyle.Title.Direction = fdLeftToRight
+        GridStyle.Title.StartColor = clMoneyGreen
+        GridStyle.Title.EndColor = clCream
+        TitleHeight.PixelCount = 24
+        FooterColor = clBtnFace
+        ExOptions = [eoAutoWidth, eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+        RegistryKey = 'Software\Scalabium'
+        RegistrySection = 'SMDBGrid'
+        WidthOfIndicator = 11
+        DefaultRowHeight = 17
+        ScrollBars = ssHorizontal
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'ID_MIEJSCOWOSCI'
+            Title.Caption = 'ID'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NAZWA'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'KOD_POCZTOWY'
+            Title.Caption = 'KOD POCZT.'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'WOJEWODZTWO'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'POWIAT'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'GMINA'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'KRAJ'
+            Visible = True
+          end>
+      end
+      object rzEdtSzukMiejsc: TRzEdit
+        Left = 77
+        Top = 40
+        Width = 185
+        Height = 21
+        Text = ''
+        TabOrder = 1
+        OnChange = rzEdtSzukMiejscChange
       end
     end
   end

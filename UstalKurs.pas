@@ -23,7 +23,6 @@ type
     tmPckrCzasWys: TTimePicker;
     rzlbl1: TRzLabel;
     rzlbl2: TRzLabel;
-    rzln1: TRzLine;
     rzGrpBoxWgDokum: TRzGroupBox;
     rzlbl3: TRzLabel;
     rzlbl4: TRzLabel;
@@ -50,6 +49,13 @@ type
     rzlbl11: TRzLabel;
     rzlbl12: TRzLabel;
     rzlbl13: TRzLabel;
+    rzGrpBoxMiejsc: TRzGroupBox;
+    rzlbl14: TRzLabel;
+    rzlbl15: TRzLabel;
+    SMDBgrdMiejsc: TSMDBGrid;
+    rzEdtSzukMiejsc: TRzEdit;
+    dbtxtMiejsc: TDBText;
+    rzlbl16: TRzLabel;
     procedure img1Click(Sender: TObject);
     procedure rzBtnUstalClick(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -58,6 +64,7 @@ type
     procedure rzEdtSzukKierowChange(Sender: TObject);
     procedure smDbTnID_KIEROWCAClick(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
+    procedure rzEdtSzukMiejscChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -82,7 +89,7 @@ begin
     Clear;
     Add('INSERT INTO Grafik (id_kierowca, id_pojazdy, id_miejscowosci,id_uzyt, data_wysylki, godz_wysylki, wg_dokument, uwagi, data_powrotu, godz_powrotu )');
     Add('values (:id_kierowca, :id_pojazdy, :id_miejscowosci,:id_uzyt, :data_wysylki, :godz_wysylki,:wg_dokument, :uwagi, :data_powrotu, :godz_powrotu)');
-    ParamByName('id_kierowca').AsInteger := StrToInt(dbtxtKierow.Field.Value); //DaneUczestnika;
+    ParamByName('id_kierowca').AsInteger := StrToInt(dbtxtKierow.Field.Value);
     ParamByName('id_pojazdy').AsInteger := StrToInt(dbtxtPojazd.Field.Value);
     ParamByName('id_miejscowosci').AsInteger := 6; //StrToInt(dbtxtmiejscow.Field.Value);
     ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
@@ -135,6 +142,25 @@ procedure TFrmUstalKurs.rzBtnUstalClick(Sender: TObject);
 begin
   Application.MessageBox('Zosta³y ustalone parametry wysy³ki. ' + #13#10 + 'Je¿eli podane parametry s¹ prawid³owe, zapisz dane i ' + #13#10 + 'wydrukuj list przewozowy.', 'Application.Title', MB_OK + MB_ICONINFORMATION);
 
+end;
+
+procedure TFrmUstalKurs.rzEdtSzukMiejscChange(Sender: TObject);
+var SzukMiejsc : string;
+begin
+ SzukMiejsc := rzEdtSzukMiejsc.Text;
+  with DataModule1.ibQryMsc, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT id_miejscowosci, nazwa, kod_pocztowy, wojewodztwo, powiat, gmina, kraj FROM miejscowosci ');
+    Add('WHERE usun=:usun');
+    if rzEdtSzukMiejsc.Text <> '' then
+      Add('AND (UPPER(nazwa) LIKE :i or UPPER(kod_pocztowy) LIKE :i)');
+    ParamByName('usun').AsInteger := 0;
+    if rzEdtSzukKierow.Text <> '' then
+      ParamByName('i').AsString := '%' + UpperCase(SzukMiejsc) + '%';
+    Open;
+  end;
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukKierowChange(Sender: TObject);
