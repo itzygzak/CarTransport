@@ -64,8 +64,8 @@ end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
-  FrmUstalKurs.Top := FrmStart.Top + 50;
-  FrmUstalKurs.Left := FrmStart.Left + 50;
+  FrmUstalKurs.Top := FrmStart.Top - 50;
+  FrmUstalKurs.Left := FrmStart.Left - 50;
   FrmUstalKurs.ShowModal;
 
 end;

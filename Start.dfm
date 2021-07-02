@@ -74,8 +74,6 @@ object FrmStart: TFrmStart
     BorderColor = clHighlight
     BorderWidth = 2
     TabOrder = 2
-    ExplicitTop = 41
-    ExplicitHeight = 441
     object rzlbl1: TRzLabel
       Left = 24
       Top = 48
@@ -161,8 +159,6 @@ object FrmStart: TFrmStart
     OpenedWidth = 200
     Placement = svpLeft
     TabOrder = 3
-    ExplicitTop = 41
-    ExplicitHeight = 441
     object ctgryBtns1: TCategoryButtons
       AlignWithMargins = True
       Left = 3
@@ -218,9 +214,6 @@ object FrmStart: TFrmStart
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 200
     end
   end
   object tmr1: TTimer

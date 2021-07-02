@@ -161,4 +161,29 @@ object DataModule1: TDataModule1
     Left = 616
     Top = 224
   end
+  object ibQryGrafik: TIBQuery
+    Database = ibDtBase1
+    Transaction = ibTransGrafik
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'SELECT * FROM GRAFIK')
+    Left = 704
+    Top = 40
+  end
+  object ibTransGrafik: TIBTransaction
+    DefaultDatabase = ibDtBase1
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 696
+    Top = 112
+  end
+  object dsGrafik: TDataSource
+    DataSet = ibQryGrafik
+    Left = 696
+    Top = 224
+  end
 end

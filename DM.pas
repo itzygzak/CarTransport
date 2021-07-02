@@ -27,6 +27,9 @@ type
     dsKier: TDataSource;
     ibTransPojazdy: TIBTransaction;
     dsPojazdy: TDataSource;
+    ibQryGrafik: TIBQuery;
+    ibTransGrafik: TIBTransaction;
+    dsGrafik: TDataSource;
   private
     { Private declarations }
   public
