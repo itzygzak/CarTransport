@@ -65,6 +65,8 @@ type
     procedure smDbTnID_KIEROWCAClick(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure rzEdtSzukMiejscChange(Sender: TObject);
+    procedure ZapiszWGrafiku;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -81,9 +83,9 @@ uses
 
 {$R *.dfm}
 
-procedure TFrmUstalKurs.ctgryBtns1Categories0Items0Click(Sender: TObject);
+procedure TFrmUstalKurs.ZapiszWGrafiku;
 begin
- with DataModule1.ibQryTemp, SQL do
+  with DataModule1.ibQryTemp, SQL do
   begin
     Close;
     Clear;
@@ -101,24 +103,43 @@ begin
     ParamByName('godz_powrotu').AsTime := tmPckrGodzPowrotu.Time;
     ExecSQL;
     DataModule1.ibTransTemp.Commit;
-end;
+  end;
+
 end;
 
+procedure TFrmUstalKurs.ctgryBtns1Categories0Items0Click(Sender: TObject);
+begin
+  if ((rzEdtWgDokumentu.Text = '') or (rzlbl11.Caption = '')) then
+    // (dbtxtKierow.Field.Text ='')) then
+  begin
+    ShowMessage('Wype³nij wymagane pola')
+  end
+  else
+    ZapiszWGrafiku;
+    ShowMessage('Dane zosta³y zapisane. ' );
+end;
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
   Close;
 end;
 
+procedure TFrmUstalKurs.FormCreate(Sender: TObject);
+begin
+DataModule1.ibQryKier.Close;
+DataModule1.ibQryPojazdy.Close;
+DataModule1.ibQryMsc.Close;
+end;
+
 procedure TFrmUstalKurs.FormShow(Sender: TObject);
 begin
 
- rzDtmPckrDataWys.Date:=Now;
- rzDtmPckrDataPowrotu.Date:=Now;
- tmPckrCzasWys.Time := Now;
- tmPckrGodzPowrotu.Time := Now;
+  rzDtmPckrDataWys.Date := Now;
+  rzDtmPckrDataPowrotu.Date := Now;
+  tmPckrCzasWys.Time := Now;
+  tmPckrGodzPowrotu.Time := Now;
 
- with DataModule1.ibQryPojazdy, SQL do
+  with DataModule1.ibQryPojazdy, SQL do
   begin
     Close;
     Clear;
@@ -145,9 +166,10 @@ begin
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukMiejscChange(Sender: TObject);
-var SzukMiejsc : string;
+var
+  SzukMiejsc: string;
 begin
- SzukMiejsc := rzEdtSzukMiejsc.Text;
+  SzukMiejsc := rzEdtSzukMiejsc.Text;
   with DataModule1.ibQryMsc, SQL do
   begin
     Close;
@@ -157,14 +179,15 @@ begin
     if rzEdtSzukMiejsc.Text <> '' then
       Add('AND (UPPER(nazwa) LIKE :i or UPPER(kod_pocztowy) LIKE :i)');
     ParamByName('usun').AsInteger := 0;
-    if rzEdtSzukKierow.Text <> '' then
+    if rzEdtSzukMiejsc.Text <> '' then
       ParamByName('i').AsString := '%' + UpperCase(SzukMiejsc) + '%';
     Open;
   end;
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukKierowChange(Sender: TObject);
-var SzukKier : string;
+var
+  SzukKier: string;
 begin
   SzukKier := rzEdtSzukKierow.Text;
   with DataModule1.ibQryKier, SQL do
@@ -213,9 +236,12 @@ begin
     Add('WHERE nazwisko =:nazwisko');
     ParamByName('nazwisko').AsString := 'Kierowca firmy GS';
 //    rzEdtSzukKierow.Text;
+
+    // (DataModule1.ibQryKier.FieldByName('imie').AsString) +
+    //(ParamByName('nazwisko').AsString);
     Open;
   end;
-
+    rzlbl11.Caption := 'WYBRANO' + (DataModule1.ibQryKier.FieldByName('nazwisko').AsString);
 end;
 
 end.

@@ -11,6 +11,7 @@ object FrmUstalKurs: TFrmUstalKurs
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -53,7 +54,6 @@ object FrmUstalKurs: TFrmUstalKurs
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 1
-    ExplicitHeight = 590
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
@@ -116,7 +116,6 @@ object FrmUstalKurs: TFrmUstalKurs
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
-    ExplicitHeight = 596
     object rzGrpBoxDataWys: TRzGroupBox
       Left = 2
       Top = 2
@@ -131,7 +130,6 @@ object FrmUstalKurs: TFrmUstalKurs
       GradientColorStyle = gcsMSOffice
       GroupStyle = gsBanner
       TabOrder = 0
-      ExplicitWidth = 863
       object rzlbl1: TRzLabel
         Left = 16
         Top = 41
@@ -322,6 +320,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Height = 21
         Text = ''
         TabOrder = 1
+        TextHint = 'To pole musi by'#263' wype'#322'nione'
       end
     end
     object rzGrpBoxPojazd: TRzGroupBox
@@ -628,9 +627,8 @@ object FrmUstalKurs: TFrmUstalKurs
       object rzlbl11: TRzLabel
         Left = 231
         Top = 104
-        Width = 31
-        Height = 17
-        Caption = 'rzlbl11'
+        Width = 3
+        Height = 13
       end
       object rzlbl13: TRzLabel
         Left = 29
@@ -730,7 +728,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Top = 88
         Width = 177
         Height = 41
-        Caption = 'Wybierz kierowc'#281' domy'#347'lnego'
+        Caption = 'Wybierz domy'#347'lnego kierowc'#281
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGreen
         Font.Height = -13
@@ -863,37 +861,44 @@ object FrmUstalKurs: TFrmUstalKurs
             Expanded = False
             FieldName = 'ID_MIEJSCOWOSCI'
             Title.Caption = 'ID'
+            Width = 18
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'NAZWA'
+            Width = 66
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'KOD_POCZTOWY'
             Title.Caption = 'KOD POCZT.'
+            Width = 66
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'WOJEWODZTWO'
+            Width = 150
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'POWIAT'
+            Width = 73
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'GMINA'
+            Width = 58
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'KRAJ'
+            Width = 42
             Visible = True
           end>
       end

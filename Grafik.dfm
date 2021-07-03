@@ -11,6 +11,7 @@ object FrmGrafik: TFrmGrafik
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object rzpnl1: TRzPanel
@@ -97,7 +98,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'DATA WYSYLKI'
-          Width = 117
+          Width = 134
           Visible = True
         end
         item
@@ -109,7 +110,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'GODZ WYSYLKI'
-          Width = 159
+          Width = 134
           Visible = True
         end
         item
@@ -121,7 +122,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'WG DOKUMENTU'
-          Width = 127
+          Width = 194
           Visible = True
         end
         item
@@ -132,6 +133,7 @@ object FrmGrafik: TFrmGrafik
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Width = 109
           Visible = True
         end
         item
@@ -143,7 +145,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'DATA POWROTU'
-          Width = 165
+          Width = 162
           Visible = True
         end
         item
@@ -155,7 +157,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'GODZ POWROTU'
-          Width = 204
+          Width = 162
           Visible = True
         end>
     end
