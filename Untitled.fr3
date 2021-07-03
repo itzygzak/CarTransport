@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<TfrxReport Version="6.2.1" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="44380,6690112153" ReportOptions.Description.Text="" ReportOptions.LastChange="44380,6718678704" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end.">
+  <Datasets>
+    <item DataSet="frXdbDtst1" DataSetName="frxDBDataset1"/>
+  </Datasets>
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" Frame.Typ="0" HGuides.Text="" VGuides.Text="">
+    <TfrxMemoView Name="Date" IndexTag="1" AllowVectorExport="True" Left="510,23655" Top="26,45671" Width="79,37013" Height="18,89765" Frame.Typ="0" Text="[Date]"/>
+    <TfrxMemoView Name="Time" IndexTag="1" AllowVectorExport="True" Left="604,7248" Top="26,45671" Width="79,37013" Height="18,89765" Frame.Typ="0" Text="[Time]"/>
+    <TfrxMemoView Name="frxDBDataset1DATA_WYSYLKI" IndexTag="1" AllowVectorExport="True" Left="7,55906" Top="120,94496" Width="158,74026" Height="18,89765" DataField="DATA_WYSYLKI" DataSet="frXdbDtst1" DataSetName="frxDBDataset1" Frame.Typ="0" Text="[frxDBDataset1.&#34;DATA_WYSYLKI&#34;]"/>
+    <TfrxMemoView Name="frxDBDataset1GODZ_WYSYLKI" IndexTag="1" AllowVectorExport="True" Left="11,33859" Top="154,96073" Width="79,37013" Height="18,89765" DataField="GODZ_WYSYLKI" DataSet="frXdbDtst1" DataSetName="frxDBDataset1" Frame.Typ="0" Text="[frxDBDataset1.&#34;GODZ_WYSYLKI&#34;]"/>
+    <TfrxMemoView Name="frxDBDataset1WG_DOKUMENT" IndexTag="1" AllowVectorExport="True" Left="264,5671" Top="117,16543" Width="400,63018" Height="18,89765" DataField="WG_DOKUMENT" DataSet="frXdbDtst1" DataSetName="frxDBDataset1" Frame.Typ="0" Text="[frxDBDataset1.&#34;WG_DOKUMENT&#34;]"/>
+    <TfrxMemoView Name="frxDBDataset1UWAGI" IndexTag="1" AllowVectorExport="True" Left="241,88992" Top="192,75603" Width="400,63018" Height="18,89765" DataField="UWAGI" DataSet="frXdbDtst1" DataSetName="frxDBDataset1" Frame.Typ="0" Text="[frxDBDataset1.&#34;UWAGI&#34;]"/>
+    <TfrxMemoView Name="frxDBDataset1DATA_POWROTU" IndexTag="1" AllowVectorExport="True" Left="222,99227" Top="268,34663" Width="158,74026" Height="18,89765" DataField="DATA_POWROTU" DataSet="frXdbDtst1" DataSetName="frxDBDataset1" Frame.Typ="0" Text="[frxDBDataset1.&#34;DATA_POWROTU&#34;]"/>
+    <TfrxMemoView Name="frxDBDataset1GODZ_POWROTU" IndexTag="1" AllowVectorExport="True" Left="222,99227" Top="309,92146" Width="79,37013" Height="18,89765" DataField="GODZ_POWROTU" DataSet="frXdbDtst1" DataSetName="frxDBDataset1" Frame.Typ="0" Text="[frxDBDataset1.&#34;GODZ_POWROTU&#34;]"/>
+  </TfrxReportPage>
+</TfrxReport>

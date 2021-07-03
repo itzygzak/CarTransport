@@ -52,6 +52,7 @@ object FrmGrafik: TFrmGrafik
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 1
+    ExplicitTop = 47
     object SMDBgrdGrafik: TSMDBGrid
       Left = 2
       Top = 136
@@ -98,7 +99,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'DATA WYSYLKI'
-          Width = 134
+          Width = 132
           Visible = True
         end
         item
@@ -110,7 +111,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'GODZ WYSYLKI'
-          Width = 134
+          Width = 132
           Visible = True
         end
         item
@@ -122,7 +123,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'WG DOKUMENTU'
-          Width = 194
+          Width = 190
           Visible = True
         end
         item
@@ -133,7 +134,7 @@ object FrmGrafik: TFrmGrafik
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
-          Width = 109
+          Width = 107
           Visible = True
         end
         item
@@ -145,7 +146,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'DATA POWROTU'
-          Width = 162
+          Width = 159
           Visible = True
         end
         item
@@ -157,9 +158,17 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'GODZ POWROTU'
-          Width = 162
+          Width = 159
           Visible = True
         end>
+    end
+    object btn1: TButton
+      Left = 800
+      Top = 48
+      Width = 75
+      Height = 25
+      Caption = 'btn1'
+      TabOrder = 1
     end
   end
   object spltVw1: TSplitView
@@ -211,5 +220,158 @@ object FrmGrafik: TFrmGrafik
       SelectedButtonColor = 15132390
       TabOrder = 0
     end
+  end
+  object frXrprt1: TfrxReport
+    Version = '6.2.1'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 44380.669011215300000000
+    ReportOptions.LastChange = 44380.669011215300000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 496
+    Top = 57
+    Datasets = <
+      item
+        DataSet = frXdbDtst1
+        DataSetName = 'frxDBDataset1'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      object Date: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 510.236550000000000000
+        Top = 26.456710000000000000
+        Width = 79.370130000000000000
+        Height = 18.897650000000000000
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[Date]')
+      end
+      object Time: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 604.724800000000000000
+        Top = 26.456710000000000000
+        Width = 79.370130000000000000
+        Height = 18.897650000000000000
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[Time]')
+      end
+      object frxDBDataset1DATA_WYSYLKI: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 7.559060000000000000
+        Top = 120.944960000000000000
+        Width = 158.740260000000000000
+        Height = 18.897650000000000000
+        DataField = 'DATA_WYSYLKI'
+        DataSet = frXdbDtst1
+        DataSetName = 'frxDBDataset1'
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[frxDBDataset1."DATA_WYSYLKI"]')
+      end
+      object frxDBDataset1GODZ_WYSYLKI: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 11.338590000000000000
+        Top = 154.960730000000000000
+        Width = 79.370130000000000000
+        Height = 18.897650000000000000
+        DataField = 'GODZ_WYSYLKI'
+        DataSet = frXdbDtst1
+        DataSetName = 'frxDBDataset1'
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[frxDBDataset1."GODZ_WYSYLKI"]')
+      end
+      object frxDBDataset1WG_DOKUMENT: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 264.567100000000000000
+        Top = 117.165430000000000000
+        Width = 400.630180000000000000
+        Height = 18.897650000000000000
+        DataField = 'WG_DOKUMENT'
+        DataSet = frXdbDtst1
+        DataSetName = 'frxDBDataset1'
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[frxDBDataset1."WG_DOKUMENT"]')
+      end
+      object frxDBDataset1UWAGI: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 241.889920000000000000
+        Top = 192.756030000000000000
+        Width = 400.630180000000000000
+        Height = 18.897650000000000000
+        DataField = 'UWAGI'
+        DataSet = frXdbDtst1
+        DataSetName = 'frxDBDataset1'
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[frxDBDataset1."UWAGI"]')
+      end
+      object frxDBDataset1DATA_POWROTU: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 222.992270000000000000
+        Top = 268.346630000000000000
+        Width = 158.740260000000000000
+        Height = 18.897650000000000000
+        DataField = 'DATA_POWROTU'
+        DataSet = frXdbDtst1
+        DataSetName = 'frxDBDataset1'
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[frxDBDataset1."DATA_POWROTU"]')
+      end
+      object frxDBDataset1GODZ_POWROTU: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 222.992270000000000000
+        Top = 309.921460000000000000
+        Width = 79.370130000000000000
+        Height = 18.897650000000000000
+        DataField = 'GODZ_POWROTU'
+        DataSet = frXdbDtst1
+        DataSetName = 'frxDBDataset1'
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[frxDBDataset1."GODZ_POWROTU"]')
+      end
+    end
+  end
+  object frXdbDtst1: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    DataSource = DataModule1.dsGrafik
+    BCDToCurrency = False
+    Left = 696
+    Top = 57
   end
 end

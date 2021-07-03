@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage,
-  Vcl.CategoryButtons, Data.DB, Vcl.Grids, Vcl.DBGrids, SMDBGrid;
+  Vcl.CategoryButtons, Data.DB, Vcl.Grids, Vcl.DBGrids, SMDBGrid, Vcl.StdCtrls,
+  frxClass, frxDBSet;
 
 type
   TFrmGrafik = class(TForm)
@@ -16,6 +17,9 @@ type
     img1: TImage;
     ctgryBtns1: TCategoryButtons;
     SMDBgrdGrafik: TSMDBGrid;
+    frXrprt1: TfrxReport;
+    frXdbDtst1: TfrxDBDataset;
+    btn1: TButton;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
