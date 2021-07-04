@@ -67,6 +67,7 @@ type
     procedure rzEdtSzukMiejscChange(Sender: TObject);
     procedure ZapiszWGrafiku;
     procedure FormCreate(Sender: TObject);
+    procedure rzDtmPckrDataPowrotuChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,7 +80,7 @@ var
 implementation
 
 uses
-  DM, Login;
+  DM, Login, PodgladWyd, Grafik;
 
 {$R *.dfm}
 
@@ -161,8 +162,16 @@ end;
 
 procedure TFrmUstalKurs.rzBtnUstalClick(Sender: TObject);
 begin
-  Application.MessageBox('Zosta³y ustalone parametry wysy³ki. ' + #13#10 + 'Je¿eli podane parametry s¹ prawid³owe, zapisz dane i ' + #13#10 + 'wydrukuj list przewozowy.', 'Application.Title', MB_OK + MB_ICONINFORMATION);
+  FrmGrafik.Top := FrmUstalKurs.Top + 50;
+  FrmGrafik.Left := FrmUstalKurs.Left + 50;
+  FrmGrafik.ShowModal;
 
+end;
+
+procedure TFrmUstalKurs.rzDtmPckrDataPowrotuChange(Sender: TObject);
+begin
+if (rzDtmPckrDataWys.Date) > (rzDtmPckrDataPowrotu.Date) then
+ShowMessage('Data wysy³ki nie mo¿e byæ wczeœniejsza ni¿ data powrotu. To chyba oczywiste ?');
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukMiejscChange(Sender: TObject);

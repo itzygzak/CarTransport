@@ -101,7 +101,7 @@ object FrmUstalKurs: TFrmUstalKurs
       Top = 498
       Width = 187
       Height = 57
-      Caption = 'Ustal'
+      Caption = 'Podejrzyj grafik'
       TabOrder = 1
       OnClick = rzBtnUstalClick
     end
@@ -244,6 +244,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Font.Style = []
         ParentFont = False
         TabOrder = 2
+        OnChange = rzDtmPckrDataPowrotuChange
       end
       object tmPckrGodzPowrotu: TTimePicker
         Left = 771
@@ -728,7 +729,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Top = 88
         Width = 177
         Height = 41
-        Caption = 'Wybierz domy'#347'lnego kierowc'#281
+        Caption = 'smDbTnID_KIEROWCA'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGreen
         Font.Height = -13

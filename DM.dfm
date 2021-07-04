@@ -168,7 +168,16 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'SELECT * FROM GRAFIK')
+      
+        'SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa' +
+        ', m.kod_pocztowy, g.data_wysylki, '
+      
+        'g.godz_wysylki, g.wg_dokument, g.uwagi, g.data_powrotu, g.godz_p' +
+        'owrotu '
+      'FROM kierowcy k, pojazdy p, miejscowosci m, grafik g'
+      
+        'WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_poja' +
+        'zdy AND m.id_miejscowosci = g.id_miejscowosci')
     Left = 704
     Top = 40
   end

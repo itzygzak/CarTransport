@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage,
   Vcl.CategoryButtons, Data.DB, Vcl.Grids, Vcl.DBGrids, SMDBGrid, Vcl.StdCtrls,
-  frxClass, frxDBSet;
+  frxClass, frxDBSet, frxExportBaseDialog, frxExportPDF, frxPreview;
 
 type
   TFrmGrafik = class(TForm)
@@ -17,12 +17,13 @@ type
     img1: TImage;
     ctgryBtns1: TCategoryButtons;
     SMDBgrdGrafik: TSMDBGrid;
+    frxPdfXprt1: TfrxPDFExport;
     frXrprt1: TfrxReport;
     frXdbDtst1: TfrxDBDataset;
-    btn1: TButton;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ctgryBtns1Categories0Items4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,14 +34,23 @@ var
   FrmGrafik: TFrmGrafik;
 
 implementation
-uses DM;
+
+uses
+  DM, PodgladWyd;
 
 
 {$R *.dfm}
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
-  Close;
+Close;
+end;
+
+procedure TFrmGrafik.ctgryBtns1Categories0Items4Click(Sender: TObject);
+begin
+  FrmPodgladWydruku.Top := FrmGrafik.Top + 50;
+  FrmPodgladWydruku.Left := FrmGrafik.Left + 50;
+  FrmPodgladWydruku.ShowModal;
 end;
 
 procedure TFrmGrafik.FormShow(Sender: TObject);

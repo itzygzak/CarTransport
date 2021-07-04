@@ -10,7 +10,8 @@ uses
   UstalKurs in 'UstalKurs.pas' {FrmUstalKurs},
   FrameZap in 'FrameZap.pas' {FrameZapisz: TFrame},
   Grafik in 'Grafik.pas' {FrmGrafik},
-  Ustawienia in 'Ustawienia.pas' {FrmUstawienia};
+  Ustawienia in 'Ustawienia.pas' {FrmUstawienia},
+  PodgladWyd in 'PodgladWyd.pas' {FrmPodgladWydruku};
 
 {$R *.res}
 
@@ -25,5 +26,6 @@ begin
   Application.CreateForm(TFrmUstalKurs, FrmUstalKurs);
   Application.CreateForm(TFrmGrafik, FrmGrafik);
   Application.CreateForm(TFrmUstawienia, FrmUstawienia);
+  Application.CreateForm(TFrmPodgladWydruku, FrmPodgladWydruku);
   Application.Run;
 end.
