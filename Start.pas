@@ -35,6 +35,7 @@ type
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items4Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
+    procedure ctgryBtns1Categories0Items6Click(Sender: TObject);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -52,7 +53,7 @@ var
 implementation
 
 uses
-  DM, Login, Definicje, Historia, UstalKurs, Grafik, Ustawienia;
+  DM, Login, Definicje, Historia, UstalKurs, Grafik, Ustawienia, carTransport;
 
 {$R *.dfm}
 
@@ -101,6 +102,12 @@ end;
 procedure TFrmStart.ctgryBtns1Categories0Items5Click(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFrmStart.ctgryBtns1Categories0Items6Click(Sender: TObject);
+begin
+FrmStart.Top := FrmCarTransport.Top + 50;
+FrmStart.Left := FrmCarTransport.Left + 50;
 end;
 
 procedure TFrmStart.FormCloseQuery(Sender: TObject; var CanClose: Boolean);

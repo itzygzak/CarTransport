@@ -199,6 +199,7 @@ object FrmStart: TFrmStart
             end
             item
               Caption = 'Car transport'
+              OnClick = ctgryBtns1Categories0Items6Click
             end
             item
               Caption = 'Koniec pracy'

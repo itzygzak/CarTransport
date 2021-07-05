@@ -8,10 +8,10 @@ uses
   Definicje in 'Definicje.pas' {FrmDefinicje},
   Historia in 'Historia.pas' {FrmHistoria},
   UstalKurs in 'UstalKurs.pas' {FrmUstalKurs},
-  FrameZap in 'FrameZap.pas' {FrameZapisz: TFrame},
   Grafik in 'Grafik.pas' {FrmGrafik},
   Ustawienia in 'Ustawienia.pas' {FrmUstawienia},
-  PodgladWyd in 'PodgladWyd.pas' {FrmPodgladWydruku};
+  PodgladWyd in 'PodgladWyd.pas' {FrmPodgladWydruku},
+  carTransport in 'carTransport.pas' {Form1};
 
 {$R *.res}
 
@@ -27,5 +27,6 @@ begin
   Application.CreateForm(TFrmGrafik, FrmGrafik);
   Application.CreateForm(TFrmUstawienia, FrmUstawienia);
   Application.CreateForm(TFrmPodgladWydruku, FrmPodgladWydruku);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
