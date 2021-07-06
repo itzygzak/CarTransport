@@ -106,8 +106,9 @@ end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items6Click(Sender: TObject);
 begin
-FrmStart.Top := FrmCarTransport.Top + 50;
-FrmStart.Left := FrmCarTransport.Left + 50;
+FrmCarTransport.Top := FrmStart.Top + 50;
+FrmCarTransport.Left := FrmStart.Left + 50;
+FrmCarTransport.ShowModal;
 end;
 
 procedure TFrmStart.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
