@@ -17,9 +17,6 @@ type
     img1: TImage;
     ctgryBtns1: TCategoryButtons;
     SMDBgrdGrafik: TSMDBGrid;
-    frxPdfXprt1: TfrxPDFExport;
-    frXrprt1: TfrxReport;
-    frXdbDtst1: TfrxDBDataset;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);

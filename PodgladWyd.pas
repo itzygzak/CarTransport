@@ -28,7 +28,7 @@ uses Grafik;
 
 procedure TFrmPodgladWydruku.FormShow(Sender: TObject);
 begin
-FrmGrafik.frXrprt1.ShowReport();
+//FrmGrafik.frXrprtFirma.ShowReport();
 end;
 
 end.

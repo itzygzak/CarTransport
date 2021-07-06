@@ -30,6 +30,9 @@ type
     ibQryGrafik: TIBQuery;
     ibTransGrafik: TIBTransaction;
     dsGrafik: TDataSource;
+    ibQryFirma: TIBQuery;
+    ibTransFirma: TIBTransaction;
+    dsFirma: TDataSource;
   private
     { Private declarations }
   public

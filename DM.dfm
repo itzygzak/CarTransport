@@ -195,4 +195,29 @@ object DataModule1: TDataModule1
     Left = 696
     Top = 224
   end
+  object ibQryFirma: TIBQuery
+    Database = ibDtBase1
+    Transaction = ibTransFirma
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'Select * from firma')
+    Left = 776
+    Top = 48
+  end
+  object ibTransFirma: TIBTransaction
+    DefaultDatabase = ibDtBase1
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 776
+    Top = 112
+  end
+  object dsFirma: TDataSource
+    DataSet = ibQryFirma
+    Left = 768
+    Top = 224
+  end
 end

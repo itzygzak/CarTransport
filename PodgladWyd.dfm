@@ -24,10 +24,6 @@ object FrmPodgladWydruku: TFrmPodgladWydruku
     BorderColor = 16737843
     BorderWidth = 1
     TabOrder = 0
-    ExplicitLeft = 368
-    ExplicitTop = 48
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object frxPrvw1: TfrxPreview
       Left = 1
       Top = 1
@@ -38,10 +34,6 @@ object FrmPodgladWydruku: TFrmPodgladWydruku
       OutlineWidth = 120
       ThumbnailVisible = False
       UseReportHints = True
-      ExplicitLeft = 0
-      ExplicitTop = 41
-      ExplicitWidth = 850
-      ExplicitHeight = 414
     end
   end
 end
