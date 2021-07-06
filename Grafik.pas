@@ -17,6 +17,9 @@ type
     img1: TImage;
     ctgryBtns1: TCategoryButtons;
     SMDBgrdGrafik: TSMDBGrid;
+    frXdbDtst1: TfrxDBDataset;
+    frXrprt1: TfrxReport;
+    frXdbDtst2: TfrxDBDataset;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -33,7 +36,7 @@ var
 implementation
 
 uses
-  DM, PodgladWyd;
+  DM;
 
 
 {$R *.dfm}
@@ -45,9 +48,7 @@ end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items4Click(Sender: TObject);
 begin
-  FrmPodgladWydruku.Top := FrmGrafik.Top + 50;
-  FrmPodgladWydruku.Left := FrmGrafik.Left + 50;
-  FrmPodgladWydruku.ShowModal;
+  frXrprt1.ShowReport();
 end;
 
 procedure TFrmGrafik.FormShow(Sender: TObject);

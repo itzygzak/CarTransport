@@ -10,7 +10,6 @@ uses
   UstalKurs in 'UstalKurs.pas' {FrmUstalKurs},
   Grafik in 'Grafik.pas' {FrmGrafik},
   Ustawienia in 'Ustawienia.pas' {FrmUstawienia},
-  PodgladWyd in 'PodgladWyd.pas' {FrmPodgladWydruku},
   carTransport in 'carTransport.pas' {FrmCarTransport};
 
 {$R *.res}
@@ -26,7 +25,6 @@ begin
   Application.CreateForm(TFrmUstalKurs, FrmUstalKurs);
   Application.CreateForm(TFrmGrafik, FrmGrafik);
   Application.CreateForm(TFrmUstawienia, FrmUstawienia);
-  Application.CreateForm(TFrmPodgladWydruku, FrmPodgladWydruku);
   Application.CreateForm(TFrmCarTransport, FrmCarTransport);
   Application.Run;
 end.

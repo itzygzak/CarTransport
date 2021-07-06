@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, FrameZap, Vcl.CategoryButtons,
+  Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.CategoryButtons,
   Vcl.StdCtrls, RzLabel, RzButton, Vcl.Mask, RzEdit, Vcl.ComCtrls, RzDTP,
   RzCmboBx, Vcl.Imaging.pngimage, Vcl.WinXPickers, Vcl.DBCtrls, Data.DB,
   Vcl.Grids, Vcl.DBGrids, RzDBGrid, RzLine, SMDBGrid, SMDBStat;
@@ -80,7 +80,7 @@ var
 implementation
 
 uses
-  DM, Login, PodgladWyd, Grafik;
+  DM, Login, Grafik;
 
 {$R *.dfm}
 
