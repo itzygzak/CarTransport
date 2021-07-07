@@ -1,7 +1,7 @@
 object FrmUstawienia: TFrmUstawienia
   Left = 0
   Top = 0
-  Caption = 'Ustawienia programu'
+  Caption = 'carTransport - Ustawienia programu'
   ClientHeight = 466
   ClientWidth = 858
   Color = clBtnFace
@@ -110,7 +110,7 @@ object FrmUstawienia: TFrmUstawienia
       Height = 413
       Hint = ''
       Margins.Top = 5
-      ActivePage = rztbshtTabSheet3
+      ActivePage = rztbshtTabSheet1
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -118,7 +118,7 @@ object FrmUstawienia: TFrmUstawienia
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 2
+      TabIndex = 0
       TabOrder = 0
       TabStyle = tsBackSlant
       FixedDimension = 22

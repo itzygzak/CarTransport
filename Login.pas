@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage, System.ImageList,
   Vcl.ImgList, Vcl.CategoryButtons, System.IniFiles, Vcl.StdCtrls, RzLabel,
-  RzPanel, SMCVersInfo;
+  RzPanel, SMCVersInfo, Winapi.ShellAPI;
 
 type
   TFrmLogin = class(TForm)
@@ -20,7 +20,6 @@ type
     edtHaslo: TEdit;
     edtLogin: TEdit;
     chk1: TCheckBox;
-    lnkLbl1: TLinkLabel;
     rzlbl1: TRzLabel;
     rzlbl2: TRzLabel;
     rzlbl3: TRzLabel;
@@ -28,10 +27,29 @@ type
     smVrsnf1: TSMVersionInfo;
     rzlblWersja: TRzLabel;
     rzlblData: TRzLabel;
+    rzlbl5: TRzLabel;
+    rzlbl6: TRzLabel;
+    rzlbl7: TRzLabel;
+    rzlbl8: TRzLabel;
+    rzlbl9: TRzLabel;
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
     procedure btnKoniecClick(Sender: TObject);
     procedure img1Click(Sender: TObject);
+    procedure rzlbl6MouseLeave(Sender: TObject);
+    procedure rzlbl6MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure rzlbl6MouseEnter(Sender: TObject);
+    procedure rzlbl6MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure rzlbl6Click(Sender: TObject);
+    procedure rzlbl5Click(Sender: TObject);
+    procedure rzlbl5MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure rzlbl5MouseEnter(Sender: TObject);
+    procedure rzlbl5MouseLeave(Sender: TObject);
+    procedure rzlbl5MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -177,8 +195,9 @@ begin
     INI.Free;
   end;
    chk1.Checked := PamLog;
-  rzlblWersja.Caption := 'Wersja programu ' + smVrsnf1.FileVersion;
-  rzlblData.Caption := smVrsnf1.CompanyName;
+  rzlblWersja.Caption := smVrsnf1.FileVersion;
+  rzlblData.Caption := DateToStr(smVrsnf1.DateTime);
+  rzlbl7.Caption := smVrsnf1.CompanyName;
   NazwaKomp := GetComupterNameStr;
 
 end;
@@ -190,6 +209,68 @@ begin
   else
     spltVw1.Open;
 
+end;
+
+procedure TFrmLogin.rzlbl5Click(Sender: TObject);
+begin
+ShowMessage('Pracujesz na aktualnej wersji .');
+end;
+
+procedure TFrmLogin.rzlbl5MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+rzlbl5.Top := rzlbl5.Top +1;
+rzlbl5.Left := rzlbl5.Left +1;
+end;
+
+procedure TFrmLogin.rzlbl5MouseEnter(Sender: TObject);
+begin
+rzlbl5.Font.Style  := [fsBold,fsUnderline];
+rzlbl5.Font.Color := clBlue;
+end;
+
+procedure TFrmLogin.rzlbl5MouseLeave(Sender: TObject);
+begin
+rzlbl5.Font.Style := [];
+rzlbl5.Font.Color := clBlack;
+end;
+
+procedure TFrmLogin.rzlbl5MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+rzlbl5.Top := rzlbl5.Top -1;
+rzlbl5.Left := rzlbl5.Left -1;
+end;
+
+procedure TFrmLogin.rzlbl6Click(Sender: TObject);
+begin
+ShellExecute(Handle,'open',PChar('http://www.zyg-zak.eu'),nil, nil,SW_SHOW);
+end;
+
+procedure TFrmLogin.rzlbl6MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+rzlbl6.Top := rzlbl6.Top +1;
+rzlbl6.Left := rzlbl6.Left +1;
+end;
+
+procedure TFrmLogin.rzlbl6MouseEnter(Sender: TObject);
+begin
+rzlbl6.Font.Style  := [fsBold,fsUnderline];
+rzlbl6.Font.Color := clBlue;
+end;
+
+procedure TFrmLogin.rzlbl6MouseLeave(Sender: TObject);
+begin
+rzlbl6.Font.Style := [];
+rzlbl6.Font.Color := clBlack;
+end;
+
+procedure TFrmLogin.rzlbl6MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+rzlbl6.Top := rzlbl6.Top -1;
+rzlbl6.Left := rzlbl6.Left -1;
 end;
 
 end.

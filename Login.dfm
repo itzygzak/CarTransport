@@ -3,7 +3,7 @@ object FrmLogin: TFrmLogin
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'Login'
+  Caption = 'carTransport - Login'
   ClientHeight = 613
   ClientWidth = 303
   Color = clBtnFace
@@ -59,12 +59,12 @@ object FrmLogin: TFrmLogin
     object rzlbl1: TRzLabel
       Left = 9
       Top = 40
-      Width = 113
-      Height = 16
+      Width = 141
+      Height = 19
       Caption = 'Wersja programu'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 6697728
-      Font.Height = -13
+      Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
@@ -74,12 +74,12 @@ object FrmLogin: TFrmLogin
     object rzlbl2: TRzLabel
       Left = 9
       Top = 94
-      Width = 38
-      Height = 16
+      Width = 49
+      Height = 19
       Caption = 'z dnia'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 6697728
-      Font.Height = -13
+      Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
@@ -87,28 +87,119 @@ object FrmLogin: TFrmLogin
       TextStyle = tsRecessed
     end
     object rzlblWersja: TRzLabel
-      Left = 136
-      Top = 42
-      Width = 53
-      Height = 13
+      Left = 9
+      Top = 65
+      Width = 73
+      Height = 16
       Caption = 'rzlblWersja'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMoneyGreen
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRaised
     end
     object rzlblData: TRzLabel
-      Left = 136
-      Top = 96
-      Width = 42
-      Height = 13
+      Left = 8
+      Top = 119
+      Width = 58
+      Height = 16
       Caption = 'rzlblData'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMoneyGreen
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRaised
     end
-    object lnkLbl1: TLinkLabel
+    object rzlbl5: TRzLabel
       Left = 9
+      Top = 457
+      Width = 186
+      Height = 16
+      Cursor = crHandPoint
+      Caption = 'Sprawd'#378' czy s'#261' aktualizacje.'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6697728
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = rzlbl5Click
+      OnMouseDown = rzlbl5MouseDown
+      OnMouseUp = rzlbl5MouseUp
+      OnMouseEnter = rzlbl5MouseEnter
+      OnMouseLeave = rzlbl5MouseLeave
+      LightTextStyle = True
+      TextStyle = tsRaised
+    end
+    object rzlbl6: TRzLabel
+      Left = 128
       Top = 505
-      Width = 79
-      Height = 17
-      Caption = 'Odwied'#378' stron'#281
-      Color = clHighlight
-      ParentColor = False
-      TabOrder = 0
+      Width = 95
+      Height = 16
+      Cursor = crHandPoint
+      Caption = 'www.zyg-zak.eu'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = rzlbl6Click
+      OnMouseDown = rzlbl6MouseDown
+      OnMouseUp = rzlbl6MouseUp
+      OnMouseEnter = rzlbl6MouseEnter
+      OnMouseLeave = rzlbl6MouseLeave
+    end
+    object rzlbl7: TRzLabel
+      Left = 9
+      Top = 175
+      Width = 34
+      Height = 16
+      Caption = 'Firma'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMoneyGreen
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRaised
+    end
+    object rzlbl8: TRzLabel
+      Left = 8
+      Top = 505
+      Width = 106
+      Height = 16
+      Caption = 'Odwied'#378' stron'#281':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6697728
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRaised
+    end
+    object rzlbl9: TRzLabel
+      Left = 9
+      Top = 150
+      Width = 46
+      Height = 19
+      Caption = 'Firma'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6697728
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRaised
     end
   end
   object rzpnl1: TRzPanel
@@ -122,6 +213,7 @@ object FrmLogin: TFrmLogin
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
+    ExplicitLeft = 311
     object rzlbl3: TRzLabel
       Left = 47
       Top = 23

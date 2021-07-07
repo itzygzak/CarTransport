@@ -1,7 +1,7 @@
 object FrmUstalKurs: TFrmUstalKurs
   Left = 0
   Top = 0
-  Caption = 'Ustal kurs'
+  Caption = 'carTransport - Ustal kurs'
   ClientHeight = 761
   ClientWidth = 1129
   Color = clBtnFace

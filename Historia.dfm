@@ -1,7 +1,7 @@
 object FrmHistoria: TFrmHistoria
   Left = 0
   Top = 0
-  Caption = 'Historia'
+  Caption = 'carTransport - Historia'
   ClientHeight = 424
   ClientWidth = 931
   Color = clBtnFace

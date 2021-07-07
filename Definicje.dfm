@@ -1,7 +1,7 @@
 ﻿object FrmDefinicje: TFrmDefinicje
   Left = 0
   Top = 0
-  Caption = 'Zdefiniuj'
+  Caption = 'carTransport - Zdefiniuj'
   ClientHeight = 563
   ClientWidth = 903
   Color = clBtnFace
@@ -461,6 +461,10 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object rzGrpBox2: TRzGroupBox
           Left = 16
           Top = 24
@@ -702,6 +706,10 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object rzGrpBox3: TRzGroupBox
           Left = 16
           Top = 24
