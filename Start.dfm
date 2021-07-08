@@ -11,12 +11,14 @@ object FrmStart: TFrmStart
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   Position = poMainFormCenter
   PrintScale = poNone
   Scaled = False
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
@@ -161,33 +163,33 @@ object FrmStart: TFrmStart
           Collapsed = False
           Items = <
             item
-              Caption = 'Ustal kurs'
+              Caption = 'Ustal kurs [F2]'
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
-              Caption = 'Historia'
+              Caption = 'Historia [F3]'
               OnClick = ctgryBtns1Categories0Items1Click
             end
             item
-              Caption = 'Definicje'
+              Caption = 'Definicje [F4]'
               OnClick = ctgryBtns1Categories0Items2Click
             end
             item
-              Caption = 'Ustawienia programu'
+              Caption = 'Ustawienia [F11]'
               OnClick = ctgryBtns1Categories0Items3Click
             end
             item
-              Caption = 'Grafik'
+              Caption = 'Grafik [F6]'
               OnClick = ctgryBtns1Categories0Items4Click
             end
             item
             end
             item
-              Caption = 'Car transport'
+              Caption = 'Car transport [F10]'
               OnClick = ctgryBtns1Categories0Items6Click
             end
             item
-              Caption = 'Koniec pracy'
+              Caption = 'Koniec pracy [F12]'
               OnClick = ctgryBtns1Categories0Items5Click
             end>
         end>

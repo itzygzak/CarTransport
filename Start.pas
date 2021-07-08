@@ -35,6 +35,7 @@ type
     procedure ctgryBtns1Categories0Items4Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items6Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -121,6 +122,27 @@ var
   data: TDate;
 begin
   rzlbl5.Caption := DateToStr(Now);
+end;
+
+procedure TFrmStart.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+case Key of
+    VK_F2:
+      ctgryBtns1.Categories[0].Items[0].OnClick(Sender);
+    VK_F3:
+      ctgryBtns1.Categories[0].Items[1].OnClick(Sender);
+    VK_F4:
+      ctgryBtns1.Categories[0].Items[2].OnClick(Sender);
+    VK_F11:
+      ctgryBtns1.Categories[0].Items[3].OnClick(Sender);
+    VK_F6:
+      ctgryBtns1.Categories[0].Items[4].OnClick(Sender);
+    VK_F10:
+      ctgryBtns1.Categories[0].Items[6].OnClick(Sender);
+    VK_F12:
+      ctgryBtns1.Categories[0].Items[7].OnClick(Sender);
+  end;
 end;
 
 procedure TFrmStart.FormResize(Sender: TObject);

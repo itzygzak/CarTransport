@@ -15,6 +15,9 @@ object FrmGrafik: TFrmGrafik
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
+  DesignSize = (
+    1138
+    546)
   PixelsPerInch = 96
   TextHeight = 13
   object rzpnl1: TRzPanel
@@ -49,8 +52,7 @@ object FrmGrafik: TFrmGrafik
     Left = 0
     Top = 41
     Width = 932
-    Height = 505
-    Align = alClient
+    Height = 344
     BorderOuter = fsNone
     BorderColor = 16737843
     BorderWidth = 2
@@ -119,11 +121,15 @@ object FrmGrafik: TFrmGrafik
       Left = 2
       Top = 115
       Width = 928
-      Height = 388
-      Align = alBottom
-      Anchors = [akLeft, akTop, akRight, akBottom]
+      Height = 222
       DataSource = DataModule1.dsGrafik
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ParentFont = False
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -162,7 +168,12 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'DATA WYSYLKI'
-          Width = 134
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = []
+          Width = 119
           Visible = True
         end
         item
@@ -174,7 +185,12 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'DATA POWROTU'
-          Width = 162
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = []
+          Width = 142
           Visible = True
         end
         item
@@ -186,7 +202,12 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'GODZ WYSYLKI'
-          Width = 134
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = []
+          Width = 119
           Visible = True
         end
         item
@@ -198,7 +219,12 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'GODZ POWROTU'
-          Width = 162
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = []
+          Width = 142
           Visible = True
         end
         item
@@ -210,18 +236,29 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'WG DOKUMENTU'
-          Width = 194
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = []
+          Width = 170
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'UWAGI'
+          FieldName = 'NAZWA'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
-          Width = 109
+          Title.Caption = 'MIEJSCOWO'#346#262
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = []
+          Width = 205
           Visible = True
         end>
     end
@@ -311,6 +348,31 @@ object FrmGrafik: TFrmGrafik
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
+    end
+  end
+  object RzPnl3: TRzPanel
+    Left = 0
+    Top = 391
+    Width = 933
+    Height = 153
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    BorderOuter = fsNone
+    BorderColor = 16737843
+    BorderWidth = 2
+    TabOrder = 3
+    object dbmmoUwagi: TDBMemo
+      Left = 2
+      Top = 2
+      Width = 929
+      Height = 149
+      Align = alClient
+      DataField = 'UWAGI'
+      DataSource = DataModule1.dsGrafik
+      TabOrder = 0
+      ExplicitLeft = 48
+      ExplicitTop = 8
+      ExplicitWidth = 185
+      ExplicitHeight = 89
     end
   end
   object frXdbDtst1: TfrxDBDataset

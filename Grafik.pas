@@ -8,7 +8,7 @@ uses
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage,
   Vcl.CategoryButtons, Data.DB, Vcl.Grids, Vcl.DBGrids, SMDBGrid, Vcl.StdCtrls,
   frxClass, frxDBSet, frxExportBaseDialog, frxExportPDF, frxPreview, RzLabel,
-  Vcl.ComCtrls, RzDTP;
+  Vcl.ComCtrls, RzDTP, Vcl.DBCtrls;
 
 type
   TFrmGrafik = class(TForm)
@@ -28,6 +28,8 @@ type
     rzlbl2: TRzLabel;
     rzlbl3: TRzLabel;
     rzlbl4: TRzLabel;
+    RzPnl3: TRzPanel;
+    dbmmoUwagi: TDBMemo;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -141,7 +143,8 @@ end;
 
 procedure TFrmGrafik.trckBr1Change(Sender: TObject);
 begin
-  SMDBgrdGrafik.Font.Size := trckBr1.Position + 1;
+ dbmmoUwagi.Font.Size := trckBr1.Position +1;
+ SMDBgrdGrafik.Font.Size := trckBr1.Position + 1;
 
 end;
 

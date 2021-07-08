@@ -10,8 +10,10 @@
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   ShowHint = True
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -461,10 +463,6 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object rzGrpBox2: TRzGroupBox
           Left = 16
           Top = 24
@@ -678,15 +676,6 @@
             State = cbUnchecked
             TabOrder = 4
           end
-          object rzEdtPrzeglad: TRzEdit
-            Left = 170
-            Top = 360
-            Width = 121
-            Height = 21
-            Text = ''
-            TabOrder = 8
-            TextHint = 'To pole nie moze by'#263' puste'
-          end
           object rzChckBxPrzyczepa: TRzCheckBox
             Left = 170
             Top = 242
@@ -694,6 +683,16 @@
             Height = 15
             State = cbUnchecked
             TabOrder = 5
+          end
+          object rzDtmPckr1: TRzDateTimePicker
+            Left = 170
+            Top = 360
+            Width = 159
+            Height = 21
+            Date = 44385.000000000000000000
+            Format = ''
+            Time = 0.801469641206495000
+            TabOrder = 8
           end
         end
       end
@@ -706,10 +705,6 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object rzGrpBox3: TRzGroupBox
           Left = 16
           Top = 24
@@ -899,7 +894,7 @@
           Collapsed = False
           Items = <
             item
-              Caption = 'Zapisz'
+              Caption = 'Zapisz [F9]'
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
@@ -908,7 +903,7 @@
             item
             end
             item
-              Caption = 'Zamknij'
+              Caption = 'Zamknij [F12]'
               OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>

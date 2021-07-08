@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzTabs,
   Vcl.ExtCtrls, RzPanel, Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx,
-  RzButton, RzRadChk, Vcl.Imaging.pngimage, Vcl.WinXCtrls, Vcl.CategoryButtons;
+  RzButton, RzRadChk, Vcl.Imaging.pngimage, Vcl.WinXCtrls, Vcl.CategoryButtons,
+  Vcl.ComCtrls, RzDTP;
 
 type
   TFrmDefinicje = class(TForm)
@@ -67,10 +68,10 @@ type
     rzCmbxTermin: TRzComboBox;
     rzlbl22: TRzLabel;
     rzlbl23: TRzLabel;
-    rzEdtPrzeglad: TRzEdit;
     rzChckBxPrzyczepa: TRzCheckBox;
     rzCmbxKraj: TRzComboBox;
     rzlbl24: TRzLabel;
+    rzDtmPckr1: TRzDateTimePicker;
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -82,6 +83,7 @@ type
     procedure DodajPojazd;
     procedure FormShow(Sender: TObject);
     procedure DodajMiejscowosc;
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -122,7 +124,7 @@ begin
 
   if RzPgCntrl1.ActivePageIndex = 2 then
   begin
-    if ((rzEdtNazwisko.Text = '') or (rzEdtNrTelefonu.Text = '') or (rzCmbxPrawoJazdy.Text = '')) then
+    if ((rzEdtMiejscowosc.Text = '') or (rzEdtWojew.Text = '') or (rzCmbxKraj.Text = '')) then
     begin
       ShowMessage('Wype³nij wymagane pola');
     end
@@ -219,7 +221,7 @@ begin
       ParamByName('Czy_przyczepa').AsBoolean := rzChckBxPrzyczepa.Checked;
       ParamByName('Nr_rej_pojazdu').AsString := Trim(rzEdtNrRej.Text);
       ParamByName('Inny_nr').AsString := Trim(rzEdtInnyNr.Text);
-      ParamByName('przeglad_do').AsString := Trim(rzEdtPrzeglad.Text);
+      ParamByName('przeglad_do').AsDateTime := rzDtmPckr1.DateTime;
       ExecSQL;
       DataModule1.ibTransTemp.Commit;
     end;
@@ -270,7 +272,18 @@ begin
   rzChckBxWinda.Checked := False;
   rzChckBxPrzyczepa.Checked := False;
   rzEdtInnyNr.Text := '';
-  rzEdtPrzeglad.Text := '';
+ // rzEdtPrzeglad.Text := '';
+end;
+
+procedure TFrmDefinicje.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+ case Key of
+    VK_F9:
+      ctgryBtns1.Categories[0].Items[0].OnClick(Sender);
+    VK_F12:
+      ctgryBtns1.Categories[0].Items[3].OnClick(Sender);
+  end;
 end;
 
 procedure TFrmDefinicje.FormShow(Sender: TObject);
@@ -377,7 +390,7 @@ end;
 
 procedure TFrmDefinicje.RzTbshtKierowcyShow(Sender: TObject);
 begin
-  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj kierowcê';
+  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj kierowcê [F9]';
 
   rzEdtImie.Text := '';
   rzEdtDrugieImie.Text := '';
@@ -392,7 +405,7 @@ end;
 
 procedure TFrmDefinicje.RzTbshtMiejscowoœciShow(Sender: TObject);
 begin
-  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj miejscowoœæ';
+  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj miejscowoœæ [F9]';
 
   rzEdtMiejscowosc.Text := '';
   rzEdtKod.Text := '';
@@ -403,7 +416,7 @@ end;
 
 procedure TFrmDefinicje.RzTbshtPojazdyShow(Sender: TObject);
 begin
-  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj pojazd';
+  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj pojazd [F9]';
 
   rzEdtMarka.Text := '';
   rzEdtTyp.Text := '';
@@ -412,7 +425,7 @@ begin
   rzChckBxWinda.Checked := False;
   rzChckBxPrzyczepa.Checked := False;
   rzEdtInnyNr.Text := '';
-  rzEdtPrzeglad.Text := '';
+  rzDtmPckr1.DateTime := Now;
 end;
 
 end.
