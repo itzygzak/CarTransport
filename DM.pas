@@ -33,6 +33,10 @@ type
     ibQryFirma: TIBQuery;
     ibTransFirma: TIBTransaction;
     dsFirma: TDataSource;
+    ibTransHistUzyt: TIBTransaction;
+    dsHistUzyt: TDataSource;
+    ibQryHistUzyt: TIBQuery;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,5 +51,11 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDataModule1.DataModuleCreate(Sender: TObject);
+begin
+if ibDtBase1.Connected = true then
+  ibDtBase1.Connected :=False;
+end;
 
 end.

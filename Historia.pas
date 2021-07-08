@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB,
   Vcl.Grids, Vcl.DBGrids, RzDBGrid, Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel,
   Vcl.ComCtrls, RzDTP, Vcl.ExtCtrls, RzPanel, Vcl.CategoryButtons,
-  Vcl.Imaging.pngimage, Vcl.WinXCtrls;
+  Vcl.Imaging.pngimage, Vcl.WinXCtrls, SMDBGrid, Vcl.DBCtrls;
 
 type
   TFrmHistoria = class(TForm)
@@ -18,15 +18,22 @@ type
     rzlbl1: TRzLabel;
     rzlbl2: TRzLabel;
     RzPnl3: TRzPanel;
-    RzDBGrd1: TRzDBGrid;
     spltVw1: TSplitView;
     img1: TImage;
     ctgryBtns1: TCategoryButtons;
+    SMDBgrdHistoria: TSMDBGrid;
+    rzlbl3: TRzLabel;
+    trckBr1: TTrackBar;
+    rzlbl4: TRzLabel;
+    RzPnl4: TRzPanel;
+    dbmmoHistoria: TDBMemo;
     procedure ctgryBtns1Categories0Items2Click(Sender: TObject);
     procedure img1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
+    procedure trckBr1Change(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -45,7 +52,7 @@ uses
 
 procedure TFrmHistoria.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
-  with DataModule1.ibQryHistoria, SQL do
+  with DataModule1.ibQryHistUzyt, SQL do
   begin
     Close;
     Clear;
@@ -69,8 +76,19 @@ end;
 
 procedure TFrmHistoria.FormCreate(Sender: TObject);
 begin
-  rzDtmPckrOd.Date := Now;
+  rzDtmPckrOd.Date := StrToDate('01.07.2021');//Now;
   rzDtmPckrDo.Date := Now;
+end;
+
+procedure TFrmHistoria.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+ case Key of
+    VK_F5:
+      ctgryBtns1.Categories[0].Items[0].OnClick(Sender);
+    VK_F12:
+      ctgryBtns1.Categories[0].Items[2].OnClick(Sender);
+  end;
 end;
 
 procedure TFrmHistoria.img1Click(Sender: TObject);
@@ -79,6 +97,12 @@ begin
     spltVw1.Close
   else
     spltVw1.Open;
+end;
+
+procedure TFrmHistoria.trckBr1Change(Sender: TObject);
+begin
+SMDBgrdHistoria.Font.Size := trckBr1.Position + 1;
+dbmmoHistoria.Font.Size := trckBr1.Position + 1;
 end;
 
 end.

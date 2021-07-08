@@ -1,5 +1,6 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
+  OnCreate = DataModuleCreate
   Height = 408
   Width = 1031
   object dsUzyt: TDataSource
@@ -8,6 +9,7 @@ object DataModule1: TDataModule1
     Top = 232
   end
   object ibDtBase1: TIBDatabase
+    Connected = True
     DatabaseName = '127.0.0.1/3050:D:\Bazy\CarTransport\CARTRANSPORT.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
@@ -204,7 +206,7 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'Select * from firma')
     Left = 776
-    Top = 48
+    Top = 40
   end
   object ibTransFirma: TIBTransaction
     DefaultDatabase = ibDtBase1
@@ -219,5 +221,32 @@ object DataModule1: TDataModule1
     DataSet = ibQryFirma
     Left = 768
     Top = 224
+  end
+  object ibTransHistUzyt: TIBTransaction
+    DefaultDatabase = ibDtBase1
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 856
+    Top = 112
+  end
+  object dsHistUzyt: TDataSource
+    DataSet = ibQryHistUzyt
+    Left = 848
+    Top = 232
+  end
+  object ibQryHistUzyt: TIBQuery
+    Database = ibDtBase1
+    Transaction = ibTransHistUzyt
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'SELECT h.data_zdarz, h.operacja, h.stanowisko_k, u.imie,'
+      'u.nazwisko, u.login '
+      'FROM historia h INNER JOIN uzyt u ON h.id_uzyt = u.id_uzyt')
+    Left = 856
+    Top = 40
   end
 end

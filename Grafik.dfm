@@ -10,7 +10,10 @@ object FrmGrafik: TFrmGrafik
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -52,12 +55,73 @@ object FrmGrafik: TFrmGrafik
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 1
+    object rzlbl1: TRzLabel
+      Left = 760
+      Top = 42
+      Width = 118
+      Height = 16
+      Caption = 'Powi'#281'ksz czcionk'#281
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 16737843
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRaised
+    end
+    object rzlbl2: TRzLabel
+      Left = 328
+      Top = 64
+      Width = 17
+      Height = 16
+      Caption = 'Do'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 16737843
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRaised
+    end
+    object rzlbl3: TRzLabel
+      Left = 16
+      Top = 64
+      Width = 82
+      Height = 16
+      Caption = 'Wyszukaj od'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 16737843
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRaised
+    end
+    object rzlbl4: TRzLabel
+      Left = 16
+      Top = 16
+      Width = 330
+      Height = 19
+      Caption = 'Lista ustalonych kurs'#243'w wg daty wysy'#322'ki'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 16737843
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      LightTextStyle = True
+      TextStyle = tsRaised
+    end
     object SMDBgrdGrafik: TSMDBGrid
       Left = 2
-      Top = 136
+      Top = 115
       Width = 928
-      Height = 367
+      Height = 388
       Align = alBottom
+      Anchors = [akLeft, akTop, akRight, akBottom]
       DataSource = DataModule1.dsGrafik
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
       TabOrder = 0
@@ -98,7 +162,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'DATA WYSYLKI'
-          Width = 132
+          Width = 134
           Visible = True
         end
         item
@@ -110,7 +174,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'DATA POWROTU'
-          Width = 159
+          Width = 162
           Visible = True
         end
         item
@@ -122,7 +186,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'GODZ WYSYLKI'
-          Width = 132
+          Width = 134
           Visible = True
         end
         item
@@ -134,7 +198,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'GODZ POWROTU'
-          Width = 159
+          Width = 162
           Visible = True
         end
         item
@@ -146,7 +210,7 @@ object FrmGrafik: TFrmGrafik
           Font.Name = 'Tahoma'
           Font.Style = []
           Title.Caption = 'WG DOKUMENTU'
-          Width = 190
+          Width = 194
           Visible = True
         end
         item
@@ -157,9 +221,40 @@ object FrmGrafik: TFrmGrafik
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
-          Width = 107
+          Width = 109
           Visible = True
         end>
+    end
+    object trckBr1: TTrackBar
+      Left = 752
+      Top = 64
+      Width = 150
+      Height = 45
+      Max = 16
+      Min = 8
+      Position = 8
+      TabOrder = 1
+      OnChange = trckBr1Change
+    end
+    object rzDtmPckrOd: TRzDateTimePicker
+      Left = 120
+      Top = 64
+      Width = 153
+      Height = 21
+      Date = 44385.000000000000000000
+      Format = ''
+      Time = 0.619093391200294700
+      TabOrder = 2
+    end
+    object rzDtmPckrDo: TRzDateTimePicker
+      Left = 360
+      Top = 64
+      Width = 186
+      Height = 21
+      Date = 44385.000000000000000000
+      Format = ''
+      Time = 0.619150254628039000
+      TabOrder = 3
     end
   end
   object spltVw1: TSplitView
@@ -189,20 +284,22 @@ object FrmGrafik: TFrmGrafik
           Collapsed = False
           Items = <
             item
-              Caption = 'Tylko dzisiaj'
+              Caption = 'Tylko dzisiaj [F6]'
+              OnClick = ctgryBtns1Categories0Items0Click
             end
             item
-              Caption = 'Zakres dat'
+              Caption = 'Zakres dat [F5]'
+              OnClick = ctgryBtns1Categories0Items1Click
             end
             item
             end
             item
-              Caption = 'Zamknij okno'
-              OnClick = ctgryBtns1Categories0Items3Click
-            end
-            item
-              Caption = 'Podgl'#261'd wydruku'
+              Caption = 'Podgl'#261'd wydruku [F11]'
               OnClick = ctgryBtns1Categories0Items4Click
+            end
+            item
+              Caption = 'Zamknij okno [F12]'
+              OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -221,8 +318,8 @@ object FrmGrafik: TFrmGrafik
     CloseDataSource = False
     DataSet = DataModule1.ibQryGrafik
     BCDToCurrency = False
-    Left = 608
-    Top = 65
+    Left = 984
+    Top = 417
   end
   object frXrprt1: TfrxReport
     Version = '6.2.1'
@@ -239,8 +336,8 @@ object FrmGrafik: TFrmGrafik
       'begin'
       ''
       'end.')
-    Left = 680
-    Top = 73
+    Left = 1064
+    Top = 425
     Datasets = <
       item
         DataSet = frXdbDtst1
@@ -793,7 +890,7 @@ object FrmGrafik: TFrmGrafik
     CloseDataSource = False
     DataSet = DataModule1.ibQryFirma
     BCDToCurrency = False
-    Left = 608
-    Top = 113
+    Left = 984
+    Top = 465
   end
 end

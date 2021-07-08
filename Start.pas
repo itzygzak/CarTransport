@@ -20,7 +20,6 @@ type
     ctgryBtns1: TCategoryButtons;
     rzlbl1: TRzLabel;
     rzlbl2: TRzLabel;
-    rzlbl3: TRzLabel;
     tmr1: TTimer;
     rzlbl4: TRzLabel;
     rzlbl5: TRzLabel;
@@ -87,16 +86,16 @@ end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
-FrmUstawienia.Top := FrmStart.Top + 50;
-FrmUstawienia.Left := FrmStart.Left + 50;
-FrmUstawienia.ShowModal;
+  FrmUstawienia.Top := FrmStart.Top + 50;
+  FrmUstawienia.Left := FrmStart.Left + 50;
+  FrmUstawienia.ShowModal;
 end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items4Click(Sender: TObject);
 begin
-FrmGrafik.Top := FrmStart.Top + 50;
-FrmGrafik.Left := FrmStart.Left + 50;
-FrmGrafik.ShowModal;
+  FrmGrafik.Top := FrmStart.Top + 50;
+  FrmGrafik.Left := FrmStart.Left + 50;
+  FrmGrafik.ShowModal;
 end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items5Click(Sender: TObject);
@@ -106,9 +105,9 @@ end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items6Click(Sender: TObject);
 begin
-FrmCarTransport.Top := FrmStart.Top + 50;
-FrmCarTransport.Left := FrmStart.Left + 50;
-FrmCarTransport.ShowModal;
+  FrmCarTransport.Top := FrmStart.Top + 50;
+  FrmCarTransport.Left := FrmStart.Left + 50;
+  FrmCarTransport.ShowModal;
 end;
 
 procedure TFrmStart.FormCloseQuery(Sender: TObject; var CanClose: Boolean);

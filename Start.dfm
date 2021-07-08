@@ -27,10 +27,10 @@ object FrmStart: TFrmStart
     Height = 19
     Panels = <
       item
-        Width = 50
+        Width = 200
       end
       item
-        Width = 50
+        Width = 200
       end
       item
         Width = 50
@@ -95,21 +95,6 @@ object FrmStart: TFrmStart
       Width = 84
       Height = 23
       Caption = 'Godzina:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clTeal
-      Font.Height = -19
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRecessed
-    end
-    object rzlbl3: TRzLabel
-      Left = 24
-      Top = 200
-      Width = 292
-      Height = 23
-      Caption = 'Zdefiniowano kurs'#243'w na dzi'#347': '
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clTeal
       Font.Height = -19
