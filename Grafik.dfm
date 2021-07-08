@@ -125,7 +125,7 @@ object FrmGrafik: TFrmGrafik
       DataSource = DataModule1.dsGrafik
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -11
+      Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -156,7 +156,7 @@ object FrmGrafik: TFrmGrafik
       RegistryKey = 'Software\Scalabium'
       RegistrySection = 'SMDBGrid'
       WidthOfIndicator = 11
-      DefaultRowHeight = 17
+      DefaultRowHeight = 20
       ScrollBars = ssHorizontal
       Columns = <
         item

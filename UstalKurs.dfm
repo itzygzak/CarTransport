@@ -10,8 +10,10 @@ object FrmUstalKurs: TFrmUstalKurs
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -70,11 +72,12 @@ object FrmUstalKurs: TFrmUstalKurs
           Collapsed = False
           Items = <
             item
-              Caption = 'Zapisz'
+              Caption = 'Zapisz [F9]'
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
-              Caption = 'Dukuj'
+              Caption = 'Dukuj [F10]'
+              OnClick = ctgryBtns1Categories0Items1Click
             end
             item
               Caption = 'Anuluj'
@@ -82,7 +85,11 @@ object FrmUstalKurs: TFrmUstalKurs
             item
             end
             item
-              Caption = 'Zamknij'
+              Caption = 'Podejrzyj grafik [F11]'
+              OnClick = ctgryBtns1Categories0Items4Click
+            end
+            item
+              Caption = 'Zamknij [F12]'
               OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
@@ -95,15 +102,6 @@ object FrmUstalKurs: TFrmUstalKurs
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
-    end
-    object rzBtnUstal: TRzButton
-      Left = 3
-      Top = 498
-      Width = 187
-      Height = 57
-      Caption = 'Podejrzyj grafik'
-      TabOrder = 1
-      OnClick = rzBtnUstalClick
     end
   end
   object RzPnl2: TRzPanel
@@ -312,7 +310,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Width = 506
         Height = 57
         ScrollBars = ssVertical
-        TabOrder = 0
+        TabOrder = 1
       end
       object rzEdtWgDokumentu: TRzEdit
         Left = 111
@@ -320,7 +318,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Width = 192
         Height = 21
         Text = ''
-        TabOrder = 1
+        TabOrder = 0
         TextHint = 'To pole musi by'#263' wype'#322'nione'
       end
     end
@@ -355,7 +353,7 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRaised
       end
       object rzlbl6: TRzLabel
-        Left = 291
+        Left = 209
         Top = 40
         Width = 94
         Height = 19
@@ -397,8 +395,8 @@ object FrmUstalKurs: TFrmUstalKurs
         ParentFont = False
       end
       object rzEdtSzukPojazd: TRzEdit
-        Left = 77
-        Top = 40
+        Left = 16
+        Top = 65
         Width = 185
         Height = 21
         Text = ''
@@ -406,9 +404,9 @@ object FrmUstalKurs: TFrmUstalKurs
         OnChange = rzEdtSzukPojazdChange
       end
       object SMDBgrdPojazd: TSMDBGrid
-        Left = 391
+        Left = 309
         Top = 43
-        Width = 506
+        Width = 588
         Height = 120
         DataSource = DataModule1.dsPojazdy
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -597,7 +595,7 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRaised
       end
       object rzlbl8: TRzLabel
-        Left = 291
+        Left = 209
         Top = 40
         Width = 94
         Height = 19
@@ -645,8 +643,8 @@ object FrmUstalKurs: TFrmUstalKurs
         ParentFont = False
       end
       object rzEdtSzukKierow: TRzEdit
-        Left = 77
-        Top = 40
+        Left = 16
+        Top = 65
         Width = 185
         Height = 21
         Text = ''
@@ -654,9 +652,9 @@ object FrmUstalKurs: TFrmUstalKurs
         OnChange = rzEdtSzukKierowChange
       end
       object SMDBgrdKierowcy: TSMDBGrid
-        Left = 391
+        Left = 309
         Top = 35
-        Width = 506
+        Width = 588
         Height = 120
         DataSource = DataModule1.dsKier
         Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -726,9 +724,9 @@ object FrmUstalKurs: TFrmUstalKurs
       end
       object smDbTnID_KIEROWCA: TSMDBButton
         Left = 16
-        Top = 88
-        Width = 177
-        Height = 41
+        Top = 104
+        Width = 153
+        Height = 34
         Caption = 'smDbTnID_KIEROWCA'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGreen
@@ -775,7 +773,7 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRecessed
       end
       object rzlbl15: TRzLabel
-        Left = 291
+        Left = 209
         Top = 40
         Width = 94
         Height = 19
@@ -817,9 +815,9 @@ object FrmUstalKurs: TFrmUstalKurs
         ParentFont = False
       end
       object SMDBgrdMiejsc: TSMDBGrid
-        Left = 391
+        Left = 309
         Top = 32
-        Width = 506
+        Width = 588
         Height = 104
         DataSource = DataModule1.dsMsc
         Font.Charset = DEFAULT_CHARSET
@@ -904,8 +902,8 @@ object FrmUstalKurs: TFrmUstalKurs
           end>
       end
       object rzEdtSzukMiejsc: TRzEdit
-        Left = 77
-        Top = 40
+        Left = 16
+        Top = 65
         Width = 185
         Height = 21
         Text = ''

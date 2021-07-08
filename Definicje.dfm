@@ -396,6 +396,7 @@
             TabOrder = 4
             TextHint = 'Pole nie mo'#380'e by'#263' puste'
             Items.Strings = (
+              'WSZYSTKIE'
               'B'
               'C1'
               'C'
@@ -404,7 +405,7 @@
               'DE'
               'T'
               'F'
-              'WSZYSTKIE'
+              ''
               '')
           end
           object rzEdtInne1: TRzEdit
@@ -449,8 +450,8 @@
             Style = csDropDownList
             TabOrder = 5
             Items.Strings = (
-              'Tak'
-              'Nie')
+              'Bezterm'
+              'Term')
           end
         end
       end

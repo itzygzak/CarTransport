@@ -213,7 +213,6 @@ object FrmLogin: TFrmLogin
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
-    ExplicitLeft = 311
     object rzlbl3: TRzLabel
       Left = 47
       Top = 23
@@ -275,7 +274,6 @@ object FrmLogin: TFrmLogin
       ParentFont = False
       PasswordChar = '*'
       TabOrder = 2
-      Text = '*Adkks'
     end
     object edtLogin: TEdit
       Left = 80

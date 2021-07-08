@@ -5,10 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.CategoryButtons,
-  Vcl.StdCtrls, RzLabel, RzButton, Vcl.Mask, RzEdit, Vcl.ComCtrls, RzDTP,
-  RzCmboBx, Vcl.Imaging.pngimage, Vcl.WinXPickers, Vcl.DBCtrls, Data.DB,
-  Vcl.Grids, Vcl.DBGrids, RzDBGrid, RzLine, SMDBGrid, SMDBStat;
+  Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.CategoryButtons, Vcl.StdCtrls,
+  RzLabel, RzButton, Vcl.Mask, RzEdit, Vcl.ComCtrls, RzDTP, RzCmboBx,
+  Vcl.Imaging.pngimage, Vcl.WinXPickers, Vcl.DBCtrls, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, RzDBGrid, RzLine, SMDBGrid, SMDBStat;
 
 type
   TFrmUstalKurs = class(TForm)
@@ -16,7 +16,6 @@ type
     img1: TImage;
     spltVw1: TSplitView;
     ctgryBtns1: TCategoryButtons;
-    rzBtnUstal: TRzButton;
     RzPnl2: TRzPanel;
     rzGrpBoxDataWys: TRzGroupBox;
     rzDtmPckrDataWys: TRzDateTimePicker;
@@ -57,7 +56,6 @@ type
     dbtxtMiejsc: TDBText;
     rzlbl16: TRzLabel;
     procedure img1Click(Sender: TObject);
-    procedure rzBtnUstalClick(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure rzEdtSzukPojazdChange(Sender: TObject);
@@ -68,6 +66,9 @@ type
     procedure ZapiszWGrafiku;
     procedure FormCreate(Sender: TObject);
     procedure rzDtmPckrDataPowrotuChange(Sender: TObject);
+    procedure ctgryBtns1Categories0Items4Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -117,7 +118,12 @@ begin
   end
   else
     ZapiszWGrafiku;
-    ShowMessage('Dane zosta³y zapisane. ' );
+  ShowMessage('Dane zosta³y zapisane. ');
+end;
+
+procedure TFrmUstalKurs.ctgryBtns1Categories0Items1Click(Sender: TObject);
+begin
+  FrmGrafik.frXrprt1.ShowReport();
 end;
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -125,11 +131,34 @@ begin
   Close;
 end;
 
+procedure TFrmUstalKurs.ctgryBtns1Categories0Items4Click(Sender: TObject);
+begin
+  FrmGrafik.Top := FrmUstalKurs.Top + 50;
+  FrmGrafik.Left := FrmUstalKurs.Left + 50;
+  FrmGrafik.ShowModal;
+
+end;
+
 procedure TFrmUstalKurs.FormCreate(Sender: TObject);
 begin
-DataModule1.ibQryKier.Close;
-DataModule1.ibQryPojazdy.Close;
-DataModule1.ibQryMsc.Close;
+  DataModule1.ibQryKier.Close;
+  DataModule1.ibQryPojazdy.Close;
+  DataModule1.ibQryMsc.Close;
+end;
+
+procedure TFrmUstalKurs.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  case Key of
+    VK_F9:
+      ctgryBtns1.Categories[0].Items[0].OnClick(Sender);
+    VK_F10:
+      ctgryBtns1.Categories[0].Items[1].OnClick(Sender);
+    VK_F11:
+      ctgryBtns1.Categories[0].Items[4].OnClick(Sender);
+    VK_F12:
+      ctgryBtns1.Categories[0].Items[5].OnClick(Sender);
+
+  end;
 end;
 
 procedure TFrmUstalKurs.FormShow(Sender: TObject);
@@ -160,18 +189,10 @@ begin
     spltVw1.Open;
 end;
 
-procedure TFrmUstalKurs.rzBtnUstalClick(Sender: TObject);
-begin
-  FrmGrafik.Top := FrmUstalKurs.Top + 50;
-  FrmGrafik.Left := FrmUstalKurs.Left + 50;
-  FrmGrafik.ShowModal;
-
-end;
-
 procedure TFrmUstalKurs.rzDtmPckrDataPowrotuChange(Sender: TObject);
 begin
-if (rzDtmPckrDataWys.Date) > (rzDtmPckrDataPowrotu.Date) then
-ShowMessage('Data wysy³ki nie mo¿e byæ wczeœniejsza ni¿ data powrotu. To chyba oczywiste ?');
+  if (rzDtmPckrDataWys.Date) > (rzDtmPckrDataPowrotu.Date) then
+    ShowMessage('Data wysy³ki nie mo¿e byæ wczeœniejsza ni¿ data powrotu. To chyba oczywiste ?');
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukMiejscChange(Sender: TObject);
@@ -245,12 +266,11 @@ begin
     Add('WHERE nazwisko =:nazwisko');
     ParamByName('nazwisko').AsString := 'Kierowca firmy GS';
 //    rzEdtSzukKierow.Text;
-
     // (DataModule1.ibQryKier.FieldByName('imie').AsString) +
     //(ParamByName('nazwisko').AsString);
     Open;
   end;
-    rzlbl11.Caption := 'WYBRANO' + (DataModule1.ibQryKier.FieldByName('nazwisko').AsString);
+  rzlbl11.Caption := 'WYBRANO' + (DataModule1.ibQryKier.FieldByName('nazwisko').AsString);
 end;
 
 end.

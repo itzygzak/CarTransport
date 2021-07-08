@@ -292,10 +292,12 @@ object FrmUstawienia: TFrmUstawienia
             Height = 24
             TabOrder = 6
             Items.Strings = (
+              'Kierownik'
+              'Sprzedawca'
+              'Podczaszy'
               'Stolnik'
               'Klucznik'
               'Podkomorzy'
-              'Podczaszy'
               'Cze'#347'nik'
               #321'owczy'
               'Miecznik'
