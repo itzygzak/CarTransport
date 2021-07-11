@@ -50,6 +50,9 @@ type
     procedure rzlbl5MouseLeave(Sender: TObject);
     procedure rzlbl5MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure edtLoginChange(Sender: TObject);
+    procedure edtLoginKeyPress(Sender: TObject; var Key: Char);
+    procedure edtHasloKeyPress(Sender: TObject; var Key: Char);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -179,6 +182,32 @@ procedure TFrmLogin.CreateParams(var Params: TCreateParams);
 begin
   inherited;
   Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+end;
+
+procedure TFrmLogin.edtHasloKeyPress(Sender: TObject; var Key: Char);
+begin
+ if Key = #13 then
+  begin
+    btnLogin.Click;
+    Key := #0;
+  end;
+end;
+
+procedure TFrmLogin.edtLoginChange(Sender: TObject);
+begin
+   if (EdtLogin.Text = '') or (EdtHaslo.Text = '') then
+    btnLogin.Enabled := False
+  else
+    btnLogin.Enabled := True;
+end;
+
+procedure TFrmLogin.edtLoginKeyPress(Sender: TObject; var Key: Char);
+begin
+ if Key = #13 then
+  begin
+    EdtHaslo.SetFocus;
+    Key := #0;
+  end;
 end;
 
 procedure TFrmLogin.FormCreate(Sender: TObject);

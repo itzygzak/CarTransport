@@ -86,7 +86,11 @@ uses
 {$R *.dfm}
 
 procedure TFrmUstalKurs.ZapiszWGrafiku;
+var historia : string;
+    generator : Integer;
+
 begin
+try
   with DataModule1.ibQryTemp, SQL do
   begin
     Close;
@@ -105,6 +109,48 @@ begin
     ParamByName('godz_powrotu').AsTime := tmPckrGodzPowrotu.Time;
     ExecSQL;
     DataModule1.ibTransTemp.Commit;
+  end;
+
+    with DataModule1.ibQryTemp, SQL do                    //po dodaniu w oknie wczesniejszym ustawiamy sie na nowym rekordzie
+    begin
+      Clear;
+      Add('SELECT gen_id (gen_grafik_id, 0) FROM rdb$database ');
+      Open;
+      generator := FieldByName('gen_id').AsInteger;
+    end;
+
+  begin
+        //startuje historia
+      try     //do zm. historia przypisuje legende + zawartosc editow
+        historia := 'Wyznaczenie nowego kursu ' + #13#10;
+        historia := historia + ' Wg dokumentu: ' + rzEdtWgDokumentu.Text + #13#10;
+        historia := historia + ' Marka pojazdu: ' + DataModule1.dsPojazdy.DataSet.FieldByName('Marka').AsString + #13#10;
+        historia := historia + ' Miejscowoœæ: ' + DataModule1.dsMsc.DataSet.FieldByName('Nazwa').AsString + #13#10;
+
+        with DataModule1.ibQryHistoria, SQL do
+        begin
+          Close;
+          Clear;
+          Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt,:rekord, :operacja, :stanowisko_k)');
+          ParamByName('panel').AsInteger := 2;
+          ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
+          ParamByName('rekord').AsInteger := generator;
+          ParamByName('operacja').AsString := historia;
+          ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
+          ExecSQL;
+          DataModule1.ibTransHistoria.Commit;
+        end;
+      except
+        DataModule1.ibTransHistoria.Rollback;
+        ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+      end;
+    end;
+
+    //koniec historia
+
+  except
+    DataModule1.ibTransHistoria.Rollback;
+    ShowMessage('B³¹d nie uda³o siê utworzyæ nowego kursu ');
   end;
 
 end;

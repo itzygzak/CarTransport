@@ -274,6 +274,7 @@ object FrmLogin: TFrmLogin
       ParentFont = False
       PasswordChar = '*'
       TabOrder = 2
+      OnKeyPress = edtHasloKeyPress
     end
     object edtLogin: TEdit
       Left = 80
@@ -288,6 +289,8 @@ object FrmLogin: TFrmLogin
       ParentFont = False
       TabOrder = 0
       Text = 'ADMIN'
+      OnChange = edtLoginChange
+      OnKeyPress = edtLoginKeyPress
     end
     object chk1: TCheckBox
       Left = 80

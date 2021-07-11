@@ -163,33 +163,33 @@ object FrmStart: TFrmStart
           Collapsed = False
           Items = <
             item
-              Caption = 'Ustal kurs [F2]'
+              Caption = '[F2]  Ustal kurs'
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
-              Caption = 'Historia [F3]'
+              Caption = '[F3]  Historia'
               OnClick = ctgryBtns1Categories0Items1Click
             end
             item
-              Caption = 'Definicje [F4]'
+              Caption = '[F4]  Definicje'
               OnClick = ctgryBtns1Categories0Items2Click
             end
             item
-              Caption = 'Ustawienia [F11]'
+              Caption = '[F11] Ustawienia'
               OnClick = ctgryBtns1Categories0Items3Click
             end
             item
-              Caption = 'Grafik [F6]'
+              Caption = '[F6]  Grafik'
               OnClick = ctgryBtns1Categories0Items4Click
             end
             item
             end
             item
-              Caption = 'Car transport [F10]'
+              Caption = '[F10] Car transport'
               OnClick = ctgryBtns1Categories0Items6Click
             end
             item
-              Caption = 'Koniec pracy [F12]'
+              Caption = '[F12] Koniec pracy'
               OnClick = ctgryBtns1Categories0Items5Click
             end>
         end>

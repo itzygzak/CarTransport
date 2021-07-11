@@ -72,11 +72,11 @@ object FrmUstalKurs: TFrmUstalKurs
           Collapsed = False
           Items = <
             item
-              Caption = 'Zapisz [F9]'
+              Caption = '[F9]  Zapisz'
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
-              Caption = 'Dukuj [F10]'
+              Caption = '[F10] Dukuj'
               OnClick = ctgryBtns1Categories0Items1Click
             end
             item
@@ -85,11 +85,11 @@ object FrmUstalKurs: TFrmUstalKurs
             item
             end
             item
-              Caption = 'Podejrzyj grafik [F11]'
+              Caption = '[F11] Podejrzyj grafik'
               OnClick = ctgryBtns1Categories0Items4Click
             end
             item
-              Caption = 'Zamknij [F12]'
+              Caption = '[F12] Zamknij'
               OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
@@ -860,44 +860,44 @@ object FrmUstalKurs: TFrmUstalKurs
             Expanded = False
             FieldName = 'ID_MIEJSCOWOSCI'
             Title.Caption = 'ID'
-            Width = 18
+            Width = 21
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'NAZWA'
-            Width = 66
+            Width = 77
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'KOD_POCZTOWY'
             Title.Caption = 'KOD POCZT.'
-            Width = 66
+            Width = 77
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'WOJEWODZTWO'
-            Width = 150
+            Width = 176
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'POWIAT'
-            Width = 73
+            Width = 86
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'GMINA'
-            Width = 58
+            Width = 68
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'KRAJ'
-            Width = 42
+            Width = 50
             Visible = True
           end>
       end

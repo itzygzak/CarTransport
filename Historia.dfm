@@ -30,7 +30,6 @@ object FrmHistoria: TFrmHistoria
     BorderWidth = 2
     Color = clHighlight
     TabOrder = 0
-    ExplicitWidth = 931
     object img1: TImage
       Left = 1135
       Top = 2
@@ -59,7 +58,6 @@ object FrmHistoria: TFrmHistoria
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 1
-    ExplicitWidth = 725
     object rzlbl1: TRzLabel
       Left = 16
       Top = 56
@@ -203,32 +201,32 @@ object FrmHistoria: TFrmHistoria
           Expanded = False
           FieldName = 'DATA_ZDARZ'
           Title.Caption = 'DATA ZDARZENIA'
-          Width = 226
+          Width = 230
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'STANOWISKO_K'
           Title.Caption = 'STANOWISKO'
-          Width = 270
+          Width = 275
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'IMIE'
-          Width = 87
+          Width = 89
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'NAZWISKO'
-          Width = 214
+          Width = 218
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'LOGIN'
-          Width = 123
+          Width = 125
           Visible = True
         end>
     end
@@ -242,8 +240,6 @@ object FrmHistoria: TFrmHistoria
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 3
-    ExplicitLeft = 731
-    ExplicitHeight = 380
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
@@ -259,13 +255,13 @@ object FrmHistoria: TFrmHistoria
           Collapsed = False
           Items = <
             item
-              Caption = 'Szukaj [F5]'
+              Caption = '[F5]  Szukaj'
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
             end
             item
-              Caption = 'Zamknij [F12]'
+              Caption = '[F12] Zamknij'
               OnClick = ctgryBtns1Categories0Items2Click
             end>
         end>
@@ -278,7 +274,6 @@ object FrmHistoria: TFrmHistoria
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
-      ExplicitTop = 6
     end
   end
   object RzPnl4: TRzPanel
@@ -300,8 +295,6 @@ object FrmHistoria: TFrmHistoria
       DataField = 'OPERACJA'
       DataSource = DataModule1.dsHistUzyt
       TabOrder = 0
-      ExplicitTop = -30
-      ExplicitHeight = 205
     end
   end
 end

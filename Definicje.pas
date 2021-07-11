@@ -155,13 +155,13 @@ begin
       DataModule1.ibTransTemp.Commit;
     end;
 
-   { with DataModule1.ibQryTemp, SQL do                    //po dodaniu w oknie wczesniejszym ustawiamy sie na nowym instruktorze
+    with DataModule1.ibQryTemp, SQL do                    //po dodaniu w oknie wczesniejszym ustawiamy sie na nowym rekordzie
     begin
       Clear;
       Add('SELECT gen_id (gen_miejscowosci_id, 0) FROM rdb$database ');
       Open;
       generator := FieldByName('gen_id').AsInteger;
-    end;           }
+    end;
 
     begin
         //startuje historia
@@ -317,13 +317,13 @@ begin
       DataModule1.ibTransTemp.Commit;
     end;
 
-  {  with DataModule1.ibQryTemp, SQL do                    //po dodaniu w oknie wczesniejszym ustawiamy sie na nowym instruktorze
+    with DataModule1.ibQryTemp, SQL do                    //po dodaniu w oknie wczesniejszym ustawiamy sie na nowym instruktorze
     begin
       Clear;
       Add('SELECT gen_id (gen_kierowcy_id, 0) FROM rdb$database ');
       Open;
       generator := FieldByName('gen_id').AsInteger;
-    end;}
+    end;
 
     begin
         //startuje historia

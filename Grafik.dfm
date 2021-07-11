@@ -162,11 +162,6 @@ object FrmGrafik: TFrmGrafik
         item
           Expanded = False
           FieldName = 'DATA_WYSYLKI'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Caption = 'DATA WYSYLKI'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -179,11 +174,6 @@ object FrmGrafik: TFrmGrafik
         item
           Expanded = False
           FieldName = 'DATA_POWROTU'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Caption = 'DATA POWROTU'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -196,11 +186,6 @@ object FrmGrafik: TFrmGrafik
         item
           Expanded = False
           FieldName = 'GODZ_WYSYLKI'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Caption = 'GODZ WYSYLKI'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -213,11 +198,6 @@ object FrmGrafik: TFrmGrafik
         item
           Expanded = False
           FieldName = 'GODZ_POWROTU'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Caption = 'GODZ POWROTU'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -230,11 +210,6 @@ object FrmGrafik: TFrmGrafik
         item
           Expanded = False
           FieldName = 'WG_DOKUMENT'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Caption = 'WG DOKUMENTU'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -247,11 +222,6 @@ object FrmGrafik: TFrmGrafik
         item
           Expanded = False
           FieldName = 'NAZWA'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Caption = 'MIEJSCOWO'#346#262
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -321,21 +291,21 @@ object FrmGrafik: TFrmGrafik
           Collapsed = False
           Items = <
             item
-              Caption = 'Tylko dzisiaj [F6]'
+              Caption = '[F6]  Tylko dzisiaj'
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
-              Caption = 'Zakres dat [F5]'
+              Caption = '[F5]  Zakres dat'
               OnClick = ctgryBtns1Categories0Items1Click
             end
             item
             end
             item
-              Caption = 'Podgl'#261'd wydruku [F11]'
+              Caption = '[F11] Podgl'#261'd wydruku'
               OnClick = ctgryBtns1Categories0Items4Click
             end
             item
-              Caption = 'Zamknij okno [F12]'
+              Caption = '[F12] Zamknij okno'
               OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
@@ -369,10 +339,6 @@ object FrmGrafik: TFrmGrafik
       DataField = 'UWAGI'
       DataSource = DataModule1.dsGrafik
       TabOrder = 0
-      ExplicitLeft = 48
-      ExplicitTop = 8
-      ExplicitWidth = 185
-      ExplicitHeight = 89
     end
   end
   object frXdbDtst1: TfrxDBDataset

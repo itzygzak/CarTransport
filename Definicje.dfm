@@ -895,7 +895,7 @@
           Collapsed = False
           Items = <
             item
-              Caption = 'Zapisz [F9]'
+              Caption = '[F9]  Zapisz'
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
@@ -904,7 +904,7 @@
             item
             end
             item
-              Caption = 'Zamknij [F12]'
+              Caption = '[F12] Zamknij'
               OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
