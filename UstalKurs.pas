@@ -122,7 +122,7 @@ try
   begin
         //startuje historia
       try     //do zm. historia przypisuje legende + zawartosc editow
-        historia := 'Wyznaczenie nowego kursu ' + #13#10;
+        historia := 'Wyznaczono nowy kurs ' + #13#10;
         historia := historia + ' Wg dokumentu: ' + rzEdtWgDokumentu.Text + #13#10;
         historia := historia + ' Marka pojazdu: ' + DataModule1.dsPojazdy.DataSet.FieldByName('Marka').AsString + #13#10;
         historia := historia + ' Miejscowoœæ: ' + DataModule1.dsMsc.DataSet.FieldByName('Nazwa').AsString + #13#10;

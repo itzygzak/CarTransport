@@ -168,7 +168,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 119
+          Width = 116
           Visible = True
         end
         item
@@ -180,7 +180,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 142
+          Width = 139
           Visible = True
         end
         item
@@ -192,7 +192,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 119
+          Width = 116
           Visible = True
         end
         item
@@ -204,7 +204,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 142
+          Width = 139
           Visible = True
         end
         item
@@ -216,7 +216,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 170
+          Width = 167
           Visible = True
         end
         item
@@ -228,7 +228,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 205
+          Width = 201
           Visible = True
         end>
     end
@@ -358,7 +358,7 @@ object FrmGrafik: TFrmGrafik
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 44383.892368009300000000
-    ReportOptions.LastChange = 44383.949477997700000000
+    ReportOptions.LastChange = 44388.908118356500000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -574,183 +574,261 @@ object FrmGrafik: TFrmGrafik
         IndexTag = 1
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 370.393940000000000000
+        Top = 366.614173230000000000
         Width = 158.740260000000000000
         Height = 18.897650000000000000
         DataField = 'IMIE'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."IMIE"]')
+        ParentFont = False
       end
       object frxDBDataset1GODZ_POWROTU: TfrxMemoView
         IndexTag = 2
         AllowVectorExport = True
-        Left = 325.039580000000000000
-        Top = 665.197280000000000000
+        Left = 321.260050000000000000
+        Top = 631.181510000000000000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
         DataField = 'GODZ_POWROTU'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."GODZ_POWROTU"]')
+        ParentFont = False
       end
       object frxDBDataset1DATA_POWROTU: TfrxMemoView
         IndexTag = 3
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 665.197280000000000000
+        Top = 631.181510000000000000
         Width = 234.330860000000000000
         Height = 18.897650000000000000
         DataField = 'DATA_POWROTU'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."DATA_POWROTU"]')
+        ParentFont = False
       end
       object frxDBDataset1UWAGI: TfrxMemoView
         IndexTag = 4
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 608.504330000000000000
+        Top = 680.315400000000000000
         Width = 253.228510000000000000
         Height = 18.897650000000000000
         DataField = 'UWAGI'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."UWAGI"]')
+        ParentFont = False
       end
       object frxDBDataset1WG_DOKUMENT: TfrxMemoView
         IndexTag = 5
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 566.929500000000000000
+        Top = 563.149970000000000000
         Width = 275.905690000000000000
         Height = 18.897650000000000000
         DataField = 'WG_DOKUMENT'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."WG_DOKUMENT"]')
+        ParentFont = False
       end
       object frxDBDataset1GODZ_WYSYLKI: TfrxMemoView
         IndexTag = 6
         AllowVectorExport = True
-        Left = 325.039580000000000000
-        Top = 510.236550000000000000
+        Left = 321.260050000000000000
+        Top = 525.354670000000000000
         Width = 260.787570000000000000
         Height = 18.897650000000000000
         DataField = 'GODZ_WYSYLKI'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."GODZ_WYSYLKI"]')
+        ParentFont = False
       end
       object frxDBDataset1DATA_WYSYLKI: TfrxMemoView
         IndexTag = 7
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 510.236550000000000000
+        Top = 525.354670000000000000
         Width = 291.023810000000000000
         Height = 18.897650000000000000
         DataField = 'DATA_WYSYLKI'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."DATA_WYSYLKI"]')
+        ParentFont = False
       end
       object frxDBDataset1KOD_POCZTOWY: TfrxMemoView
         IndexTag = 8
         AllowVectorExport = True
-        Left = 336.378170000000000000
-        Top = 408.189240000000000000
+        Left = 325.039580000000000000
+        Top = 419.527830000000000000
         Width = 230.551330000000000000
         Height = 18.897650000000000000
         DataField = 'KOD_POCZTOWY'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."KOD_POCZTOWY"]')
+        ParentFont = False
       end
       object frxDBDataset1NAZWA: TfrxMemoView
         IndexTag = 9
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 408.189240000000000000
+        Top = 419.527830000000000000
         Width = 222.992270000000000000
         Height = 18.897650000000000000
         DataField = 'NAZWA'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."NAZWA"]')
+        ParentFont = False
       end
       object frxDBDataset1LADOWNOSC: TfrxMemoView
         IndexTag = 10
         AllowVectorExport = True
         Left = 442.205010000000000000
-        Top = 445.984540000000000000
+        Top = 464.881889760000000000
         Width = 260.787570000000000000
         Height = 18.897650000000000000
         DataField = 'LADOWNOSC'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."LADOWNOSC"]')
+        ParentFont = False
       end
       object frxDBDataset1TYP: TfrxMemoView
         IndexTag = 11
         AllowVectorExport = True
         Left = 309.921460000000000000
-        Top = 445.984540000000000000
+        Top = 464.881889760000000000
         Width = 234.330860000000000000
         Height = 18.897650000000000000
         DataField = 'TYP'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."TYP"]')
+        ParentFont = False
       end
       object frxDBDataset1MARKA: TfrxMemoView
         IndexTag = 12
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 445.984540000000000000
+        Top = 464.882190000000000000
         Width = 249.448980000000000000
         Height = 18.897650000000000000
         DataField = 'MARKA'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."MARKA"]')
+        ParentFont = False
       end
       object frxDBDataset1NAZWISKO: TfrxMemoView
         IndexTag = 13
         AllowVectorExport = True
         Left = 309.921460000000000000
-        Top = 370.393940000000000000
+        Top = 366.614173230000000000
         Width = 268.346630000000000000
         Height = 18.897650000000000000
         DataField = 'NAZWISKO'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
           '[frxDBDataset1."NAZWISKO"]')
+        ParentFont = False
       end
       object Memo1: TfrxMemoView
         AllowVectorExport = True
@@ -839,7 +917,8 @@ object FrmGrafik: TFrmGrafik
         Left = 18.897650000000000000
         Top = 366.614410000000000000
         Width = 94.488250000000000000
-        Height = 336.378170000000000000
+        Height = 18.897650000000000000
+        AutoWidth = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clTeal
         Font.Height = -16
@@ -847,19 +926,7 @@ object FrmGrafik: TFrmGrafik
         Font.Style = []
         Frame.Typ = []
         Memo.UTF8W = (
-          'Kierowca'
-          ''
-          'Docelowo'
-          ''
-          'Pojazd'
-          ''
-          'Data i godzina wysy'#322'ki'
-          ''
-          'Nr dokumentu'
-          ''
-          'Uwagi'
-          ''
-          'Data i godzina powrotu')
+          'Kierowca')
         ParentFont = False
       end
       object Memo5: TfrxMemoView
@@ -910,6 +977,105 @@ object FrmGrafik: TFrmGrafik
         Color = clBlack
         Frame.Typ = [ftTop]
         Frame.Width = 3.000000000000000000
+      end
+      object Memo7: TfrxMemoView
+        AllowVectorExport = True
+        Left = 18.897650000000000000
+        Top = 411.968770000000000000
+        Width = 94.488250000000000000
+        Height = 41.574830000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clTeal
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          'Miejscowo'#347#263
+          'cel podr'#243#380'y')
+        ParentFont = False
+      end
+      object Memo8: TfrxMemoView
+        AllowVectorExport = True
+        Left = 18.897650000000000000
+        Top = 464.881894650000000000
+        Width = 94.488250000000000000
+        Height = 18.897650000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clTeal
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          'Pojazd')
+        ParentFont = False
+      end
+      object Memo9: TfrxMemoView
+        AllowVectorExport = True
+        Left = 18.897650000000000000
+        Top = 506.457020000000000000
+        Width = 113.385900000000000000
+        Height = 37.795300000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clTeal
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          'Data i godzina'
+          'wysy'#322'ki')
+        ParentFont = False
+      end
+      object Memo10: TfrxMemoView
+        AllowVectorExport = True
+        Left = 18.897650000000000000
+        Top = 563.149970000000000000
+        Width = 113.385900000000000000
+        Height = 18.897650000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clTeal
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          'Nr dokumentu')
+        ParentFont = False
+      end
+      object Memo11: TfrxMemoView
+        AllowVectorExport = True
+        Left = 18.897650000000000000
+        Top = 680.315400000000000000
+        Width = 94.488250000000000000
+        Height = 18.897650000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clTeal
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          'Uwagi:')
+        ParentFont = False
+      end
+      object Memo12: TfrxMemoView
+        AllowVectorExport = True
+        Left = 18.897650000000000000
+        Top = 604.724800000000000000
+        Width = 109.606370000000000000
+        Height = 45.354360000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clTeal
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          'Data i godzina'
+          'powrotu')
+        ParentFont = False
       end
     end
   end
