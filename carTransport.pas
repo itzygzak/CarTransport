@@ -40,6 +40,7 @@ type
     rzEdtStrona: TRzEdit;
     rzEdtKlucz: TRzEdit;
     rzEdtDataRej: TRzEdit;
+    rzMmo1: TRzMemo;
     procedure FormShow(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);

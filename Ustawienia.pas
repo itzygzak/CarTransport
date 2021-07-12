@@ -39,6 +39,7 @@ type
     rzEdtSzukaj: TRzEdit;
     rzpnl3: TRzPanel;
     rzDbGrd1: TRzDBGrid;
+    rzlbl8: TRzLabel;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);

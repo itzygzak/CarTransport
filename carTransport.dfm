@@ -58,9 +58,9 @@ object FrmCarTransport: TFrmCarTransport
       Width = 648
       Height = 374
       Hint = ''
-      ActivePage = RzTbshtLicencja
+      ActivePage = RzTbshtOprogramie
       Align = alClient
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 0
       FixedDimension = 19
       object RzTbshtLicencja: TRzTabSheet
@@ -324,6 +324,21 @@ object FrmCarTransport: TFrmCarTransport
       end
       object RzTbshtOprogramie: TRzTabSheet
         Caption = 'O programie'
+        object rzMmo1: TRzMemo
+          Left = 0
+          Top = 0
+          Width = 644
+          Height = 351
+          Align = alClient
+          Lines.Strings = (
+            'O programie'
+            '')
+          TabOrder = 0
+          ExplicitLeft = 16
+          ExplicitTop = 40
+          ExplicitWidth = 185
+          ExplicitHeight = 89
+        end
       end
     end
   end
@@ -362,7 +377,7 @@ object FrmCarTransport: TFrmCarTransport
             item
             end
             item
-              Caption = 'Zamknij okno'
+              Caption = '[F12] Zamknij okno'
               OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
