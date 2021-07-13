@@ -168,7 +168,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 116
+          Width = 119
           Visible = True
         end
         item
@@ -180,7 +180,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 139
+          Width = 142
           Visible = True
         end
         item
@@ -192,7 +192,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 116
+          Width = 119
           Visible = True
         end
         item
@@ -204,7 +204,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 139
+          Width = 142
           Visible = True
         end
         item
@@ -216,7 +216,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 167
+          Width = 170
           Visible = True
         end
         item
@@ -228,7 +228,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 201
+          Width = 205
           Visible = True
         end>
     end
@@ -279,7 +279,7 @@ object FrmGrafik: TFrmGrafik
       Left = 3
       Top = 3
       Width = 194
-      Height = 137
+      Height = 166
       Align = alTop
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
@@ -299,10 +299,14 @@ object FrmGrafik: TFrmGrafik
               OnClick = ctgryBtns1Categories0Items1Click
             end
             item
+              Caption = '[F7]  Anuluj kurs'
+              OnClick = ctgryBtns1Categories0Items2Click
             end
             item
               Caption = '[F11] Podgl'#261'd wydruku'
               OnClick = ctgryBtns1Categories0Items4Click
+            end
+            item
             end
             item
               Caption = '[F12] Zamknij okno'

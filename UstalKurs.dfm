@@ -2,7 +2,7 @@ object FrmUstalKurs: TFrmUstalKurs
   Left = 0
   Top = 0
   Caption = 'carTransport - Ustal kurs'
-  ClientHeight = 761
+  ClientHeight = 781
   ClientWidth = 1129
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -51,11 +51,12 @@ object FrmUstalKurs: TFrmUstalKurs
     Left = 926
     Top = 44
     Width = 200
-    Height = 714
+    Height = 734
     Color = clCream
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 1
+    ExplicitHeight = 714
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
@@ -108,12 +109,13 @@ object FrmUstalKurs: TFrmUstalKurs
     Left = 0
     Top = 41
     Width = 923
-    Height = 720
+    Height = 740
     Align = alClient
     BorderOuter = fsNone
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
+    ExplicitHeight = 720
     object rzGrpBoxDataWys: TRzGroupBox
       Left = 2
       Top = 2
@@ -263,7 +265,7 @@ object FrmUstalKurs: TFrmUstalKurs
       Left = 2
       Top = 107
       Width = 919
-      Height = 118
+      Height = 142
       Align = alTop
       Caption = 'Podaj dokument (nr, data, rodzaj)'
       CaptionFont.Charset = DEFAULT_CHARSET
@@ -276,13 +278,13 @@ object FrmUstalKurs: TFrmUstalKurs
       TabOrder = 1
       object rzlbl3: TRzLabel
         Left = 16
-        Top = 48
-        Width = 89
-        Height = 38
+        Top = 32
+        Width = 69
+        Height = 32
         Caption = 'Dokument '#13'sprzeda'#380'y'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
@@ -290,14 +292,44 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRaised
       end
       object rzlbl4: TRzLabel
-        Left = 326
-        Top = 56
-        Width = 51
-        Height = 19
+        Left = 358
+        Top = 34
+        Width = 38
+        Height = 16
         Caption = 'Uwagi'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
-        Font.Height = -16
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzlbl17: TRzLabel
+        Left = 16
+        Top = 80
+        Width = 99
+        Height = 16
+        Caption = 'Adres dostawy'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzlbl18: TRzLabel
+        Left = 16
+        Top = 112
+        Width = 86
+        Height = 16
+        Caption = 'Nr tel. klienta'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
@@ -305,29 +337,45 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRaised
       end
       object rzMmoUwagi: TRzMemo
-        Left = 391
-        Top = 48
-        Width = 506
+        Left = 358
+        Top = 56
+        Width = 539
         Height = 57
         ScrollBars = ssVertical
         TabOrder = 1
       end
       object rzEdtWgDokumentu: TRzEdit
-        Left = 111
-        Top = 56
+        Left = 127
+        Top = 40
         Width = 192
         Height = 21
         Text = ''
         TabOrder = 0
         TextHint = 'To pole musi by'#263' wype'#322'nione'
       end
+      object rzEdtAdresDost: TRzEdit
+        Left = 126
+        Top = 79
+        Width = 193
+        Height = 21
+        Text = ''
+        TabOrder = 2
+      end
+      object rzEdtTelKlienta: TRzEdit
+        Left = 125
+        Top = 110
+        Width = 194
+        Height = 21
+        Text = ''
+        TabOrder = 3
+      end
     end
     object rzGrpBoxPojazd: TRzGroupBox
       Left = 2
-      Top = 225
+      Top = 264
       Width = 919
-      Height = 176
-      Align = alTop
+      Height = 162
+      Align = alBottom
       Caption = 'Wybierz pojazd'
       CaptionFont.Charset = DEFAULT_CHARSET
       CaptionFont.Color = clWindowText
@@ -340,12 +388,12 @@ object FrmUstalKurs: TFrmUstalKurs
       object rzlbl5: TRzLabel
         Left = 16
         Top = 40
-        Width = 55
-        Height = 19
+        Width = 42
+        Height = 16
         Caption = 'Znajd'#378
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
@@ -353,14 +401,14 @@ object FrmUstalKurs: TFrmUstalKurs
         TextStyle = tsRaised
       end
       object rzlbl6: TRzLabel
-        Left = 209
-        Top = 40
-        Width = 94
-        Height = 19
+        Left = 229
+        Top = 48
+        Width = 74
+        Height = 16
         Caption = 'lub wybierz'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
@@ -396,7 +444,7 @@ object FrmUstalKurs: TFrmUstalKurs
       end
       object rzEdtSzukPojazd: TRzEdit
         Left = 16
-        Top = 65
+        Top = 62
         Width = 185
         Height = 21
         Text = ''
@@ -405,7 +453,7 @@ object FrmUstalKurs: TFrmUstalKurs
       end
       object SMDBgrdPojazd: TSMDBGrid
         Left = 309
-        Top = 43
+        Top = 35
         Width = 588
         Height = 120
         DataSource = DataModule1.dsPojazdy
@@ -566,10 +614,10 @@ object FrmUstalKurs: TFrmUstalKurs
     end
     object rzGrpBoxKierow: TRzGroupBox
       Left = 2
-      Top = 401
+      Top = 426
       Width = 919
       Height = 168
-      Align = alTop
+      Align = alBottom
       Caption = 'Wybierz kierowc'#281' '
       CaptionFont.Charset = DEFAULT_CHARSET
       CaptionFont.Color = clWindowText
@@ -579,15 +627,16 @@ object FrmUstalKurs: TFrmUstalKurs
       GradientColorStyle = gcsMSOffice
       GroupStyle = gsBanner
       TabOrder = 3
+      ExplicitTop = 401
       object rzlbl7: TRzLabel
         Left = 16
         Top = 40
-        Width = 55
-        Height = 19
+        Width = 42
+        Height = 16
         Caption = 'Znajd'#378
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
@@ -597,12 +646,12 @@ object FrmUstalKurs: TFrmUstalKurs
       object rzlbl8: TRzLabel
         Left = 209
         Top = 40
-        Width = 94
-        Height = 19
+        Width = 74
+        Height = 16
         Caption = 'lub wybierz'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
@@ -744,10 +793,10 @@ object FrmUstalKurs: TFrmUstalKurs
     end
     object rzGrpBoxMiejsc: TRzGroupBox
       Left = 2
-      Top = 569
+      Top = 594
       Width = 919
       Height = 144
-      Align = alTop
+      Align = alBottom
       Caption = 'Wybierz miejscowo'#347#263
       CaptionFont.Charset = DEFAULT_CHARSET
       CaptionFont.Color = clWindowText
@@ -757,15 +806,17 @@ object FrmUstalKurs: TFrmUstalKurs
       GradientColorStyle = gcsMSOffice
       GroupStyle = gsBanner
       TabOrder = 4
+      ExplicitLeft = 1
+      ExplicitTop = 593
       object rzlbl14: TRzLabel
         Left = 16
         Top = 40
-        Width = 55
-        Height = 19
+        Width = 42
+        Height = 16
         Caption = 'Znajd'#378
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
@@ -775,12 +826,12 @@ object FrmUstalKurs: TFrmUstalKurs
       object rzlbl15: TRzLabel
         Left = 209
         Top = 40
-        Width = 94
-        Height = 19
+        Width = 74
+        Height = 16
         Caption = 'lub wybierz'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
-        Font.Height = -16
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False

@@ -55,6 +55,10 @@ type
     rzEdtSzukMiejsc: TRzEdit;
     dbtxtMiejsc: TDBText;
     rzlbl16: TRzLabel;
+    rzlbl17: TRzLabel;
+    rzlbl18: TRzLabel;
+    rzEdtAdresDost: TRzEdit;
+    rzEdtTelKlienta: TRzEdit;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);

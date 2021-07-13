@@ -39,6 +39,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure trckBr1Change(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
+    procedure ctgryBtns1Categories0Items2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -88,6 +89,11 @@ begin
 
 end;
 
+procedure TFrmGrafik.ctgryBtns1Categories0Items2Click(Sender: TObject);
+begin
+ ShowMessage('Dostêpne niebawem');
+end;
+
 procedure TFrmGrafik.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
   Close;
@@ -114,7 +120,9 @@ begin
     VK_F11:
       ctgryBtns1.Categories[0].Items[3].OnClick(Sender);
     VK_F12:
-      ctgryBtns1.Categories[0].Items[4].OnClick(Sender);
+      ctgryBtns1.Categories[0].Items[5].OnClick(Sender);
+    VK_F7:
+      ctgryBtns1.Categories[0].Items[2].OnClick(Sender);
   end;
 end;
 
