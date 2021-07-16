@@ -152,8 +152,20 @@ end;
 
 procedure TFrmUstawienia.rztbshtTabSheet2Show(Sender: TObject);
 begin
+  with DataModule1.ibQryUzyt, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT login, imie, drugie_imie, nazwisko,nr_telefonu,stanowisko FROM uzyt');
+    Add('WHERE stanowisko <>:stanowisko AND usun =:usun ORDER BY nazwisko');
+    ParamByName('stanowisko').AsString := 'Administrator';
+    ParamByName('usun').AsInteger := 0;
+    Open;
+  end;
+
 //Wy³¹czenie klaw.zapisz
 //ctgryBtns1.Categories[0].Items[0]. //   .Items[0].CategoryButtons
+
 end;
 
 end.

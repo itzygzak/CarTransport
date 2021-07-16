@@ -210,7 +210,8 @@ object FrmLogin: TFrmLogin
     Width = 297
     Height = 566
     Align = alClient
-    BorderOuter = fsNone
+    BorderInner = fsBump
+    BorderOuter = fsBump
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
