@@ -103,6 +103,8 @@ object FrmUstalKurs: TFrmUstalKurs
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
+      ExplicitLeft = 1
+      ExplicitTop = 1
     end
   end
   object RzPnl2: TRzPanel
@@ -294,9 +296,9 @@ object FrmUstalKurs: TFrmUstalKurs
       object rzlbl4: TRzLabel
         Left = 358
         Top = 34
-        Width = 38
+        Width = 131
         Height = 16
-        Caption = 'Uwagi'
+        Caption = 'Uwagi (150 znak'#243'w)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
         Font.Height = -13
@@ -342,7 +344,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Width = 539
         Height = 57
         ScrollBars = ssVertical
-        TabOrder = 1
+        TabOrder = 3
       end
       object rzEdtWgDokumentu: TRzEdit
         Left = 127
@@ -354,20 +356,20 @@ object FrmUstalKurs: TFrmUstalKurs
         TextHint = 'To pole musi by'#263' wype'#322'nione'
       end
       object rzEdtAdresDost: TRzEdit
-        Left = 126
+        Left = 127
         Top = 79
-        Width = 193
+        Width = 192
+        Height = 21
+        Text = ''
+        TabOrder = 1
+      end
+      object rzEdtTelKlienta: TRzEdit
+        Left = 127
+        Top = 110
+        Width = 192
         Height = 21
         Text = ''
         TabOrder = 2
-      end
-      object rzEdtTelKlienta: TRzEdit
-        Left = 125
-        Top = 110
-        Width = 194
-        Height = 21
-        Text = ''
-        TabOrder = 3
       end
     end
     object rzGrpBoxPojazd: TRzGroupBox

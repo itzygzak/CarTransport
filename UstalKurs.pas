@@ -99,8 +99,8 @@ try
   begin
     Close;
     Clear;
-    Add('INSERT INTO Grafik (id_kierowca, id_pojazdy, id_miejscowosci,id_uzyt, data_wysylki, godz_wysylki, wg_dokument, uwagi, data_powrotu, godz_powrotu )');
-    Add('values (:id_kierowca, :id_pojazdy, :id_miejscowosci,:id_uzyt, :data_wysylki, :godz_wysylki,:wg_dokument, :uwagi, :data_powrotu, :godz_powrotu)');
+    Add('INSERT INTO Grafik (id_kierowca, id_pojazdy, id_miejscowosci,id_uzyt, data_wysylki, godz_wysylki, wg_dokument, adres_dostawy, nr_tel_klienta, uwagi, data_powrotu, godz_powrotu )');
+    Add('values (:id_kierowca, :id_pojazdy, :id_miejscowosci,:id_uzyt, :data_wysylki, :godz_wysylki,:wg_dokument,:adres_dostawy, :nr_tel_klienta, :uwagi, :data_powrotu, :godz_powrotu)');
     ParamByName('id_kierowca').AsInteger := StrToInt(dbtxtKierow.Field.Value);
     ParamByName('id_pojazdy').AsInteger := StrToInt(dbtxtPojazd.Field.Value);
     ParamByName('id_miejscowosci').AsInteger := StrToInt(dbtxtMiejsc.Field.Value);
@@ -108,6 +108,8 @@ try
     ParamByName('data_wysylki').AsDate := rzDtmPckrDataWys.Date;
     ParamByName('godz_wysylki').AsTime := tmPckrCzasWys.Time;
     ParamByName('wg_dokument').AsString := rzEdtWgDokumentu.Text;
+    ParamByName('adres_dostawy').AsString := rzEdtAdresDost.Text;
+    ParamByName('Nr_tel_klienta').AsString := rzEdtTelKlienta.Text;
     ParamByName('uwagi').AsString := rzMmoUwagi.Text;
     ParamByName('data_powrotu').AsDate := rzDtmPckrDataPowrotu.Date;
     ParamByName('godz_powrotu').AsTime := tmPckrGodzPowrotu.Time;

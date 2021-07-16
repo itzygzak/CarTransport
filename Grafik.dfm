@@ -168,7 +168,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 119
+          Width = 91
           Visible = True
         end
         item
@@ -180,7 +180,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 142
+          Width = 108
           Visible = True
         end
         item
@@ -192,7 +192,6 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 119
           Visible = True
         end
         item
@@ -204,7 +203,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 142
+          Width = 108
           Visible = True
         end
         item
@@ -216,7 +215,31 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 170
+          Width = 130
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'ADRES_DOSTAWY'
+          Title.Caption = 'ADRES DOSTAWY'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = []
+          Width = 107
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NR_TEL_KLIENTA'
+          Title.Caption = 'TEL KLIENTA'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = []
+          Width = 85
           Visible = True
         end
         item
@@ -228,7 +251,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 205
+          Width = 157
           Visible = True
         end>
     end
@@ -348,6 +371,22 @@ object FrmGrafik: TFrmGrafik
   object frXdbDtst1: TfrxDBDataset
     UserName = 'frxDBDataset1'
     CloseDataSource = False
+    FieldAliases.Strings = (
+      'IMIE=IMIE'
+      'NAZWISKO=NAZWISKO'
+      'MARKA=MARKA'
+      'TYP=TYP'
+      'LADOWNOSC=LADOWNOSC'
+      'NAZWA=NAZWA'
+      'KOD_POCZTOWY=KOD_POCZTOWY'
+      'DATA_WYSYLKI=DATA_WYSYLKI'
+      'GODZ_WYSYLKI=GODZ_WYSYLKI'
+      'WG_DOKUMENT=WG_DOKUMENT'
+      'ADRES_DOSTAWY=ADRES_DOSTAWY'
+      'NR_TEL_KLIENTA=NR_TEL_KLIENTA'
+      'UWAGI=UWAGI'
+      'DATA_POWROTU=DATA_POWROTU'
+      'GODZ_POWROTU=GODZ_POWROTU')
     DataSet = DataModule1.ibQryGrafik
     BCDToCurrency = False
     Left = 984
@@ -362,7 +401,7 @@ object FrmGrafik: TFrmGrafik
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 44383.892368009300000000
-    ReportOptions.LastChange = 44388.908118356500000000
+    ReportOptions.LastChange = 44390.866756157400000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -393,6 +432,7 @@ object FrmGrafik: TFrmGrafik
       RightMargin = 10.000000000000000000
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
+      Frame.Style = fsDot
       Frame.Typ = [ftBottom]
       object frxDBDataset2NAZWA: TfrxMemoView
         IndexTag = 1
@@ -597,8 +637,8 @@ object FrmGrafik: TFrmGrafik
       object frxDBDataset1GODZ_POWROTU: TfrxMemoView
         IndexTag = 2
         AllowVectorExport = True
-        Left = 321.260050000000000000
-        Top = 631.181510000000000000
+        Left = 317.480520000000000000
+        Top = 661.417750000000000000
         Width = 204.094620000000000000
         Height = 18.897650000000000000
         DataField = 'GODZ_POWROTU'
@@ -618,7 +658,7 @@ object FrmGrafik: TFrmGrafik
         IndexTag = 3
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 631.181510000000000000
+        Top = 661.417750000000000000
         Width = 234.330860000000000000
         Height = 18.897650000000000000
         DataField = 'DATA_POWROTU'
@@ -638,7 +678,7 @@ object FrmGrafik: TFrmGrafik
         IndexTag = 4
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 680.315400000000000000
+        Top = 740.787880000000000000
         Width = 253.228510000000000000
         Height = 18.897650000000000000
         DataField = 'UWAGI'
@@ -658,7 +698,7 @@ object FrmGrafik: TFrmGrafik
         IndexTag = 5
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 563.149970000000000000
+        Top = 600.945270000000000000
         Width = 275.905690000000000000
         Height = 18.897650000000000000
         DataField = 'WG_DOKUMENT'
@@ -678,7 +718,7 @@ object FrmGrafik: TFrmGrafik
         IndexTag = 6
         AllowVectorExport = True
         Left = 321.260050000000000000
-        Top = 525.354670000000000000
+        Top = 563.149970000000000000
         Width = 260.787570000000000000
         Height = 18.897650000000000000
         DataField = 'GODZ_WYSYLKI'
@@ -698,7 +738,7 @@ object FrmGrafik: TFrmGrafik
         IndexTag = 7
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 525.354670000000000000
+        Top = 563.149970000000000000
         Width = 291.023810000000000000
         Height = 18.897650000000000000
         DataField = 'DATA_WYSYLKI'
@@ -758,7 +798,7 @@ object FrmGrafik: TFrmGrafik
         IndexTag = 10
         AllowVectorExport = True
         Left = 442.205010000000000000
-        Top = 464.881889760000000000
+        Top = 502.677189760000000000
         Width = 260.787570000000000000
         Height = 18.897650000000000000
         DataField = 'LADOWNOSC'
@@ -778,7 +818,7 @@ object FrmGrafik: TFrmGrafik
         IndexTag = 11
         AllowVectorExport = True
         Left = 309.921460000000000000
-        Top = 464.881889760000000000
+        Top = 502.677189760000000000
         Width = 234.330860000000000000
         Height = 18.897650000000000000
         DataField = 'TYP'
@@ -798,7 +838,7 @@ object FrmGrafik: TFrmGrafik
         IndexTag = 12
         AllowVectorExport = True
         Left = 143.622140000000000000
-        Top = 464.882190000000000000
+        Top = 502.677490000000000000
         Width = 249.448980000000000000
         Height = 18.897650000000000000
         DataField = 'MARKA'
@@ -959,7 +999,7 @@ object FrmGrafik: TFrmGrafik
       end
       object Memo6: TfrxMemoView
         AllowVectorExport = True
-        Left = 498.897960000000000000
+        Left = 7.559060000000000000
         Top = 1024.252630000000000000
         Width = 215.433210000000000000
         Height = 18.897650000000000000
@@ -1002,7 +1042,7 @@ object FrmGrafik: TFrmGrafik
       object Memo8: TfrxMemoView
         AllowVectorExport = True
         Left = 18.897650000000000000
-        Top = 464.881894650000000000
+        Top = 502.677194650000000000
         Width = 94.488250000000000000
         Height = 18.897650000000000000
         Font.Charset = DEFAULT_CHARSET
@@ -1018,7 +1058,7 @@ object FrmGrafik: TFrmGrafik
       object Memo9: TfrxMemoView
         AllowVectorExport = True
         Left = 18.897650000000000000
-        Top = 506.457020000000000000
+        Top = 544.252320000000000000
         Width = 113.385900000000000000
         Height = 37.795300000000000000
         Font.Charset = DEFAULT_CHARSET
@@ -1035,7 +1075,7 @@ object FrmGrafik: TFrmGrafik
       object Memo10: TfrxMemoView
         AllowVectorExport = True
         Left = 18.897650000000000000
-        Top = 563.149970000000000000
+        Top = 600.945270000000000000
         Width = 113.385900000000000000
         Height = 18.897650000000000000
         Font.Charset = DEFAULT_CHARSET
@@ -1051,7 +1091,7 @@ object FrmGrafik: TFrmGrafik
       object Memo11: TfrxMemoView
         AllowVectorExport = True
         Left = 18.897650000000000000
-        Top = 680.315400000000000000
+        Top = 740.787880000000000000
         Width = 94.488250000000000000
         Height = 18.897650000000000000
         Font.Charset = DEFAULT_CHARSET
@@ -1067,7 +1107,7 @@ object FrmGrafik: TFrmGrafik
       object Memo12: TfrxMemoView
         AllowVectorExport = True
         Left = 18.897650000000000000
-        Top = 604.724800000000000000
+        Top = 642.520100000000000000
         Width = 109.606370000000000000
         Height = 45.354360000000000000
         Font.Charset = DEFAULT_CHARSET
@@ -1080,6 +1120,104 @@ object FrmGrafik: TFrmGrafik
           'Data i godzina'
           'powrotu')
         ParentFont = False
+      end
+      object Memo13: TfrxMemoView
+        AllowVectorExport = True
+        Left = 18.897650000000000000
+        Top = 464.882190000000000000
+        Width = 94.488250000000000000
+        Height = 18.897650000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clTeal
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          'Adres dostawy:')
+        ParentFont = False
+      end
+      object frxDBDataset1ADRES_DOSTAWY: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 139.842610000000000000
+        Top = 464.882190000000000000
+        Width = 400.630180000000000000
+        Height = 18.897650000000000000
+        DataField = 'ADRES_DOSTAWY'
+        DataSet = frXdbDtst1
+        DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[frxDBDataset1."ADRES_DOSTAWY"]')
+        ParentFont = False
+      end
+      object Memo14: TfrxMemoView
+        AllowVectorExport = True
+        Left = 18.897650000000000000
+        Top = 702.992580000000000000
+        Width = 109.606370000000000000
+        Height = 18.897650000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clTeal
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          'Nr. tel. klienta')
+        ParentFont = False
+      end
+      object frxDBDataset1NR_TEL_KLIENTA: TfrxMemoView
+        IndexTag = 1
+        AllowVectorExport = True
+        Left = 143.622140000000000000
+        Top = 701.346940000000000000
+        Width = 385.512060000000000000
+        Height = 18.897650000000000000
+        DataField = 'NR_TEL_KLIENTA'
+        DataSet = frXdbDtst1
+        DataSetName = 'frxDBDataset1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Frame.Typ = []
+        Memo.UTF8W = (
+          '[frxDBDataset1."NR_TEL_KLIENTA"]')
+        ParentFont = False
+      end
+      object Memo15: TfrxMemoView
+        AllowVectorExport = True
+        Left = 427.086890000000000000
+        Top = 925.984850000000000000
+        Width = 154.960730000000000000
+        Height = 18.897650000000000000
+        Frame.Typ = []
+        Memo.UTF8W = (
+          'pieczatka, podpis')
+      end
+      object Line2: TfrxLineView
+        AllowVectorExport = True
+        Left = 413.000000000000000000
+        Top = 922.000000000000000000
+        Width = 233.000000000000000000
+        Color = clBlack
+        Frame.Typ = [ftTop]
+      end
+      object Line3: TfrxLineView
+        AllowVectorExport = True
+        Left = 370.000000000000000000
+        Top = 922.000000000000000000
+        Width = 43.000000000000000000
+        Color = clBlack
+        Frame.Typ = [ftTop]
       end
     end
   end

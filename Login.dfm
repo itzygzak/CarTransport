@@ -15,6 +15,7 @@ object FrmLogin: TFrmLogin
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnl1: TPanel
@@ -288,7 +289,6 @@ object FrmLogin: TFrmLogin
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      Text = 'ADMIN'
       OnChange = edtLoginChange
       OnKeyPress = edtLoginKeyPress
     end

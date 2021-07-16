@@ -172,9 +172,8 @@ object DataModule1: TDataModule1
       
         'SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa' +
         ', m.kod_pocztowy, g.data_wysylki, '
-      
-        'g.godz_wysylki, g.wg_dokument, g.uwagi, g.data_powrotu, g.godz_p' +
-        'owrotu '
+      'g.godz_wysylki, g.wg_dokument,g.adres_dostawy,g.nr_tel_klienta,'
+      ' g.uwagi, g.data_powrotu, g.godz_powrotu '
       'FROM kierowcy k, pojazdy p, miejscowosci m, grafik g'
       
         'WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_poja' +

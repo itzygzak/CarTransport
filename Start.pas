@@ -167,5 +167,11 @@ begin
   rzlbl4.Caption := TimeToStr(Time);
 end;
 
+
+initialization
+  FormatSettings.ShortDateFormat := 'dd.mm.yyyy';
+  FormatSettings.DateSeparator := '.';
+  FormatSettings.DecimalSeparator := '.';
+
 end.
 

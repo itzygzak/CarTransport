@@ -53,6 +53,7 @@ type
     procedure edtLoginChange(Sender: TObject);
     procedure edtLoginKeyPress(Sender: TObject; var Key: Char);
     procedure edtHasloKeyPress(Sender: TObject; var Key: Char);
+    procedure FormShow(Sender: TObject);
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   private
@@ -140,7 +141,7 @@ begin
       begin
         INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
         try
-          INI.WriteString('Ustawienia', 'NazwaInstr', EdtLogin.Text);
+          INI.WriteString('Ustawienia', 'NazwaUzyt', EdtLogin.Text);
         finally
           INI.Free;
         end;
@@ -195,10 +196,10 @@ end;
 
 procedure TFrmLogin.edtLoginChange(Sender: TObject);
 begin
-   if (EdtLogin.Text = '') or (EdtHaslo.Text = '') then
+  { if (EdtLogin.Text = '') or (EdtHaslo.Text = '') then
     btnLogin.Enabled := False
   else
-    btnLogin.Enabled := True;
+    btnLogin.Enabled := True;}
 end;
 
 procedure TFrmLogin.edtLoginKeyPress(Sender: TObject; var Key: Char);
@@ -223,12 +224,28 @@ begin
   finally
     INI.Free;
   end;
-   chk1.Checked := PamLog;
+  chk1.Checked := PamLog;
   rzlblWersja.Caption := smVrsnf1.FileVersion;
   rzlblData.Caption := DateToStr(smVrsnf1.DateTime);
   rzlbl7.Caption := smVrsnf1.CompanyName;
   NazwaKomp := GetComupterNameStr;
 
+end;
+
+procedure TFrmLogin.FormShow(Sender: TObject);
+begin
+   if PamLog = True then
+  begin
+    EdtHaslo.Text := '';
+    EdtHaslo.SetFocus;
+    EdtLogin.Text := NazwaLogin;
+  end
+  else
+  begin
+    EdtLogin.Text := '';
+    EdtHaslo.Text := '';
+    EdtLogin.SetFocus;
+  end;
 end;
 
 procedure TFrmLogin.img1Click(Sender: TObject);

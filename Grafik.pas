@@ -65,7 +65,7 @@ begin
     Close;
     Clear;
     Add('SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa, m.kod_pocztowy, g.data_wysylki, ');
-    Add('g.godz_wysylki, g.wg_dokument, g.uwagi, g.data_powrotu, g.godz_powrotu FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
+    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci');
     Add('AND g.data_wysylki =:data_wysylkiOD ');
     ParamByName('data_wysylkiOD').AsDate := rzDtmPckrOd.Date;
@@ -80,7 +80,7 @@ begin
     Close;
     Clear;
     Add('SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa, m.kod_pocztowy, g.data_wysylki, ');
-    Add('g.godz_wysylki, g.wg_dokument, g.uwagi, g.data_powrotu, g.godz_powrotu FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
+    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci');
     Add('AND g.data_wysylki >=:data_wysylkiOD ');
     ParamByName('data_wysylkiOD').AsDateTime := rzDtmPckrOd.DateTime;
@@ -134,8 +134,8 @@ begin
     Close;
     Clear;
     Add('SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa, m.kod_pocztowy, g.data_wysylki, ');
-    Add('g.godz_wysylki, g.wg_dokument, g.uwagi, g.data_powrotu, g.godz_powrotu FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
-    Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci');
+    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
+    Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci ORDER BY g.data_wysylki DESC');
     Open;
   end;
 end;
