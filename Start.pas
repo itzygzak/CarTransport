@@ -124,10 +124,9 @@ begin
   rzlbl5.Caption := DateToStr(Now);
 end;
 
-procedure TFrmStart.FormKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFrmStart.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
-case Key of
+  case Key of
     VK_F2:
       ctgryBtns1.Categories[0].Items[0].OnClick(Sender);
     VK_F3:
@@ -166,7 +165,6 @@ procedure TFrmStart.tmr1Timer(Sender: TObject);
 begin
   rzlbl4.Caption := TimeToStr(Time);
 end;
-
 
 initialization
   FormatSettings.ShortDateFormat := 'dd.mm.yyyy';

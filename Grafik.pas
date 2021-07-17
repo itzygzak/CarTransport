@@ -91,7 +91,7 @@ end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items2Click(Sender: TObject);
 begin
- ShowMessage('Dostêpne niebawem');
+  ShowMessage('Dostêpne niebawem');
 end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -151,8 +151,8 @@ end;
 
 procedure TFrmGrafik.trckBr1Change(Sender: TObject);
 begin
- dbmmoUwagi.Font.Size := trckBr1.Position +1;
- SMDBgrdGrafik.Font.Size := trckBr1.Position + 1;
+  dbmmoUwagi.Font.Size := trckBr1.Position + 1;
+  SMDBgrdGrafik.Font.Size := trckBr1.Position + 1;
 
 end;
 

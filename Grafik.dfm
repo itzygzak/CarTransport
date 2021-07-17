@@ -168,7 +168,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 91
+          Width = 92
           Visible = True
         end
         item
@@ -180,7 +180,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 108
+          Width = 110
           Visible = True
         end
         item
@@ -192,6 +192,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
+          Width = 92
           Visible = True
         end
         item
@@ -203,7 +204,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 108
+          Width = 110
           Visible = True
         end
         item
@@ -215,7 +216,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 130
+          Width = 132
           Visible = True
         end
         item
@@ -227,7 +228,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 107
+          Width = 109
           Visible = True
         end
         item
@@ -239,7 +240,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 85
+          Width = 87
           Visible = True
         end
         item
@@ -251,7 +252,7 @@ object FrmGrafik: TFrmGrafik
           Title.Font.Height = -13
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = []
-          Width = 157
+          Width = 160
           Visible = True
         end>
     end
