@@ -323,7 +323,7 @@ object FrmCarTransport: TFrmCarTransport
         end
       end
       object RzTbshtOprogramie: TRzTabSheet
-        Caption = 'O programie'
+        Caption = 'Lista zmian'
         object rzMmo1: TRzMemo
           Left = 0
           Top = 0
@@ -334,10 +334,8 @@ object FrmCarTransport: TFrmCarTransport
             'O programie'
             '')
           TabOrder = 0
-          ExplicitLeft = 16
-          ExplicitTop = 40
-          ExplicitWidth = 185
-          ExplicitHeight = 89
+          ExplicitTop = 160
+          ExplicitHeight = 191
         end
       end
     end
