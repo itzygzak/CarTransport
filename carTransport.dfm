@@ -58,9 +58,9 @@ object FrmCarTransport: TFrmCarTransport
       Width = 648
       Height = 374
       Hint = ''
-      ActivePage = RzTbshtOprogramie
+      ActivePage = RzTbshtTabSheet1
       Align = alClient
-      TabIndex = 1
+      TabIndex = 2
       TabOrder = 0
       FixedDimension = 19
       object RzTbshtLicencja: TRzTabSheet
@@ -334,9 +334,14 @@ object FrmCarTransport: TFrmCarTransport
             'O programie'
             '')
           TabOrder = 0
-          ExplicitTop = 160
-          ExplicitHeight = 191
         end
+      end
+      object RzTbshtTabSheet1: TRzTabSheet
+        Caption = 'O programie'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
       end
     end
   end
@@ -354,6 +359,7 @@ object FrmCarTransport: TFrmCarTransport
       Left = 3
       Top = 3
       Width = 194
+      Height = 134
       Align = alTop
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
@@ -369,8 +375,12 @@ object FrmCarTransport: TFrmCarTransport
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
-              Caption = 'O programie'
+              Caption = 'Lista zmian'
               OnClick = ctgryBtns1Categories0Items1Click
+            end
+            item
+              Caption = 'O programie'
+              OnClick = ctgryBtns1Categories0Items2Click
             end
             item
             end

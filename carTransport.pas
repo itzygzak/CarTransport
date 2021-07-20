@@ -41,7 +41,9 @@ type
     rzEdtKlucz: TRzEdit;
     rzEdtDataRej: TRzEdit;
     rzMmo1: TRzMemo;
+    RzTbshtTabSheet1: TRzTabSheet;
     procedure FormShow(Sender: TObject);
+    procedure ctgryBtns1Categories0Items2Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
@@ -69,6 +71,13 @@ procedure TFrmCarTransport.ctgryBtns1Categories0Items1Click(Sender: TObject);
 begin
 RzPgCntrl1.ActivePageIndex:=1;
 end;
+
+
+procedure TFrmCarTransport.ctgryBtns1Categories0Items2Click(Sender: TObject);
+begin
+RzPgCntrl1.ActivePageIndex:=2;
+end;
+
 
 procedure TFrmCarTransport.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
