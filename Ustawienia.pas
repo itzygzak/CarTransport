@@ -45,6 +45,9 @@ type
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure img1Click(Sender: TObject);
     procedure rztbshtTabSheet2Show(Sender: TObject);
+    procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
+    procedure DodajUsera;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,6 +67,16 @@ uses
 {$R *.dfm}
 
 procedure TFrmUstawienia.ctgryBtns1Categories0Items0Click(Sender: TObject);
+begin
+if rzPgCntrl1.ActivePageIndex = 0 then
+ DodajUsera
+ else
+    ShowMessage('Ne tej zak³adce nie jest mo¿liwy zapis');
+end;
+
+
+
+procedure TFrmUstawienia.DodajUsera;
 var
   generator: Integer;  //potrzebna do ustawienia siê na nowym rekordzie
   historia: string;   //potrzebna do zapisu historia
@@ -129,7 +142,21 @@ begin
     ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
   end;
 end;
-    //koniec historia
+
+
+procedure TFrmUstawienia.ctgryBtns1Categories0Items1Click(Sender: TObject);
+begin
+ case Application.MessageBox('Je¿eli anulujesz, okno zostanie zamkniête, ' + #13#10 + '¿adne zmiany nie zostan¹ zapisane.', 'Caption', MB_YESNO + MB_ICONWARNING) of
+    IDYES:
+      begin
+        Close;
+      end;
+    IDNO:
+      begin
+        rzEdtLogin.SetFocus;
+      end;
+ end;
+end;
 
 procedure TFrmUstawienia.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
@@ -139,6 +166,17 @@ end;
 procedure TFrmUstawienia.FormCreate(Sender: TObject);
 begin
   rzPgCntrl1.ActivePageIndex := 0;
+end;
+
+procedure TFrmUstawienia.FormShow(Sender: TObject);
+begin
+rzEdtLogin.Text:='';
+rzEdtHaslo.Text:='';
+rzEdtImie.Text:='';
+rzEdtDrugieImie.Text:='';
+rzEdtNazwisko.Text:='';
+rzEdtTelefon.Text:='';
+rzCmBx1.ItemIndex:=-1;
 end;
 
 procedure TFrmUstawienia.img1Click(Sender: TObject);

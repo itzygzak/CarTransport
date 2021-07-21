@@ -12,6 +12,7 @@ object FrmUstawienia: TFrmUstawienia
   Font.Style = []
   OldCreateOrder = False
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object rzpnl1: TRzPanel
@@ -68,16 +69,17 @@ object FrmUstawienia: TFrmUstawienia
           Collapsed = False
           Items = <
             item
-              Caption = 'Zapisz'
+              Caption = '[F9]  Zapisz'
               OnClick = ctgryBtns1Categories0Items0Click
             end
             item
-              Caption = 'Anuluj'
+              Caption = '[F3]  Anuluj'
+              OnClick = ctgryBtns1Categories0Items1Click
             end
             item
             end
             item
-              Caption = 'Zamknij'
+              Caption = '[F12] Zamknij'
               OnClick = ctgryBtns1Categories0Items3Click
             end>
         end>
@@ -110,7 +112,7 @@ object FrmUstawienia: TFrmUstawienia
       Height = 413
       Hint = ''
       Margins.Top = 5
-      ActivePage = rztbshtTabSheet3
+      ActivePage = rztbshtTabSheet1
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -118,7 +120,7 @@ object FrmUstawienia: TFrmUstawienia
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 2
+      TabIndex = 0
       TabOrder = 0
       TabStyle = tsBackSlant
       FixedDimension = 22
@@ -244,6 +246,7 @@ object FrmUstawienia: TFrmUstawienia
             Height = 24
             Text = ''
             TabOrder = 0
+            TextHint = 'To pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtHaslo: TRzEdit
             Left = 160
@@ -252,6 +255,7 @@ object FrmUstawienia: TFrmUstawienia
             Height = 24
             Text = ''
             TabOrder = 1
+            TextHint = 'To pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtImie: TRzEdit
             Left = 160
@@ -260,6 +264,7 @@ object FrmUstawienia: TFrmUstawienia
             Height = 24
             Text = ''
             TabOrder = 2
+            TextHint = 'To pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtDrugieImie: TRzEdit
             Left = 160
@@ -276,6 +281,7 @@ object FrmUstawienia: TFrmUstawienia
             Height = 24
             Text = ''
             TabOrder = 4
+            TextHint = 'To pole nie mo'#380'e by'#263' puste'
           end
           object rzEdtTelefon: TRzEdit
             Left = 160
@@ -290,7 +296,9 @@ object FrmUstawienia: TFrmUstawienia
             Top = 240
             Width = 145
             Height = 24
+            Style = csDropDownList
             TabOrder = 6
+            TextHint = 'To pole nie mo'#380'e by'#263' puste'
             Items.Strings = (
               'Kierownik'
               'Sprzedawca'

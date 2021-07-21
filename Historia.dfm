@@ -15,9 +15,6 @@ object FrmHistoria: TFrmHistoria
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
-  DesignSize = (
-    1177
-    572)
   PixelsPerInch = 96
   TextHeight = 13
   object RzPnl1: TRzPanel
@@ -48,202 +45,19 @@ object FrmHistoria: TFrmHistoria
       ExplicitLeft = 879
     end
   end
-  object RzPnl2: TRzPanel
-    Left = 0
-    Top = 41
-    Width = 971
-    Height = 96
-    Anchors = [akLeft, akTop, akRight]
-    BorderOuter = fsNone
-    BorderColor = 16737843
-    BorderWidth = 2
-    TabOrder = 1
-    object rzlbl1: TRzLabel
-      Left = 16
-      Top = 56
-      Width = 82
-      Height = 16
-      Caption = 'Wyszukaj od'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 16737843
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRecessed
-    end
-    object rzlbl2: TRzLabel
-      Left = 360
-      Top = 56
-      Width = 16
-      Height = 16
-      Caption = 'do'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 16737843
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRecessed
-    end
-    object rzlbl3: TRzLabel
-      Left = 16
-      Top = 9
-      Width = 364
-      Height = 19
-      Caption = 'Przegl'#261'danie histori zdarze'#324' wg zakresu dat'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 16737843
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRaised
-    end
-    object rzlbl4: TRzLabel
-      Left = 808
-      Top = 8
-      Width = 118
-      Height = 16
-      Caption = 'Powi'#281'ksz czcionk'#281
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 16737843
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRaised
-    end
-    object rzDtmPckrOd: TRzDateTimePicker
-      Left = 128
-      Top = 54
-      Width = 186
-      Height = 21
-      Date = 44360.000000000000000000
-      Format = ''
-      Time = 0.741989780093717900
-      TabOrder = 0
-    end
-    object rzDtmPckrDo: TRzDateTimePicker
-      Left = 394
-      Top = 54
-      Width = 186
-      Height = 21
-      Date = 44360.000000000000000000
-      Format = ''
-      Time = 0.742249918977904600
-      TabOrder = 1
-    end
-    object trckBr1: TTrackBar
-      Left = 800
-      Top = 30
-      Width = 150
-      Height = 45
-      Max = 14
-      Min = 8
-      Position = 8
-      TabOrder = 2
-      OnChange = trckBr1Change
-    end
-  end
-  object RzPnl3: TRzPanel
-    Left = 0
-    Top = 143
-    Width = 971
-    Height = 250
-    Anchors = [akLeft, akTop, akRight, akBottom]
-    BorderOuter = fsNone
-    BorderColor = 16737843
-    BorderWidth = 2
-    TabOrder = 2
-    object SMDBgrdHistoria: TSMDBGrid
-      Left = 2
-      Top = 2
-      Width = 967
-      Height = 246
-      Align = alClient
-      DataSource = DataModule1.dsHistUzyt
-      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-      TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      StyleElements = [seFont, seBorder]
-      Flat = False
-      BandsFont.Charset = DEFAULT_CHARSET
-      BandsFont.Color = clWindowText
-      BandsFont.Height = -11
-      BandsFont.Name = 'Tahoma'
-      BandsFont.Style = []
-      Groupings = <>
-      GridStyle.Style = gsNormal
-      GridStyle.OddColor = clWindow
-      GridStyle.EvenColor = clWindow
-      GridStyle.Title.Direction = fdLeftToRight
-      GridStyle.Title.StartColor = clMoneyGreen
-      GridStyle.Title.EndColor = clCream
-      TitleHeight.PixelCount = 24
-      FooterColor = clBtnFace
-      ExOptions = [eoAutoWidth, eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
-      RegistryKey = 'Software\Scalabium'
-      RegistrySection = 'SMDBGrid'
-      WidthOfIndicator = 11
-      DefaultRowHeight = 17
-      ScrollBars = ssNone
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'DATA_ZDARZ'
-          Title.Caption = 'DATA ZDARZENIA'
-          Width = 230
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'STANOWISKO_K'
-          Title.Caption = 'STANOWISKO'
-          Width = 275
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'IMIE'
-          Width = 89
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NAZWISKO'
-          Width = 218
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'LOGIN'
-          Width = 125
-          Visible = True
-        end>
-    end
-  end
   object spltVw1: TSplitView
-    Left = 977
+    Left = 975
     Top = 44
-    Width = 200
+    Width = 202
     Height = 528
     Color = clCream
     OpenedWidth = 200
     Placement = svpRight
-    TabOrder = 3
+    TabOrder = 1
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
-      Width = 200
+      Width = 202
       Align = alTop
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
@@ -274,27 +88,229 @@ object FrmHistoria: TFrmHistoria
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
+      ExplicitWidth = 200
     end
   end
-  object RzPnl4: TRzPanel
+  object RzPnl5: TRzPanel
     Left = 0
-    Top = 397
-    Width = 971
-    Height = 175
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Top = 44
+    Width = 975
+    Height = 528
+    Align = alClient
     BorderOuter = fsNone
-    BorderColor = 16737843
-    BorderWidth = 2
-    TabOrder = 4
-    object dbmmoHistoria: TDBMemo
-      Left = 2
-      Top = 2
-      Width = 967
-      Height = 171
-      Align = alClient
-      DataField = 'OPERACJA'
-      DataSource = DataModule1.dsHistUzyt
+    TabOrder = 2
+    ExplicitLeft = 104
+    ExplicitTop = 160
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    DesignSize = (
+      975
+      528)
+    object RzPnl2: TRzPanel
+      Left = 0
+      Top = 0
+      Width = 969
+      Height = 96
+      Anchors = [akLeft, akTop, akRight]
+      BorderOuter = fsNone
+      BorderColor = 16737843
+      BorderWidth = 2
       TabOrder = 0
+      object rzlbl1: TRzLabel
+        Left = 18
+        Top = 50
+        Width = 82
+        Height = 16
+        Caption = 'Wyszukaj od'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 16737843
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRecessed
+      end
+      object rzlbl2: TRzLabel
+        Left = 346
+        Top = 50
+        Width = 16
+        Height = 16
+        Caption = 'do'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 16737843
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRecessed
+      end
+      object rzlbl3: TRzLabel
+        Left = 18
+        Top = 9
+        Width = 364
+        Height = 19
+        Caption = 'Przegl'#261'danie histori zdarze'#324' wg zakresu dat'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 16737843
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzlbl4: TRzLabel
+        Left = 786
+        Top = 9
+        Width = 118
+        Height = 16
+        Caption = 'Powi'#281'ksz czcionk'#281
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 16737843
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzDtmPckrOd: TRzDateTimePicker
+        Left = 114
+        Top = 48
+        Width = 186
+        Height = 21
+        Date = 44360.000000000000000000
+        Format = ''
+        Time = 0.741989780093717900
+        TabOrder = 0
+      end
+      object rzDtmPckrDo: TRzDateTimePicker
+        Left = 380
+        Top = 48
+        Width = 186
+        Height = 21
+        Date = 44360.000000000000000000
+        Format = ''
+        Time = 0.742249918977904600
+        TabOrder = 1
+      end
+      object trckBr1: TTrackBar
+        Left = 786
+        Top = 40
+        Width = 150
+        Height = 45
+        Max = 14
+        Min = 8
+        Position = 8
+        TabOrder = 2
+        OnChange = trckBr1Change
+      end
+    end
+    object RzPnl3: TRzPanel
+      Left = 0
+      Top = 102
+      Width = 971
+      Height = 250
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      BorderOuter = fsNone
+      BorderColor = 16737843
+      BorderWidth = 2
+      TabOrder = 1
+      object SMDBgrdHistoria: TSMDBGrid
+        Left = 2
+        Top = 2
+        Width = 967
+        Height = 246
+        Align = alClient
+        DataSource = DataModule1.dsHistUzyt
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        StyleElements = [seFont, seBorder]
+        Flat = False
+        BandsFont.Charset = DEFAULT_CHARSET
+        BandsFont.Color = clWindowText
+        BandsFont.Height = -11
+        BandsFont.Name = 'Tahoma'
+        BandsFont.Style = []
+        Groupings = <>
+        GridStyle.Style = gsNormal
+        GridStyle.OddColor = clWindow
+        GridStyle.EvenColor = clWindow
+        GridStyle.Title.Direction = fdLeftToRight
+        GridStyle.Title.StartColor = clMoneyGreen
+        GridStyle.Title.EndColor = clCream
+        TitleHeight.PixelCount = 24
+        FooterColor = clBtnFace
+        ExOptions = [eoAutoWidth, eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+        RegistryKey = 'Software\Scalabium'
+        RegistrySection = 'SMDBGrid'
+        WidthOfIndicator = 11
+        DefaultRowHeight = 17
+        ScrollBars = ssNone
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'DATA_ZDARZ'
+            Title.Caption = 'DATA ZDARZENIA'
+            Width = 230
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'STANOWISKO_K'
+            Title.Caption = 'STANOWISKO'
+            Width = 275
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'IMIE'
+            Width = 89
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NAZWISKO'
+            Width = 218
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'LOGIN'
+            Width = 125
+            Visible = True
+          end>
+      end
+    end
+    object RzPnl4: TRzPanel
+      Left = 0
+      Top = 312
+      Width = 971
+      Height = 217
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      BorderOuter = fsNone
+      BorderColor = 16737843
+      BorderWidth = 2
+      TabOrder = 2
+      object dbmmoHistoria: TDBMemo
+        Left = 2
+        Top = 2
+        Width = 967
+        Height = 213
+        Align = alClient
+        DataField = 'OPERACJA'
+        DataSource = DataModule1.dsHistUzyt
+        TabOrder = 0
+        ExplicitTop = 28
+        ExplicitHeight = 171
+      end
     end
   end
 end

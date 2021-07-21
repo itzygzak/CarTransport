@@ -87,16 +87,18 @@ end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
-  FrmUstawienia.Top := FrmStart.Top + 50;
-  FrmUstawienia.Left := FrmStart.Left + 50;
-  FrmUstawienia.ShowModal;
+  FrmGrafik.Top := FrmStart.Top + 50;
+  FrmGrafik.Left := FrmStart.Left + 50;
+  FrmGrafik.ShowModal;
+
 end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items4Click(Sender: TObject);
 begin
-  FrmGrafik.Top := FrmStart.Top + 50;
-  FrmGrafik.Left := FrmStart.Left + 50;
-  FrmGrafik.ShowModal;
+  FrmUstawienia.Top := FrmStart.Top + 50;
+  FrmUstawienia.Left := FrmStart.Left + 50;
+  FrmUstawienia.ShowModal;
+
 end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items5Click(Sender: TObject);
@@ -134,9 +136,9 @@ begin
     VK_F4:
       ctgryBtns1.Categories[0].Items[2].OnClick(Sender);
     VK_F11:
-      ctgryBtns1.Categories[0].Items[3].OnClick(Sender);
-    VK_F6:
       ctgryBtns1.Categories[0].Items[4].OnClick(Sender);
+    VK_F6:
+      ctgryBtns1.Categories[0].Items[3].OnClick(Sender);
     VK_F10:
       ctgryBtns1.Categories[0].Items[6].OnClick(Sender);
     VK_F12:

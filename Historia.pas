@@ -12,19 +12,20 @@ uses
 type
   TFrmHistoria = class(TForm)
     RzPnl1: TRzPanel;
-    RzPnl2: TRzPanel;
-    rzDtmPckrOd: TRzDateTimePicker;
-    rzDtmPckrDo: TRzDateTimePicker;
-    rzlbl1: TRzLabel;
-    rzlbl2: TRzLabel;
-    RzPnl3: TRzPanel;
     spltVw1: TSplitView;
     img1: TImage;
     ctgryBtns1: TCategoryButtons;
-    SMDBgrdHistoria: TSMDBGrid;
+    RzPnl5: TRzPanel;
+    RzPnl2: TRzPanel;
+    rzlbl1: TRzLabel;
+    rzlbl2: TRzLabel;
     rzlbl3: TRzLabel;
-    trckBr1: TTrackBar;
     rzlbl4: TRzLabel;
+    rzDtmPckrOd: TRzDateTimePicker;
+    rzDtmPckrDo: TRzDateTimePicker;
+    trckBr1: TTrackBar;
+    RzPnl3: TRzPanel;
+    SMDBgrdHistoria: TSMDBGrid;
     RzPnl4: TRzPanel;
     dbmmoHistoria: TDBMemo;
     procedure ctgryBtns1Categories0Items2Click(Sender: TObject);

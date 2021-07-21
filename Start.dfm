@@ -175,11 +175,11 @@ object FrmStart: TFrmStart
               OnClick = ctgryBtns1Categories0Items2Click
             end
             item
-              Caption = '[F11] Ustawienia'
+              Caption = '[F6]  Grafik'
               OnClick = ctgryBtns1Categories0Items3Click
             end
             item
-              Caption = '[F6]  Grafik'
+              Caption = '[F11] Ustawienia'
               OnClick = ctgryBtns1Categories0Items4Click
             end
             item

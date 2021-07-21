@@ -1,6 +1,7 @@
 object FrmCarTransport: TFrmCarTransport
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'CarTransport  - O programie'
   ClientHeight = 419
   ClientWidth = 852
@@ -65,6 +66,10 @@ object FrmCarTransport: TFrmCarTransport
       FixedDimension = 19
       object RzTbshtLicencja: TRzTabSheet
         Caption = 'Licencja dla...'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object rzlbl1: TRzLabel
           Left = 274
           Top = 10
@@ -324,6 +329,10 @@ object FrmCarTransport: TFrmCarTransport
       end
       object RzTbshtOprogramie: TRzTabSheet
         Caption = 'Lista zmian'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object rzMmo1: TRzMemo
           Left = 0
           Top = 0
@@ -338,10 +347,6 @@ object FrmCarTransport: TFrmCarTransport
       end
       object RzTbshtTabSheet1: TRzTabSheet
         Caption = 'O programie'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
       end
     end
   end

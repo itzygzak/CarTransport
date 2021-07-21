@@ -268,8 +268,8 @@ object FrmGrafik: TFrmGrafik
       OnChange = trckBr1Change
     end
     object rzDtmPckrOd: TRzDateTimePicker
-      Left = 120
-      Top = 64
+      Left = 104
+      Top = 59
       Width = 153
       Height = 21
       Date = 44385.000000000000000000
@@ -278,8 +278,8 @@ object FrmGrafik: TFrmGrafik
       TabOrder = 2
     end
     object rzDtmPckrDo: TRzDateTimePicker
-      Left = 360
-      Top = 64
+      Left = 351
+      Top = 59
       Width = 186
       Height = 21
       Date = 44385.000000000000000000
@@ -402,7 +402,7 @@ object FrmGrafik: TFrmGrafik
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 44383.892368009300000000
-    ReportOptions.LastChange = 44390.866756157400000000
+    ReportOptions.LastChange = 44398.499050856480000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -680,8 +680,8 @@ object FrmGrafik: TFrmGrafik
         AllowVectorExport = True
         Left = 143.622140000000000000
         Top = 740.787880000000000000
-        Width = 253.228510000000000000
-        Height = 18.897650000000000000
+        Width = 556.228510000000000000
+        Height = 95.897650000000000000
         DataField = 'UWAGI'
         DataSet = frXdbDtst1
         DataSetName = 'frxDBDataset1'

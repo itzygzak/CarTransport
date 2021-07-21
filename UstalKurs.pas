@@ -39,7 +39,6 @@ type
     rzEdtSzukKierow: TRzEdit;
     SMDBgrdKierowcy: TSMDBGrid;
     dbtxtKierow: TDBText;
-    smDbTnID_KIEROWCA: TSMDBButton;
     rzln2: TRzLine;
     rzDtmPckrDataPowrotu: TRzDateTimePicker;
     rzlbl9: TRzLabel;
@@ -59,12 +58,13 @@ type
     rzlbl18: TRzLabel;
     rzEdtAdresDost: TRzEdit;
     rzEdtTelKlienta: TRzEdit;
+    btnKierowca: TButton;
+    rzlbl19: TRzLabel;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure rzEdtSzukPojazdChange(Sender: TObject);
     procedure rzEdtSzukKierowChange(Sender: TObject);
-    procedure smDbTnID_KIEROWCAClick(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure rzEdtSzukMiejscChange(Sender: TObject);
     procedure ZapiszWGrafiku;
@@ -73,6 +73,9 @@ type
     procedure ctgryBtns1Categories0Items4Click(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
+    procedure ctgryBtns1Categories0Items2Click(Sender: TObject);
+    procedure btnKierowcaClick(Sender: TObject);
+    procedure rzMmoUwagiChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,32 +93,32 @@ uses
 {$R *.dfm}
 
 procedure TFrmUstalKurs.ZapiszWGrafiku;
-var historia : string;
-    generator : Integer;
-
+var
+  historia: string;
+  generator: Integer;
 begin
-try
-  with DataModule1.ibQryTemp, SQL do
-  begin
-    Close;
-    Clear;
-    Add('INSERT INTO Grafik (id_kierowca, id_pojazdy, id_miejscowosci,id_uzyt, data_wysylki, godz_wysylki, wg_dokument, adres_dostawy, nr_tel_klienta, uwagi, data_powrotu, godz_powrotu )');
-    Add('values (:id_kierowca, :id_pojazdy, :id_miejscowosci,:id_uzyt, :data_wysylki, :godz_wysylki,:wg_dokument,:adres_dostawy, :nr_tel_klienta, :uwagi, :data_powrotu, :godz_powrotu)');
-    ParamByName('id_kierowca').AsInteger := StrToInt(dbtxtKierow.Field.Value);
-    ParamByName('id_pojazdy').AsInteger := StrToInt(dbtxtPojazd.Field.Value);
-    ParamByName('id_miejscowosci').AsInteger := StrToInt(dbtxtMiejsc.Field.Value);
-    ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
-    ParamByName('data_wysylki').AsDate := rzDtmPckrDataWys.Date;
-    ParamByName('godz_wysylki').AsTime := tmPckrCzasWys.Time;
-    ParamByName('wg_dokument').AsString := rzEdtWgDokumentu.Text;
-    ParamByName('adres_dostawy').AsString := rzEdtAdresDost.Text;
-    ParamByName('Nr_tel_klienta').AsString := rzEdtTelKlienta.Text;
-    ParamByName('uwagi').AsString := rzMmoUwagi.Text;
-    ParamByName('data_powrotu').AsDate := rzDtmPckrDataPowrotu.Date;
-    ParamByName('godz_powrotu').AsTime := tmPckrGodzPowrotu.Time;
-    ExecSQL;
-    DataModule1.ibTransTemp.Commit;
-  end;
+  try
+    with DataModule1.ibQryTemp, SQL do
+    begin
+      Close;
+      Clear;
+      Add('INSERT INTO Grafik (id_kierowca, id_pojazdy, id_miejscowosci,id_uzyt, data_wysylki, godz_wysylki, wg_dokument, adres_dostawy, nr_tel_klienta, uwagi, data_powrotu, godz_powrotu )');
+      Add('values (:id_kierowca, :id_pojazdy, :id_miejscowosci,:id_uzyt, :data_wysylki, :godz_wysylki,:wg_dokument,:adres_dostawy, :nr_tel_klienta, :uwagi, :data_powrotu, :godz_powrotu)');
+      ParamByName('id_kierowca').AsInteger := StrToInt(dbtxtKierow.Field.Value);
+      ParamByName('id_pojazdy').AsInteger := StrToInt(dbtxtPojazd.Field.Value);
+      ParamByName('id_miejscowosci').AsInteger := StrToInt(dbtxtMiejsc.Field.Value);
+      ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
+      ParamByName('data_wysylki').AsDate := rzDtmPckrDataWys.Date;
+      ParamByName('godz_wysylki').AsTime := tmPckrCzasWys.Time;
+      ParamByName('wg_dokument').AsString := rzEdtWgDokumentu.Text;
+      ParamByName('adres_dostawy').AsString := rzEdtAdresDost.Text;
+      ParamByName('Nr_tel_klienta').AsString := rzEdtTelKlienta.Text;
+      ParamByName('uwagi').AsString := rzMmoUwagi.Text;
+      ParamByName('data_powrotu').AsDate := rzDtmPckrDataPowrotu.Date;
+      ParamByName('godz_powrotu').AsTime := tmPckrGodzPowrotu.Time;
+      ExecSQL;
+      DataModule1.ibTransTemp.Commit;
+    end;
 
     with DataModule1.ibQryTemp, SQL do                    //po dodaniu w oknie wczesniejszym ustawiamy sie na nowym rekordzie
     begin
@@ -125,7 +128,7 @@ try
       generator := FieldByName('gen_id').AsInteger;
     end;
 
-  begin
+    begin
         //startuje historia
       try     //do zm. historia przypisuje legende + zawartosc editow
         historia := 'Wyznaczono nowy kurs ' + #13#10;
@@ -161,6 +164,24 @@ try
 
 end;
 
+procedure TFrmUstalKurs.btnKierowcaClick(Sender: TObject);
+begin
+  with DataModule1.ibQryKier, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT id_kierowca, imie, nazwisko FROM kierowcy ');
+    Add('WHERE nazwisko =:nazwisko');
+    ParamByName('nazwisko').AsString := 'Kierowca firmy GS';
+//    rzEdtSzukKierow.Text;
+    // (DataModule1.ibQryKier.FieldByName('imie').AsString) +
+    //(ParamByName('nazwisko').AsString);
+    Open;
+  end;
+  rzlbl11.Caption := 'WYBRANO ' + (DataModule1.ibQryKier.FieldByName('nazwisko').AsString);
+
+end;
+
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
   if ((rzEdtWgDokumentu.Text = '') or (rzlbl11.Caption = '')) then
@@ -171,11 +192,30 @@ begin
   else
     ZapiszWGrafiku;
   ShowMessage('Dane zosta³y zapisane. ');
+  rzMmoUwagi.Clear;
+  rzEdtWgDokumentu.Clear;
+  rzEdtAdresDost.Clear;
+  rzEdtTelKlienta.Clear;
 end;
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items1Click(Sender: TObject);
 begin
   FrmGrafik.frXrprt1.ShowReport();
+end;
+
+procedure TFrmUstalKurs.ctgryBtns1Categories0Items2Click(Sender: TObject);
+begin
+  case Application.MessageBox('Je¿eli anulujesz, okno zostanie zamkniête, ' + #13#10 + '¿adne zmiany nie zostan¹ zapisane.', 'Caption', MB_YESNO + MB_ICONWARNING) of
+    IDYES:
+      begin
+        Close;
+      end;
+    IDNO:
+      begin
+        rzDtmPckrDataWys.SetFocus;
+      end;
+  end;
+
 end;
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -205,6 +245,8 @@ begin
       ctgryBtns1.Categories[0].Items[0].OnClick(Sender);
     VK_F10:
       ctgryBtns1.Categories[0].Items[1].OnClick(Sender);
+    VK_F3:
+      ctgryBtns1.Categories[0].Items[2].OnClick(Sender);
     VK_F11:
       ctgryBtns1.Categories[0].Items[4].OnClick(Sender);
     VK_F12:
@@ -308,21 +350,9 @@ begin
   end;
 end;
 
-procedure TFrmUstalKurs.smDbTnID_KIEROWCAClick(Sender: TObject);
+procedure TFrmUstalKurs.rzMmoUwagiChange(Sender: TObject);
 begin
-  with DataModule1.ibQryKier, SQL do
-  begin
-    Close;
-    Clear;
-    Add('SELECT id_kierowca, imie, nazwisko FROM kierowcy ');
-    Add('WHERE nazwisko =:nazwisko');
-    ParamByName('nazwisko').AsString := 'Kierowca firmy GS';
-//    rzEdtSzukKierow.Text;
-    // (DataModule1.ibQryKier.FieldByName('imie').AsString) +
-    //(ParamByName('nazwisko').AsString);
-    Open;
-  end;
-  rzlbl11.Caption := 'WYBRANO' + (DataModule1.ibQryKier.FieldByName('nazwisko').AsString);
+  rzlbl19.Caption := IntToStr(Length(rzMmoUwagi.Text));
 end;
 
 end.

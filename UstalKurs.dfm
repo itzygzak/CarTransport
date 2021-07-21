@@ -56,7 +56,6 @@ object FrmUstalKurs: TFrmUstalKurs
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 1
-    ExplicitHeight = 714
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
@@ -81,7 +80,8 @@ object FrmUstalKurs: TFrmUstalKurs
               OnClick = ctgryBtns1Categories0Items1Click
             end
             item
-              Caption = 'Anuluj'
+              Caption = '[F3]  Anuluj'
+              OnClick = ctgryBtns1Categories0Items2Click
             end
             item
             end
@@ -103,8 +103,6 @@ object FrmUstalKurs: TFrmUstalKurs
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
-      ExplicitLeft = 1
-      ExplicitTop = 1
     end
   end
   object RzPnl2: TRzPanel
@@ -117,7 +115,6 @@ object FrmUstalKurs: TFrmUstalKurs
     BorderColor = 16737843
     BorderWidth = 2
     TabOrder = 2
-    ExplicitHeight = 720
     object rzGrpBoxDataWys: TRzGroupBox
       Left = 2
       Top = 2
@@ -278,6 +275,9 @@ object FrmUstalKurs: TFrmUstalKurs
       GradientColorStyle = gcsMSOffice
       GroupStyle = gsBanner
       TabOrder = 1
+      DesignSize = (
+        919
+        142)
       object rzlbl3: TRzLabel
         Left = 16
         Top = 32
@@ -296,9 +296,9 @@ object FrmUstalKurs: TFrmUstalKurs
       object rzlbl4: TRzLabel
         Left = 358
         Top = 34
-        Width = 131
+        Width = 275
         Height = 16
-        Caption = 'Uwagi (150 znak'#243'w)'
+        Caption = 'Uwagi (maks. 150 znak'#243'w), wprowadzono '
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
         Font.Height = -13
@@ -338,13 +338,30 @@ object FrmUstalKurs: TFrmUstalKurs
         LightTextStyle = True
         TextStyle = tsRaised
       end
+      object rzlbl19: TRzLabel
+        Left = 639
+        Top = 34
+        Width = 35
+        Height = 16
+        Caption = '?????'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
       object rzMmoUwagi: TRzMemo
         Left = 358
         Top = 56
         Width = 539
         Height = 57
+        Anchors = [akLeft, akTop, akRight]
         ScrollBars = ssVertical
         TabOrder = 3
+        OnChange = rzMmoUwagiChange
       end
       object rzEdtWgDokumentu: TRzEdit
         Left = 127
@@ -387,6 +404,9 @@ object FrmUstalKurs: TFrmUstalKurs
       GradientColorStyle = gcsMSOffice
       GroupStyle = gsBanner
       TabOrder = 2
+      DesignSize = (
+        919
+        162)
       object rzlbl5: TRzLabel
         Left = 16
         Top = 40
@@ -458,6 +478,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Top = 35
         Width = 588
         Height = 120
+        Anchors = [akLeft, akTop, akRight]
         DataSource = DataModule1.dsPojazdy
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         TabOrder = 1
@@ -629,7 +650,9 @@ object FrmUstalKurs: TFrmUstalKurs
       GradientColorStyle = gcsMSOffice
       GroupStyle = gsBanner
       TabOrder = 3
-      ExplicitTop = 401
+      DesignSize = (
+        919
+        168)
       object rzlbl7: TRzLabel
         Left = 16
         Top = 40
@@ -675,9 +698,9 @@ object FrmUstalKurs: TFrmUstalKurs
         ParentFont = False
       end
       object rzlbl11: TRzLabel
-        Left = 231
-        Top = 104
-        Width = 3
+        Left = 127
+        Top = 144
+        Width = 33
         Height = 13
       end
       object rzlbl13: TRzLabel
@@ -695,11 +718,11 @@ object FrmUstalKurs: TFrmUstalKurs
       end
       object rzEdtSzukKierow: TRzEdit
         Left = 16
-        Top = 65
+        Top = 62
         Width = 185
         Height = 21
         Text = ''
-        TabOrder = 0
+        TabOrder = 1
         OnChange = rzEdtSzukKierowChange
       end
       object SMDBgrdKierowcy: TSMDBGrid
@@ -707,9 +730,10 @@ object FrmUstalKurs: TFrmUstalKurs
         Top = 35
         Width = 588
         Height = 120
+        Anchors = [akLeft, akTop, akRight]
         DataSource = DataModule1.dsKier
         Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-        TabOrder = 1
+        TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -11
@@ -773,24 +797,14 @@ object FrmUstalKurs: TFrmUstalKurs
             Visible = True
           end>
       end
-      object smDbTnID_KIEROWCA: TSMDBButton
+      object btnKierowca: TButton
         Left = 16
-        Top = 104
-        Width = 153
-        Height = 34
-        Caption = 'smDbTnID_KIEROWCA'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clGreen
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 2
-        WordWrap = True
-        StyleElements = []
-        OnClick = smDbTnID_KIEROWCAClick
-        DataField = 'ID_KIEROWCA'
-        DataSource = DataModule1.dsKier
+        Top = 105
+        Width = 185
+        Height = 33
+        Caption = 'Domy'#347'lny kierowca'
+        TabOrder = 0
+        OnClick = btnKierowcaClick
       end
     end
     object rzGrpBoxMiejsc: TRzGroupBox
@@ -808,8 +822,9 @@ object FrmUstalKurs: TFrmUstalKurs
       GradientColorStyle = gcsMSOffice
       GroupStyle = gsBanner
       TabOrder = 4
-      ExplicitLeft = 1
-      ExplicitTop = 593
+      DesignSize = (
+        919
+        144)
       object rzlbl14: TRzLabel
         Left = 16
         Top = 40
@@ -872,6 +887,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Top = 32
         Width = 588
         Height = 104
+        Anchors = [akLeft, akTop, akRight]
         DataSource = DataModule1.dsMsc
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText

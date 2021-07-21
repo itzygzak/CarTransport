@@ -57,7 +57,6 @@ type
     rzEdtInnyNr: TRzEdit;
     rzChckBxHDS: TRzCheckBox;
     rzChckBxWinda: TRzCheckBox;
-    img1: TImage;
     spltVw1: TSplitView;
     img2: TImage;
     ctgryBtns1: TCategoryButtons;
@@ -72,6 +71,7 @@ type
     rzCmbxKraj: TRzComboBox;
     rzlbl24: TRzLabel;
     rzDtmPckr1: TRzDateTimePicker;
+    img1: TImage;
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -84,6 +84,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure DodajMiejscowosc;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -275,10 +276,11 @@ begin
  // rzEdtPrzeglad.Text := '';
 end;
 
-procedure TFrmDefinicje.FormKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFrmDefinicje.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
- case Key of
+  case Key of
+    VK_F3:
+      ctgryBtns1.Categories[0].Items[1].OnClick(Sender);
     VK_F9:
       ctgryBtns1.Categories[0].Items[0].OnClick(Sender);
     VK_F12:
@@ -370,6 +372,20 @@ begin
 
 end;
 
+procedure TFrmDefinicje.ctgryBtns1Categories0Items1Click(Sender: TObject);
+begin
+case Application.MessageBox('Je¿eli anulujesz, okno zostanie zamkniête, ' + #13#10 + '¿adne zmiany nie zostan¹ zapisane.', 'Caption', MB_YESNO + MB_ICONWARNING) of
+    IDYES:
+      begin
+        Close;
+      end;
+    IDNO:
+      begin
+        RzPgCntrl1.SetFocus;
+      end;
+  end;
+end;
+
 procedure TFrmDefinicje.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
   Close;
@@ -377,7 +393,7 @@ end;
 
 procedure TFrmDefinicje.img1Click(Sender: TObject);
 begin
-  img1.Picture.LoadFromFile('PrawkoPomoc.png');
+  ShowMessage('Dostêpne niebawem');
 end;
 
 procedure TFrmDefinicje.img2Click(Sender: TObject);
