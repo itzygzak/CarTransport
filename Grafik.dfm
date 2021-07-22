@@ -15,9 +15,6 @@ object FrmGrafik: TFrmGrafik
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
-  DesignSize = (
-    1138
-    546)
   PixelsPerInch = 96
   TextHeight = 13
   object rzpnl1: TRzPanel
@@ -48,246 +45,6 @@ object FrmGrafik: TFrmGrafik
       ExplicitHeight = 40
     end
   end
-  object rzpnl2: TRzPanel
-    Left = 0
-    Top = 41
-    Width = 932
-    Height = 344
-    BorderOuter = fsNone
-    BorderColor = 16737843
-    BorderWidth = 2
-    TabOrder = 1
-    object rzlbl1: TRzLabel
-      Left = 760
-      Top = 42
-      Width = 118
-      Height = 16
-      Caption = 'Powi'#281'ksz czcionk'#281
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 16737843
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRaised
-    end
-    object rzlbl2: TRzLabel
-      Left = 328
-      Top = 64
-      Width = 17
-      Height = 16
-      Caption = 'Do'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 16737843
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRaised
-    end
-    object rzlbl3: TRzLabel
-      Left = 16
-      Top = 64
-      Width = 82
-      Height = 16
-      Caption = 'Wyszukaj od'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 16737843
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRaised
-    end
-    object rzlbl4: TRzLabel
-      Left = 16
-      Top = 16
-      Width = 330
-      Height = 19
-      Caption = 'Lista ustalonych kurs'#243'w wg daty wysy'#322'ki'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 16737843
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      LightTextStyle = True
-      TextStyle = tsRaised
-    end
-    object SMDBgrdGrafik: TSMDBGrid
-      Left = 2
-      Top = 115
-      Width = 928
-      Height = 222
-      DataSource = DataModule1.dsGrafik
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-      ParentFont = False
-      TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      StyleElements = []
-      Flat = False
-      BandsFont.Charset = DEFAULT_CHARSET
-      BandsFont.Color = clWindowText
-      BandsFont.Height = -11
-      BandsFont.Name = 'Tahoma'
-      BandsFont.Style = []
-      Groupings = <>
-      GridStyle.Style = gsNormal
-      GridStyle.OddColor = clWindow
-      GridStyle.EvenColor = clWindow
-      GridStyle.Title.Direction = fdLeftToRight
-      GridStyle.Title.StartColor = clMoneyGreen
-      GridStyle.Title.EndColor = clCream
-      TitleHeight.PixelCount = 24
-      FooterColor = clBtnFace
-      ExOptions = [eoAutoWidth, eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
-      RegistryKey = 'Software\Scalabium'
-      RegistrySection = 'SMDBGrid'
-      WidthOfIndicator = 11
-      DefaultRowHeight = 20
-      ScrollBars = ssHorizontal
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'DATA_WYSYLKI'
-          Title.Caption = 'DATA WYSYLKI'
-          Title.Font.Charset = DEFAULT_CHARSET
-          Title.Font.Color = clWindowText
-          Title.Font.Height = -13
-          Title.Font.Name = 'Tahoma'
-          Title.Font.Style = []
-          Width = 92
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DATA_POWROTU'
-          Title.Caption = 'DATA POWROTU'
-          Title.Font.Charset = DEFAULT_CHARSET
-          Title.Font.Color = clWindowText
-          Title.Font.Height = -13
-          Title.Font.Name = 'Tahoma'
-          Title.Font.Style = []
-          Width = 110
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'GODZ_WYSYLKI'
-          Title.Caption = 'GODZ WYSYLKI'
-          Title.Font.Charset = DEFAULT_CHARSET
-          Title.Font.Color = clWindowText
-          Title.Font.Height = -13
-          Title.Font.Name = 'Tahoma'
-          Title.Font.Style = []
-          Width = 92
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'GODZ_POWROTU'
-          Title.Caption = 'GODZ POWROTU'
-          Title.Font.Charset = DEFAULT_CHARSET
-          Title.Font.Color = clWindowText
-          Title.Font.Height = -13
-          Title.Font.Name = 'Tahoma'
-          Title.Font.Style = []
-          Width = 110
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'WG_DOKUMENT'
-          Title.Caption = 'WG DOKUMENTU'
-          Title.Font.Charset = DEFAULT_CHARSET
-          Title.Font.Color = clWindowText
-          Title.Font.Height = -13
-          Title.Font.Name = 'Tahoma'
-          Title.Font.Style = []
-          Width = 132
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'ADRES_DOSTAWY'
-          Title.Caption = 'ADRES DOSTAWY'
-          Title.Font.Charset = DEFAULT_CHARSET
-          Title.Font.Color = clWindowText
-          Title.Font.Height = -13
-          Title.Font.Name = 'Tahoma'
-          Title.Font.Style = []
-          Width = 109
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NR_TEL_KLIENTA'
-          Title.Caption = 'TEL KLIENTA'
-          Title.Font.Charset = DEFAULT_CHARSET
-          Title.Font.Color = clWindowText
-          Title.Font.Height = -13
-          Title.Font.Name = 'Tahoma'
-          Title.Font.Style = []
-          Width = 87
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NAZWA'
-          Title.Caption = 'MIEJSCOWO'#346#262
-          Title.Font.Charset = DEFAULT_CHARSET
-          Title.Font.Color = clWindowText
-          Title.Font.Height = -13
-          Title.Font.Name = 'Tahoma'
-          Title.Font.Style = []
-          Width = 160
-          Visible = True
-        end>
-    end
-    object trckBr1: TTrackBar
-      Left = 752
-      Top = 64
-      Width = 150
-      Height = 45
-      Max = 16
-      Min = 8
-      Position = 8
-      TabOrder = 1
-      OnChange = trckBr1Change
-    end
-    object rzDtmPckrOd: TRzDateTimePicker
-      Left = 104
-      Top = 59
-      Width = 153
-      Height = 21
-      Date = 44385.000000000000000000
-      Format = ''
-      Time = 0.619093391200294700
-      TabOrder = 2
-    end
-    object rzDtmPckrDo: TRzDateTimePicker
-      Left = 351
-      Top = 59
-      Width = 186
-      Height = 21
-      Date = 44385.000000000000000000
-      Format = ''
-      Time = 0.619150254628039000
-      TabOrder = 3
-    end
-  end
   object spltVw1: TSplitView
     AlignWithMargins = True
     Left = 935
@@ -297,7 +54,7 @@ object FrmGrafik: TFrmGrafik
     Color = clCream
     OpenedWidth = 200
     Placement = svpRight
-    TabOrder = 2
+    TabOrder = 1
     object ctgryBtns1: TCategoryButtons
       AlignWithMargins = True
       Left = 3
@@ -348,25 +105,289 @@ object FrmGrafik: TFrmGrafik
       TabOrder = 0
     end
   end
-  object RzPnl3: TRzPanel
+  object RzPnl4: TRzPanel
     Left = 0
-    Top = 391
-    Width = 933
-    Height = 153
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Top = 41
+    Width = 932
+    Height = 505
+    Align = alClient
     BorderOuter = fsNone
-    BorderColor = 16737843
-    BorderWidth = 2
-    TabOrder = 3
-    object dbmmoUwagi: TDBMemo
+    TabOrder = 2
+    ExplicitLeft = 216
+    ExplicitTop = 56
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    DesignSize = (
+      932
+      505)
+    object RzPnl2: TRzPanel
+      AlignWithMargins = True
       Left = 2
       Top = 2
-      Width = 929
-      Height = 149
-      Align = alClient
-      DataField = 'UWAGI'
-      DataSource = DataModule1.dsGrafik
+      Width = 928
+      Height = 344
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      BorderOuter = fsNone
+      BorderColor = 16737843
+      BorderWidth = 2
       TabOrder = 0
+      DesignSize = (
+        928
+        344)
+      object rzlbl1: TRzLabel
+        Left = 760
+        Top = 42
+        Width = 118
+        Height = 16
+        Caption = 'Powi'#281'ksz czcionk'#281
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 16737843
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzlbl2: TRzLabel
+        Left = 328
+        Top = 64
+        Width = 17
+        Height = 16
+        Caption = 'Do'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 16737843
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzlbl3: TRzLabel
+        Left = 16
+        Top = 64
+        Width = 82
+        Height = 16
+        Caption = 'Wyszukaj od'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 16737843
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object rzlbl4: TRzLabel
+        Left = 16
+        Top = 16
+        Width = 330
+        Height = 19
+        Caption = 'Lista ustalonych kurs'#243'w wg daty wysy'#322'ki'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 16737843
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        LightTextStyle = True
+        TextStyle = tsRaised
+      end
+      object SMDBgrdGrafik: TSMDBGrid
+        Left = 4
+        Top = 118
+        Width = 918
+        Height = 222
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        DataSource = DataModule1.dsGrafik
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        ParentFont = False
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        StyleElements = []
+        Flat = False
+        BandsFont.Charset = DEFAULT_CHARSET
+        BandsFont.Color = clWindowText
+        BandsFont.Height = -11
+        BandsFont.Name = 'Tahoma'
+        BandsFont.Style = []
+        Groupings = <>
+        GridStyle.Style = gsNormal
+        GridStyle.OddColor = clWindow
+        GridStyle.EvenColor = clWindow
+        GridStyle.Title.Direction = fdLeftToRight
+        GridStyle.Title.StartColor = clMoneyGreen
+        GridStyle.Title.EndColor = clCream
+        TitleHeight.PixelCount = 24
+        FooterColor = clBtnFace
+        ExOptions = [eoAutoWidth, eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+        RegistryKey = 'Software\Scalabium'
+        RegistrySection = 'SMDBGrid'
+        WidthOfIndicator = 11
+        DefaultRowHeight = 20
+        ScrollBars = ssHorizontal
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'DATA_WYSYLKI'
+            Title.Caption = 'DATA WYSYLKI'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 92
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DATA_POWROTU'
+            Title.Caption = 'DATA POWROTU'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 110
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'GODZ_WYSYLKI'
+            Title.Caption = 'GODZ WYSYLKI'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 92
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'GODZ_POWROTU'
+            Title.Caption = 'GODZ POWROTU'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 110
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'WG_DOKUMENT'
+            Title.Caption = 'WG DOKUMENTU'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 132
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ADRES_DOSTAWY'
+            Title.Caption = 'ADRES DOSTAWY'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 109
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NR_TEL_KLIENTA'
+            Title.Caption = 'TEL KLIENTA'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 87
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NAZWA'
+            Title.Caption = 'MIEJSCOWO'#346#262
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 160
+            Visible = True
+          end>
+      end
+      object trckBr1: TTrackBar
+        Left = 752
+        Top = 64
+        Width = 150
+        Height = 45
+        Max = 16
+        Min = 8
+        Position = 8
+        TabOrder = 1
+        OnChange = trckBr1Change
+      end
+      object rzDtmPckrOd: TRzDateTimePicker
+        Left = 104
+        Top = 59
+        Width = 153
+        Height = 21
+        Date = 44385.000000000000000000
+        Format = ''
+        Time = 0.619093391200294700
+        TabOrder = 2
+      end
+      object rzDtmPckrDo: TRzDateTimePicker
+        Left = 351
+        Top = 59
+        Width = 186
+        Height = 21
+        Date = 44385.000000000000000000
+        Format = ''
+        Time = 0.619150254628038900
+        TabOrder = 3
+      end
+    end
+    object RzPnl3: TRzPanel
+      AlignWithMargins = True
+      Left = 2
+      Top = 352
+      Width = 927
+      Height = 153
+      Anchors = [akLeft, akRight, akBottom]
+      BorderOuter = fsNone
+      BorderColor = 16737843
+      BorderWidth = 2
+      TabOrder = 1
+      object dbmmoUwagi: TDBMemo
+        Left = 2
+        Top = 2
+        Width = 923
+        Height = 149
+        Align = alClient
+        DataField = 'UWAGI'
+        DataSource = DataModule1.dsGrafik
+        TabOrder = 0
+        ExplicitWidth = 927
+      end
     end
   end
   object frXdbDtst1: TfrxDBDataset

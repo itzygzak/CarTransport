@@ -42,12 +42,25 @@ type
     rzEdtDataRej: TRzEdit;
     rzMmo1: TRzMemo;
     RzTbshtTabSheet1: TRzTabSheet;
+    rzlbl12: TRzLabel;
+    rzlbl13: TRzLabel;
+    rzlbl14: TRzLabel;
+    rzlbl15: TRzLabel;
+    rzlbl16: TRzLabel;
+    rzlbl17: TRzLabel;
+    img2: TImage;
+    rzlblNazwa: TRzLabel;
+    rzlbl18: TRzLabel;
+    rzlbl19: TRzLabel;
+    rzlbl20: TRzLabel;
     procedure FormShow(Sender: TObject);
     procedure ctgryBtns1Categories0Items2Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure img1Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure RzTbshtTabSheet1Show(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,7 +71,7 @@ var
   FrmCarTransport: TFrmCarTransport;
 
 implementation
-uses DM;
+uses DM, Login;
 
 {$R *.dfm}
 
@@ -82,6 +95,15 @@ end;
 procedure TFrmCarTransport.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
 Close;
+end;
+
+procedure TFrmCarTransport.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+ case Key of
+    VK_F12:
+      ctgryBtns1.Categories[0].Items[4].OnClick(Sender);
+ end;
 end;
 
 procedure TFrmCarTransport.FormShow(Sender: TObject);
@@ -116,6 +138,14 @@ begin
   else
     spltVw1.Open;
 
+end;
+
+procedure TFrmCarTransport.RzTbshtTabSheet1Show(Sender: TObject);
+begin
+  rzlbl18.Caption := FrmLogin.smVrsnf1.FileVersion;
+  rzlbl19.Caption := DateToStr(FrmLogin.smVrsnf1.DateTime);
+  rzlbl20.Caption := FrmLogin.smVrsnf1.CompanyName;
+//  NazwaKomp := GetComupterNameStr;
 end;
 
 end.

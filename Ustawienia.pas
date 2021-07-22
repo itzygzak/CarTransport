@@ -48,6 +48,7 @@ type
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
     procedure DodajUsera;
     procedure FormShow(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -68,13 +69,11 @@ uses
 
 procedure TFrmUstawienia.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
-if rzPgCntrl1.ActivePageIndex = 0 then
- DodajUsera
- else
+  if rzPgCntrl1.ActivePageIndex = 0 then
+    DodajUsera
+  else
     ShowMessage('Ne tej zak³adce nie jest mo¿liwy zapis');
 end;
-
-
 
 procedure TFrmUstawienia.DodajUsera;
 var
@@ -143,10 +142,9 @@ begin
   end;
 end;
 
-
 procedure TFrmUstawienia.ctgryBtns1Categories0Items1Click(Sender: TObject);
 begin
- case Application.MessageBox('Je¿eli anulujesz, okno zostanie zamkniête, ' + #13#10 + '¿adne zmiany nie zostan¹ zapisane.', 'Caption', MB_YESNO + MB_ICONWARNING) of
+  case Application.MessageBox('Je¿eli anulujesz, okno zostanie zamkniête, ' + #13#10 + '¿adne zmiany nie zostan¹ zapisane.', 'Caption', MB_YESNO + MB_ICONWARNING) of
     IDYES:
       begin
         Close;
@@ -155,7 +153,7 @@ begin
       begin
         rzEdtLogin.SetFocus;
       end;
- end;
+  end;
 end;
 
 procedure TFrmUstawienia.ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -168,15 +166,28 @@ begin
   rzPgCntrl1.ActivePageIndex := 0;
 end;
 
+procedure TFrmUstawienia.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  case Key of
+    VK_F9:
+      ctgryBtns1.Categories[0].Items[0].OnClick(Sender);
+    VK_F3:
+      ctgryBtns1.Categories[0].Items[1].OnClick(Sender);
+    VK_F12:
+      ctgryBtns1.Categories[0].Items[2].OnClick(Sender);
+
+  end;
+end;
+
 procedure TFrmUstawienia.FormShow(Sender: TObject);
 begin
-rzEdtLogin.Text:='';
-rzEdtHaslo.Text:='';
-rzEdtImie.Text:='';
-rzEdtDrugieImie.Text:='';
-rzEdtNazwisko.Text:='';
-rzEdtTelefon.Text:='';
-rzCmBx1.ItemIndex:=-1;
+  rzEdtLogin.Text := '';
+  rzEdtHaslo.Text := '';
+  rzEdtImie.Text := '';
+  rzEdtDrugieImie.Text := '';
+  rzEdtNazwisko.Text := '';
+  rzEdtTelefon.Text := '';
+  rzCmBx1.ItemIndex := -1;
 end;
 
 procedure TFrmUstawienia.img1Click(Sender: TObject);

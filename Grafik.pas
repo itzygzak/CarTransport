@@ -13,21 +13,22 @@ uses
 type
   TFrmGrafik = class(TForm)
     rzpnl1: TRzPanel;
-    rzpnl2: TRzPanel;
     spltVw1: TSplitView;
     img1: TImage;
     ctgryBtns1: TCategoryButtons;
-    SMDBgrdGrafik: TSMDBGrid;
     frXdbDtst1: TfrxDBDataset;
     frXrprt1: TfrxReport;
     frXdbDtst2: TfrxDBDataset;
-    trckBr1: TTrackBar;
-    rzDtmPckrOd: TRzDateTimePicker;
-    rzDtmPckrDo: TRzDateTimePicker;
+    RzPnl4: TRzPanel;
+    RzPnl2: TRzPanel;
     rzlbl1: TRzLabel;
     rzlbl2: TRzLabel;
     rzlbl3: TRzLabel;
     rzlbl4: TRzLabel;
+    SMDBgrdGrafik: TSMDBGrid;
+    trckBr1: TTrackBar;
+    rzDtmPckrOd: TRzDateTimePicker;
+    rzDtmPckrDo: TRzDateTimePicker;
     RzPnl3: TRzPanel;
     dbmmoUwagi: TDBMemo;
     procedure img1Click(Sender: TObject);
@@ -91,7 +92,7 @@ end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items2Click(Sender: TObject);
 begin
-  ShowMessage('Dostêpne niebawem');
+  ShowMessage('Anulowanie s³u¿y do wycofania ju¿ zdefiniowanego kursu i tym samym zwolnienie samochodu na okreœlony dzieñ i godzinê. Dostêpne niebawem');
 end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items3Click(Sender: TObject);

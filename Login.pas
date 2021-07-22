@@ -32,6 +32,8 @@ type
     rzlbl7: TRzLabel;
     rzlbl8: TRzLabel;
     rzlbl9: TRzLabel;
+    img2: TImage;
+    img3: TImage;
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
     procedure btnKoniecClick(Sender: TObject);
@@ -226,10 +228,10 @@ begin
   end;
   chk1.Checked := PamLog;
   rzlblWersja.Caption := smVrsnf1.FileVersion;
-  rzlblData.Caption := DateToStr(smVrsnf1.DateTime);
+//  rzlblData.Caption := DateToStr(smVrsnf1.DateTime);
   rzlbl7.Caption := smVrsnf1.CompanyName;
   NazwaKomp := GetComupterNameStr;
-
+  rzlblData.Caption:=GetComupterNameStr;
 end;
 
 procedure TFrmLogin.FormShow(Sender: TObject);
