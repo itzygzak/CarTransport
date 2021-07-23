@@ -631,7 +631,7 @@ object FrmLogin: TFrmLogin
       Font.Style = []
       ParentFont = False
       PasswordChar = '*'
-      TabOrder = 2
+      TabOrder = 1
       OnKeyPress = edtHasloKeyPress
     end
     object edtLogin: TEdit
@@ -661,7 +661,7 @@ object FrmLogin: TFrmLogin
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 1
+      TabOrder = 2
       StyleElements = []
     end
   end

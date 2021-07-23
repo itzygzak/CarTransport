@@ -918,8 +918,28 @@
       Font.Style = []
       HotButtonColor = clHighlight
       RegularButtonColor = clWhite
-      SelectedButtonColor = clRed
+      SelectedButtonColor = 15132390
       TabOrder = 0
+    end
+    object mmo1: TMemo
+      Left = 30
+      Top = 204
+      Width = 146
+      Height = 237
+      Lines.Strings = (
+        'W tym oknie definujemy '
+        'na kolejnych zak'#322'adkach:'
+        '-kierowc'#243'w'
+        '-pojazdy'
+        '-miejscowo'#347'ci'
+        'Robimy to tylko raz.'
+        ''
+        'Kliknij wto pole '#380'eby '
+        'zamkn'#261'c '
+        'okienko pomocy.')
+      TabOrder = 1
+      Visible = False
+      OnClick = mmo1Click
     end
   end
 end

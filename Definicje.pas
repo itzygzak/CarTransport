@@ -72,6 +72,7 @@ type
     rzlbl24: TRzLabel;
     rzDtmPckr1: TRzDateTimePicker;
     img1: TImage;
+    mmo1: TMemo;
     procedure img1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -85,6 +86,7 @@ type
     procedure DodajMiejscowosc;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
+    procedure mmo1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -393,7 +395,8 @@ end;
 
 procedure TFrmDefinicje.img1Click(Sender: TObject);
 begin
-  ShowMessage('Dostêpne niebawem');
+//  ShowMessage('Dostêpne niebawem');
+mmo1.Visible:=True;
 end;
 
 procedure TFrmDefinicje.img2Click(Sender: TObject);
@@ -402,6 +405,11 @@ begin
     spltVw1.Close
   else
     spltVw1.Open;
+end;
+
+procedure TFrmDefinicje.mmo1Click(Sender: TObject);
+begin
+mmo1.Visible:=False;
 end;
 
 procedure TFrmDefinicje.RzTbshtKierowcyShow(Sender: TObject);
