@@ -83,11 +83,15 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        DesignSize = (
+          695
+          489)
         object rzGrpBox1: TRzGroupBox
           Left = 16
           Top = 16
           Width = 481
           Height = 454
+          Anchors = [akLeft, akTop, akRight]
           Caption = ' Wprowad'#378' '
           CaptionFont.Charset = DEFAULT_CHARSET
           CaptionFont.Color = clWindowText
@@ -345,11 +349,15 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        DesignSize = (
+          695
+          489)
         object rzGrpBox2: TRzGroupBox
           Left = 16
           Top = 24
           Width = 417
           Height = 417
+          Anchors = [akLeft, akTop, akRight]
           Caption = 'Wprowad'#378' pojazdy '
           CaptionFont.Charset = DEFAULT_CHARSET
           CaptionFont.Color = clWindowText
@@ -587,11 +595,15 @@
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        DesignSize = (
+          695
+          489)
         object rzGrpBox3: TRzGroupBox
           Left = 16
           Top = 24
           Width = 417
           Height = 313
+          Anchors = [akLeft, akTop, akRight]
           Caption = 'Zdefiniuj miejscowo'#347'ci'
           CaptionFont.Charset = DEFAULT_CHARSET
           CaptionFont.Color = clWindowText
@@ -759,13 +771,17 @@
     OpenedWidth = 200
     Placement = svpRight
     TabOrder = 2
+    DesignSize = (
+      200
+      522)
     object img1: TImage
       Left = 78
       Top = 456
       Width = 50
       Height = 49
       Cursor = crHelp
-      Hint = 'Pomoc'
+      Hint = 'Kliknij aby uzyska'#263' pomoc'
+      Anchors = [akLeft, akTop, akRight, akBottom]
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
         003208060000001E3F88B100000006624B474400FF00FF00FFA0BDA79300000D
@@ -921,25 +937,42 @@
       SelectedButtonColor = 15132390
       TabOrder = 0
     end
-    object mmo1: TMemo
-      Left = 30
-      Top = 204
-      Width = 146
-      Height = 237
+    object rzMmo2: TRzMemo
+      Left = 48
+      Top = 224
+      Width = 113
+      Height = 197
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      Color = clInfoBk
       Lines.Strings = (
-        'W tym oknie definujemy '
-        'na kolejnych zak'#322'adkach:'
+        'W tym oknie '
+        'definujemy '
+        'na kolejnych '
+        'zak'#322'adkach:'
         '-kierowc'#243'w'
         '-pojazdy'
         '-miejscowo'#347'ci'
         'Robimy to tylko raz.'
         ''
-        'Kliknij wto pole '#380'eby '
-        'zamkn'#261'c '
-        'okienko pomocy.')
+        'Kliknij w to pole '#380'eby '
+        'zamkn'#261#263' pomoc.')
+      ReadOnly = True
       TabOrder = 1
       Visible = False
-      OnClick = mmo1Click
+      OnClick = rzMmo2Click
     end
+  end
+  object rzBlnHnts1: TRzBalloonHints
+    Bitmaps.TransparentColor = clOlive
+    CenterThreshold = 0
+    Color = clMoneyGreen
+    FrameColor = cl3DDkShadow
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clInfoText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Left = 767
+    Top = 169
   end
 end

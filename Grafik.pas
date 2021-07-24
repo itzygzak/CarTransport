@@ -8,7 +8,7 @@ uses
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage,
   Vcl.CategoryButtons, Data.DB, Vcl.Grids, Vcl.DBGrids, SMDBGrid, Vcl.StdCtrls,
   frxClass, frxDBSet, frxExportBaseDialog, frxExportPDF, frxPreview, RzLabel,
-  Vcl.ComCtrls, RzDTP, Vcl.DBCtrls;
+  Vcl.ComCtrls, RzDTP, Vcl.DBCtrls, RzEdit;
 
 type
   TFrmGrafik = class(TForm)
@@ -31,6 +31,8 @@ type
     rzDtmPckrDo: TRzDateTimePicker;
     RzPnl3: TRzPanel;
     dbmmoUwagi: TDBMemo;
+    img2: TImage;
+    rzMmo1: TRzMemo;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -41,6 +43,8 @@ type
     procedure trckBr1Change(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items2Click(Sender: TObject);
+    procedure img2Click(Sender: TObject);
+    procedure rzMmo1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -148,6 +152,16 @@ begin
   else
     spltVw1.Open;
 
+end;
+
+procedure TFrmGrafik.img2Click(Sender: TObject);
+begin
+rzMmo1.Visible:=True;
+end;
+
+procedure TFrmGrafik.rzMmo1Click(Sender: TObject);
+begin
+rzMmo1.Visible:=False;
 end;
 
 procedure TFrmGrafik.trckBr1Change(Sender: TObject);

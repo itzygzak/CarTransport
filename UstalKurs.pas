@@ -60,6 +60,8 @@ type
     rzEdtTelKlienta: TRzEdit;
     btnKierowca: TButton;
     rzlbl19: TRzLabel;
+    img2: TImage;
+    rzMmo1: TRzMemo;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -76,6 +78,8 @@ type
     procedure ctgryBtns1Categories0Items2Click(Sender: TObject);
     procedure btnKierowcaClick(Sender: TObject);
     procedure rzMmoUwagiChange(Sender: TObject);
+    procedure rzMmo1Click(Sender: TObject);
+    procedure img2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -116,6 +120,7 @@ begin
       ParamByName('uwagi').AsString := rzMmoUwagi.Text;
       ParamByName('data_powrotu').AsDate := rzDtmPckrDataPowrotu.Date;
       ParamByName('godz_powrotu').AsTime := tmPckrGodzPowrotu.Time;
+//      ParamByName('kurs_aktywny').AsInteger := 1;
       ExecSQL;
       DataModule1.ibTransTemp.Commit;
     end;
@@ -283,6 +288,11 @@ begin
     spltVw1.Open;
 end;
 
+procedure TFrmUstalKurs.img2Click(Sender: TObject);
+begin
+rzMmo1.Visible:=True;
+end;
+
 procedure TFrmUstalKurs.rzDtmPckrDataPowrotuChange(Sender: TObject);
 begin
   if (rzDtmPckrDataWys.Date) > (rzDtmPckrDataPowrotu.Date) then
@@ -348,6 +358,11 @@ begin
       ParamByName('i').AsString := '%' + UpperCase(SzukPoj) + '%';
     Open;
   end;
+end;
+
+procedure TFrmUstalKurs.rzMmo1Click(Sender: TObject);
+begin
+rzMmo1.Visible:=False;
 end;
 
 procedure TFrmUstalKurs.rzMmoUwagiChange(Sender: TObject);
