@@ -295,7 +295,7 @@ object FrmGrafik: TFrmGrafik
         TextStyle = tsRaised
       end
       object rzlbl2: TRzLabel
-        Left = 328
+        Left = 280
         Top = 64
         Width = 17
         Height = 16
@@ -339,6 +339,14 @@ object FrmGrafik: TFrmGrafik
         LightTextStyle = True
         TextStyle = tsRaised
       end
+      object dbtxtKurs: TDBText
+        Left = 536
+        Top = 16
+        Width = 65
+        Height = 17
+        DataField = 'ID_GRAFIK'
+        DataSource = DataModule1.dsGrafik
+      end
       object SMDBgrdGrafik: TSMDBGrid
         Left = 4
         Top = 118
@@ -360,6 +368,7 @@ object FrmGrafik: TFrmGrafik
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
         StyleElements = []
+        OnDrawColumnCell = SMDBgrdGrafikDrawColumnCell
         Flat = False
         BandsFont.Charset = DEFAULT_CHARSET
         BandsFont.Color = clWindowText
@@ -375,10 +384,11 @@ object FrmGrafik: TFrmGrafik
         GridStyle.Title.EndColor = clCream
         TitleHeight.PixelCount = 24
         FooterColor = clBtnFace
-        ExOptions = [eoAutoWidth, eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoShowFooter, eoShowRecNo, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+        ExOptions = [eoAutoWidth, eoBooleanAsCheckBox, eoCheckBoxSelect, eoENTERlikeTAB, eoKeepSelection, eoShowFooter, eoShowRecNo, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+        OnGetCellParams = SMDBgrdGrafikGetCellParams
         RegistryKey = 'Software\Scalabium'
         RegistrySection = 'SMDBGrid'
-        WidthOfIndicator = 11
+        WidthOfIndicator = 23
         DefaultRowHeight = 20
         ScrollBars = ssHorizontal
         Columns = <
@@ -391,7 +401,7 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Height = -13
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
-            Width = 141
+            Width = 139
             Visible = True
           end
           item
@@ -403,7 +413,7 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Height = -13
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
-            Width = 82
+            Width = 81
             Visible = True
           end
           item
@@ -415,7 +425,7 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Height = -13
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
-            Width = 98
+            Width = 96
             Visible = True
           end
           item
@@ -427,7 +437,7 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Height = -13
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
-            Width = 82
+            Width = 81
             Visible = True
           end
           item
@@ -439,7 +449,7 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Height = -13
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
-            Width = 98
+            Width = 96
             Visible = True
           end
           item
@@ -451,9 +461,8 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Height = -13
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
-            Width = 91
+            Width = 90
             Visible = True
-            InplaceEditor = ieCheckbox
           end
           item
             Expanded = False
@@ -464,7 +473,7 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Height = -13
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
-            Width = 117
+            Width = 116
             Visible = True
           end
           item
@@ -476,7 +485,7 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Height = -13
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
-            Width = 96
+            Width = 95
             Visible = True
           end
           item
@@ -488,7 +497,7 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Height = -13
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
-            Width = 77
+            Width = 76
             Visible = True
           end>
       end
@@ -514,7 +523,7 @@ object FrmGrafik: TFrmGrafik
         TabOrder = 2
       end
       object rzDtmPckrDo: TRzDateTimePicker
-        Left = 351
+        Left = 303
         Top = 59
         Width = 186
         Height = 21
@@ -546,6 +555,15 @@ object FrmGrafik: TFrmGrafik
         TabOrder = 0
       end
     end
+  end
+  object btn1: TButton
+    Left = 616
+    Top = 104
+    Width = 75
+    Height = 25
+    Caption = 'btn1'
+    TabOrder = 3
+    OnClick = btn1Click
   end
   object frXdbDtst1: TfrxDBDataset
     UserName = 'frxDBDataset1'

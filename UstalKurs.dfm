@@ -362,6 +362,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        OnChange = rzDtmPckrDataWysChange
       end
       object tmPckrCzasWys: TTimePicker
         Left = 306

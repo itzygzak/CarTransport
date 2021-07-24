@@ -171,7 +171,8 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       
         'SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa' +
-        ', m.kod_pocztowy, g.data_wysylki, '
+        ', m.kod_pocztowy,'
+      'g.id_grafik, g.data_wysylki, '
       'g.godz_wysylki, g.wg_dokument,g.adres_dostawy,g.nr_tel_klienta,'
       ' g.uwagi, g.data_powrotu, g.godz_powrotu, g.kurs_aktywny'
       'FROM kierowcy k, pojazdy p, miejscowosci m, grafik g'

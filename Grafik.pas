@@ -8,7 +8,7 @@ uses
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage,
   Vcl.CategoryButtons, Data.DB, Vcl.Grids, Vcl.DBGrids, SMDBGrid, Vcl.StdCtrls,
   frxClass, frxDBSet, frxExportBaseDialog, frxExportPDF, frxPreview, RzLabel,
-  Vcl.ComCtrls, RzDTP, Vcl.DBCtrls, RzEdit;
+  Vcl.ComCtrls, RzDTP, Vcl.DBCtrls, RzEdit, RzRadGrp;
 
 type
   TFrmGrafik = class(TForm)
@@ -33,6 +33,8 @@ type
     dbmmoUwagi: TDBMemo;
     img2: TImage;
     rzMmo1: TRzMemo;
+    dbtxtKurs: TDBText;
+    btn1: TButton;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -46,6 +48,11 @@ type
     procedure img2Click(Sender: TObject);
     procedure rzMmo1Click(Sender: TObject);
     procedure PoliczwSiatce;
+    procedure SMDBgrdGrafikDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure SMDBgrdGrafikGetCellParams(Sender: TObject; Field: TField;
+      AFont: TFont; var Background: TColor; Highlight: Boolean);
+    procedure btn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,20 +70,37 @@ uses
 
 {$R *.dfm}
 
+procedure TFrmGrafik.btn1Click(Sender: TObject);
+begin
+with DataModule1.ibQryTemp, SQL do
+begin
+  Close;
+  Clear;
+  Add('UPDATE grafik SET kurs_aktywny =:kurs_aktywny WHERE id_grafik =:id_grafik ');
+  ParamByName('kurs_aktywny').AsInteger := 0;
+  ParamByName('id_grafik').AsInteger := dbtxtKurs.Field.Value;
+  ExecSQL;
+  DataModule1.ibTransTemp.Commit;
+end;
+  SMDBgrdGrafik.RefreshData;
+end;
+
 procedure TFrmGrafik.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
   rzDtmPckrOd.Date := Now;
+
   with DataModule1.ibQryGrafik, SQL do
   begin
     Close;
     Clear;
-    Add('SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa, m.kod_pocztowy, g.data_wysylki, ');
-    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu, g.kurs_aktywny FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
+    Add('SELECT  m.nazwa,g.id_grafik, g.data_wysylki, g.data_powrotu, g.godz_wysylki, g.godz_powrotu,g.kurs_aktywny, g.wg_dokument, g.adres_dostawy, ');
+    Add(' g.nr_tel_klienta, g.uwagi FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci');
     Add('AND g.data_wysylki =:data_wysylkiOD ');
     ParamByName('data_wysylkiOD').AsDate := rzDtmPckrOd.Date;
     Open;
   end;
+    PoliczwSiatce;
 end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items1Click(Sender: TObject);
@@ -85,14 +109,14 @@ begin
   begin
     Close;
     Clear;
-    Add('SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa, m.kod_pocztowy, g.data_wysylki, ');
-    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu, g.kurs_aktywny FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
+    Add('SELECT  m.nazwa,g.id_grafik, g.data_wysylki, g.data_powrotu, g.godz_wysylki, g.godz_powrotu,g.kurs_aktywny, g.wg_dokument, g.adres_dostawy, ');
+    Add(' g.nr_tel_klienta, g.uwagi FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci');
     Add('AND g.data_wysylki >=:data_wysylkiOD ');
     ParamByName('data_wysylkiOD').AsDateTime := rzDtmPckrOd.DateTime;
     Open;
   end;
-
+   PoliczwSiatce;
 end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items2Click(Sender: TObject);
@@ -135,7 +159,7 @@ end;
 procedure TFrmGrafik.FormShow(Sender: TObject);
 begin
 
-  with DataModule1.ibQryGrafik, SQL do
+ { with DataModule1.ibQryGrafik, SQL do
   begin
     Close;
     Clear;
@@ -143,8 +167,8 @@ begin
     Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu, g.kurs_aktywny FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci ORDER BY g.data_wysylki DESC');
     Open;
-  end;
-  PoliczwSiatce
+  end;}
+ // PoliczwSiatce
 end;
 
 procedure TFrmGrafik.img1Click(Sender: TObject);
@@ -166,6 +190,51 @@ begin
 rzMmo1.Visible:=False;
 end;
 
+procedure TFrmGrafik.SMDBgrdGrafikDrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    var sText : string;
+begin
+ if ((Column.Field.FieldName) = 'KURS_AKTYWNY') then
+    begin                                          //zamiana wyœwietlanej wartoœci w komórce z 1 lub 0 na tak lub nie
+      if Column.Field.Value = 1 then
+        sText := 'TAK'
+
+      Else
+        If Column.Field.Value = 0 Then
+          sText := 'NIE'
+        Else
+          sText := '';
+      (Sender as TDBGrid).Canvas.FillRect(Rect);
+      (Sender as TDBGrid).Canvas.TextRect(Rect, Rect.Left+3, Rect.Top+2, sText);
+    end
+  Else
+    Begin { I added this to draw all other columns as defaultdrawing is off }
+      (Sender as TDBGrid).defaultdrawcolumncell(Rect, DataCol, Column, State);
+    End;
+
+
+end;
+
+procedure TFrmGrafik.SMDBgrdGrafikGetCellParams(Sender: TObject; Field: TField;
+  AFont: TFont; var Background: TColor; Highlight: Boolean);
+begin
+if Assigned(Field) and (UpperCase(Field.FieldName) = 'KURS_AKTYWNY') then
+  begin
+    if Field.AsInteger = 1 then
+    begin
+      AFont.Style := [fsBold];
+      Background := clPurple;
+
+    end
+    else
+    begin
+      AFont.Style := [];
+      Background := clWhite;
+    end
+  end;
+
+end;
+
 procedure TFrmGrafik.trckBr1Change(Sender: TObject);
 begin
   dbmmoUwagi.Font.Size := trckBr1.Position + 1;
@@ -180,7 +249,7 @@ begin
   SMDBgrdGrafik.Columns[1].FooterType := ftCount;
   SMDBgrdGrafik.FooterColor := clSkyBlue;
   SMDBgrdGrafik.CalculateTotals();
-  SMDBgrdGrafik.Columns[5].InplaceEditor :=ieCheckbox;
+ // SMDBgrdGrafik.Columns[5].InplaceEditor :=ieCheckbox;
 end;
 
 end.

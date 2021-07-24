@@ -81,6 +81,7 @@ type
     procedure rzMmo1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
     procedure rzEdtTelKlientaKeyPress(Sender: TObject; var Key: Char);
+    procedure rzDtmPckrDataWysChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -298,6 +299,12 @@ procedure TFrmUstalKurs.rzDtmPckrDataPowrotuChange(Sender: TObject);
 begin
   if (rzDtmPckrDataWys.Date) > (rzDtmPckrDataPowrotu.Date) then
     ShowMessage('Data wysy³ki nie mo¿e byæ wczeœniejsza ni¿ data powrotu. To chyba oczywiste ?');
+end;
+
+procedure TFrmUstalKurs.rzDtmPckrDataWysChange(Sender: TObject);
+begin
+  if (rzDtmPckrDataWys.Date) > Now then
+    ShowMessage('Data wysy³ki nie mo¿e byæ wczeœniejsza ni¿ bie¿¹ca data');
 end;
 
 procedure TFrmUstalKurs.rzEdtSzukMiejscChange(Sender: TObject);
