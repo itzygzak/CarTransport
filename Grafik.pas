@@ -45,6 +45,7 @@ type
     procedure ctgryBtns1Categories0Items2Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
     procedure rzMmo1Click(Sender: TObject);
+    procedure PoliczwSiatce;
   private
     { Private declarations }
   public
@@ -70,7 +71,7 @@ begin
     Close;
     Clear;
     Add('SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa, m.kod_pocztowy, g.data_wysylki, ');
-    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
+    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu, g.kurs_aktywny FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci');
     Add('AND g.data_wysylki =:data_wysylkiOD ');
     ParamByName('data_wysylkiOD').AsDate := rzDtmPckrOd.Date;
@@ -85,7 +86,7 @@ begin
     Close;
     Clear;
     Add('SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa, m.kod_pocztowy, g.data_wysylki, ');
-    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
+    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu, g.kurs_aktywny FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci');
     Add('AND g.data_wysylki >=:data_wysylkiOD ');
     ParamByName('data_wysylkiOD').AsDateTime := rzDtmPckrOd.DateTime;
@@ -139,10 +140,11 @@ begin
     Close;
     Clear;
     Add('SELECT  k.imie, k.nazwisko, p.marka, p.typ, p.ladownosc, m.nazwa, m.kod_pocztowy, g.data_wysylki, ');
-    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
+    Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu, g.kurs_aktywny FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci ORDER BY g.data_wysylki DESC');
     Open;
   end;
+  PoliczwSiatce
 end;
 
 procedure TFrmGrafik.img1Click(Sender: TObject);
@@ -169,6 +171,16 @@ begin
   dbmmoUwagi.Font.Size := trckBr1.Position + 1;
   SMDBgrdGrafik.Font.Size := trckBr1.Position + 1;
 
+end;
+
+procedure TFrmGrafik.PoliczwSiatce;
+begin
+  SMDBgrdGrafik.DataSource := DataModule1.dsGrafik;
+  SMDBgrdGrafik.Columns[0].FooterText := 'Liczba kursów';
+  SMDBgrdGrafik.Columns[1].FooterType := ftCount;
+  SMDBgrdGrafik.FooterColor := clSkyBlue;
+  SMDBgrdGrafik.CalculateTotals();
+  SMDBgrdGrafik.Columns[5].InplaceEditor :=ieCheckbox;
 end;
 
 end.

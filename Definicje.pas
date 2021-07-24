@@ -88,6 +88,8 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
     procedure rzMmo2Click(Sender: TObject);
+    procedure rzEdtNrTelefonuKeyPress(Sender: TObject; var Key: Char);
+    procedure rzEdtKodKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -405,6 +407,24 @@ begin
     spltVw1.Close
   else
     spltVw1.Open;
+end;
+
+procedure TFrmDefinicje.rzEdtKodKeyPress(Sender: TObject; var Key: Char);
+begin
+if not (key in ['0'..'9',#8,#9]) then
+begin
+  Key := #0;
+  MessageBeep(0);
+end;
+end;
+
+procedure TFrmDefinicje.rzEdtNrTelefonuKeyPress(Sender: TObject; var Key: Char);
+begin
+if not (key in ['0'..'9',#8,#9]) then
+begin
+  Key := #0;
+  MessageBeep(0);
+end;
 end;
 
 procedure TFrmDefinicje.rzMmo2Click(Sender: TObject);

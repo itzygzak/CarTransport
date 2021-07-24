@@ -62,7 +62,7 @@
       Width = 699
       Height = 518
       Hint = ''
-      ActivePage = RzTbshtKierowcy
+      ActivePage = RzTbshtMiejscowości
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -70,7 +70,7 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 0
+      TabIndex = 2
       TabOrder = 0
       TabStyle = tsDoubleSlant
       FixedDimension = 25
@@ -326,6 +326,7 @@
             ShowHint = True
             TabOrder = 3
             TextHint = 'Pole nie mo'#380'e by'#263' puste'
+            OnKeyPress = rzEdtNrTelefonuKeyPress
           end
           object rzCmbxTermin: TRzComboBox
             Left = 192
@@ -718,6 +719,7 @@
             Height = 21
             Text = ''
             TabOrder = 1
+            OnKeyPress = rzEdtKodKeyPress
           end
           object rzEdtWojew: TRzEdit
             Left = 232

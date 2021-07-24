@@ -80,6 +80,7 @@ type
     procedure rzMmoUwagiChange(Sender: TObject);
     procedure rzMmo1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
+    procedure rzEdtTelKlientaKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -358,6 +359,15 @@ begin
       ParamByName('i').AsString := '%' + UpperCase(SzukPoj) + '%';
     Open;
   end;
+end;
+
+procedure TFrmUstalKurs.rzEdtTelKlientaKeyPress(Sender: TObject; var Key: Char);
+begin
+if not (key in ['0'..'9',#8,#9]) then
+begin
+  Key := #0;
+  MessageBeep(0);
+end;
 end;
 
 procedure TFrmUstalKurs.rzMmo1Click(Sender: TObject);

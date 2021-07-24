@@ -375,13 +375,25 @@ object FrmGrafik: TFrmGrafik
         GridStyle.Title.EndColor = clCream
         TitleHeight.PixelCount = 24
         FooterColor = clBtnFace
-        ExOptions = [eoAutoWidth, eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+        ExOptions = [eoAutoWidth, eoBooleanAsCheckBox, eoENTERlikeTAB, eoKeepSelection, eoShowFooter, eoShowRecNo, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
         RegistryKey = 'Software\Scalabium'
         RegistrySection = 'SMDBGrid'
         WidthOfIndicator = 11
         DefaultRowHeight = 20
         ScrollBars = ssHorizontal
         Columns = <
+          item
+            Expanded = False
+            FieldName = 'NAZWA'
+            Title.Caption = 'MIEJSCOWO'#346#262
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 141
+            Visible = True
+          end
           item
             Expanded = False
             FieldName = 'DATA_WYSYLKI'
@@ -432,6 +444,19 @@ object FrmGrafik: TFrmGrafik
           end
           item
             Expanded = False
+            FieldName = 'KURS_AKTYWNY'
+            Title.Caption = 'KURS AKTYWNY'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -13
+            Title.Font.Name = 'Tahoma'
+            Title.Font.Style = []
+            Width = 91
+            Visible = True
+            InplaceEditor = ieCheckbox
+          end
+          item
+            Expanded = False
             FieldName = 'WG_DOKUMENT'
             Title.Caption = 'WG DOKUMENTU'
             Title.Font.Charset = DEFAULT_CHARSET
@@ -464,25 +489,6 @@ object FrmGrafik: TFrmGrafik
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = []
             Width = 77
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'KURS_AKTYWNY'
-            Title.Caption = 'KURS AKTYWNY'
-            Width = 91
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NAZWA'
-            Title.Caption = 'MIEJSCOWO'#346#262
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindowText
-            Title.Font.Height = -13
-            Title.Font.Name = 'Tahoma'
-            Title.Font.Style = []
-            Width = 141
             Visible = True
           end>
       end

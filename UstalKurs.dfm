@@ -536,6 +536,7 @@ object FrmUstalKurs: TFrmUstalKurs
         Height = 21
         Text = ''
         TabOrder = 2
+        OnKeyPress = rzEdtTelKlientaKeyPress
       end
     end
     object rzGrpBoxPojazd: TRzGroupBox
