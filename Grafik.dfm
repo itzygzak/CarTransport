@@ -184,7 +184,7 @@ object FrmGrafik: TFrmGrafik
       Left = 3
       Top = 3
       Width = 194
-      Height = 166
+      Height = 174
       Align = alTop
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
@@ -209,15 +209,13 @@ object FrmGrafik: TFrmGrafik
             end
             item
               Caption = '[F11] Podgl'#261'd wydruku'
-              OnClick = ctgryBtns1Categories0Items4Click
+              OnClick = ctgryBtns1Categories0Items3Click
             end
             item
-              Caption = '[F9]  Dezaktywuj kurs'
-              OnClick = ctgryBtns1Categories0Items4Click
             end
             item
               Caption = '[F12] Zamknij okno'
-              OnClick = ctgryBtns1Categories0Items3Click
+              OnClick = ctgryBtns1Categories0Items6Click
             end>
         end>
       Font.Charset = DEFAULT_CHARSET

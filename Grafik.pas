@@ -38,7 +38,6 @@ type
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure ctgryBtns1Categories0Items4Click(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ctgryBtns1Categories0Items1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -48,10 +47,9 @@ type
     procedure img2Click(Sender: TObject);
     procedure rzMmo1Click(Sender: TObject);
     procedure PoliczwSiatce;
-    procedure SMDBgrdGrafikDrawColumnCell(Sender: TObject; const Rect: TRect;
-      DataCol: Integer; Column: TColumn; State: TGridDrawState);
-    procedure SMDBgrdGrafikGetCellParams(Sender: TObject; Field: TField;
-      AFont: TFont; var Background: TColor; Highlight: Boolean);
+    procedure SMDBgrdGrafikDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure SMDBgrdGrafikGetCellParams(Sender: TObject; Field: TField; AFont: TFont; var Background: TColor; Highlight: Boolean);
+    procedure ctgryBtns1Categories0Items6Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,7 +62,7 @@ var
 implementation
 
 uses
-  DM;
+  DM, Login;
 
 
 {$R *.dfm}
@@ -84,7 +82,7 @@ begin
     ParamByName('data_wysylkiOD').AsDate := rzDtmPckrOd.Date;
     Open;
   end;
-    PoliczwSiatce;
+  PoliczwSiatce;
 end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items1Click(Sender: TObject);
@@ -100,34 +98,73 @@ begin
     ParamByName('data_wysylkiOD').AsDateTime := rzDtmPckrOd.DateTime;
     Open;
   end;
-   PoliczwSiatce;
+  PoliczwSiatce;
 end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items2Click(Sender: TObject);
+var
+  historia: string;
 begin
-  ShowMessage('Anulowanie s³u¿y do wycofania ju¿ zdefiniowanego kursu i tym samym zwolnienie samochodu na okreœlony dzieñ i godzinê. Dostêpne niebawem');
+  case Application.MessageBox('Anulowanie/Dezaktywacja s³u¿y do wycofania ' + #13#10 + 'ju¿ zdefiniowanego kursu i tym samym zwolnienie ' + #13#10 + 'samochodu na okreœlony dzieñ i godzinê.' + #13#10 + 'Dezaktywowaæ ?', 'Uwaga', MB_YESNO + MB_ICONWARNING) of
+    IDYES:
+      begin
+        with DataModule1.ibQryTemp, SQL do
+        begin
+          Close;
+          Clear;
+          Add('UPDATE grafik SET kurs_aktywny =:kurs_aktywny WHERE id_grafik =:id_grafik ');
+          ParamByName('kurs_aktywny').AsInteger := 0;
+          ParamByName('id_grafik').AsInteger := dbtxtKurs.Field.Value;
+          ExecSQL;
+          DataModule1.ibTransTemp.Commit;
+        end;
+
+        try     //do zm. historia przypisuje legende
+          historia := ' Dezaktywowano kurs: ' + #13#10;
+          historia := historia + ' Miejscowoœæ: ' + SMDBgrdGrafik.DataSource.DataSet.FieldByName('nazwa').AsString + #13#10;  //tu z siatki
+          historia := historia + ' Data wysy³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('data_wysylki').AsDateTime) + #13#10;
+          historia := historia + ' Godz wysy³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('godz_wysylki').AsDateTime) + #13#10;
+          historia := historia + ' Wg dokumentu: ' + SMDBgrdGrafik.DataSource.DataSet.FieldByName('wg_dokument').AsString + #13#10;
+
+          with DataModule1.ibQryHistoria, SQL do
+          begin
+            Close;
+            Clear;
+            Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
+            ParamByName('panel').AsInteger := 1;
+            ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
+            ParamByName('rekord').AsInteger := dbtxtKurs.Field.Value; //id zaznaczone w siatce dotyczy ig grafika
+            ParamByName('operacja').AsString := historia;
+            ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
+            ExecSQL;
+            DataModule1.ibTransHistoria.Commit;
+          end;
+        except
+          DataModule1.ibTransHistoria.Rollback;
+          ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+        end;
+
+    //koniec historia
+
+
+        SMDBgrdGrafik.RefreshData;
+      end;
+    IDNO:
+      begin
+        rzDtmPckrOd.SetFocus;
+      end;
+  end;
+
 end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
-  Close;
+  frXrprt1.ShowReport();
 end;
 
-procedure TFrmGrafik.ctgryBtns1Categories0Items4Click(Sender: TObject);
-begin
-//  frXrprt1.ShowReport();
-with DataModule1.ibQryTemp, SQL do
+procedure TFrmGrafik.ctgryBtns1Categories0Items6Click(Sender: TObject);
 begin
   Close;
-  Clear;
-  Add('UPDATE grafik SET kurs_aktywny =:kurs_aktywny WHERE id_grafik =:id_grafik ');
-  ParamByName('kurs_aktywny').AsInteger := 0;
-  ParamByName('id_grafik').AsInteger := dbtxtKurs.Field.Value;
-  ExecSQL;
-  DataModule1.ibTransTemp.Commit;
-end;
-  SMDBgrdGrafik.RefreshData;
-
 end;
 
 procedure TFrmGrafik.FormCreate(Sender: TObject);
@@ -178,43 +215,39 @@ end;
 
 procedure TFrmGrafik.img2Click(Sender: TObject);
 begin
-rzMmo1.Visible:=True;
+  rzMmo1.Visible := True;
 end;
 
 procedure TFrmGrafik.rzMmo1Click(Sender: TObject);
 begin
-rzMmo1.Visible:=False;
+  rzMmo1.Visible := False;
 end;
 
-procedure TFrmGrafik.SMDBgrdGrafikDrawColumnCell(Sender: TObject;
-  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
-    var sText : string;
+procedure TFrmGrafik.SMDBgrdGrafikDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+var
+  sText: string;
 begin
- if ((Column.Field.FieldName) = 'KURS_AKTYWNY') then
-    begin                                          //zamiana wyœwietlanej wartoœci w komórce z 1 lub 0 na tak lub nie
-      if Column.Field.Value = 1 then
-        sText := 'TAK'
-
-      Else
-        If Column.Field.Value = 0 Then
-          sText := 'NIE'
-        Else
-          sText := '';
-      (Sender as TDBGrid).Canvas.FillRect(Rect);
-      (Sender as TDBGrid).Canvas.TextRect(Rect, Rect.Left+3, Rect.Top+2, sText);
-    end
-  Else
-    Begin { I added this to draw all other columns as defaultdrawing is off }
-      (Sender as TDBGrid).defaultdrawcolumncell(Rect, DataCol, Column, State);
-    End;
-
+  if ((Column.Field.FieldName) = 'KURS_AKTYWNY') then
+  begin                                          //zamiana wyœwietlanej wartoœci w komórce z 1 lub 0 na tak lub nie
+    if Column.Field.Value = 1 then
+      sText := 'TAK'
+    else if Column.Field.Value = 0 then
+      sText := 'NIE'
+    else
+      sText := '';
+    (Sender as TDBGrid).Canvas.FillRect(Rect);
+    (Sender as TDBGrid).Canvas.TextRect(Rect, Rect.Left + 3, Rect.Top + 2, sText);
+  end
+  else
+  begin { I added this to draw all other columns as defaultdrawing is off }
+    (Sender as TDBGrid).defaultdrawcolumncell(Rect, DataCol, Column, State);
+  end;
 
 end;
 
-procedure TFrmGrafik.SMDBgrdGrafikGetCellParams(Sender: TObject; Field: TField;
-  AFont: TFont; var Background: TColor; Highlight: Boolean);
+procedure TFrmGrafik.SMDBgrdGrafikGetCellParams(Sender: TObject; Field: TField; AFont: TFont; var Background: TColor; Highlight: Boolean);
 begin
-if Assigned(Field) and (UpperCase(Field.FieldName) = 'KURS_AKTYWNY') then
+  if Assigned(Field) and (UpperCase(Field.FieldName) = 'KURS_AKTYWNY') then
   begin
     if Field.AsInteger = 1 then
     begin
