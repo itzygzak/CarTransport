@@ -212,6 +212,8 @@ object FrmGrafik: TFrmGrafik
               OnClick = ctgryBtns1Categories0Items4Click
             end
             item
+              Caption = '[F9]  Dezaktywuj kurs'
+              OnClick = ctgryBtns1Categories0Items4Click
             end
             item
               Caption = '[F12] Zamknij okno'
@@ -563,7 +565,6 @@ object FrmGrafik: TFrmGrafik
     Height = 25
     Caption = 'btn1'
     TabOrder = 3
-    OnClick = btn1Click
   end
   object frXdbDtst1: TfrxDBDataset
     UserName = 'frxDBDataset1'

@@ -52,7 +52,6 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure SMDBgrdGrafikGetCellParams(Sender: TObject; Field: TField;
       AFont: TFont; var Background: TColor; Highlight: Boolean);
-    procedure btn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,21 +68,6 @@ uses
 
 
 {$R *.dfm}
-
-procedure TFrmGrafik.btn1Click(Sender: TObject);
-begin
-with DataModule1.ibQryTemp, SQL do
-begin
-  Close;
-  Clear;
-  Add('UPDATE grafik SET kurs_aktywny =:kurs_aktywny WHERE id_grafik =:id_grafik ');
-  ParamByName('kurs_aktywny').AsInteger := 0;
-  ParamByName('id_grafik').AsInteger := dbtxtKurs.Field.Value;
-  ExecSQL;
-  DataModule1.ibTransTemp.Commit;
-end;
-  SMDBgrdGrafik.RefreshData;
-end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
@@ -131,7 +115,19 @@ end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items4Click(Sender: TObject);
 begin
-  frXrprt1.ShowReport();
+//  frXrprt1.ShowReport();
+with DataModule1.ibQryTemp, SQL do
+begin
+  Close;
+  Clear;
+  Add('UPDATE grafik SET kurs_aktywny =:kurs_aktywny WHERE id_grafik =:id_grafik ');
+  ParamByName('kurs_aktywny').AsInteger := 0;
+  ParamByName('id_grafik').AsInteger := dbtxtKurs.Field.Value;
+  ExecSQL;
+  DataModule1.ibTransTemp.Commit;
+end;
+  SMDBgrdGrafik.RefreshData;
+
 end;
 
 procedure TFrmGrafik.FormCreate(Sender: TObject);
