@@ -10,7 +10,9 @@ uses
   UstalKurs in 'UstalKurs.pas' {FrmUstalKurs},
   Grafik in 'Grafik.pas' {FrmGrafik},
   Ustawienia in 'Ustawienia.pas' {FrmUstawienia},
-  carTransport in 'carTransport.pas' {FrmCarTransport};
+  carTransport in 'carTransport.pas' {FrmCarTransport},
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 

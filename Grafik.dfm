@@ -340,11 +340,19 @@ object FrmGrafik: TFrmGrafik
         TextStyle = tsRaised
       end
       object dbtxtKurs: TDBText
-        Left = 536
-        Top = 16
+        Left = 857
+        Top = 4
         Width = 65
         Height = 17
         DataField = 'ID_GRAFIK'
+        DataSource = DataModule1.dsGrafik
+      end
+      object dbtxtKursAkt: TDBText
+        Left = 552
+        Top = 16
+        Width = 65
+        Height = 17
+        DataField = 'KURS_AKTYWNY'
         DataSource = DataModule1.dsGrafik
       end
       object SMDBgrdGrafik: TSMDBGrid
@@ -555,14 +563,6 @@ object FrmGrafik: TFrmGrafik
         TabOrder = 0
       end
     end
-  end
-  object btn1: TButton
-    Left = 616
-    Top = 104
-    Width = 75
-    Height = 25
-    Caption = 'btn1'
-    TabOrder = 3
   end
   object frXdbDtst1: TfrxDBDataset
     UserName = 'frxDBDataset1'

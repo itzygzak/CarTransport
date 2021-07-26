@@ -34,7 +34,7 @@ type
     img2: TImage;
     rzMmo1: TRzMemo;
     dbtxtKurs: TDBText;
-    btn1: TButton;
+    dbtxtKursAkt: TDBText;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -107,43 +107,54 @@ var
 begin
   case Application.MessageBox('Anulowanie/Dezaktywacja s³u¿y do wycofania ' + #13#10 + 'ju¿ zdefiniowanego kursu i tym samym zwolnienie ' + #13#10 + 'samochodu na okreœlony dzieñ i godzinê.' + #13#10 + 'Dezaktywowaæ ?', 'Uwaga', MB_YESNO + MB_ICONWARNING) of
     IDYES:
-      begin
-        with DataModule1.ibQryTemp, SQL do
-        begin
-          Close;
-          Clear;
-          Add('UPDATE grafik SET kurs_aktywny =:kurs_aktywny WHERE id_grafik =:id_grafik ');
-          ParamByName('kurs_aktywny').AsInteger := 0;
-          ParamByName('id_grafik').AsInteger := dbtxtKurs.Field.Value;
-          ExecSQL;
-          DataModule1.ibTransTemp.Commit;
-        end;
+     begin
+        //test
+             if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 0 then
+              begin
+              ShowMessage('Ten kurs ju¿ jest dezaktywowany')
+              end
+             else if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 1 then
+             begin
+        //koniec
 
-        try     //do zm. historia przypisuje legende
-          historia := ' Dezaktywowano kurs: ' + #13#10;
-          historia := historia + ' Miejscowoœæ: ' + SMDBgrdGrafik.DataSource.DataSet.FieldByName('nazwa').AsString + #13#10;  //tu z siatki
-          historia := historia + ' Data wysy³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('data_wysylki').AsDateTime) + #13#10;
-          historia := historia + ' Godz wysy³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('godz_wysylki').AsDateTime) + #13#10;
-          historia := historia + ' Wg dokumentu: ' + SMDBgrdGrafik.DataSource.DataSet.FieldByName('wg_dokument').AsString + #13#10;
 
-          with DataModule1.ibQryHistoria, SQL do
-          begin
-            Close;
-            Clear;
-            Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
-            ParamByName('panel').AsInteger := 1;
-            ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
-            ParamByName('rekord').AsInteger := dbtxtKurs.Field.Value; //id zaznaczone w siatce dotyczy ig grafika
-            ParamByName('operacja').AsString := historia;
-            ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
-            ExecSQL;
-            DataModule1.ibTransHistoria.Commit;
-          end;
-        except
-          DataModule1.ibTransHistoria.Rollback;
-          ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
-        end;
 
+              with DataModule1.ibQryTemp, SQL do
+                begin
+                Close;
+                Clear;
+                Add('UPDATE grafik SET kurs_aktywny =:kurs_aktywny WHERE id_grafik =:id_grafik ');
+                ParamByName('kurs_aktywny').AsInteger := 0;
+                ParamByName('id_grafik').AsInteger := dbtxtKurs.Field.Value;
+                ExecSQL;
+                DataModule1.ibTransTemp.Commit;
+                end;
+
+                  try     //do zm. historia przypisuje legende
+                    historia := ' Dezaktywowano kurs: ' + #13#10;
+                    historia := historia + ' Miejscowoœæ: ' + SMDBgrdGrafik.DataSource.DataSet.FieldByName('nazwa').AsString + #13#10;  //tu z siatki
+                    historia := historia + ' Data wysy³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('data_wysylki').AsDateTime) + #13#10;
+                    historia := historia + ' Godz wysy³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('godz_wysylki').AsDateTime) + #13#10;
+                    historia := historia + ' Wg dokumentu: ' + SMDBgrdGrafik.DataSource.DataSet.FieldByName('wg_dokument').AsString + #13#10;
+
+                    with DataModule1.ibQryHistoria, SQL do
+                    begin
+                    Close;
+                    Clear;
+                    Add('INSERT INTO historia (panel, id_uzyt, rekord, operacja, stanowisko_k) VALUES (:panel, :id_uzyt, :rekord, :operacja, :stanowisko_k)');
+                    ParamByName('panel').AsInteger := 1;
+                    ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
+                    ParamByName('rekord').AsInteger := dbtxtKurs.Field.Value; //id zaznaczone w siatce dotyczy ig grafika
+                    ParamByName('operacja').AsString := historia;
+                    ParamByName('stanowisko_k').AsString := FrmLogin.NazwaKomp;
+                    ExecSQL;
+                    DataModule1.ibTransHistoria.Commit;
+                    end;
+                  except
+                    DataModule1.ibTransHistoria.Rollback;
+                    ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+                  end;
+             end; //do test
     //koniec historia
 
 
