@@ -34,7 +34,6 @@ type
     img2: TImage;
     rzMmo1: TRzMemo;
     dbtxtKurs: TDBText;
-    dbtxtKursAkt: TDBText;
     procedure img1Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -170,7 +169,14 @@ end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
-  frXrprt1.ShowReport();
+    if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 0 then
+        begin
+         ShowMessage('Nie mo¿na wydrukowaæ drukowaæ zakoñczonego kursu.')
+        end
+        else if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 1 then
+        begin
+         frXrprt1.ShowReport();
+        end;
 end;
 
 procedure TFrmGrafik.ctgryBtns1Categories0Items6Click(Sender: TObject);
@@ -202,8 +208,8 @@ end;
 
 procedure TFrmGrafik.FormShow(Sender: TObject);
 begin
-
- { with DataModule1.ibQryGrafik, SQL do
+          {
+  with DataModule1.ibQryGrafik, SQL do
   begin
     Close;
     Clear;
@@ -211,8 +217,8 @@ begin
     Add('g.godz_wysylki, g.wg_dokument, g.adres_dostawy, g.nr_tel_klienta, g.uwagi, g.data_powrotu, g.godz_powrotu, g.kurs_aktywny FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci ORDER BY g.data_wysylki DESC');
     Open;
-  end;}
- // PoliczwSiatce
+  end;   }
+ // PoliczwSiatce    g.id_grafik,
 end;
 
 procedure TFrmGrafik.img1Click(Sender: TObject);

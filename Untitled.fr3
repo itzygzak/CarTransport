@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<TfrxReport Version="6.2.1" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="44383,8923680093" ReportOptions.Description.Text="" ReportOptions.LastChange="44398,4990508565" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end.">
+<TfrxReport Version="6.2.1" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="44383,8923680093" ReportOptions.Description.Text="" ReportOptions.LastChange="44403,439779375" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end.">
   <Datasets>
     <item DataSet="frXdbDtst1" DataSetName="frxDBDataset1"/>
     <item DataSet="frXdbDtst2" DataSetName="frxDBDataset2"/>
@@ -50,5 +50,6 @@
     <TfrxMemoView Name="Memo15" AllowVectorExport="True" Left="427,08689" Top="925,98485" Width="154,96073" Height="18,89765" Frame.Typ="0" Text="pieczatka, podpis"/>
     <TfrxLineView Name="Line2" AllowVectorExport="True" Left="413" Top="922" Width="233" Height="0" Color="0" Frame.Typ="4"/>
     <TfrxLineView Name="Line3" AllowVectorExport="True" Left="370" Top="922" Width="43" Height="0" Color="0" Frame.Typ="4"/>
+    <TfrxMasterData Name="MasterData1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="22,67718" Left="0" Top="18,89765" Width="718,1107" ColumnWidth="0" ColumnGap="0" RowCount="0"/>
   </TfrxReportPage>
 </TfrxReport>

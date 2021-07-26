@@ -207,6 +207,7 @@ end;
 
 procedure TFrmUstalKurs.ctgryBtns1Categories0Items1Click(Sender: TObject);
 begin
+
   FrmGrafik.frXrprt1.ShowReport();
 end;
 

@@ -347,14 +347,6 @@ object FrmGrafik: TFrmGrafik
         DataField = 'ID_GRAFIK'
         DataSource = DataModule1.dsGrafik
       end
-      object dbtxtKursAkt: TDBText
-        Left = 552
-        Top = 16
-        Width = 65
-        Height = 17
-        DataField = 'KURS_AKTYWNY'
-        DataSource = DataModule1.dsGrafik
-      end
       object SMDBgrdGrafik: TSMDBGrid
         Left = 4
         Top = 118
@@ -597,7 +589,7 @@ object FrmGrafik: TFrmGrafik
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 44383.892368009300000000
-    ReportOptions.LastChange = 44398.499050856480000000
+    ReportOptions.LastChange = 44403.439779375000000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -1414,6 +1406,14 @@ object FrmGrafik: TFrmGrafik
         Width = 43.000000000000000000
         Color = clBlack
         Frame.Typ = [ftTop]
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        RowCount = 0
       end
     end
   end
