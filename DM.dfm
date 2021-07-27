@@ -248,4 +248,29 @@ object DataModule1: TDataModule1
     Left = 856
     Top = 40
   end
+  object ibQryLoginy: TIBQuery
+    Database = ibDtBase1
+    Transaction = ibTransLoginy
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select *  from LOGINY')
+    Left = 936
+    Top = 40
+  end
+  object ibTransLoginy: TIBTransaction
+    DefaultDatabase = ibDtBase1
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 928
+    Top = 112
+  end
+  object dsLoginy: TDataSource
+    DataSet = ibQryLoginy
+    Left = 920
+    Top = 240
+  end
 end

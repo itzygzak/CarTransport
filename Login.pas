@@ -113,6 +113,8 @@ begin
 end;
 
 procedure TFrmLogin.btnLoginClick(Sender: TObject);
+var loginy : string;
+
 begin
   INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');         //do odczytu po³¹czenie z pliku INI
   try
@@ -148,6 +150,31 @@ begin
           INI.Free;
         end;
       end;
+
+     //startuje historia
+    try     //do zm. historia przypisuje legende
+     { loginy := ' ZALOGOWA£ siê pracownik ' + #13#10;
+      loginy := loginy + ' Login: ' + EdtLogin.Text;
+      }
+      with DataModule1.ibQryLoginy, SQL do
+      begin
+        Close;
+        Clear;
+        Add('INSERT INTO loginy (id_uzyt, login, pracuje) VALUES (:id_uzyt, :login, :pracuje)');
+        ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
+        ParamByName('login').AsString := edtLogin.Text;
+        ParamByName('pracuje').AsInteger := 1;
+        ExecSQL;
+        DataModule1.ibTransLoginy.Commit;
+      end;
+    except
+      DataModule1.ibTransLoginy.Rollback;
+      ShowMessage('B³¹d! Nie dodano wpisu w tabeli logowañ. SprawdŸ dane!');
+    end;
+
+    //koniec historia
+
+
 
      //wstawiam dane do statusbar na glownej
       FrmStart.stat1.Panels[0].Text := Trim(DataModule1.ibQryUzyt.FieldByName('Imie').AsString + ' ' + DataModule1.ibQryUzyt.FieldByName('Nazwisko').AsString);

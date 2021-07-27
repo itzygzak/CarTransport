@@ -36,6 +36,9 @@ type
     ibTransHistUzyt: TIBTransaction;
     dsHistUzyt: TDataSource;
     ibQryHistUzyt: TIBQuery;
+    ibQryLoginy: TIBQuery;
+    ibTransLoginy: TIBTransaction;
+    dsLoginy: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

@@ -46,9 +46,9 @@ object FrmHistoria: TFrmHistoria
     end
   end
   object spltVw1: TSplitView
-    Left = 975
+    Left = 977
     Top = 44
-    Width = 202
+    Width = 200
     Height = 528
     Color = clCream
     OpenedWidth = 200
@@ -57,7 +57,7 @@ object FrmHistoria: TFrmHistoria
     object ctgryBtns1: TCategoryButtons
       Left = 0
       Top = 0
-      Width = 202
+      Width = 200
       Align = alTop
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
@@ -88,23 +88,18 @@ object FrmHistoria: TFrmHistoria
       RegularButtonColor = clWhite
       SelectedButtonColor = 15132390
       TabOrder = 0
-      ExplicitWidth = 200
     end
   end
   object RzPnl5: TRzPanel
     Left = 0
     Top = 44
-    Width = 975
+    Width = 977
     Height = 528
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 2
-    ExplicitLeft = 104
-    ExplicitTop = 160
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     DesignSize = (
-      975
+      977
       528)
     object RzPnl2: TRzPanel
       Left = 0
@@ -209,21 +204,24 @@ object FrmHistoria: TFrmHistoria
       end
     end
     object RzPnl3: TRzPanel
+      AlignWithMargins = True
       Left = 0
       Top = 102
-      Width = 971
-      Height = 250
+      Width = 965
+      Height = 244
       Anchors = [akLeft, akTop, akRight, akBottom]
       BorderOuter = fsNone
       BorderColor = 16737843
       BorderWidth = 2
       TabOrder = 1
+      ExplicitWidth = 971
+      ExplicitHeight = 250
       object SMDBgrdHistoria: TSMDBGrid
-        Left = 2
-        Top = 2
-        Width = 967
-        Height = 246
-        Align = alClient
+        AlignWithMargins = True
+        Left = 4
+        Top = 4
+        Width = 955
+        Height = 204
         DataSource = DataModule1.dsHistUzyt
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         TabOrder = 0
@@ -290,26 +288,32 @@ object FrmHistoria: TFrmHistoria
       end
     end
     object RzPnl4: TRzPanel
+      AlignWithMargins = True
       Left = 0
       Top = 312
-      Width = 971
-      Height = 217
+      Width = 965
+      Height = 211
       Anchors = [akLeft, akTop, akRight, akBottom]
       BorderOuter = fsNone
       BorderColor = 16737843
       BorderWidth = 2
       TabOrder = 2
+      ExplicitWidth = 971
+      ExplicitHeight = 217
       object dbmmoHistoria: TDBMemo
-        Left = 2
-        Top = 2
-        Width = 967
-        Height = 213
+        AlignWithMargins = True
+        Left = 5
+        Top = 5
+        Width = 955
+        Height = 201
         Align = alClient
         DataField = 'OPERACJA'
         DataSource = DataModule1.dsHistUzyt
         TabOrder = 0
-        ExplicitTop = 28
-        ExplicitHeight = 171
+        ExplicitLeft = 2
+        ExplicitTop = 2
+        ExplicitWidth = 967
+        ExplicitHeight = 213
       end
     end
   end
