@@ -90,7 +90,7 @@ begin
   begin
     Close;
     Clear;
-    Add('SELECT  m.nazwa,g.id_grafik, g.data_wysylki, g.data_powrotu, g.godz_wysylki, g.godz_powrotu,g.kurs_aktywny, g.wg_dokument, g.adres_dostawy, ');
+    Add('SELECT  m.nazwa, g.id_grafik, g.data_wysylki, g.data_powrotu, g.godz_wysylki, g.godz_powrotu,g.kurs_aktywny, g.wg_dokument, g.adres_dostawy, ');
     Add(' g.nr_tel_klienta, g.uwagi FROM kierowcy k, pojazdy p, miejscowosci m, grafik g ');
     Add('WHERE k.id_kierowca = g.id_kierowca AND p.id_pojazdy = g.id_pojazdy AND m.id_miejscowosci = g.id_miejscowosci');
     Add('AND g.data_wysylki >=:data_wysylkiOD ');
@@ -171,7 +171,7 @@ procedure TFrmGrafik.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
     if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 0 then
         begin
-         ShowMessage('Nie mo¿na wydrukowaæ drukowaæ zakoñczonego kursu.')
+         ShowMessage('Nie mo¿na wydrukowaæ zakoñczonego kursu.')
         end
         else if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 1 then
         begin
