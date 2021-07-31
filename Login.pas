@@ -98,6 +98,29 @@ procedure TFrmLogin.btnKoniecClick(Sender: TObject);
 begin
   if Application.MessageBox('Rezygnujesz z logowania ? Oznacza to koniec pracy.', 'Koniec pracy', MB_YESNO + MB_ICONQUESTION) = IDYES then
   begin
+      //startuje info kto pracuje
+    try
+     { loginy := ' ZALOGOWA£ siê pracownik ' + #13#10;
+      loginy := loginy + ' Login: ' + EdtLogin.Text;
+      }
+      with DataModule1.ibQryLoginy, SQL do
+      begin
+        Close;
+        Clear;
+        Add('INSERT INTO loginy (id_uzyt, login, pracuje) VALUES (:id_uzyt, :login, :pracuje)');
+        ParamByName('id_uzyt').AsInteger := FrmLogin.IDUzyt;
+        ParamByName('login').AsString := edtLogin.Text;
+        ParamByName('pracuje').AsInteger := 0;
+        ExecSQL;
+        DataModule1.ibTransLoginy.Commit;
+      end;
+    except
+      DataModule1.ibTransLoginy.Rollback;
+      ShowMessage('B³¹d! Nie dodano wpisu w tabeli logowañ. SprawdŸ dane!');
+    end;
+
+    //koniec info kto pracuje
+  begin
     INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');
     try
       INI.WriteInteger('PolozenieGlow', 'Left', FrmStart.Left);
@@ -108,6 +131,7 @@ begin
       INI.Free;
     end;
     Application.Terminate;
+  end;
   end;
 
 end;
@@ -151,8 +175,8 @@ begin
         end;
       end;
 
-     //startuje historia
-    try     //do zm. historia przypisuje legende
+     //startuje info kto pracuje
+    try
      { loginy := ' ZALOGOWA£ siê pracownik ' + #13#10;
       loginy := loginy + ' Login: ' + EdtLogin.Text;
       }
@@ -172,7 +196,7 @@ begin
       ShowMessage('B³¹d! Nie dodano wpisu w tabeli logowañ. SprawdŸ dane!');
     end;
 
-    //koniec historia
+    //koniec info kto pracuje
 
 
 
