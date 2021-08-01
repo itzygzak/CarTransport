@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage, RzTabs,
   Vcl.CategoryButtons, Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx,
-  Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid, SMDBGrid;
 
 type
   TFrmUstawienia = class(TForm)
@@ -40,6 +40,9 @@ type
     rzpnl3: TRzPanel;
     rzDbGrd1: TRzDBGrid;
     rzlbl8: TRzLabel;
+    img2: TImage;
+    rzMmo1: TRzMemo;
+    SMDBgrdKto: TSMDBGrid;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -49,6 +52,8 @@ type
     procedure DodajUsera;
     procedure FormShow(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure rzMmo1Click(Sender: TObject);
+    procedure img2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -174,7 +179,7 @@ begin
     VK_F3:
       ctgryBtns1.Categories[0].Items[1].OnClick(Sender);
     VK_F12:
-      ctgryBtns1.Categories[0].Items[2].OnClick(Sender);
+      ctgryBtns1.Categories[0].Items[3].OnClick(Sender);
 
   end;
 end;
@@ -197,6 +202,16 @@ begin
   else
     spltVw1.Open;
 
+end;
+
+procedure TFrmUstawienia.img2Click(Sender: TObject);
+begin
+  rzMmo1.Visible := True;
+end;
+
+procedure TFrmUstawienia.rzMmo1Click(Sender: TObject);
+begin
+  rzMmo1.Visible := False;
 end;
 
 procedure TFrmUstawienia.rztbshtTabSheet2Show(Sender: TObject);
