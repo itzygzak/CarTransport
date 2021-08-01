@@ -449,7 +449,7 @@ end;
 
 procedure TFrmDefinicje.RzTbshtMiejscowoœciShow(Sender: TObject);
 begin
-  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj miejscowoœæ [F9]';
+  ctgryBtns1.Categories[0].Items[0].Caption := '[F9]  Dodaj miejscowoœæ';
 
   rzEdtMiejscowosc.Text := '';
   rzEdtKod.Text := '';
@@ -460,7 +460,7 @@ end;
 
 procedure TFrmDefinicje.RzTbshtPojazdyShow(Sender: TObject);
 begin
-  ctgryBtns1.Categories[0].Items[0].Caption := 'Dodaj pojazd [F9]';
+  ctgryBtns1.Categories[0].Items[0].Caption := '[F9]  Dodaj pojazd';
 
   rzEdtMarka.Text := '';
   rzEdtTyp.Text := '';
