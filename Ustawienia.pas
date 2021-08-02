@@ -55,6 +55,7 @@ type
     procedure rzMmo1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
     procedure rzEdtSzukajChange(Sender: TObject);
+    procedure rztbshtTabSheet3Show(Sender: TObject);
   private
     { Private declarations }
   public
@@ -259,6 +260,17 @@ begin
 //Wy³¹czenie klaw.zapisz
 //ctgryBtns1.Categories[0].Items[0]. //   .Items[0].CategoryButtons
 
+end;
+
+procedure TFrmUstawienia.rztbshtTabSheet3Show(Sender: TObject);
+begin
+  with DataModule1.ibQryLoginy, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT login, pracuje, data_logowania FROM loginy ORDER BY data_logowania');
+    Open;
+  end;
 end;
 
 end.

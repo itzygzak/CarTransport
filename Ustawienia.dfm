@@ -256,7 +256,7 @@ object FrmUstawienia: TFrmUstawienia
       Height = 413
       Hint = ''
       Margins.Top = 5
-      ActivePage = rztbshtTabSheet2
+      ActivePage = rztbshtTabSheet3
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -264,7 +264,7 @@ object FrmUstawienia: TFrmUstawienia
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 1
+      TabIndex = 2
       TabOrder = 0
       TabStyle = tsBackSlant
       FixedDimension = 22
@@ -573,6 +573,7 @@ object FrmUstawienia: TFrmUstawienia
         end
       end
       object rztbshtTabSheet3: TRzTabSheet
+        OnShow = rztbshtTabSheet3Show
         Caption = 'Zarz'#261'dzaj'
         object rzlbl8: TRzLabel
           Left = 16
@@ -594,7 +595,8 @@ object FrmUstawienia: TFrmUstawienia
           Top = 80
           Width = 625
           Height = 304
-          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+          DataSource = DataModule1.dsLoginy
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
@@ -613,7 +615,7 @@ object FrmUstawienia: TFrmUstawienia
           GridStyle.EvenColor = clWindow
           TitleHeight.PixelCount = 24
           FooterColor = clBtnFace
-          ExOptions = [eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+          ExOptions = [eoAutoWidth, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
           RegistryKey = 'Software\Scalabium'
           RegistrySection = 'SMDBGrid'
           WidthOfIndicator = 11
