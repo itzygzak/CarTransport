@@ -145,6 +145,14 @@ begin
     DataModule1.ibTransHistoria.Rollback;
     ShowMessage('B≥πd! Nie dodano wpisu w historii. Sprawdü dane!');
   end;
+  rzEdtLogin.Text := '';
+  rzEdtHaslo.Text := '';
+  rzEdtImie.Text := '';
+  rzEdtDrugieImie.Text := '';
+  rzEdtNazwisko.Text := '';
+  rzEdtTelefon.Text := '';
+  rzCmBx1.ItemIndex := -1;
+
 end;
 
 procedure TFrmUstawienia.ctgryBtns1Categories0Items1Click(Sender: TObject);

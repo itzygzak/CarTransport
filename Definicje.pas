@@ -274,6 +274,7 @@ begin
   rzEdtMarka.Text := '';
   rzEdtTyp.Text := '';
   rzEdtNrRej.Text := '';
+  rzEdtLadownosc.Text :='';
   rzChckBxHDS.Checked := False;
   rzChckBxWinda.Checked := False;
   rzChckBxPrzyczepa.Checked := False;
@@ -465,6 +466,7 @@ begin
   rzEdtMarka.Text := '';
   rzEdtTyp.Text := '';
   rzEdtNrRej.Text := '';
+  rzEdtLadownosc.Text :='';
   rzChckBxHDS.Checked := False;
   rzChckBxWinda.Checked := False;
   rzChckBxPrzyczepa.Checked := False;

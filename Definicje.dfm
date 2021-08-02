@@ -62,7 +62,7 @@
       Width = 699
       Height = 518
       Hint = ''
-      ActivePage = RzTbshtMiejscowości
+      ActivePage = RzTbshtPojazdy
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -70,7 +70,7 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 2
+      TabIndex = 1
       TabOrder = 0
       TabStyle = tsDoubleSlant
       FixedDimension = 25
