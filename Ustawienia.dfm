@@ -256,7 +256,7 @@ object FrmUstawienia: TFrmUstawienia
       Height = 413
       Hint = ''
       Margins.Top = 5
-      ActivePage = rztbshtTabSheet1
+      ActivePage = rztbshtTabSheet2
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -264,7 +264,7 @@ object FrmUstawienia: TFrmUstawienia
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 0
       TabStyle = tsBackSlant
       FixedDimension = 22
@@ -485,6 +485,7 @@ object FrmUstawienia: TFrmUstawienia
             Height = 27
             Text = ''
             TabOrder = 0
+            OnChange = rzEdtSzukajChange
           end
         end
         object rzpnl3: TRzPanel
@@ -497,19 +498,77 @@ object FrmUstawienia: TFrmUstawienia
           BorderColor = 16737843
           BorderWidth = 2
           TabOrder = 1
-          object rzDbGrd1: TRzDBGrid
+          object SMDBgrdUzyt: TSMDBGrid
             Left = 2
             Top = 2
             Width = 640
             Height = 246
             Align = alClient
             DataSource = DataModule1.dsUzyt
+            Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
             TitleFont.Height = -13
             TitleFont.Name = 'Tahoma'
             TitleFont.Style = []
+            StyleElements = [seBorder]
+            Flat = False
+            BandsFont.Charset = DEFAULT_CHARSET
+            BandsFont.Color = clWindowText
+            BandsFont.Height = -11
+            BandsFont.Name = 'Tahoma'
+            BandsFont.Style = []
+            Groupings = <>
+            GridStyle.Style = gsNormal
+            GridStyle.OddColor = clWindow
+            GridStyle.EvenColor = clWindow
+            GridStyle.Title.Direction = fdLeftToRight
+            GridStyle.Title.StartColor = clMoneyGreen
+            GridStyle.Title.EndColor = clCream
+            TitleHeight.PixelCount = 24
+            FooterColor = clBtnFace
+            ExOptions = [eoAutoWidth, eoENTERlikeTAB, eoKeepSelection, eoStandardPopup, eoBLOBEditor, eoTitleWordWrap, eoFilterAutoApply]
+            RegistryKey = 'Software\Scalabium'
+            RegistrySection = 'SMDBGrid'
+            WidthOfIndicator = 11
+            DefaultRowHeight = 20
+            ScrollBars = ssHorizontal
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'LOGIN'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'IMIE'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'DRUGIE_IMIE'
+                Title.Caption = 'DRUGIE IMIE'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'NAZWISKO'
+                Width = 96
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'NR_TELEFONU'
+                Title.Caption = 'TELEFON'
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'STANOWISKO'
+                Width = 103
+                Visible = True
+              end>
           end
         end
       end

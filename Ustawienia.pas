@@ -38,11 +38,11 @@ type
     rzGrpBx2: TRzGroupBox;
     rzEdtSzukaj: TRzEdit;
     rzpnl3: TRzPanel;
-    rzDbGrd1: TRzDBGrid;
     rzlbl8: TRzLabel;
     img2: TImage;
     rzMmo1: TRzMemo;
     SMDBgrdKto: TSMDBGrid;
+    SMDBgrdUzyt: TSMDBGrid;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -54,6 +54,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure rzMmo1Click(Sender: TObject);
     procedure img2Click(Sender: TObject);
+    procedure rzEdtSzukajChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -215,6 +216,26 @@ end;
 procedure TFrmUstawienia.img2Click(Sender: TObject);
 begin
   rzMmo1.Visible := True;
+end;
+
+procedure TFrmUstawienia.rzEdtSzukajChange(Sender: TObject);
+var
+  SzukUser: string;
+begin
+  SzukUser := rzEdtSzukaj.Text;
+  with DataModule1.ibQryUzyt, SQL do
+  begin
+    Close;
+    Clear;
+    Add('SELECT login, imie, drugie_imie, nazwisko, nr_telefonu, stanowisko FROM uzyt ');
+    Add('WHERE usun=:usun');
+    if rzEdtSzukaj.Text <> '' then
+      Add('AND (UPPER(imie) LIKE :i or UPPER(nazwisko) LIKE :i)');
+    ParamByName('usun').AsInteger := 0;
+    if rzEdtSzukaj.Text <> '' then
+      ParamByName('i').AsString := '%' + UpperCase(SzukUser) + '%';
+    Open;
+  end;
 end;
 
 procedure TFrmUstawienia.rzMmo1Click(Sender: TObject);
