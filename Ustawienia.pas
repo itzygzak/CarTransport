@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage, RzTabs,
   Vcl.CategoryButtons, Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx,
-  Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid, SMDBGrid;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid, SMDBGrid, RzButton, RzRadChk;
 
 type
   TFrmUstawienia = class(TForm)
@@ -43,6 +43,7 @@ type
     rzMmo1: TRzMemo;
     SMDBgrdKto: TSMDBGrid;
     SMDBgrdUzyt: TSMDBGrid;
+    rzChckBx1: TRzCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -56,6 +57,8 @@ type
     procedure img2Click(Sender: TObject);
     procedure rzEdtSzukajChange(Sender: TObject);
     procedure rztbshtTabSheet3Show(Sender: TObject);
+    procedure SMDBgrdKtoDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
   public
@@ -268,9 +271,34 @@ begin
   begin
     Close;
     Clear;
-    Add('SELECT login, pracuje, data_logowania FROM loginy ORDER BY data_logowania');
+    Add('SELECT login, pracuje, data_logowania FROM loginy ORDER BY data_logowania DESC ');
+  //  Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
+//    ParamByName('data_logowania').AsDate := rzChckBx1.Checked;
     Open;
   end;
+end;
+
+procedure TFrmUstawienia.SMDBgrdKtoDrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+var
+  sText: string;
+begin
+  if ((Column.Field.FieldName) = 'PRACUJE') then
+  begin                                          //zamiana wyœwietlanej wartoœci w komórce z 1 lub 0 na tak lub nie
+    if Column.Field.Value = 1 then
+      sText := 'TAK'
+    else if Column.Field.Value = 0 then
+      sText := 'NIE'
+    else
+      sText := '';
+    (Sender as TDBGrid).Canvas.FillRect(Rect);
+    (Sender as TDBGrid).Canvas.TextRect(Rect, Rect.Left + 3, Rect.Top + 2, sText);
+  end
+  else
+  begin { I added this to draw all other columns as defaultdrawing is off }
+    (Sender as TDBGrid).defaultdrawcolumncell(Rect, DataCol, Column, State);
+  end;
+
 end;
 
 end.

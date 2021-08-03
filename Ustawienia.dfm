@@ -538,35 +538,39 @@ object FrmUstawienia: TFrmUstawienia
               item
                 Expanded = False
                 FieldName = 'LOGIN'
+                Width = 70
                 Visible = True
               end
               item
                 Expanded = False
                 FieldName = 'IMIE'
+                Width = 50
                 Visible = True
               end
               item
                 Expanded = False
                 FieldName = 'DRUGIE_IMIE'
                 Title.Caption = 'DRUGIE IMIE'
+                Width = 94
                 Visible = True
               end
               item
                 Expanded = False
                 FieldName = 'NAZWISKO'
-                Width = 96
+                Width = 127
                 Visible = True
               end
               item
                 Expanded = False
                 FieldName = 'NR_TELEFONU'
                 Title.Caption = 'TELEFON'
+                Width = 104
                 Visible = True
               end
               item
                 Expanded = False
                 FieldName = 'STANOWISKO'
-                Width = 103
+                Width = 163
                 Visible = True
               end>
           end
@@ -576,7 +580,7 @@ object FrmUstawienia: TFrmUstawienia
         OnShow = rztbshtTabSheet3Show
         Caption = 'Zarz'#261'dzaj'
         object rzlbl8: TRzLabel
-          Left = 16
+          Left = 3
           Top = 24
           Width = 108
           Height = 19
@@ -591,9 +595,9 @@ object FrmUstawienia: TFrmUstawienia
           TextStyle = tsRaised
         end
         object SMDBgrdKto: TSMDBGrid
-          Left = 8
+          Left = 3
           Top = 80
-          Width = 625
+          Width = 638
           Height = 304
           DataSource = DataModule1.dsLoginy
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -603,6 +607,7 @@ object FrmUstawienia: TFrmUstawienia
           TitleFont.Height = -13
           TitleFont.Name = 'Tahoma'
           TitleFont.Style = []
+          OnDrawColumnCell = SMDBgrdKtoDrawColumnCell
           Flat = False
           BandsFont.Charset = DEFAULT_CHARSET
           BandsFont.Color = clWindowText
@@ -621,6 +626,15 @@ object FrmUstawienia: TFrmUstawienia
           WidthOfIndicator = 11
           DefaultRowHeight = 20
           ScrollBars = ssHorizontal
+        end
+        object rzChckBx1: TRzCheckBox
+          Left = 144
+          Top = 26
+          Width = 89
+          Height = 18
+          Caption = 'Tylko dzisiaj'
+          State = cbUnchecked
+          TabOrder = 1
         end
       end
     end
