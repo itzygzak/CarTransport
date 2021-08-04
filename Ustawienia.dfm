@@ -627,14 +627,36 @@ object FrmUstawienia: TFrmUstawienia
           DefaultRowHeight = 20
           ScrollBars = ssHorizontal
         end
-        object rzChckBx1: TRzCheckBox
-          Left = 144
-          Top = 26
-          Width = 89
-          Height = 18
-          Caption = 'Tylko dzisiaj'
-          State = cbUnchecked
+        object rzRdGrpKto: TRzRadioGroup
+          Left = 131
+          Top = 7
+          Width = 217
+          Height = 57
+          Caption = ''
+          Columns = 2
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Items.Strings = (
+            'Tylko dzisiaj'
+            'Ca'#322'y okres')
+          ParentFont = False
           TabOrder = 1
+          OnClick = rzRdGrpKtoClick
+        end
+        object rg1: TRadioGroup
+          Left = 392
+          Top = 16
+          Width = 185
+          Height = 105
+          Caption = 'rg1'
+          Items.Strings = (
+            'Tylko dzisiaj'
+            'Ca'#322'y okres')
+          TabOrder = 2
+          OnClick = rg1Click
         end
       end
     end

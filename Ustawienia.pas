@@ -7,7 +7,8 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage, RzTabs,
   Vcl.CategoryButtons, Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx,
-  Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid, SMDBGrid, RzButton, RzRadChk;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid, SMDBGrid, RzButton, RzRadChk,
+  RzRadGrp;
 
 type
   TFrmUstawienia = class(TForm)
@@ -43,7 +44,8 @@ type
     rzMmo1: TRzMemo;
     SMDBgrdKto: TSMDBGrid;
     SMDBgrdUzyt: TSMDBGrid;
-    rzChckBx1: TRzCheckBox;
+    rzRdGrpKto: TRzRadioGroup;
+    rg1: TRadioGroup;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -57,8 +59,9 @@ type
     procedure img2Click(Sender: TObject);
     procedure rzEdtSzukajChange(Sender: TObject);
     procedure rztbshtTabSheet3Show(Sender: TObject);
-    procedure SMDBgrdKtoDrawColumnCell(Sender: TObject; const Rect: TRect;
-      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure SMDBgrdKtoDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure rzRdGrpKtoClick(Sender: TObject);
+    procedure rg1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -222,6 +225,40 @@ begin
   rzMmo1.Visible := True;
 end;
 
+procedure TFrmUstawienia.rg1Click(Sender: TObject);
+begin
+  rzRdGrpKto.ItemIndex := -1;
+  case rzRdGrpKto.ItemIndex of
+    0:
+      begin
+        with DataModule1.ibQryLoginy, SQL do
+        begin
+          Close;
+          Clear;
+          Add('SELECT login, pracuje, data_logowania FROM loginy ');
+          Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
+          ParamByName('data_logowania').AsDateTime := Now;
+          Open;
+        end;
+        SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
+      end;
+
+    1:
+      begin
+        with DataModule1.ibQryLoginy, SQL do
+        begin
+          Close;
+          Clear;
+          Add('SELECT login, pracuje, data_logowania FROM loginy ORDER BY data_logowania DESC ');
+          Open;
+        end;
+        SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
+      end;
+
+  end;
+
+end;
+
 procedure TFrmUstawienia.rzEdtSzukajChange(Sender: TObject);
 var
   SzukUser: string;
@@ -247,6 +284,39 @@ begin
   rzMmo1.Visible := False;
 end;
 
+procedure TFrmUstawienia.rzRdGrpKtoClick(Sender: TObject);
+begin
+  rzRdGrpKto.ItemIndex := -1;
+  case rzRdGrpKto.ItemIndex of
+    0:
+      begin
+        with DataModule1.ibQryLoginy, SQL do
+        begin
+          Close;
+          Clear;
+          Add('SELECT login, pracuje, data_logowania FROM loginy ');
+          Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
+          ParamByName('data_logowania').AsDateTime := Now;
+          Open;
+        end;
+        SMDBgrdKto.Refresh;
+      end;
+
+    1:
+      begin
+        with DataModule1.ibQryLoginy, SQL do
+        begin
+          Close;
+          Clear;
+          Add('SELECT login, pracuje, data_logowania FROM loginy ORDER BY data_logowania DESC ');
+          Open;
+        end;
+        SMDBgrdKto.Refresh;
+      end;
+
+  end;
+end;
+
 procedure TFrmUstawienia.rztbshtTabSheet2Show(Sender: TObject);
 begin
   with DataModule1.ibQryUzyt, SQL do
@@ -267,19 +337,16 @@ end;
 
 procedure TFrmUstawienia.rztbshtTabSheet3Show(Sender: TObject);
 begin
-  with DataModule1.ibQryLoginy, SQL do
+{  with DataModule1.ibQryLoginy, SQL do
   begin
     Close;
     Clear;
     Add('SELECT login, pracuje, data_logowania FROM loginy ORDER BY data_logowania DESC ');
-  //  Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
-//    ParamByName('data_logowania').AsDate := rzChckBx1.Checked;
     Open;
-  end;
+  end;}
 end;
 
-procedure TFrmUstawienia.SMDBgrdKtoDrawColumnCell(Sender: TObject;
-  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+procedure TFrmUstawienia.SMDBgrdKtoDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
 var
   sText: string;
 begin
