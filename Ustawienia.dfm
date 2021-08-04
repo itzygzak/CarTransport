@@ -579,6 +579,7 @@ object FrmUstawienia: TFrmUstawienia
       object rztbshtTabSheet3: TRzTabSheet
         OnShow = rztbshtTabSheet3Show
         Caption = 'Zarz'#261'dzaj'
+        ExplicitLeft = 3
         object SMDBgrdKto: TSMDBGrid
           Left = 3
           Top = 80
@@ -611,25 +612,39 @@ object FrmUstawienia: TFrmUstawienia
           DefaultRowHeight = 20
           ScrollBars = ssHorizontal
         end
-        object rg1: TRadioGroup
-          Left = 4
-          Top = 9
-          Width = 393
-          Height = 58
+        object rzRdGrp1: TRzRadioGroup
+          Left = 5
+          Top = 3
+          Width = 636
+          Height = 68
           Caption = ' Kto pracuje '
           Columns = 2
+          Ctl3D = True
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clSkyBlue
+          Font.Color = clWindowText
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          GroupStyle = gsBanner
+          ItemFrameColor = clSkyBlue
+          ItemFont.Charset = DEFAULT_CHARSET
+          ItemFont.Color = clHotLight
+          ItemFont.Height = -13
+          ItemFont.Name = 'Tahoma'
+          ItemFont.Style = [fsBold]
           Items.Strings = (
             'Tylko dzisiaj'
             'Ca'#322'y okres')
+          ParentCtl3D = False
           ParentFont = False
+          TextShadowDepth = 6
+          SpaceEvenly = True
+          StartXPos = 12
+          StartYPos = 12
           TabOrder = 1
-          StyleElements = []
-          OnClick = rg1Click
+          TextStyle = tsRaised
+          VerticalSpacing = 6
+          OnClick = rzRdGrp1Click
         end
       end
     end

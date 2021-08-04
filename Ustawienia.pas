@@ -43,7 +43,7 @@ type
     rzMmo1: TRzMemo;
     SMDBgrdKto: TSMDBGrid;
     SMDBgrdUzyt: TSMDBGrid;
-    rg1: TRadioGroup;
+    rzRdGrp1: TRzRadioGroup;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -58,7 +58,7 @@ type
     procedure rzEdtSzukajChange(Sender: TObject);
     procedure rztbshtTabSheet3Show(Sender: TObject);
     procedure SMDBgrdKtoDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
-    procedure rg1Click(Sender: TObject);
+    procedure rzRdGrp1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -194,6 +194,7 @@ begin
     VK_F12:
       ctgryBtns1.Categories[0].Items[3].OnClick(Sender);
 
+
   end;
 end;
 
@@ -222,39 +223,6 @@ begin
   rzMmo1.Visible := True;
 end;
 
-procedure TFrmUstawienia.rg1Click(Sender: TObject);
-begin
-  case rg1.ItemIndex of
-    0:
-      begin
-        with DataModule1.ibQryLoginy, SQL do
-        begin
-          Close;
-          Clear;
-          Add('SELECT login, pracuje, data_logowania FROM loginy ');
-          Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
-          ParamByName('data_logowania').AsDateTime := Now;
-          Open;
-        end;
-        SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
-      end;
-
-    1:
-      begin
-        with DataModule1.ibQryLoginy, SQL do
-        begin
-          Close;
-          Clear;
-          Add('SELECT login, pracuje, data_logowania FROM loginy ORDER BY data_logowania DESC ');
-          Open;
-        end;
-        SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
-      end;
-
-  end;
-
-end;
-
 procedure TFrmUstawienia.rzEdtSzukajChange(Sender: TObject);
 var
   SzukUser: string;
@@ -278,6 +246,41 @@ end;
 procedure TFrmUstawienia.rzMmo1Click(Sender: TObject);
 begin
   rzMmo1.Visible := False;
+end;
+
+procedure TFrmUstawienia.rzRdGrp1Click(Sender: TObject);
+begin
+   a:= Now;//DateTimeToStr(Now);
+
+ case rzRdGrp1.ItemIndex of
+    0:
+      begin
+        with DataModule1.ibQryLoginy, SQL do
+        begin
+          Close;
+          Clear;
+          Add('SELECT login, pracuje, data_logowania FROM loginy ');
+          Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
+          ParamByName('data_logowania').AsDate := a; //str; //);Now;
+          Open;
+        end;
+        SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
+      end;
+
+    1:
+      begin
+        with DataModule1.ibQryLoginy, SQL do
+        begin
+          Close;
+          Clear;
+          Add('SELECT login, pracuje, data_logowania FROM loginy ORDER BY data_logowania DESC ');
+          Open;
+        end;
+        SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
+      end;
+
+  end;
+
 end;
 
 procedure TFrmUstawienia.rztbshtTabSheet2Show(Sender: TObject);
