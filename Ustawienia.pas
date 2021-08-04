@@ -39,14 +39,11 @@ type
     rzGrpBx2: TRzGroupBox;
     rzEdtSzukaj: TRzEdit;
     rzpnl3: TRzPanel;
-    rzlbl8: TRzLabel;
     img2: TImage;
     rzMmo1: TRzMemo;
     SMDBgrdKto: TSMDBGrid;
     SMDBgrdUzyt: TSMDBGrid;
     rg1: TRadioGroup;
-    lbl1: TLabel;
-    chk1: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -62,7 +59,6 @@ type
     procedure rztbshtTabSheet3Show(Sender: TObject);
     procedure SMDBgrdKtoDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure rg1Click(Sender: TObject);
-    procedure chk1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,21 +76,6 @@ uses
 
 
 {$R *.dfm}
-
-procedure TFrmUstawienia.chk1Click(Sender: TObject);
-begin
-        with DataModule1.ibQryLoginy, SQL do
-        begin
-          Close;
-          Clear;
-          Add('SELECT login, pracuje, data_logowania FROM loginy ');
-          Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
-          ParamByName('data_logowania').AsDate := Now;
-          Open;
-        end;
-        SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
-        lbl1.Caption:='Ala ma kota';
-end;
 
 procedure TFrmUstawienia.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
@@ -243,7 +224,6 @@ end;
 
 procedure TFrmUstawienia.rg1Click(Sender: TObject);
 begin
-//  rg1.ItemIndex := -1;
   case rg1.ItemIndex of
     0:
       begin
@@ -257,7 +237,6 @@ begin
           Open;
         end;
         SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
-        lbl1.Caption:='Ala ma kota';
       end;
 
     1:

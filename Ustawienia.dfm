@@ -579,28 +579,6 @@ object FrmUstawienia: TFrmUstawienia
       object rztbshtTabSheet3: TRzTabSheet
         OnShow = rztbshtTabSheet3Show
         Caption = 'Zarz'#261'dzaj'
-        object rzlbl8: TRzLabel
-          Left = 3
-          Top = 24
-          Width = 108
-          Height = 19
-          Caption = 'Kto pracuje ?'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = 16737843
-          Font.Height = -16
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          LightTextStyle = True
-          TextStyle = tsRaised
-        end
-        object lbl1: TLabel
-          Left = 32
-          Top = 56
-          Width = 20
-          Height = 16
-          Caption = 'lbl1'
-        end
         object SMDBgrdKto: TSMDBGrid
           Left = 3
           Top = 80
@@ -634,13 +612,14 @@ object FrmUstawienia: TFrmUstawienia
           ScrollBars = ssHorizontal
         end
         object rg1: TRadioGroup
-          Left = 392
-          Top = 16
-          Width = 185
-          Height = 105
-          Caption = 'rg1'
+          Left = 4
+          Top = 9
+          Width = 393
+          Height = 58
+          Caption = ' Kto pracuje '
+          Columns = 2
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
+          Font.Color = clSkyBlue
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -649,16 +628,8 @@ object FrmUstawienia: TFrmUstawienia
             'Ca'#322'y okres')
           ParentFont = False
           TabOrder = 1
+          StyleElements = []
           OnClick = rg1Click
-        end
-        object chk1: TCheckBox
-          Left = 344
-          Top = 8
-          Width = 97
-          Height = 17
-          Caption = 'chk1'
-          TabOrder = 2
-          OnClick = chk1Click
         end
       end
     end
