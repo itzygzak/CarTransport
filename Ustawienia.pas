@@ -44,8 +44,9 @@ type
     rzMmo1: TRzMemo;
     SMDBgrdKto: TSMDBGrid;
     SMDBgrdUzyt: TSMDBGrid;
-    rzRdGrpKto: TRzRadioGroup;
     rg1: TRadioGroup;
+    lbl1: TLabel;
+    chk1: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -60,8 +61,8 @@ type
     procedure rzEdtSzukajChange(Sender: TObject);
     procedure rztbshtTabSheet3Show(Sender: TObject);
     procedure SMDBgrdKtoDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
-    procedure rzRdGrpKtoClick(Sender: TObject);
     procedure rg1Click(Sender: TObject);
+    procedure chk1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,6 +80,21 @@ uses
 
 
 {$R *.dfm}
+
+procedure TFrmUstawienia.chk1Click(Sender: TObject);
+begin
+        with DataModule1.ibQryLoginy, SQL do
+        begin
+          Close;
+          Clear;
+          Add('SELECT login, pracuje, data_logowania FROM loginy ');
+          Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
+          ParamByName('data_logowania').AsDate := Now;
+          Open;
+        end;
+        SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
+        lbl1.Caption:='Ala ma kota';
+end;
 
 procedure TFrmUstawienia.ctgryBtns1Categories0Items0Click(Sender: TObject);
 begin
@@ -227,8 +243,8 @@ end;
 
 procedure TFrmUstawienia.rg1Click(Sender: TObject);
 begin
-  rzRdGrpKto.ItemIndex := -1;
-  case rzRdGrpKto.ItemIndex of
+//  rg1.ItemIndex := -1;
+  case rg1.ItemIndex of
     0:
       begin
         with DataModule1.ibQryLoginy, SQL do
@@ -241,6 +257,7 @@ begin
           Open;
         end;
         SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
+        lbl1.Caption:='Ala ma kota';
       end;
 
     1:
@@ -284,39 +301,6 @@ begin
   rzMmo1.Visible := False;
 end;
 
-procedure TFrmUstawienia.rzRdGrpKtoClick(Sender: TObject);
-begin
-  rzRdGrpKto.ItemIndex := -1;
-  case rzRdGrpKto.ItemIndex of
-    0:
-      begin
-        with DataModule1.ibQryLoginy, SQL do
-        begin
-          Close;
-          Clear;
-          Add('SELECT login, pracuje, data_logowania FROM loginy ');
-          Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
-          ParamByName('data_logowania').AsDateTime := Now;
-          Open;
-        end;
-        SMDBgrdKto.Refresh;
-      end;
-
-    1:
-      begin
-        with DataModule1.ibQryLoginy, SQL do
-        begin
-          Close;
-          Clear;
-          Add('SELECT login, pracuje, data_logowania FROM loginy ORDER BY data_logowania DESC ');
-          Open;
-        end;
-        SMDBgrdKto.Refresh;
-      end;
-
-  end;
-end;
-
 procedure TFrmUstawienia.rztbshtTabSheet2Show(Sender: TObject);
 begin
   with DataModule1.ibQryUzyt, SQL do
@@ -347,10 +331,10 @@ begin
 end;
 
 procedure TFrmUstawienia.SMDBgrdKtoDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
-var
-  sText: string;
+//var
+  //sText: string;
 begin
-  if ((Column.Field.FieldName) = 'PRACUJE') then
+  {if ((Column.Field.FieldName) = 'PRACUJE') then
   begin                                          //zamiana wyœwietlanej wartoœci w komórce z 1 lub 0 na tak lub nie
     if Column.Field.Value = 1 then
       sText := 'TAK'
@@ -362,9 +346,9 @@ begin
     (Sender as TDBGrid).Canvas.TextRect(Rect, Rect.Left + 3, Rect.Top + 2, sText);
   end
   else
-  begin { I added this to draw all other columns as defaultdrawing is off }
+  begin
     (Sender as TDBGrid).defaultdrawcolumncell(Rect, DataCol, Column, State);
-  end;
+  end;   }
 
 end;
 

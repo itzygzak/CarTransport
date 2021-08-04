@@ -594,12 +594,18 @@ object FrmUstawienia: TFrmUstawienia
           LightTextStyle = True
           TextStyle = tsRaised
         end
+        object lbl1: TLabel
+          Left = 32
+          Top = 56
+          Width = 20
+          Height = 16
+          Caption = 'lbl1'
+        end
         object SMDBgrdKto: TSMDBGrid
           Left = 3
           Top = 80
           Width = 638
           Height = 304
-          DataSource = DataModule1.dsLoginy
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
@@ -627,13 +633,12 @@ object FrmUstawienia: TFrmUstawienia
           DefaultRowHeight = 20
           ScrollBars = ssHorizontal
         end
-        object rzRdGrpKto: TRzRadioGroup
-          Left = 131
-          Top = 7
-          Width = 217
-          Height = 57
-          Caption = ''
-          Columns = 2
+        object rg1: TRadioGroup
+          Left = 392
+          Top = 16
+          Width = 185
+          Height = 105
+          Caption = 'rg1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -644,19 +649,16 @@ object FrmUstawienia: TFrmUstawienia
             'Ca'#322'y okres')
           ParentFont = False
           TabOrder = 1
-          OnClick = rzRdGrpKtoClick
-        end
-        object rg1: TRadioGroup
-          Left = 392
-          Top = 16
-          Width = 185
-          Height = 105
-          Caption = 'rg1'
-          Items.Strings = (
-            'Tylko dzisiaj'
-            'Ca'#322'y okres')
-          TabOrder = 2
           OnClick = rg1Click
+        end
+        object chk1: TCheckBox
+          Left = 344
+          Top = 8
+          Width = 97
+          Height = 17
+          Caption = 'chk1'
+          TabOrder = 2
+          OnClick = chk1Click
         end
       end
     end
