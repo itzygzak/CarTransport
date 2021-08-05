@@ -579,7 +579,6 @@ object FrmUstawienia: TFrmUstawienia
       object rztbshtTabSheet3: TRzTabSheet
         OnShow = rztbshtTabSheet3Show
         Caption = 'Zarz'#261'dzaj'
-        ExplicitLeft = 3
         object SMDBgrdKto: TSMDBGrid
           Left = 3
           Top = 80
@@ -615,7 +614,7 @@ object FrmUstawienia: TFrmUstawienia
         object rzRdGrp1: TRzRadioGroup
           Left = 5
           Top = 3
-          Width = 636
+          Width = 348
           Height = 68
           Caption = ' Kto pracuje '
           Columns = 2
@@ -625,7 +624,7 @@ object FrmUstawienia: TFrmUstawienia
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
-          GroupStyle = gsBanner
+          GroupStyle = gsTopLine
           ItemFrameColor = clSkyBlue
           ItemFont.Charset = DEFAULT_CHARSET
           ItemFont.Color = clHotLight
@@ -645,6 +644,16 @@ object FrmUstawienia: TFrmUstawienia
           TextStyle = tsRaised
           VerticalSpacing = 6
           OnClick = rzRdGrp1Click
+        end
+        object rzDtmPckr1: TRzDateTimePicker
+          Left = 424
+          Top = 32
+          Width = 145
+          Height = 24
+          Date = 2.000000000000000000
+          Format = ''
+          Time = 2.000000000000000000
+          TabOrder = 2
         end
       end
     end

@@ -8,7 +8,7 @@ uses
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage, RzTabs,
   Vcl.CategoryButtons, Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx,
   Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid, SMDBGrid, RzButton, RzRadChk,
-  RzRadGrp;
+  RzRadGrp, Vcl.ComCtrls, RzDTP;
 
 type
   TFrmUstawienia = class(TForm)
@@ -44,6 +44,7 @@ type
     SMDBgrdKto: TSMDBGrid;
     SMDBgrdUzyt: TSMDBGrid;
     rzRdGrp1: TRzRadioGroup;
+    rzDtmPckr1: TRzDateTimePicker;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -194,7 +195,6 @@ begin
     VK_F12:
       ctgryBtns1.Categories[0].Items[3].OnClick(Sender);
 
-
   end;
 end;
 
@@ -250,8 +250,6 @@ end;
 
 procedure TFrmUstawienia.rzRdGrp1Click(Sender: TObject);
 begin
-   a:= Now;//DateTimeToStr(Now);
-
  case rzRdGrp1.ItemIndex of
     0:
       begin
@@ -261,7 +259,7 @@ begin
           Clear;
           Add('SELECT login, pracuje, data_logowania FROM loginy ');
           Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
-          ParamByName('data_logowania').AsDate := a; //str; //);Now;
+          ParamByName('data_logowania').AsDate := rzDtmPckr1.Date;
           Open;
         end;
         SMDBgrdKto.DataSource:= DataModule1.dsLoginy;
@@ -303,6 +301,7 @@ end;
 
 procedure TFrmUstawienia.rztbshtTabSheet3Show(Sender: TObject);
 begin
+rzDtmPckr1.Date:=Now;
 {  with DataModule1.ibQryLoginy, SQL do
   begin
     Close;
@@ -313,10 +312,10 @@ begin
 end;
 
 procedure TFrmUstawienia.SMDBgrdKtoDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
-//var
-  //sText: string;
+var
+  sText: string;
 begin
-  {if ((Column.Field.FieldName) = 'PRACUJE') then
+  if ((Column.Field.FieldName) = 'PRACUJE') then
   begin                                          //zamiana wyœwietlanej wartoœci w komórce z 1 lub 0 na tak lub nie
     if Column.Field.Value = 1 then
       sText := 'TAK'
@@ -330,7 +329,7 @@ begin
   else
   begin
     (Sender as TDBGrid).defaultdrawcolumncell(Rect, DataCol, Column, State);
-  end;   }
+  end;
 
 end;
 
