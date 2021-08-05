@@ -8,7 +8,7 @@ uses
   Vcl.WinXCtrls, Vcl.ExtCtrls, RzPanel, Vcl.Imaging.pngimage, RzTabs,
   Vcl.CategoryButtons, Vcl.StdCtrls, Vcl.Mask, RzEdit, RzLabel, RzCmboBx,
   Data.DB, Vcl.Grids, Vcl.DBGrids, RzDBGrid, SMDBGrid, RzButton, RzRadChk,
-  RzRadGrp, Vcl.ComCtrls, RzDTP;
+  RzRadGrp, Vcl.ComCtrls, RzDTP, RzDBDTP, Vcl.WinXPickers;
 
 type
   TFrmUstawienia = class(TForm)
@@ -45,6 +45,7 @@ type
     SMDBgrdUzyt: TSMDBGrid;
     rzRdGrp1: TRzRadioGroup;
     rzDtmPckr1: TRzDateTimePicker;
+    dtPckr1: TDatePicker;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
@@ -259,7 +260,7 @@ begin
           Clear;
           Add('SELECT login, pracuje, data_logowania FROM loginy ');
           Add('WHERE data_logowania=:data_logowania ORDER BY data_logowania DESC');
-          ParamByName('data_logowania').AsDate := rzDtmPckr1.Date;
+          ParamByName('data_logowania').AsDate := dtPckr1.Date; //rzDtmPckr1.Date;
           Open;
         end;
         SMDBgrdKto.DataSource:= DataModule1.dsLoginy;

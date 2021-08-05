@@ -650,10 +650,23 @@ object FrmUstawienia: TFrmUstawienia
           Top = 32
           Width = 145
           Height = 24
-          Date = 2.000000000000000000
+          Date = 44413.000000000000000000
           Format = ''
-          Time = 2.000000000000000000
+          Time = 44413.000000000000000000
           TabOrder = 2
+          ShowToday = True
+        end
+        object dtPckr1: TDatePicker
+          Left = 344
+          Top = 42
+          Date = 44413.000000000000000000
+          DateFormat = 'dd/MM/yyyy'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          TabOrder = 3
         end
       end
     end
