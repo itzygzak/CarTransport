@@ -256,7 +256,7 @@ object FrmUstawienia: TFrmUstawienia
       Height = 413
       Hint = ''
       Margins.Top = 5
-      ActivePage = rztbshtTabSheet3
+      ActivePage = rztbshtTabSheet1
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -264,7 +264,7 @@ object FrmUstawienia: TFrmUstawienia
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabIndex = 2
+      TabIndex = 0
       TabOrder = 0
       TabStyle = tsBackSlant
       FixedDimension = 22
@@ -655,18 +655,6 @@ object FrmUstawienia: TFrmUstawienia
           Time = 44413.000000000000000000
           TabOrder = 2
           ShowToday = True
-        end
-        object dtPckr1: TDatePicker
-          Left = 344
-          Top = 42
-          Date = 44413.000000000000000000
-          DateFormat = 'dd/MM/yyyy'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          TabOrder = 3
         end
       end
     end

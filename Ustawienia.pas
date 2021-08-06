@@ -45,7 +45,6 @@ type
     SMDBgrdUzyt: TSMDBGrid;
     rzRdGrp1: TRzRadioGroup;
     rzDtmPckr1: TRzDateTimePicker;
-    dtPckr1: TDatePicker;
     procedure FormCreate(Sender: TObject);
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure ctgryBtns1Categories0Items3Click(Sender: TObject);
