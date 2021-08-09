@@ -108,8 +108,8 @@ end;
 
 procedure TFrmStart.ctgryBtns1Categories0Items6Click(Sender: TObject);
 begin
-  FrmCarTransport.Top := FrmStart.Top + 50;
-  FrmCarTransport.Left := FrmStart.Left + 50;
+  FrmCarTransport.Top := FrmStart.Top + 30;
+  FrmCarTransport.Left := FrmStart.Left + 30;
   FrmCarTransport.ShowModal;
 end;
 
