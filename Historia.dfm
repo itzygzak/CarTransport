@@ -179,7 +179,9 @@ object FrmHistoria: TFrmHistoria
         Date = 44360.000000000000000000
         Format = ''
         Time = 0.741989780093717900
+        ShowCheckbox = True
         TabOrder = 0
+        OnChange = rzDtmPckrOdChange
       end
       object rzDtmPckrDo: TRzDateTimePicker
         Left = 380
@@ -190,6 +192,7 @@ object FrmHistoria: TFrmHistoria
         Format = ''
         Time = 0.742249918977904600
         TabOrder = 1
+        OnDropDown = rzDtmPckrDoDropDown
       end
       object trckBr1: TTrackBar
         Left = 786
@@ -214,8 +217,6 @@ object FrmHistoria: TFrmHistoria
       BorderColor = 16737843
       BorderWidth = 2
       TabOrder = 1
-      ExplicitWidth = 971
-      ExplicitHeight = 250
       object SMDBgrdHistoria: TSMDBGrid
         AlignWithMargins = True
         Left = 4
@@ -257,32 +258,32 @@ object FrmHistoria: TFrmHistoria
             Expanded = False
             FieldName = 'DATA_ZDARZ'
             Title.Caption = 'DATA ZDARZENIA'
-            Width = 230
+            Width = 227
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'STANOWISKO_K'
             Title.Caption = 'STANOWISKO'
-            Width = 275
+            Width = 271
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'IMIE'
-            Width = 89
+            Width = 87
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'NAZWISKO'
-            Width = 218
+            Width = 215
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'LOGIN'
-            Width = 125
+            Width = 123
             Visible = True
           end>
       end
@@ -298,8 +299,6 @@ object FrmHistoria: TFrmHistoria
       BorderColor = 16737843
       BorderWidth = 2
       TabOrder = 2
-      ExplicitWidth = 971
-      ExplicitHeight = 217
       object dbmmoHistoria: TDBMemo
         AlignWithMargins = True
         Left = 5
@@ -310,10 +309,6 @@ object FrmHistoria: TFrmHistoria
         DataField = 'OPERACJA'
         DataSource = DataModule1.dsHistUzyt
         TabOrder = 0
-        ExplicitLeft = 2
-        ExplicitTop = 2
-        ExplicitWidth = 967
-        ExplicitHeight = 213
       end
     end
   end
