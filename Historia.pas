@@ -35,7 +35,6 @@ type
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure trckBr1Change(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure rzDtmPckrOdChange(Sender: TObject);
     procedure rzDtmPckrDoDropDown(Sender: TObject);
   private
     { Private declarations }
@@ -78,20 +77,19 @@ begin
 end;
 
 procedure TFrmHistoria.FormCreate(Sender: TObject);
-var  DefaultDate : TDate;
-begin
+//var  DefaultDate : TDate;
+{begin
   //Set the default date
-  DefaultDate := EncodeDate(1899, 12, 30);
+  {DefaultDate := EncodeDate(1899, 12, 30);
   rzDtmPckrDo.MinDate := DefaultDate; //Use MinDate to store the default date
   rzDtmPckrDo.Date := DefaultDate;
-end;
+end; }
 
-
-{begin
+begin
   rzDtmPckrOd.Date := StrToDate('01.07.2021');//Now;
   rzDtmPckrDo.Date := Now;
 end;
- }
+
 procedure TFrmHistoria.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -114,7 +112,7 @@ end;
 procedure TFrmHistoria.rzDtmPckrDoDropDown(Sender: TObject);
 begin
  //Only continue if the component is set to the default date
-  if CompareDate(rzDtmPckrDo.MinDate, rzDtmPckrDo.Date) <> 0 then exit;
+  {if CompareDate(rzDtmPckrDo.MinDate, rzDtmPckrDo.Date) <> 0 then exit;
 
   //Hack: Change the DateTimePicker's Kind Type to disrupt the current drop down event
   rzDtmPckrDo.Kind := dtkTime;
@@ -124,12 +122,7 @@ begin
   rzDtmPckrDo.DateTime := now;
 
   //Send a message to the drop down the calander once again
-  SendMessage(rzDtmPckrDo.Handle,WM_SYSKEYDOWN,VK_DOWN, 0);
-end;
-
-procedure TFrmHistoria.rzDtmPckrOdChange(Sender: TObject);
-begin
-//rzDtmPckrOd.p;
+  SendMessage(rzDtmPckrDo.Handle,WM_SYSKEYDOWN,VK_DOWN, 0);}
 end;
 
 procedure TFrmHistoria.trckBr1Change(Sender: TObject);

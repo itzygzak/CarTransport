@@ -179,9 +179,7 @@ object FrmHistoria: TFrmHistoria
         Date = 44360.000000000000000000
         Format = ''
         Time = 0.741989780093717900
-        ShowCheckbox = True
         TabOrder = 0
-        OnChange = rzDtmPckrOdChange
       end
       object rzDtmPckrDo: TRzDateTimePicker
         Left = 380
