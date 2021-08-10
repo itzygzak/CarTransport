@@ -190,7 +190,6 @@ object FrmHistoria: TFrmHistoria
         Format = ''
         Time = 0.742249918977904600
         TabOrder = 1
-        OnDropDown = rzDtmPckrDoDropDown
       end
       object trckBr1: TTrackBar
         Left = 786
