@@ -69,7 +69,7 @@ type
 var
   FrmLogin: TFrmLogin;
   INI: TINIFile;
-  PamLog: Boolean; //zapisuje do ini czy pamiêtaæ nazwe usera
+  PamLog: Boolean; //zapisuje do ini czy pamiÃªtaÃ¦ nazwe usera
   Zm_stanowisko: string;
   NazwaLogin: string;
 
@@ -100,9 +100,7 @@ begin
   begin
       //startuje info kto pracuje
     try
-     { loginy := ' ZALOGOWA£ siê pracownik ' + #13#10;
-      loginy := loginy + ' Login: ' + EdtLogin.Text;
-      }
+     
       with DataModule1.ibQryLoginy, SQL do
       begin
         Close;
@@ -116,7 +114,7 @@ begin
       end;
     except
       DataModule1.ibTransLoginy.Rollback;
-      ShowMessage('B³¹d! Nie dodano wpisu w tabeli logowañ. SprawdŸ dane!');
+      ShowMessage('BÂ³Â¹d! Nie dodano wpisu w tabeli logowaÃ±. SprawdÅ¸ dane!');
     end;
 
     //koniec info kto pracuje
@@ -140,7 +138,7 @@ procedure TFrmLogin.btnLoginClick(Sender: TObject);
 var loginy : string;
 
 begin
-  INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');         //do odczytu po³¹czenie z pliku INI
+  INI := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'carTransport.ini');         //do odczytu poÂ³Â¹czenie z pliku INI
   try
     DataModule1.ibDtBase1.DatabaseName := INI.ReadString('Baza', 'Path', '');
   finally
@@ -177,7 +175,7 @@ begin
 
      //startuje info kto pracuje
     try
-     { loginy := ' ZALOGOWA£ siê pracownik ' + #13#10;
+     { loginy := ' ZALOGOWAÂ£ siÃª pracownik ' + #13#10;
       loginy := loginy + ' Login: ' + EdtLogin.Text;
       }
       with DataModule1.ibQryLoginy, SQL do
@@ -193,7 +191,7 @@ begin
       end;
     except
       DataModule1.ibTransLoginy.Rollback;
-      ShowMessage('B³¹d! Nie dodano wpisu w tabeli logowañ. SprawdŸ dane!');
+      ShowMessage('BÂ³Â¹d! Nie dodano wpisu w tabeli logowaÃ±. SprawdÅ¸ dane!');
     end;
 
     //koniec info kto pracuje
