@@ -165,7 +165,7 @@ end;
 
 procedure TFrmStart.tmr1Timer(Sender: TObject);
 begin
-  rzlbl4.Caption := TimeToStr(Time);
+ // rzlbl4.Caption := TimeToStr(Time);
 end;
 
 initialization
