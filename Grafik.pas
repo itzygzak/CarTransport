@@ -104,17 +104,17 @@ procedure TFrmGrafik.ctgryBtns1Categories0Items2Click(Sender: TObject);
 var
   historia: string;
 begin
-  case Application.MessageBox('Anulowanie/Dezaktywacja s³u¿y do wycofania ' + #13#10 + 'ju¿ zdefiniowanego kursu i tym samym zwolnienie ' + #13#10 + 'samochodu na okreœlony dzieñ i godzinê.' + #13#10 + 'Dezaktywowaæ ?', 'Uwaga', MB_YESNO + MB_ICONWARNING) of
+  case Application.MessageBox('Anulowanie/Dezaktywacja sÂ³uÂ¿y do wycofania ' + #13#10 + 'juÂ¿ zdefiniowanego kursu i tym samym zwolnienie ' + #13#10 + 'samochodu na okreÅ“lony dzieÃ± i godzinÃª.' + #13#10 + 'DezaktywowaÃ¦ ?', 'Uwaga', MB_YESNO + MB_ICONWARNING) of
     IDYES:
      begin
-        //test
+       
              if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 0 then
               begin
-              ShowMessage('Ten kurs ju¿ jest dezaktywowany')
+              ShowMessage('Ten kurs juÂ¿ jest dezaktywowany')
               end
              else if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 1 then
              begin
-        //koniec
+       
 
 
 
@@ -131,9 +131,9 @@ begin
 
                   try     //do zm. historia przypisuje legende
                     historia := ' Dezaktywowano kurs: ' + #13#10;
-                    historia := historia + ' Miejscowoœæ: ' + SMDBgrdGrafik.DataSource.DataSet.FieldByName('nazwa').AsString + #13#10;  //tu z siatki
-                    historia := historia + ' Data wysy³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('data_wysylki').AsDateTime) + #13#10;
-                    historia := historia + ' Godz wysy³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('godz_wysylki').AsDateTime) + #13#10;
+                    historia := historia + ' MiejscowoÅ“Ã¦: ' + SMDBgrdGrafik.DataSource.DataSet.FieldByName('nazwa').AsString + #13#10;  //tu z siatki
+                    historia := historia + ' Data wysyÂ³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('data_wysylki').AsDateTime) + #13#10;
+                    historia := historia + ' Godz wysyÂ³ki ' + DateToStr(SMDBgrdGrafik.DataSource.DataSet.FieldByName('godz_wysylki').AsDateTime) + #13#10;
                     historia := historia + ' Wg dokumentu: ' + SMDBgrdGrafik.DataSource.DataSet.FieldByName('wg_dokument').AsString + #13#10;
 
                     with DataModule1.ibQryHistoria, SQL do
@@ -151,7 +151,7 @@ begin
                     end;
                   except
                     DataModule1.ibTransHistoria.Rollback;
-                    ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+                    ShowMessage('BÂ³Â¹d! Nie dodano wpisu w historii. SprawdÅ¸ dane!');
                   end;
              end; //do test
     //koniec historia
@@ -171,7 +171,7 @@ procedure TFrmGrafik.ctgryBtns1Categories0Items3Click(Sender: TObject);
 begin
     if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 0 then
         begin
-         ShowMessage('Nie mo¿na wydrukowaæ zakoñczonego kursu.')
+         ShowMessage('Nie moÂ¿na wydrukowaÃ¦ zakoÃ±czonego kursu.')
         end
         else if (SMDBgrdGrafik.DataSource.DataSet.FieldByName('kurs_aktywny').AsInteger) = 1 then
         begin
@@ -245,7 +245,7 @@ var
   sText: string;
 begin
   if ((Column.Field.FieldName) = 'KURS_AKTYWNY') then
-  begin                                          //zamiana wyœwietlanej wartoœci w komórce z 1 lub 0 na tak lub nie
+  begin                                          //zamiana wyÅ“wietlanej wartoÅ“ci w komÃ³rce z 1 lub 0 na tak lub nie
     if Column.Field.Value = 1 then
       sText := 'TAK'
     else if Column.Field.Value = 0 then
@@ -291,7 +291,7 @@ end;
 procedure TFrmGrafik.PoliczwSiatce;
 begin
   SMDBgrdGrafik.DataSource := DataModule1.dsGrafik;
-  SMDBgrdGrafik.Columns[0].FooterText := 'Liczba kursów';
+  SMDBgrdGrafik.Columns[0].FooterText := 'Liczba kursÃ³w';
   SMDBgrdGrafik.Columns[1].FooterType := ftCount;
   SMDBgrdGrafik.FooterColor := clSkyBlue;
   SMDBgrdGrafik.CalculateTotals();
