@@ -16,7 +16,7 @@ type
     RzPgCntrl1: TRzPageControl;
     RzTbshtKierowcy: TRzTabSheet;
     RzTbshtPojazdy: TRzTabSheet;
-    RzTbshtMiejscowoœci: TRzTabSheet;
+    RzTbshtMiejscowoÅ›ci: TRzTabSheet;
     rzGrpBox1: TRzGroupBox;
     rzlbl1: TRzLabel;
     rzlbl2: TRzLabel;
@@ -80,7 +80,7 @@ type
     procedure ctgryBtns1Categories0Items0Click(Sender: TObject);
     procedure RzTbshtKierowcyShow(Sender: TObject);
     procedure RzTbshtPojazdyShow(Sender: TObject);
-    procedure RzTbshtMiejscowoœciShow(Sender: TObject);
+    procedure RzTbshtMiejscowoÅ›ciShow(Sender: TObject);
     procedure ZapiszKierowce;
     procedure DodajPojazd;
     procedure FormShow(Sender: TObject);
@@ -112,7 +112,7 @@ begin
   begin
     if ((rzEdtImie.Text = '') or (rzEdtNazwisko.Text = '') or (rzEdtNrTelefonu.Text = '') or (rzCmbxPrawoJazdy.Text = '')) then
     begin
-      ShowMessage('Wype³nij wymagane pola');
+      ShowMessage('WypeÅ‚nij wymagane pola');
     end
     else
       ZapiszKierowce;
@@ -122,7 +122,7 @@ begin
   begin
     if ((rzEdtMarka.Text = '') or (rzEdtTyp.Text = '') or (rzEdtNrRej.Text = '')) then
     begin
-      ShowMessage('Wype³nij wymagane pola');
+      ShowMessage('WypeÅ‚nij wymagane pola');
     end
     else
       DodajPojazd;
@@ -132,7 +132,7 @@ begin
   begin
     if ((rzEdtMiejscowosc.Text = '') or (rzEdtWojew.Text = '') or (rzCmbxKraj.Text = '')) then
     begin
-      ShowMessage('Wype³nij wymagane pola');
+      ShowMessage('WypeÅ‚nij wymagane pola');
     end
     else
       DodajMiejscowosc;
@@ -172,7 +172,7 @@ begin
     begin
         //startuje historia
       try     //do zm. historia przypisuje legende + zawartosc editow
-        historia := 'Dodanie nowej miejscowoœci ' + #13#10;
+        historia := 'Dodanie nowej miejscowoÅ›ci ' + #13#10;
         historia := historia + ' Nazwa: ' + rzEdtMiejscowosc.Text + #13#10;
         historia := historia + ' Kod_pocztowy ' + rzEdtKod.Text + #13#10;
 
@@ -191,14 +191,14 @@ begin
         end;
       except
         DataModule1.ibTransHistoria.Rollback;
-        ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+        ShowMessage('BÅ‚Ä…d! Nie dodano wpisu w historii. SprawdÅº dane!');
       end;
     end;
     //koniec historia
 
   except
     DataModule1.ibTransHistoria.Rollback;
-    ShowMessage('B³¹d nie uda³o siê utworzyæ nowej miejscowoœci ');
+    ShowMessage('BÅ‚Ä…d nie udaÅ‚o siÄ™ utworzyÄ‡ nowej miejscowoÅ›ci ');
   end;
   rzEdtMiejscowosc.Text := '';
   rzEdtKod.Text := '';
@@ -262,14 +262,14 @@ begin
         end;
       except
         DataModule1.ibTransHistoria.Rollback;
-        ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+        ShowMessage('BÅ‚Ä…d! Nie dodano wpisu w historii. SprawdÅº dane!');
       end;
     end;
     //koniec historia
 
   except
     DataModule1.ibTransHistoria.Rollback;
-    ShowMessage('B³¹d nie uda³o siê utworzyæ nowego kierowcy ');
+    ShowMessage('BÅ‚Ä…d nie udaÅ‚o siÄ™ utworzyÄ‡ nowego kierowcy ');
   end;
   rzEdtMarka.Text := '';
   rzEdtTyp.Text := '';
@@ -301,7 +301,7 @@ end;
 
 procedure TFrmDefinicje.ZapiszKierowce;
 var
-  generator: Integer;  //potrzebna do ustawienia siê na nowym rekordzie
+  generator: Integer;  //potrzebna do ustawienia siÄ™ na nowym rekordzie
   historia: string;   //potrzebna do zapisu historia
 
 begin
@@ -328,7 +328,7 @@ begin
     with DataModule1.ibQryTemp, SQL do                    //po dodaniu w oknie wczesniejszym ustawiamy sie na nowym instruktorze
     begin
       Clear;
-      Add('SELECT gen_id (gen_kierowcy_id, 0) FROM rdb$database ');
+      Add('SELECT gen_id (gen_kierowcy_id, 0) FROM rdb$database ');//do menu
       Open;
       generator := FieldByName('gen_id').AsInteger;
     end;
@@ -355,7 +355,7 @@ begin
         end;
       except
         DataModule1.ibTransHistoria.Rollback;
-        ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+        ShowMessage('BÅ‚Ä…d! Nie dodano wpisu w historii. SprawdÅº dane!');
       end;
     end;
 
@@ -363,7 +363,7 @@ begin
 
   except
     DataModule1.ibTransHistoria.Rollback;
-    ShowMessage('B³¹d nie uda³o siê utworzyæ nowego kierowcy ');
+    ShowMessage('BÅ‚Ä…d nie udaÅ‚o siÄ™ utworzyÄ‡ nowego kierowcy ');
   end;
 
   rzEdtImie.Text := '';
@@ -380,7 +380,7 @@ end;
 
 procedure TFrmDefinicje.ctgryBtns1Categories0Items1Click(Sender: TObject);
 begin
-case Application.MessageBox('Je¿eli anulujesz, okno zostanie zamkniête, ' + #13#10 + '¿adne zmiany nie zostan¹ zapisane.', 'Caption', MB_YESNO + MB_ICONWARNING) of
+case Application.MessageBox('JeÅ¼eli anulujesz, okno zostanie zamkniÄ™te, ' + #13#10 + 'Å¼adne zmiany nie zostanÄ… zapisane.', 'Caption', MB_YESNO + MB_ICONWARNING) of
     IDYES:
       begin
         Close;
@@ -435,7 +435,7 @@ end;
 
 procedure TFrmDefinicje.RzTbshtKierowcyShow(Sender: TObject);
 begin
-  ctgryBtns1.Categories[0].Items[0].Caption := '[F9]  Dodaj kierowcê';
+  ctgryBtns1.Categories[0].Items[0].Caption := '[F9]  Dodaj kierowcÄ™';
 
   rzEdtImie.Text := '';
   rzEdtDrugieImie.Text := '';
@@ -448,9 +448,9 @@ begin
 
 end;
 
-procedure TFrmDefinicje.RzTbshtMiejscowoœciShow(Sender: TObject);
+procedure TFrmDefinicje.RzTbshtMiejscowoÅ›ciShow(Sender: TObject);
 begin
-  ctgryBtns1.Categories[0].Items[0].Caption := '[F9]  Dodaj miejscowoœæ';
+  ctgryBtns1.Categories[0].Items[0].Caption := '[F9]  Dodaj miejscowoÅ›Ä‡';
 
   rzEdtMiejscowosc.Text := '';
   rzEdtKod.Text := '';
