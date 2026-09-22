@@ -83,12 +83,12 @@ begin
   if rzPgCntrl1.ActivePageIndex = 0 then
     DodajUsera
   else
-    ShowMessage('Ne tej zak³adce nie jest mo¿liwy zapis');
+    ShowMessage('Ne tej zakÂ³adce nie jest moÂ¿liwy zapis');
 end;
 
 procedure TFrmUstawienia.DodajUsera;
 var
-  generator: Integer;  //potrzebna do ustawienia siê na nowym rekordzie
+  generator: Integer;  //potrzebna do ustawienia sie na nowym rekordzie
   historia: string;   //potrzebna do zapisu historia
 
 begin
@@ -120,7 +120,7 @@ begin
 
   except
     DataModule1.ibTransTemp.Rollback;
-    ShowMessage('B³¹d nie uda³o siê utworzyæ nowego u¿ytkownika ');
+    ShowMessage('BÂ³Â¹d nie udaÂ³o siÃª utworzyÃ¦ nowego uÂ¿ytkownika ');
   end;
 
 
@@ -129,8 +129,8 @@ begin
   try     //do zm. historia przypisuje legende + zawartosc editow
     historia := ' Utworzenie nowego uzytkownika ' + #13#10;
     historia := historia + ' Login: ' + rzEdtlogin.Text + #13#10;
-    historia := historia + ' Has³o zosta³o utworzone ' + #13#10;
-    historia := historia + ' Imiê: ' + rzEdtImie.Text + #13#10;
+    historia := historia + ' HasÂ³o zostaÂ³o utworzone ' + #13#10;
+    historia := historia + ' ImiÃª: ' + rzEdtImie.Text + #13#10;
     historia := historia + ' Nazwisko: ' + rzEdtNazwisko.Text + #13#10;
     historia := historia + ' Stanowisko: ' + rzCmBx1.Text + #13#10;
 
@@ -149,7 +149,7 @@ begin
     end;
   except
     DataModule1.ibTransHistoria.Rollback;
-    ShowMessage('B³¹d! Nie dodano wpisu w historii. SprawdŸ dane!');
+    ShowMessage('BÂ³Â¹d! Nie dodano wpisu w historii. SprawdÅ¸ dane!');
   end;
   rzEdtLogin.Text := '';
   rzEdtHaslo.Text := '';
@@ -163,7 +163,7 @@ end;
 
 procedure TFrmUstawienia.ctgryBtns1Categories0Items1Click(Sender: TObject);
 begin
-  case Application.MessageBox('Je¿eli anulujesz, okno zostanie zamkniête, ' + #13#10 + '¿adne zmiany nie zostan¹ zapisane.', 'Caption', MB_YESNO + MB_ICONWARNING) of
+  case Application.MessageBox('JeÂ¿eli anulujesz, okno zostanie zamkniÃªte, ' + #13#10 + 'Â¿adne zmiany nie zostanÂ¹ zapisane.', 'Caption', MB_YESNO + MB_ICONWARNING) of
     IDYES:
       begin
         Close;
@@ -294,7 +294,7 @@ begin
     Open;
   end;
 
-//Wy³¹czenie klaw.zapisz
+//Wylaczenie klaw.zapisz
 //ctgryBtns1.Categories[0].Items[0]. //   .Items[0].CategoryButtons
 
 end;
@@ -316,7 +316,7 @@ var
   sText: string;
 begin
   if ((Column.Field.FieldName) = 'PRACUJE') then
-  begin                                          //zamiana wyœwietlanej wartoœci w komórce z 1 lub 0 na tak lub nie
+  begin                                          //zamiana wyswietlanej wartosci w komorce z 1 lub 0 na tak lub nie
     if Column.Field.Value = 1 then
       sText := 'TAK'
     else if Column.Field.Value = 0 then
